@@ -4,12 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TemplateFlow - AI-Powered Productivity Templates for Freelancers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #ec4899;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --gray-50: #f9fafb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --white: #ffffff;
         }
 
         html {
@@ -18,24 +40,26 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            color: #1a1a2e;
-            background-color: #ffffff;
+            background-color: var(--white);
+            color: var(--gray-900);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* Header & Navigation */
         header {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--gray-200);
         }
 
         nav {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 1rem 2rem;
             display: flex;
@@ -44,9 +68,10 @@
         }
 
         .logo {
+            font-family: 'Poppins', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -54,65 +79,34 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
             list-style: none;
-            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #4b5563;
-            font-size: 0.95rem;
+            color: var(--gray-700);
             font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #6366f1;
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
         }
 
         .btn-login {
-            padding: 0.5rem 1.25rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            background: transparent;
-            color: #4b5563;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .btn-login:hover {
-            border-color: #6366f1;
-            color: #6366f1;
-        }
-
-        .btn-primary {
-            padding: 0.65rem 1.5rem;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            color: white;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
-        }
-
-        .menu-toggle {
-            display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            color: var(--gray-700);
+            font-weight: 500;
             cursor: pointer;
-            color: #1a1a2e;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
         }
-
-        /* Hero Section */
-        .hero {
-            max-width: 1200px;
