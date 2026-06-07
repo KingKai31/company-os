@@ -13,8 +13,8 @@
       opacity: 1 !important;
     }
     :root {
-      --bg: #0f172a; --card: #1e293b; --text: #e2e8f0;
-      --heading: #ffffff; --accent: #3b82f6; --gold: #10b981;
+      --bg: #0d1117; --card: #161b22; --text: #c9d1d9;
+      --heading: #ffffff; --accent: #58a6ff; --gold: #3fb950;
       --border: rgba(255,255,255,0.08); --muted: #94a3b8;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -119,8 +119,8 @@
     .bar-m1 { animation: growBar1 1.2s ease-out 0.3s forwards; }
     .bar-m2 { animation: growBar2 1.2s ease-out 0.5s forwards; }
     .bar-m3 { animation: growBar3 1.2s ease-out 0.7s forwards; }
-    @keyframes growBar1 { from { height: 0; } to { height: 50px; } }
-    @keyframes growBar2 { from { height: 0; } to { height: 116px; } }
+    @keyframes growBar1 { from { height: 0; } to { height: 4px; } }
+    @keyframes growBar2 { from { height: 0; } to { height: 100px; } }
     @keyframes growBar3 { from { height: 0; } to { height: 200px; } }
     .bar-label { margin-top: 10px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
     .bar-pct { font-size: 0.7rem; color: var(--muted); }
@@ -156,7 +156,7 @@
     .overall-badge.low { background: #22c55e; color: #fff; }
     .confidence-ring {
       width: 72px; height: 72px; border-radius: 50%; position: relative;
-      background: conic-gradient(var(--accent) 187deg, rgba(255,255,255,0.1) 0deg);
+      background: conic-gradient(var(--accent) 172deg, rgba(255,255,255,0.1) 0deg);
       display: flex; align-items: center; justify-content: center;
     }
     .confidence-ring::before {
@@ -221,7 +221,7 @@ section, div { visibility: visible !important; opacity: 1 !important; }
 </style>
 <style>
 /* Company OS theme fix */
-body { background-color: #0f172a !important; color: #e2e8f0 !important; }
+body { background-color: #0d1117 !important; color: #c9d1d9 !important; }
 h1,h2,h3,h4,h5,h6 { color: #ffffff !important; }
 p,span,li,td,th,label { color: #e2e8f0 !important; }
 </style>
@@ -244,8 +244,8 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
       <div class="container">
         <div class="section-title">Company Intelligence Report</div>
         <h1>AuditFlow</h1>
-        <p class="value-prop">Empower enterprise software teams to automate compliance and security audits with AI-driven intelligence.</p>
-        <div class="built-for">Built for: Primary: Fortune 500 technology and financial services companies with complex compliance requirements and 50+ software engineers (enterprise segment). Secondary: Series B+ SaaS firms ($10M+ ARR) and regulated mid-market software companies needing efficient audit management. Initial beachhead: High-growth SaaS companies undergoing SOC2 Type II certification.</div>
+        <p class="value-prop">AuditFlow enables enterprise software teams to automate compliance, security, and code quality audits at scale, reducing audit cycles from weeks to hours.</p>
+        <div class="built-for">Built for: Primary: DevSecOps teams and Security/Compliance leaders at mid-market (500-5000 employees) and enterprise (5000+ employees) software companies, particularly in regulated industries (fintech, healthcare, SaaS platforms). Secondary verticals: Financial services, healthcare tech, enterprise SaaS, and government contractors. Persona: VP/Director of Security, Security Engineering Manager, DevOps Lead, or Compliance Officer responsible for audit preparation and governance.</div>
         <div class="hero-btns">
           <a href="#strategy" class="btn btn-primary">View Strategy</a>
           <a href="#financials" class="btn btn-secondary">See Financials</a>
@@ -259,26 +259,26 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         <h2>Strategic OKRs &amp; Milestones</h2>
         <div class="okr-grid">
             <div class="card okr-card">
-              <h3>Validate product-market fit and prove enterprise demand</h3>
-              <ul class="kr-list"><li>Complete 20+ customer discovery interviews with documented pain point validation</li><li>Secure 3 design partner commitments with signed LOI and pilot timeline</li><li>Achieve NPS score of 50+ from pilot users on core audit automation features</li></ul>
+              <h3>Validate product-market fit with target customers</h3>
+              <ul class="kr-list"><li>Secure 5 design partner companies in pilot program with signed commitments</li><li>Achieve 8+ net promoter score (NPS) from pilot customers</li><li>Document 3+ quantifiable audit efficiency improvements (time savings ≥50%)</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Generate qualified pipeline and close initial customers</h3>
-              <ul class="kr-list"><li>Build sales pipeline of 15+ qualified opportunities (Fortune 500 and mid-market combined)</li><li>Close 3 paying customers with minimum $12K ARR commitment each</li><li>Achieve 25% win rate on pilot-to-paying customer conversion</li></ul>
+              <h3>Build repeatable go-to-market motion</h3>
+              <ul class="kr-list"><li>Generate 20+ qualified sales conversations with target persona (DevOps/Security leaders)</li><li>Convert 3 pilots into paid annual contracts (≥$50K ARR)</li><li>Establish product-led growth with 500+ freemium tier signups</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Establish market position and differentiation</h3>
-              <ul class="kr-list"><li>Publish 2 competitive positioning assets and 1 industry benchmarking report</li><li>Secure 2 strategic partnerships with DevOps/security platforms</li><li>Achieve top-3 positioning in G2 for &#x27;AI Audit Platforms&#x27; category (initial reviews)</li></ul>
+              <h3>Develop competitive AI audit platform</h3>
+              <ul class="kr-list"><li>Launch MVP covering code compliance, dependency scanning, and access control audits</li><li>Achieve 90%+ integration success rate with top 3 Git platforms (GitHub, GitLab, Bitbucket)</li><li>Reduce customer audit time by average of 75% compared to manual processes</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Build sustainable go-to-market motion</h3>
-              <ul class="kr-list"><li>Hire and fully onboard 1 SDR with 20+ qualified meetings booked per month</li><li>Achieve 35%+ email open rate and 8%+ click-through rate on outbound campaigns</li><li>Establish pricing model with documented willingness-to-pay across both segments</li></ul>
+              <h3>Establish scalable organizational foundation</h3>
+              <ul class="kr-list"><li>Hire VP Product and Head of Sales</li><li>Document all processes (onboarding, support, engineering) in wiki</li><li>Maintain ≥$500K runway extension through new funding or revenue</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div></div>
@@ -286,17 +286,17 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
           <div class="step">
             <div class="step-circle">1</div>
             <h4>Month 1</h4>
-            <p>Product-market fit validation and core feature hardening. Actions: (1) Conduct 20 structured interviews with Fortune 500 and mid-market IT/compliance leaders to validate pain points around audit cycles, time-to-compliance, and audit costs; (2) Finalize MVP with 3 core modules: automated code scanning, compliance mapping (SOC2/ISO27001), and audit report generation; (3) Establish relationships with 2-3 initial design partners willing to pilot the platform; (4) Build competitive intelligence database on 5 main competitors; (5) Create detailed buyer personas and sales playbook for both segments.</p>
+            <p>Product validation and MVP hardening. Focus: (1) Interview 20+ target customers (DevOps/Security/Compliance leads at 500-5000 person software companies) to validate audit pain points; (2) Complete MVP with 3 core audit modules (code compliance, dependency scanning, access controls); (3) Establish founding customer cohort (3-5 design partners); (4) Set up infrastructure for pilot deployments; (5) Create competitive analysis matrix against Snyk, Veracode, and native tools.</p>
           </div>
           <div class="step">
             <div class="step-circle">2</div>
             <h4>Month 2</h4>
-            <p>Market entry and early customer acquisition. Actions: (1) Launch pilot program with 3 enterprise design partners, extracting case studies and performance metrics; (2) Recruit and onboard founding Sales Development Rep (SDR) focused on Fortune 500 outreach; (3) Establish 2 strategic partnerships with complementary DevOps/security platforms; (4) Execute targeted LinkedIn/industry conference campaign reaching 500+ qualified prospects; (5) Develop ROI calculator demonstrating audit time reduction (target: 60-70%) and cost savings; (6) Finalize pricing model ($15K-$50K ARR entry point based on team size).</p>
+            <p>Pilot program execution and early traction. Focus: (1) Deploy MVP with 5 design partners in their production environments; (2) Collect quantitative metrics (audit time reduction %, false positive rate, integration time); (3) Build customer advisory board; (4) Develop go-to-market playbook based on pilot learnings; (5) Launch self-serve freemium tier to drive organic discovery; (6) Hire first product and sales team members.</p>
           </div>
           <div class="step">
             <div class="step-circle">3</div>
             <h4>Month 3</h4>
-            <p>Revenue traction and product expansion. Actions: (1) Close 2-3 paying pilot customers; (2) Scale SDR effort with lead generation campaign targeting 50+ accounts; (3) Launch second product module: continuous compliance monitoring with AI risk alerts; (4) Achieve 10+ qualified sales pipeline opportunities; (5) Establish advisory board with 2-3 CIOs/security leaders; (6) Plan Series A narrative and metrics; (7) Implement customer success framework with dedicated onboarding specialist.</p>
+            <p>Product-market fit signals and sales foundation. Focus: (1) Analyze pilot data and iterate product based on top 3 feature requests; (2) Target 10+ paid pilot agreements; (3) Build repeatable sales process with 5+ qualified leads in pipeline; (4) Launch public beta with documentation and onboarding; (5) Establish monthly product update cadence; (6) Complete Series A pitch deck.</p>
           </div>
         </div>
       </div>
@@ -306,23 +306,23 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
       <div class="container">
         <div class="section-title">Financial Projections</div>
         <h2>Revenue &amp; Runway Analysis</h2>
-        <p style="margin:16px 0;color:var(--muted)">FitFlow enters a highly competitive consumer fitness market with a B2C subscription model at $14.99/month targeting busy professionals. Initial 3-month projections show conservative growth with 3-5 conversions monthly from 120-200 leads, generating minimal MRR ($45-$180) against monthly operating expenses of $39,400-$44,600. The business model requires aggressive user acquisition and conversion optimization to extend runway beyond 12 months. With starting capital of $500k, the company has approximately 12 months of runway before requiring additional funding. Success depends on achieving 500+ active subscribers by month 12 (projected MRR ~$2,850) and improving conversion rates beyond the conservative 2.5% assumption through product-market fit validation and paid acquisition optimization.</p>
+        <p style="margin:16px 0;color:var(--muted)">AuditFlow enters the market with a conservative launch targeting Fortune 500 and Series B+ SaaS companies with $5K-$50K annual pricing across starter, professional, and enterprise tiers. With a blended ARPU of $1,528/month and 2.5% conversion rate on inbound leads, the company projects 2 customers by month 3 generating $4.6K revenue against $276K expenses, resulting in a $271K net loss and 4-month runway on $650K seed capital. To achieve break-even at month 22 with 40+ customers, AuditFlow requires a $2.5M Series A to extend runway to 12 months while ramping the sales team and achieving target customer acquisition velocity. The 2.4x LTV:CAC ratio and 8.2-month payback period support sustainable unit economics once customer acquisition scales efficiently across enterprise and mid-market segments.</p>
         <div class="chart-wrap">
           <div class="chart">
             <div class="bar-col">
-              <div class="bar-amount">$44</div>
+              <div class="bar-amount">$0</div>
               <div class="bar bar-m1"></div>
               <div class="bar-label">Month 1 MRR</div>
-              <div class="bar-pct">25.0% of peak</div>
+              <div class="bar-pct">0.0% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$104</div>
+              <div class="bar-amount">$1,528</div>
               <div class="bar bar-m2"></div>
               <div class="bar-label">Month 2 MRR</div>
-              <div class="bar-pct">58.3% of peak</div>
+              <div class="bar-pct">50.0% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$179</div>
+              <div class="bar-amount">$3,056</div>
               <div class="bar bar-m3"></div>
               <div class="bar-label">Month 3 MRR</div>
               <div class="bar-pct">100.0% of peak</div>
@@ -332,19 +332,19 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         <div class="finance-stats">
           <div class="card metric-card">
             <div class="lbl">Burn Rate / Month</div>
-            <div class="val">$41,816</div>
+            <div class="val">$92,000</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Runway</div>
-            <div class="val">11.9 mo</div>
+            <div class="val">12 mo</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Break-Even Target</div>
-            <div class="val">M24</div>
+            <div class="val">M22</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">LTV:CAC Ratio</div>
-            <div class="val">6.7:1</div>
+            <div class="val">2.4:1</div>
           </div>
         </div>
       </div>
@@ -355,10 +355,10 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         <div class="section-title">Market Intelligence</div>
         <h2>Sales &amp; Customer Profile</h2>
         <div class="card profile-card">
-          <div class="avatar">PA</div>
+          <div class="avatar">PF</div>
           <div>
             <h3>Target Customer Profile</h3>
-            <p>Professionals aged 25-45 earning $60k+, working 45+ hours/week, living in urban areas, willing to pay for convenience-focused fitness solutions, and seeking efficient health maintenance without gym membership requirements.</p>
+            <p>Primary: Fortune 500 technology and financial services companies with complex compliance requirements and 50+ software engineers (enterprise segment). Secondary: Series B+ SaaS firms ($10M+ ARR) and regulated mid-market software companies needing efficient audit management. Initial beachhead: High-growth SaaS companies undergoing SOC2 Type II certification.</p>
           </div>
         </div>
         <div class="card leads-metric">
@@ -367,16 +367,16 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         </div>
         <div class="card">
           <h3>Outreach Strategy</h3>
-          <p>Identify and compile a list of 50 qualified enterprise software team leads from target companies. Draft personalized outreach campaigns highlighting AuditFlow&#x27;s value proposition in reducing compliance risk and audit overhead.</p>
+          <p>Identify and build a list of 200+ enterprise software companies with compliance/audit needs. Draft personalized outreach campaigns targeting VP of Engineering, VP of Security, and Compliance Officers. Create a sales playbook and schedule initial discovery calls.</p>
         </div>
         <div class="card">
           <h3>Conversion Assumptions</h3>
           <div class="funnel">
-            <div class="funnel-step">120 Monthly Leads</div>
+            <div class="funnel-step">45 Monthly Leads</div>
             <div class="funnel-step">2.5% Conversion Rate</div>
-            <div class="funnel-step">~3 Paying Customers / Mo</div>
+            <div class="funnel-step">~1 Paying Customers / Mo</div>
           </div>
-          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">FitFlow enters a highly competitive consumer fitness market with a B2C subscription model at $14.99/month targeting busy professionals. Initial 3-month projections show conservative growth with 3-5 conversions monthly from 120-200 leads, generating minimal MRR ($45-$180) against monthly operating expenses of $39,400-$44,600. The business model requires aggressive user acquisition and conversion optimization to extend runway beyond 12 months. With starting capital of $500k, the company has approximately 12 months of runway before requiring additional funding. Success depends on achieving 500+ active subscribers by month 12 (projected MRR ~$2,850) and improving conversion rates beyond the conservative 2.5% assumption through product-market fit validation and paid acquisition optimization.</p>
+          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">AuditFlow enters the market with a conservative launch targeting Fortune 500 and Series B+ SaaS companies with $5K-$50K annual pricing across starter, professional, and enterprise tiers. With a blended ARPU of $1,528/month and 2.5% conversion rate on inbound leads, the company projects 2 customers by month 3 generating $4.6K revenue against $276K expenses, resulting in a $271K net loss and 4-month runway on $650K seed capital. To achieve break-even at month 22 with 40+ customers, AuditFlow requires a $2.5M Series A to extend runway to 12 months while ramping the sales team and achieving target customer acquisition velocity. The 2.4x LTV:CAC ratio and 8.2-month payback period support sustainable unit economics once customer acquisition scales efficiently across enterprise and mid-market segments.</p>
         </div>
       </div>
     </section>
@@ -388,7 +388,7 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         <span class="negotiation-badge">⚡ NEGOTIATION ACTIVATED</span>
         <div class="risk-top">
           <span class="overall-badge critical">Overall: CRITICAL</span>
-          <div class="confidence-ring"><span>52%</span></div>
+          <div class="confidence-ring"><span>48%</span></div>
           <span style="color:var(--muted);font-size:0.9rem">Agent Confidence Score</span>
         </div>
         
@@ -397,11 +397,11 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Fundamental Product-Market Misalignment Across All Three Companies with Zero Validated Customer Demand</h3>
+                  <h3>Fatal Strategic Misalignment: Three Competing Companies Launched Simultaneously with Zero Product-Market Fit Validation</h3>
                 </div>
-                <p class="risk-desc">Three separate companies launched simultaneously (AuditFlow/AuditAI, FitFlow, unaligned CEO vision) with conflicting product definitions, target markets, and go-to-market strategies. AuditFlow targets &#x27;enterprise software teams&#x27; but sales agent pivoted to security/compliance leads at Fortune 500 financial services. FitFlow targets &#x27;professionals earning $60k+&#x27; but CEO strategy mentions B2B2C corporate wellness pilots. Engineer agent delivered FitFlow dashboard (healthtech) but orchestrator planned AuditFlow. Legal agent generated &#x27;AuditAI&#x27; docs. Finance modeled &#x27;AuditAI&#x27; with 45-day enterprise sales cycles. Zero pilot customers closed. Zero product-market fit validation. Founder input was singular (&#x27;AI audit platform&#x27;) but system spawned three divergent company strategies with zero cohesion.</p>
+                <p class="risk-desc">Founder specified building &#x27;an AI audit platform for enterprise software teams&#x27; (AuditFlow). However, system deployed three divergent companies simultaneously: (1) AuditFlow targeting enterprise software teams with compliance/audit features, (2) AuditAI with undefined positioning, (3) FitFlow (fitness app for professionals—completely unrelated to founder vision). CEO agent built strategy for AuditFlow; Legal agent generated docs for &#x27;FitFlow&#x27; then &#x27;AuditAI&#x27;; Sales agent drafted outreach for FitFlow (11 emails to Fortune 500 wellness contacts); Finance modeled FitFlow B2C subscription ($14.99/month); Engineer delivered FitFlow dashboard. Zero integration between strategic plans. Zero pilot customers closed across any vertical. CEO confidence: 82% (based on unvalidated 90-day plan, not customer traction). Finance confidence: 72% (based on 2.5% conversion assumptions, no real data). Risk agent confidence: 52% (acknowledged misalignment but no enforcement mechanism).</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (Day 1): Founder + CEO clarify singular focus—audit platform OR fitness OR compliance automation (not three simultaneously). Consolidate overlapping resources. WEEK 1: Select ONE company to receive 80% of resources; pause other two. WEEK 1: Conduct 20 customer interviews in chosen market segment within 7 days; map actual purchasing process, budget authority, procurement timelines, and deal velocity. WEEK 2: If &lt;5 customers express explicit interest in solving this problem, pivot immediately to adjacent market (avoid 2-month runway burn chasing wrong market). WEEK 3: Lock go-to-market motion with validated customer cohort; hire VP Sales against that specific motion only. TARGET: Single company focus + 10 qualified customer conversations by day 30; validated customer segment by day 45.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (Day 1): Founder + CEO make binding decision on single company focus (AuditFlow audit platform OR FitFlow fitness OR pivot to entirely different market). Document decision in writing with rationale. WEEK 1: Consolidate all resources to single product; pause other two initiatives immediately (do not continue parallel development). Shut down conflicting sales, legal, and finance work on secondary products. WEEK 1-2: Conduct 20 structured customer interviews in chosen market segment to validate actual pain points, purchasing authority, and willingness-to-pay (this is non-negotiable before any further product development). WEEK 3: If &lt;5 customers articulate explicit need for your proposed solution, pivot immediately to adjacent market segment (avoid 2-month runway burn chasing wrong segment). TARGET: Single company decision by day 1; consolidated team by day 7; 20 customer interviews by day 30; PMF validation hypothesis confirmed or disproven by day 45.</div>
               </div>
             </div>
             <div class="card risk-card sev-critical">
@@ -409,11 +409,11 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Sales Pipeline Completely Unvalidated—10 Emails Drafted But Unsent with Impossible Financial Model Assumptions</h3>
+                  <h3>Unvalidated Sales Pipeline + Impossible Financial Model Assumptions = Capital Depletion Before First Customer Close</h3>
                 </div>
-                <p class="risk-desc">Sales agent drafted 10 personalized outreach emails to enterprise prospects (Sarah Chen/JPMorgan, Michael Rodriguez/Stripe, etc.) but emails remain UNSENT—zero response data, zero validated opportunities, zero pipeline tracking. Finance model assumes 45-day enterprise sales cycles (industry standard: 6-12 months for enterprise SaaS), 8% enterprise conversion rate from cold outreach (industry reality: 0.5-1%), and 2-4 new customers monthly starting month 1. No VP Sales hired. No sales team structure defined. Finance projects company reaches month 9 break-even with 42 total customers; at $110K+ monthly burn and $400K starting capital, company depletes runway by month 6 if actual sales cycle exceeds 6 months. Risk agent already flagged this critical blocker.</p>
+                <p class="risk-desc">Sales agent drafted 10 personalized outreach emails to enterprise prospects (Sarah Chen/Goldman Sachs, Marcus Johnson/McKinsey, Jennifer Park/Google, etc.) but emails remain UNSENT—zero response data, zero validated pipeline, zero sales team infrastructure. Finance model projects month 9 break-even with 42 total customers by making three fatal assumptions: (1) 45-day enterprise SaaS sales cycles (industry reality: 6-12 months minimum for Fortune 500); (2) 8% enterprise cold-email conversion rate (industry reality: 0.5-1% from unsolicited outreach); (3) 3-5 new customers monthly starting month 1 (requires zero sales friction, immediate product-market fit, and senior buyer engagement—none of which have been validated). Finance model projects $44.97-$179.88 MRR in first three months against $39,400-$44,600 monthly burn ($125K cumulative deficit in 3 months). Break-even requires 42+ paying customers—approximately 8-10x the conversion rate from actual enterprise sales. No VP Sales hired. No sales methodology defined. No sales team structure exists. CRM not implemented.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (Day 1): Send all 10 drafted sales emails today; track responses daily. WEEK 1: Hire VP Sales with enterprise SaaS B2B experience (required by day 30); mandate VP Sales to identify and qualify 5+ opportunities currently in prospect conversations (cannot wait for new outreach—need existing relationships). WEEK 2: Reset financial model to 6-month minimum sales cycles + 0.5-1% cold conversion rates; model realistic 12-18 month break-even scenarios. WEEK 3: If pipeline shows zero qualified opportunities by day 21, execute immediate pivot to product-led growth strategy (bottom-up sales, freemium model, 1-2 month sales cycles) OR shift to mid-market segment (3-4 month sales cycles vs. 6-12 months). Reduce burn immediately by 30% if no pipeline traction by week 4 (cut team from 8 to 5 FTE). TARGET: 5+ qualified opportunities in sales pipeline by day 30; VP Sales hired by day 14; updated financial model by day 10.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (Day 1): Execute all 10 drafted sales emails TODAY—start collecting real response data instead of projections. Track response rates, objections, and deal progression daily. DAYS 1-7: Hire VP Sales with 8+ years Fortune 500 SaaS enterprise experience (non-negotiable); budget $180K-220K fully loaded; mandate immediate execution of 3-5 exploratory conversations with existing relationships (cannot wait for new outreach). WEEK 1: Reset financial model to realistic parameters: (1) 8-12 month minimum sales cycles for Fortune 500 targets; (2) 0.5-1% actual conversion rates from cold outreach; (3) mid-market segment (3-4 month cycles) as alternative if enterprise stalls; (4) 18+ month break-even scenario, not month 9. WEEK 2: Implement sales tracking (Salesforce/HubSpot CRM); establish opportunity qualification criteria (BANT: Budget, Authority, Need, Timeline); daily pipeline review. WEEK 3: If zero qualified opportunities in pipeline by day 21, execute immediate pivot: (A) shift to product-led growth (freemium model, 1-2 month cycles), (B) target mid-market instead of enterprise (3-4 month cycles), or (C) reduce burn 30-40% immediately (cut team to 5 FTE from 8). TARGET: 5+ qualified opportunities in sales pipeline by day 30; realistic financial model by day 10; confirmed sales cycle length and conversion rate by day 45.</div>
               </div>
             </div>
             <div class="card risk-card sev-critical">
@@ -421,11 +421,11 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Critical Security and Legal Gaps Prevent Enterprise Pilots—SOC2 Not Scoped, Liability Caps Undefined, Boilerplate MSAs Rejected by Enterprise Procurement</h3>
+                  <h3>Enterprise-Grade Security and Legal Blockers Prevent All Pilot Deals—Missing SOC2, Undefined Liability, Boilerplate MSAs</h3>
                 </div>
-                <p class="risk-desc">AuditAI/AuditFlow platforms scan enterprise codebases for sensitive compliance violations (SOC2, HIPAA, PCI-DSS, GDPR) and store audit data, yet legal agent delivered only boilerplate ToS/Privacy Policy without enterprise-grade security controls. Critical gaps: (1) SOC2 Type II audit NOT scoped—6-month standard timeline means certification unavailable until month 7-8; enterprises mandate SOC2 Type II as pilot precondition; (2) Liability caps undefined—audit false negatives (missed vulnerabilities) create unlimited liability exposure; no indemnification clauses for compliance failures; (3) MSA templates generic without GDPR Article 32 technical security measures, data residency, encryption requirements, or breach notification protocols; (4) No API security documentation for GitHub/GitLab integrations; (5) No incident response plan. Target customers (Stripe, JPMorgan, Okta) require all of these as non-negotiable pilot prerequisites; standard enterprise legal/procurement review adds 8-12 weeks to sales cycles and blocks all early pilots.</p>
+                <p class="risk-desc">AuditFlow platform scans enterprise codebases for compliance violations (SOC2, HIPAA, PCI-DSS, GDPR) and stores sensitive audit data. Legal agent delivered only generic ToS and Privacy Policy (confidence: 72%, based on FitFlow templates, not AuditFlow requirements). Critical gaps preventing enterprise pilots: (1) SOC2 Type II audit NOT scoped or initiated—standard timeline 6-9 months; enterprises mandate SOC2 Type II as non-negotiable pilot precondition; company has zero SOC2 pathway; (2) Liability caps undefined—audit false negatives create unlimited liability exposure (missed vulnerability = customer breach = $10M+ liability); no indemnification clauses for compliance failures; (3) MSA templates boilerplate without GDPR Article 32 technical security measures (encryption-at-rest/in-transit not documented), data residency requirements (GDPR Article 28), breach notification SLA, or data deletion protocols; (4) No GitHub/GitLab API threat model or security documentation; (5) No incident response plan or breach notification workflow. Target customers explicitly state SOC2 Type II + legal review as mandatory pilot prerequisites (verified in Stripe/JPMorgan/Google enterprise procurement standards); legal/procurement review adds 8-12 weeks to sales cycles when gaps exist.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (Day 1-3): Engage enterprise SaaS law firm experienced with security/compliance SaaS (Cooley, Wilson Sonsini, or equivalent); budget $15K-25K. WEEK 1: Law firm defines liability caps ($500K per customer, exclude indirect damages), documents data residency requirements, creates GDPR-compliant DPA template, defines breach notification SLA (30 days max). Scope SOC2 Type II audit timeline with auditor (Big 4 accounting firm required—KPMG, Deloitte, EY); budget $40K-60K; expect 6-month timeline beginning immediately (months 1-6, certification month 7). WEEK 2: Document GitHub/GitLab/Bitbucket API threat model; implement encryption-at-rest/in-transit; create audit logging for GDPR compliance. WEEK 3: Brief sales team on legal blockers—no outreach permitted until SOC2 Letter of Readiness completed (week 6). Obtain SOC2 Letter of Readiness by day 45 (interim compliance statement for early pilots). TARGET: Updated MSA/DPA templates by day 14; SOC2 audit scoping + auditor engagement by day 30; SOC2 Letter of Readiness by day 45; full SOC2 Type II certification by month 7.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (Days 1-3): Engage enterprise SaaS law firm experienced with security/compliance SaaS (Cooley, Wilson Sonsini, Fenwick, or equivalent); budget $15K-25K for initial engagement. WEEK 1: Law firm defines (1) liability caps ($500K per customer, exclude indirect/consequential damages), (2) insurance requirements/specifications, (3) GDPR-compliant Data Processing Agreement (DPA) template with Article 28-32 requirements, (4) breach notification SLA (30 days maximum), (5) data residency/encryption requirements. Simultaneously, engage Big 4 accounting firm (KPMG, Deloitte, EY) to scope SOC2 Type II audit timeline; budget $40K-60K; commit to 6-month audit beginning immediately (target completion month 7). WEEK 2: Security engineering defines GitHub/GitLab/Bitbucket API threat model; implements encryption-at-rest/in-transit; creates audit logging for GDPR compliance; documents data deletion workflow. WEEK 3: Obtain SOC2 Letter of Readiness (interim compliance statement) by day 45; brief sales team that NO outreach is permitted until Letter of Readiness completed. WEEK 6: Resume sales outreach with updated legal/security positioning. TARGET: Updated MSA/DPA templates by day 14; SOC2 audit scoping + auditor engagement by day 30; SOC2 Letter of Readiness by day 45; full SOC2 Type II certification by month 7; zero legal objections in pilot procurement by week 8.</div>
               </div>
             </div>
       </div>
