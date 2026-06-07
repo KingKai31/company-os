@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FitFlow — Company Intelligence Report</title>
+  <title>AuditFlow — Company Intelligence Report</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Company OS — content always visible */
@@ -13,9 +13,9 @@
       opacity: 1 !important;
     }
     :root {
-      --bg: #f0fdf4; --card: #ffffff; --text: #334155;
-      --heading: #059669; --accent: #0ea5e9; --gold: #059669;
-      --border: rgba(0,0,0,0.08); --muted: #64748b;
+      --bg: #0f172a; --card: #1e293b; --text: #e2e8f0;
+      --heading: #ffffff; --accent: #3b82f6; --gold: #10b981;
+      --border: rgba(255,255,255,0.08); --muted: #94a3b8;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
@@ -71,7 +71,7 @@
       padding: 14px 28px; border-radius: 8px; font-weight: 600;
       text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
     }
-    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--gold)); color: #fff !important; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--gold)); color: #0a0e1a !important; }
     .btn-secondary { border: 1px solid var(--accent); color: var(--accent) !important; background: transparent; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
     /* OKRs */
@@ -96,7 +96,7 @@
     }
     .step-circle {
       width: 48px; height: 48px; border-radius: 50%; background: var(--accent);
-      color: #fff; font-weight: 700; font-size: 1.1rem;
+      color: #0a0e1a; font-weight: 700; font-size: 1.1rem;
       display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;
       box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 40%, transparent);
     }
@@ -119,8 +119,8 @@
     .bar-m1 { animation: growBar1 1.2s ease-out 0.3s forwards; }
     .bar-m2 { animation: growBar2 1.2s ease-out 0.5s forwards; }
     .bar-m3 { animation: growBar3 1.2s ease-out 0.7s forwards; }
-    @keyframes growBar1 { from { height: 0; } to { height: 62px; } }
-    @keyframes growBar2 { from { height: 0; } to { height: 98px; } }
+    @keyframes growBar1 { from { height: 0; } to { height: 50px; } }
+    @keyframes growBar2 { from { height: 0; } to { height: 100px; } }
     @keyframes growBar3 { from { height: 0; } to { height: 200px; } }
     .bar-label { margin-top: 10px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
     .bar-pct { font-size: 0.7rem; color: var(--muted); }
@@ -133,7 +133,7 @@
     .avatar {
       width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
       background: linear-gradient(135deg, var(--accent), var(--gold));
-      color: #fff; font-weight: 700; font-size: 1.1rem;
+      color: #0a0e1a; font-weight: 700; font-size: 1.1rem;
       display: flex; align-items: center; justify-content: center;
     }
     .leads-metric { text-align: center; padding: 32px; }
@@ -144,7 +144,7 @@
     }
     .funnel-step:nth-child(1) { width: 100%; background: var(--accent); clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%); }
     .funnel-step:nth-child(2) { width: 75%; background: color-mix(in srgb, var(--accent) 70%, var(--gold)); clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); }
-    .funnel-step:nth-child(3) { width: 50%; background: var(--gold); clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); color: #fff; }
+    .funnel-step:nth-child(3) { width: 50%; background: var(--gold); clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); color: #0a0e1a; }
     /* Risk */
     .risk-top { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
     .overall-badge {
@@ -156,7 +156,7 @@
     .overall-badge.low { background: #22c55e; color: #fff; }
     .confidence-ring {
       width: 72px; height: 72px; border-radius: 50%; position: relative;
-      background: conic-gradient(var(--accent) 187deg, rgba(255,255,255,0.1) 0deg);
+      background: conic-gradient(var(--accent) 223deg, rgba(255,255,255,0.1) 0deg);
       display: flex; align-items: center; justify-content: center;
     }
     .confidence-ring::before {
@@ -221,15 +221,15 @@ section, div { visibility: visible !important; opacity: 1 !important; }
 </style>
 <style>
 /* Company OS theme fix */
-body { background-color: #f0fdf4 !important; color: #334155 !important; }
-h1,h2,h3,h4,h5,h6 { color: #059669 !important; }
-p,span,li,td,th,label { color: #334155 !important; }
+body { background-color: #0f172a !important; color: #e2e8f0 !important; }
+h1,h2,h3,h4,h5,h6 { color: #ffffff !important; }
+p,span,li,td,th,label { color: #e2e8f0 !important; }
 </style>
 </head>
 <body>
     <nav class="navbar">
       <div class="container nav-inner">
-        <a class="nav-logo" href="#">FitFlow</a>
+        <a class="nav-logo" href="#">AuditFlow</a>
         <ul class="nav-links">
           <li><a href="#strategy" data-nav="strategy">Strategy</a></li>
           <li><a href="#financials" data-nav="financials">Financials</a></li>
@@ -243,9 +243,9 @@ p,span,li,td,th,label { color: #334155 !important; }
     <section class="hero">
       <div class="container">
         <div class="section-title">Company Intelligence Report</div>
-        <h1>FitFlow</h1>
-        <p class="value-prop">Empower busy professionals to achieve their fitness goals through intelligent, time-efficient workouts that seamlessly integrate into their demanding lives.</p>
-        <div class="built-for">Built for: Primary: Busy professionals aged 25-45 earning $60K+ annually, working 45+ hours/week, college-educated, living in urban areas, expressing frustration with inability to maintain fitness routine due to time constraints. Secondary segments: (1) Corporate wellness programs targeting employee health outcomes, (2) Enterprises seeking productivity benefits of employee fitness, (3) Remote workers struggling with work-life fitness integration.</div>
+        <h1>AuditFlow</h1>
+        <p class="value-prop">Become the leading AI-powered audit platform that enables enterprise software teams to automatically detect, track, and remediate compliance and security risks in real-time.</p>
+        <div class="built-for">Built for: Mid-market and enterprise software companies (100-5,000 employees) with significant compliance obligations and recurring third-party audits, specifically software/SaaS teams managing infrastructure and security audits for SOC 2, ISO 27001, and financial regulation compliance.</div>
         <div class="hero-btns">
           <a href="#strategy" class="btn btn-primary">View Strategy</a>
           <a href="#financials" class="btn btn-secondary">See Financials</a>
@@ -259,32 +259,26 @@ p,span,li,td,th,label { color: #334155 !important; }
         <h2>Strategic OKRs &amp; Milestones</h2>
         <div class="okr-grid">
             <div class="card okr-card">
-              <h3>Establish product-market fit with busy professionals aged 25-45</h3>
-              <ul class="kr-list"><li>Achieve 35% DAU/MAU ratio by day 90 (demonstrates retention for time-constrained users)</li><li>Conduct 50+ user interviews with 90%+ rating &#x27;solves my main fitness blocker&#x27; (time efficiency)</li><li>Document 3 validated core features: calendar integration, micro-sessions, AI recommendations</li></ul>
+              <h3>Validate product-market fit with target customer segments</h3>
+              <ul class="kr-list"><li>Secure 8-12 paying customers across Fortune 500 tech, mid-market SaaS, and financial services segments</li><li>Achieve Net Promoter Score of 40+ from paying customers</li><li>Achieve product usage threshold of 3+ core features actively used per customer per month</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Build engaged user base targeting busy professionals</h3>
-              <ul class="kr-list"><li>Grow MAU from 0 to 10,000 by end of Q1</li><li>Achieve 40% month-over-month retention rate (12-week cohort analysis)</li><li>Reach 2,500 weekly active users with 4+ workouts completed per user per month</li></ul>
+              <h3>Establish market positioning as AI audit leader for enterprise software teams</h3>
+              <ul class="kr-list"><li>Publish 3 thought leadership pieces in top-tier industry publications (CIO.com, InfoQ, Deloitte Insights equivalent)</li><li>Build 5 documented case studies showcasing 30%+ audit time reduction and compliance automation ROI</li><li>Secure speaking slot at 1 major enterprise software/security conference</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Validate revenue model and build enterprise relationships</h3>
-              <ul class="kr-list"><li>Launch freemium model with 500+ premium subscribers at $9.99/month by day 90</li><li>Sign 3 corporate wellness pilot contracts with committed 6-month terms</li><li>Generate $5,000+ MRR from combined subscription and corporate revenue streams</li></ul>
+              <h3>Achieve $15K MRR with sustainable unit economics</h3>
+              <ul class="kr-list"><li>Close minimum 8 customers with average contract value of $1,500-2,000/month</li><li>Maintain customer acquisition cost below $8,000 per customer with 18-month payback period</li><li>Achieve 95%+ quarterly net retention rate (including upsells) to validate expansion revenue model</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Establish competitive differentiation in fitness app market</h3>
-              <ul class="kr-list"><li>Achieve 90%+ user awareness of core differentiators (time-efficiency, calendar integration, AI personalization)</li><li>Generate 100+ qualified leads from LinkedIn/professional community campaigns</li><li>Secure partnerships with 2 corporate wellness platforms or HR tech integrations</li></ul>
-              <div class="progress-wrap"><div class="progress-bar"></div></div>
-              <span class="progress-label">Day 1 of 90 — 0% complete</span>
-            </div>
-            <div class="card okr-card">
-              <h3>Build foundation for scalable operations and Series A readiness</h3>
-              <ul class="kr-list"><li>Establish data infrastructure capturing 20+ engagement metrics and 15+ user behavior signals</li><li>Document unit economics: CAC, LTV, payback period, and clear path to profitability</li><li>Build team to 5-7 people covering product, engineering, and growth</li></ul>
+              <h3>Build operational foundation for enterprise sales motion</h3>
+              <ul class="kr-list"><li>Develop documented sales playbook with 70%+ win rate against identified competitive set</li><li>Implement CRM system with pipeline tracking and weekly board-ready reporting</li><li>Establish customer success program with 90%+ onboarding completion and documented success metrics</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div></div>
@@ -292,17 +286,17 @@ p,span,li,td,th,label { color: #334155 !important; }
           <div class="step">
             <div class="step-circle">1</div>
             <h4>Month 1</h4>
-            <p>Product-market fit validation and MVP launch. Build and launch minimum viable app with 3 core features: (1) AI-powered 15-30 min workout recommendations based on available time/fitness level, (2) Slack/Outlook calendar integration for smart scheduling, (3) Progress tracking via simple metrics. Recruit 500 beta users from professional networks, run daily engagement analysis, conduct weekly user interviews to validate core value proposition of time-efficiency and seamless integration.</p>
+            <p>Market validation and positioning: Conduct 20+ discovery calls with target segments (Fortune 500 tech, mid-market SaaS, financial services) to validate core pain points around audit complexity, compliance overhead, and risk management. Develop detailed buyer personas and competitive positioning document. Establish founding customer cohort (3-5 pilot customers) from mid-market SaaS segment. Build go-to-market messaging framework and sales collateral. Set up product analytics and feedback infrastructure.</p>
           </div>
           <div class="step">
             <div class="step-circle">2</div>
             <h4>Month 2</h4>
-            <p>Growth and retention optimization. Expand to 5,000 active users through LinkedIn/professional community partnerships and corporate wellness pilot programs. Launch 3-month retention cohort analysis, implement push notification strategy tied to calendar availability, and conduct A/B testing on workout recommendations. Establish partnerships with 2-3 corporate wellness platforms. Refine onboarding flow based on phase 1 learnings with target DAU/MAU ratio of 35%.</p>
+            <p>Product refinement and early traction: Implement feedback from pilot customers into product roadmap (sprint 1-2 enhancements). Achieve first $5K MRR through pilot customer expansion and early wins in SaaS segment. Build case studies and testimonials from pilot cohort. Establish thought leadership through 2-3 industry blog posts and 1 webinar on enterprise audit challenges. Expand founding customer outreach to financial services segment with specific use-case messaging. Develop sales playbook and customer onboarding process.</p>
           </div>
           <div class="step">
             <div class="step-circle">3</div>
             <h4>Month 3</h4>
-            <p>Revenue model testing and market positioning. Launch freemium tier and test $9.99/month premium subscription with 2 enterprise corporate pilot deals. Conduct competitive positioning marketing campaign on LinkedIn and professional networks, emphasizing time-efficiency and integration advantages. Hit targets: 10,000 MAU, 40% monthly retention, 500+ active premium subscribers, 3+ enterprise pilots generating revenue. Gather data for Series A positioning.</p>
+            <p>Scaling acquisition and product-market fit validation: Scale customer acquisition to 8-12 paying customers across all three segments with target of $15K MRR. Launch targeted outreach campaign to Fortune 500 tech companies with security/compliance focus. Achieve 80%+ customer satisfaction score and implement NPS program. Validate product-market fit signals: &gt;40% NPS, &lt;5% monthly churn, &gt;3 features actively used per customer. Develop customer advisory board from early advocates. Create standardized pricing and packaging model. Build 90-day renewal pipeline with existing customers.</p>
           </div>
         </div>
       </div>
@@ -312,23 +306,23 @@ p,span,li,td,th,label { color: #334155 !important; }
       <div class="container">
         <div class="section-title">Financial Projections</div>
         <h2>Revenue &amp; Runway Analysis</h2>
-        <p style="margin:16px 0;color:var(--muted)">The Company projects conservative but realistic growth across freemium, professional, and enterprise segments with month 3 MRR of $20,691 driven by early enterprise adoption. With initial monthly burn of $35,167 declining to $17,309 by month 3 as revenue accelerates, the startup maintains 11.4 months of runway on $400K seed capital, reaching break-even by month 9. A strong LTV:CAC ratio of 4.8x and 2.5-month payback period indicate unit economics support growth investment. The company should plan for Series A funding by month 10 to fund product expansion and aggressive marketing scaling required to achieve sustainable profitability.</p>
+        <p style="margin:16px 0;color:var(--muted)">AuditFlow enters the market with a strong unit economics profile ($52.9 LTV:CAC ratio, 1.7-month payback) targeting compliance-critical enterprise customers. The 3-month projection shows disciplined early traction (4 customers, $20K MRR by Month 3) with $85.5K cumulative burn. Achieving profitability by Month 22 with 16-17 customers and $85K MRR requires a $650K seed round to fund 18-month runway with operational buffer. The model emphasizes measured sales growth and engineering investment to build an increasingly differentiated AI-driven compliance platform. Key execution risks include sales cycle elongation and customer acquisition velocity; upside drivers include enterprise expansion revenue (15% annual upsell potential) and potential Series A at Month 12-14 inflection if product traction and churn metrics exceed targets.</p>
         <div class="chart-wrap">
           <div class="chart">
             <div class="bar-col">
-              <div class="bar-amount">$6,497</div>
+              <div class="bar-amount">$5,000</div>
               <div class="bar bar-m1"></div>
               <div class="bar-label">Month 1 MRR</div>
-              <div class="bar-pct">31.4% of peak</div>
+              <div class="bar-pct">25.0% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$10,193</div>
+              <div class="bar-amount">$10,000</div>
               <div class="bar bar-m2"></div>
               <div class="bar-label">Month 2 MRR</div>
-              <div class="bar-pct">49.3% of peak</div>
+              <div class="bar-pct">50.0% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$20,691</div>
+              <div class="bar-amount">$20,000</div>
               <div class="bar bar-m3"></div>
               <div class="bar-label">Month 3 MRR</div>
               <div class="bar-pct">100.0% of peak</div>
@@ -338,19 +332,19 @@ p,span,li,td,th,label { color: #334155 !important; }
         <div class="finance-stats">
           <div class="card metric-card">
             <div class="lbl">Burn Rate / Month</div>
-            <div class="val">$35,167</div>
+            <div class="val">$40,167</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Runway</div>
-            <div class="val">14.2 mo</div>
+            <div class="val">10 mo</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Break-Even Target</div>
-            <div class="val">M9</div>
+            <div class="val">M22</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">LTV:CAC Ratio</div>
-            <div class="val">4.8:1</div>
+            <div class="val">52.9:1</div>
           </div>
         </div>
       </div>
@@ -361,10 +355,10 @@ p,span,li,td,th,label { color: #334155 !important; }
         <div class="section-title">Market Intelligence</div>
         <h2>Sales &amp; Customer Profile</h2>
         <div class="card profile-card">
-          <div class="avatar">PB</div>
+          <div class="avatar">MA</div>
           <div>
             <h3>Target Customer Profile</h3>
-            <p>Primary: Busy professionals aged 25-45 earning $60K+ annually, working 45+ hours/week, college-educated, living in urban areas, expressing frustration with inability to maintain fitness routine due to time constraints. Secondary segments: (1) Corporate wellness programs targeting employee health outcomes, (2) Enterprises seeking productivity benefits of employee fitness, (3) Remote workers struggling with work-life fitness integration.</p>
+            <p>Mid-market and enterprise software companies (100-5,000 employees) with significant compliance obligations and recurring third-party audits, specifically software/SaaS teams managing infrastructure and security audits for SOC 2, ISO 27001, and financial regulation compliance.</p>
           </div>
         </div>
         <div class="card leads-metric">
@@ -373,16 +367,16 @@ p,span,li,td,th,label { color: #334155 !important; }
         </div>
         <div class="card">
           <h3>Outreach Strategy</h3>
-          <p>Identify and segment target leads (corporate wellness programs, health insurance companies, B2B enterprise clients). Draft personalized outreach campaigns and partnership proposals with healthcare providers and corporate HR departments.</p>
+          <p>Identify and create a prioritized list of 50 target enterprise accounts (focusing on companies with 100+ engineering teams), draft personalized outreach emails for CTOs and VP of Engineering roles, and schedule initial discovery calls to validate product-market fit and pricing model.</p>
         </div>
         <div class="card">
           <h3>Conversion Assumptions</h3>
           <div class="funnel">
-            <div class="funnel-step">150 Monthly Leads</div>
-            <div class="funnel-step">1.8% Conversion Rate</div>
-            <div class="funnel-step">~2 Paying Customers / Mo</div>
+            <div class="funnel-step">35 Monthly Leads</div>
+            <div class="funnel-step">2.5% Conversion Rate</div>
+            <div class="funnel-step">~1 Paying Customers / Mo</div>
           </div>
-          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">The Company projects conservative but realistic growth across freemium, professional, and enterprise segments with month 3 MRR of $20,691 driven by early enterprise adoption. With initial monthly burn of $35,167 declining to $17,309 by month 3 as revenue accelerates, the startup maintains 11.4 months of runway on $400K seed capital, reaching break-even by month 9. A strong LTV:CAC ratio of 4.8x and 2.5-month payback period indicate unit economics support growth investment. The company should plan for Series A funding by month 10 to fund product expansion and aggressive marketing scaling required to achieve sustainable profitability.</p>
+          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">AuditFlow enters the market with a strong unit economics profile ($52.9 LTV:CAC ratio, 1.7-month payback) targeting compliance-critical enterprise customers. The 3-month projection shows disciplined early traction (4 customers, $20K MRR by Month 3) with $85.5K cumulative burn. Achieving profitability by Month 22 with 16-17 customers and $85K MRR requires a $650K seed round to fund 18-month runway with operational buffer. The model emphasizes measured sales growth and engineering investment to build an increasingly differentiated AI-driven compliance platform. Key execution risks include sales cycle elongation and customer acquisition velocity; upside drivers include enterprise expansion revenue (15% annual upsell potential) and potential Series A at Month 12-14 inflection if product traction and churn metrics exceed targets.</p>
         </div>
       </div>
     </section>
@@ -394,7 +388,7 @@ p,span,li,td,th,label { color: #334155 !important; }
         <span class="negotiation-badge">⚡ NEGOTIATION ACTIVATED</span>
         <div class="risk-top">
           <span class="overall-badge critical">Overall: CRITICAL</span>
-          <div class="confidence-ring"><span>52%</span></div>
+          <div class="confidence-ring"><span>62%</span></div>
           <span style="color:var(--muted);font-size:0.9rem">Agent Confidence Score</span>
         </div>
         
@@ -403,11 +397,11 @@ p,span,li,td,th,label { color: #334155 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Health Liability Exposure and Regulatory Compliance Gap</h3>
+                  <h3>Critical Data Security and Compliance Liability When Accessing Customer Codebases</h3>
                 </div>
-                <p class="risk-desc">Fitness apps face significant health liability exposure. The risk agent identifies health liability as critical, but legal agent&#x27;s deliverables (ToS, Privacy Policy, Health Liability Waiver) are only listed as planned tasks—not completed. No evidence of medical advisor consultation, FDA classification analysis for health tracking features, or state-by-state liability insurance requirements. Operating without proper health liability waivers and medical compliance creates existential risk.</p>
+                <p class="risk-desc">AuditFlow integrates directly with customer GitHub repos, AWS infrastructure, and identity systems to collect audit evidence. This means the platform will have privileged access to proprietary source code, deployment credentials, infrastructure configurations, and access control systems. Legal agent&#x27;s deliverables (ToS, DPA, MSA, Privacy Policy) are listed as complete but no evidence of: SOC2 Type II certification, security incident response plan, data breach liability insurance ($10M+ required), encryption standards for codebase data at rest/transit, vendor security assessment framework for third-party integrations, or GDPR Data Processing Agreements for EU customers. Accessing and storing customer source code creates GDPR/CCPA liability exposure and potential criminal liability under computer fraud statutes if breached.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> Immediately engage healthcare attorney specializing in fitness/wellness apps before any user acquisition. Obtain medical advisor on advisory board. Complete Health Liability Waiver compliant with all 50 states. Secure $2M+ liability insurance. Document medical review of all health/biometric features. Establish clear disclaimers that app does not replace medical advice.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE: (1) Engage cybersecurity firm to conduct threat modeling and implement SOC2 Type II compliance framework before any customer integration. (2) Hire Chief Security Officer or VP of Security. (3) Implement mandatory encryption for all customer data (AES-256 at rest, TLS 1.2+ in transit). (4) Establish data minimization principle—collect only audit-critical data, not full codebase access. (5) Obtain $10M+ cyber liability insurance with breach response coverage. (6) Document data retention/deletion workflows compliant with GDPR Article 17. (7) Establish vendor security assessment process (SOC2 Type II required for all third-party integrations). (8) Create data breach incident response plan with 24-hour disclosure protocol. Without SOC2 Type II, enterprise deals will not close.</div>
               </div>
             </div>
             <div class="card risk-card sev-critical">
@@ -415,23 +409,23 @@ p,span,li,td,th,label { color: #334155 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Market Saturation with Inadequate Differentiation Against Entrenched Competitors</h3>
+                  <h3>Misalignment Between Sales Target and Financial Reality Creates Acquisition Velocity Risk</h3>
                 </div>
-                <p class="risk-desc">CEO agent acknowledges Apple Fitness+ and Peloton Digital as competitors, but no evidence of defensible differentiation strategy. Both competitors have massive distribution (Apple ecosystem), brand recognition, and 8+ year head starts. Target segment (busy professionals 25-45) is saturated with low-cost alternatives (YouTube fitness, corporate wellness programs). No unique feature, network effect, or acquisition channel articulated that Apple/Peloton cannot replicate within 6 months.</p>
+                <p class="risk-desc">Sales agent identified 10 target accounts and sent approval-gated outreach to VPs of Engineering at Stripe, Figma, Canva, Notion, Discord, Datadog, Rippling, Slack, Intercom, and Atlassian. Finance agent projects 1-2 customers in Month 1-3, reaching 4 customers by Month 3 and 17 customers by Month 24. However, sales emails target only Fortune 500/mega-cap SaaS companies with 5,000+ employees and sophisticated procurement processes. These companies have: (1) 6-12 month enterprise sales cycles with legal/security review, (2) existing relationships with incumbent audit vendors (Drata, Vanta, OneTrust), (3) internal compliance teams that may resist external AI tool integration, (4) procurement requirements mandating 3+ vendor proposals and board-level approval. Finance model assumes 2.5% conversion from 35 leads/month with $8,500 CAC, but targeting only mega-cap accounts will produce: (1) much longer sales cycles (9+ months average), (2) higher CAC ($15K-25K for enterprise deals), (3) lower conversion rates (0.5-1% for competitive RFP processes), (4) 6+ month deal closure delays vs. 1.7-month payback assumption. Sales velocity mismatch means financial projections are unrealistic.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> Conduct competitive audit identifying 3+ defensible differentiators (e.g., AI-driven personalization for time-constrained users, integration with corporate wellness platforms that Apple/Peloton ignore, or behavioral psychology framework competitors lack). Validate with 20+ target customer interviews before product build. Position as B2B2C via corporate partnerships, not consumer-direct. Focus on enterprise liability/compliance features competitors lack.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> (1) Segment sales strategy into two tracks: (a) Enterprise tier (Fortune 500/mega-cap SaaS) with 9-12 month sales cycles, $25K+ CAC, but $120K+ ACV for 3-year deals, (b) Mid-market tier (100-500 employee SaaS) with 3-4 month cycles, $6K CAC, $30K-50K ACV. (2) Rebuild financial model with realistic conversion rates by segment (0.5% mega-cap, 3% mid-market) and sales cycle lengths. (3) Rebalance sales strategy to 70% mid-market deals (faster revenue) + 30% enterprise pipeline (future expansion). (4) Reset Month 3 target to 2-3 customers (realistic with mega-cap targets), adjust burn rate expectations. (5) Hire sales leader experienced with both enterprise and mid-market playbooks. (6) Add 6-month product validation phase before scaling enterprise outreach (current approach is premature). Without segmentation and realistic cycle assumptions, company will miss all financial targets and exhaust capital.</div>
               </div>
             </div>
             <div class="card risk-card sev-critical">
               <div class="risk-severity-bar"></div>
               <div class="risk-body">
                 <div class="risk-header">
-                  <span class="badge critical">HIGH</span>
-                  <h3>Data Privacy Compliance and Health Data Breach Risk</h3>
+                  <span class="badge critical">CRITICAL</span>
+                  <h3>Critical Dependency Risk on Third-Party Integrations Without Backup or Fallback Strategy</h3>
                 </div>
-                <p class="risk-desc">App will collect sensitive health/biometric data (heart rate, workout patterns, personal metrics) triggering HIPAA considerations and GDPR/CCPA compliance obligations. Legal agent task includes Privacy Policy but no evidence of HIPAA Business Associate Agreements if handling protected health information, GDPR Data Processing Agreements for EU users, or CCPA vendor management. No data encryption standards, breach response plan, or third-party vendor security audits documented. Engineer agent&#x27;s dashboard lacks real-time privacy compliance monitoring.</p>
+                <p class="risk-desc">AuditFlow&#x27;s core value prop is integrating with GitHub, Jira, AWS, and identity systems to auto-collect audit evidence. However, platform viability depends entirely on continuous uptime and API stability of these third-party services. Engineer agent dashboard (confidence: 42%, company mislabeled as &#x27;FitFlow&#x27;) shows weak technical execution and underdeveloped integration architecture. No evidence of: (1) redundant API connection strategies if primary integrations fail, (2) data synchronization fallback if GitHub/AWS APIs return rate-limit errors, (3) disaster recovery plan if GitHub/AWS change APIs (breaking changes have occurred), (4) vendor lock-in mitigation (if AWS/GitHub restrict audit integrations, platform breaks), (5) performance thresholds for API latency/failure handling, (6) documented SLA for data collection reliability. GitHub/AWS/Jira could unilaterally restrict or price API access, rendering AuditFlow non-functional overnight. Customers&#x27; audit schedules depend on platform availability—API failures directly cause customer failures.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> Hire Chief Privacy Officer or DPO before coding begins. Conduct HIPAA Risk Assessment and obtain BAA with all vendors. Implement end-to-end encryption for health data. Establish GDPR/CCPA compliance by design (data minimization, consent management, deletion workflows). Require SOC2 Type II certification for all third-party services. Establish incident response plan and cyber insurance ($5M+ coverage). Monthly automated compliance audits in engineer dashboard.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> (1) Architect multi-vendor integration strategy: support Gitlab/Bitbucket as GitHub alternatives, support Azure/GCP as AWS alternatives, support Okta/Auth0 as primary identity providers. (2) Implement queuing/retry logic with exponential backoff to handle API failures gracefully—never drop evidence collection due to transient API errors. (3) Build local evidence cache (encrypted) if API fails for 24+ hours, with manual upload fallback. (4) Establish API SLAs with customers: guarantee 99.5% data collection availability or provide service credits. (5) Document API contract changes in integration roadmap; build abstraction layer so platform logic doesn&#x27;t depend on specific GitHub/AWS API versions. (6) Negotiate API tier agreements with GitHub/AWS with 90-day change notice requirements. (7) Create integration testing framework that validates all API connections hourly with alerting. (8) Hire integration architect before scaling customer base. This is a blocking technical risk—customers will not trust platform reliability without multi-vendor redundancy.</div>
               </div>
             </div>
       </div>
