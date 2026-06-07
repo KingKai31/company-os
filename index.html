@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AuditAI — Company Intelligence Report</title>
+  <title>FitFlow — Company Intelligence Report</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Company OS — content always visible */
@@ -13,9 +13,9 @@
       opacity: 1 !important;
     }
     :root {
-      --bg: #0d1117; --card: #161b22; --text: #c9d1d9;
-      --heading: #ffffff; --accent: #58a6ff; --gold: #3fb950;
-      --border: rgba(255,255,255,0.08); --muted: #94a3b8;
+      --bg: #f0fdf4; --card: #ffffff; --text: #334155;
+      --heading: #059669; --accent: #0ea5e9; --gold: #059669;
+      --border: rgba(0,0,0,0.08); --muted: #64748b;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
@@ -71,7 +71,7 @@
       padding: 14px 28px; border-radius: 8px; font-weight: 600;
       text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
     }
-    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--gold)); color: #0a0e1a !important; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--gold)); color: #fff !important; }
     .btn-secondary { border: 1px solid var(--accent); color: var(--accent) !important; background: transparent; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
     /* OKRs */
@@ -96,7 +96,7 @@
     }
     .step-circle {
       width: 48px; height: 48px; border-radius: 50%; background: var(--accent);
-      color: #0a0e1a; font-weight: 700; font-size: 1.1rem;
+      color: #fff; font-weight: 700; font-size: 1.1rem;
       display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;
       box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 40%, transparent);
     }
@@ -119,8 +119,8 @@
     .bar-m1 { animation: growBar1 1.2s ease-out 0.3s forwards; }
     .bar-m2 { animation: growBar2 1.2s ease-out 0.5s forwards; }
     .bar-m3 { animation: growBar3 1.2s ease-out 0.7s forwards; }
-    @keyframes growBar1 { from { height: 0; } to { height: 37px; } }
-    @keyframes growBar2 { from { height: 0; } to { height: 111px; } }
+    @keyframes growBar1 { from { height: 0; } to { height: 22px; } }
+    @keyframes growBar2 { from { height: 0; } to { height: 94px; } }
     @keyframes growBar3 { from { height: 0; } to { height: 200px; } }
     .bar-label { margin-top: 10px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
     .bar-pct { font-size: 0.7rem; color: var(--muted); }
@@ -133,7 +133,7 @@
     .avatar {
       width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
       background: linear-gradient(135deg, var(--accent), var(--gold));
-      color: #0a0e1a; font-weight: 700; font-size: 1.1rem;
+      color: #fff; font-weight: 700; font-size: 1.1rem;
       display: flex; align-items: center; justify-content: center;
     }
     .leads-metric { text-align: center; padding: 32px; }
@@ -144,7 +144,7 @@
     }
     .funnel-step:nth-child(1) { width: 100%; background: var(--accent); clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%); }
     .funnel-step:nth-child(2) { width: 75%; background: color-mix(in srgb, var(--accent) 70%, var(--gold)); clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); }
-    .funnel-step:nth-child(3) { width: 50%; background: var(--gold); clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); color: #0a0e1a; }
+    .funnel-step:nth-child(3) { width: 50%; background: var(--gold); clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); color: #fff; }
     /* Risk */
     .risk-top { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
     .overall-badge {
@@ -156,7 +156,7 @@
     .overall-badge.low { background: #22c55e; color: #fff; }
     .confidence-ring {
       width: 72px; height: 72px; border-radius: 50%; position: relative;
-      background: conic-gradient(var(--accent) 187deg, rgba(255,255,255,0.1) 0deg);
+      background: conic-gradient(var(--accent) 223deg, rgba(255,255,255,0.1) 0deg);
       display: flex; align-items: center; justify-content: center;
     }
     .confidence-ring::before {
@@ -221,15 +221,15 @@ section, div { visibility: visible !important; opacity: 1 !important; }
 </style>
 <style>
 /* Company OS theme fix */
-body { background-color: #0d1117 !important; color: #c9d1d9 !important; }
-h1,h2,h3,h4,h5,h6 { color: #ffffff !important; }
-p,span,li,td,th,label { color: #e2e8f0 !important; }
+body { background-color: #f0fdf4 !important; color: #334155 !important; }
+h1,h2,h3,h4,h5,h6 { color: #059669 !important; }
+p,span,li,td,th,label { color: #334155 !important; }
 </style>
 </head>
 <body>
     <nav class="navbar">
       <div class="container nav-inner">
-        <a class="nav-logo" href="#">AuditAI</a>
+        <a class="nav-logo" href="#">FitFlow</a>
         <ul class="nav-links">
           <li><a href="#strategy" data-nav="strategy">Strategy</a></li>
           <li><a href="#financials" data-nav="financials">Financials</a></li>
@@ -243,9 +243,9 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
     <section class="hero">
       <div class="container">
         <div class="section-title">Company Intelligence Report</div>
-        <h1>AuditAI</h1>
-        <p class="value-prop">Empower enterprise software teams to eliminate compliance risks and security vulnerabilities through AI-powered continuous code auditing.</p>
-        <div class="built-for">Built for: Security and Compliance leaders at Fortune 500 enterprises and growth-stage mid-market SaaS companies (100-5000 developers) seeking to automate code audits, accelerate compliance certifications, and reduce security breach risk.</div>
+        <h1>FitFlow</h1>
+        <p class="value-prop">Empower busy professionals to achieve their fitness goals through AI-driven, time-efficient workouts that fit seamlessly into their demanding schedules.</p>
+        <div class="built-for">Built for: Professionals aged 25-45 earning $60k+, working 45+ hours/week, living in urban areas, willing to pay for convenience-focused fitness solutions, and seeking efficient health maintenance without gym membership requirements.</div>
         <div class="hero-btns">
           <a href="#strategy" class="btn btn-primary">View Strategy</a>
           <a href="#financials" class="btn btn-secondary">See Financials</a>
@@ -259,20 +259,26 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         <h2>Strategic OKRs &amp; Milestones</h2>
         <div class="okr-grid">
             <div class="card okr-card">
-              <h3>Establish Product-Market Fit and validate enterprise demand</h3>
-              <ul class="kr-list"><li>Complete 20+ customer discovery interviews with target personas (Security/Compliance leaders at Fortune 500 and mid-market SaaS); NPS score of 50+</li><li>Onboard 3-5 design partner customers in closed beta with documented use cases and positive feedback</li><li>Define and document 5 vertical-specific compliance playbooks (SOC2, HIPAA, PCI-DSS, GDPR, ISO27001)</li></ul>
+              <h3>Achieve Product-Market Fit with target user segment</h3>
+              <ul class="kr-list"><li>Reach 40% weekly active user rate (WAU/MAU) among beta cohort of 5,000+ users by day 90</li><li>Achieve 60+ Net Promoter Score (NPS) from professional user segment</li><li>Validate willingness to pay with 5%+ conversion to paid tier at $12.99/month among engaged users</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Launch MVP and achieve initial market traction</h3>
-              <ul class="kr-list"><li>Release public beta of AuditAI platform with GitHub/GitLab integration and core audit capabilities</li><li>Achieve 5+ paying pilot customers with signed LOIs totaling $250K+ in potential ARR</li><li>Reach 10,000+ views on GTM content (webinars, blogs, whitepapers); 500+ demo requests</li></ul>
+              <h3>Establish market position differentiated from major competitors</h3>
+              <ul class="kr-list"><li>Develop and validate &#x27;time-efficiency&#x27; positioning showing 40% faster results vs competitor workout times in user surveys</li><li>Achieve 3.5+ app store rating (iOS/Android) with minimum 1,000 reviews emphasizing time-saving benefits</li><li>Secure 2+ enterprise pilot partnerships with companies having 500+ employees for employee wellness programs</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Build credible brand and establish go-to-market engine</h3>
-              <ul class="kr-list"><li>Secure media coverage in 3+ tier-1 enterprise security publications; publish 1 research report on enterprise audit trends</li><li>Generate 100+ qualified sales-ready leads through inbound and outreach campaigns; achieve 20%+ conversion to pilot stage</li><li>Build strategic partnerships with 2+ DevSecOps vendors; launch co-marketing initiatives</li></ul>
+              <h3>Build scalable growth engine and unit economics</h3>
+              <ul class="kr-list"><li>Achieve $2 CAC for premium users with projected 8+ month LTV at 3% monthly churn rate</li><li>Establish 35%+ D30 retention rate (users active on day 30) as baseline for growth modeling</li><li>Generate $8,000+ MRR from premium subscriptions by end of Q1 2025</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
+            </div>
+            <div class="card okr-card">
+              <h3>Build technical foundation for AI personalization</h3>
+              <ul class="kr-list"><li>Deploy AI recommendation engine recommending workouts with 70%+ click-through rate based on user time/goal inputs</li><li>Integrate with 3+ wearable platforms (Apple Watch, Fitbit, Oura) capturing daily activity data</li><li>Achieve &lt;2 second app load time and 99.5% uptime across iOS and Android platforms</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div></div>
@@ -280,17 +286,17 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
           <div class="step">
             <div class="step-circle">1</div>
             <h4>Month 1</h4>
-            <p>Foundation &amp; Product-Market Fit Validation. Conduct 15+ customer discovery interviews with target Fortune 500 and mid-market development teams to validate core pain points around audit timelines and compliance overhead. Finalize MVP feature set focusing on automated code scanning, policy enforcement, and compliance reporting. Establish advisory board with 3-5 CISOs/CTOs. Set up sales infrastructure (CRM, collateral, pricing model). Launch closed-beta program with 2-3 design partner customers.</p>
+            <p>Foundation &amp; Validation: (1) Finalize MVP with core workout engine (3 workout types optimized for 10-30 min sessions); (2) Launch closed beta with 500 target users from professional networks; (3) Conduct weekly user interviews to validate time-saving value prop; (4) Build basic onboarding flow capturing fitness goals and weekly availability; (5) Establish baseline user cohort for retention analysis; (6) Set up analytics infrastructure and define data tracking.</p>
           </div>
           <div class="step">
             <div class="step-circle">2</div>
             <h4>Month 2</h4>
-            <p>MVP Development &amp; Early Sales. Complete MVP build with core audit capabilities (SOC2, HIPAA, PCI-DSS compliance templates), GitHub/GitLab integration, and executive dashboard. Onboard beta customers and gather product feedback. Launch GTM playbook: create case studies, thought leadership content, and sales training. Initiate warm outreach to 50+ target accounts through advisors and warm introductions. Attend 2 relevant industry conferences for brand building and pipeline generation.</p>
+            <p>Product-Market Fit Iteration: (1) Iterate MVP based on beta feedback (target: 40%+ weekly active rate); (2) Launch open beta to 5,000 users with referral incentives; (3) Implement AI personalization engine v1 (workout recommendations based on time/goals); (4) Add wearable integrations (Apple Watch, Fitbit); (5) Create 3-tier content library (Quick, Standard, Deep workouts); (6) Begin paid tier testing with top 10% engaged users; (7) Establish competitive positioning messaging against Peloton/Apple Fitness+.</p>
           </div>
           <div class="step">
             <div class="step-circle">3</div>
             <h4>Month 3</h4>
-            <p>Product Launch &amp; Pipeline Acceleration. Release public beta of AuditAI platform with 3+ vertical-specific compliance modules. Secure 3-5 paying pilot customers with LOIs. Execute demand generation campaign (webinars, content marketing, LinkedIn outreach) targeting security and compliance leaders. Hire first Sales Development Representative. Build proof-of-concept for enterprise integration (single sign-on, API, audit logs). Establish partnerships with 2-3 complementary DevSecOps tools.</p>
+            <p>Growth &amp; Monetization Setup: (1) Launch freemium model with limited free tier and premium subscription ($12.99/mo); (2) Scale to 20,000 active users through organic growth and early influencer partnerships; (3) Implement retention loops (streaks, personalized recommendations, community challenges); (4) Establish enterprise pilot with 2-3 companies for employee wellness programs; (5) Complete Series A funding preparation with validated metrics; (6) Build content roadmap for Q2 expansion (yoga, HIIT, strength, mobility classes).</p>
           </div>
         </div>
       </div>
@@ -300,23 +306,23 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
       <div class="container">
         <div class="section-title">Financial Projections</div>
         <h2>Revenue &amp; Runway Analysis</h2>
-        <p style="margin:16px 0;color:var(--muted)">AuditAI projects modest early traction with 6 enterprise customers and $7,350 MRR by month 3, generating $12,817 in three-month revenue against $197,600 in operating expenses. The company burns approximately $65,867 monthly with current cost structure and 6.1-month runway from the $400K seed. With conservative 2-4 new customer additions monthly and 1.5% churn, the platform achieves 18 customers and $224K ARR by year-end with $784K expenses. Year 2 scales to 52 customers and $853K ARR, while year 3 reaches profitability at 118 customers and $1.9M ARR. The 7.7x LTV/CAC ratio and 72% gross margin support a viable unit economics model. A $600K seed extension or $3.5M Series A in month 9 is recommended to achieve profitability in month 28, with break-even occurring when the company reaches ~90 customers at approximately $1.2M ARR.</p>
+        <p style="margin:16px 0;color:var(--muted)">AuditAI projects $97.5K in revenue within 3 months driven by 15 customers (2 enterprise, 13 mid-market) with strong 19.1x LTV:CAC ratio indicating healthy unit economics. Initial burn rate of $110K/month escalates to $143K by month 3 due to sales team expansion, requiring $500K seed capital which provides 3.5 months runway. With conservative revenue growth assumptions (18% MoM declining to 8% by month 6), the company reaches break-even profitability in month 9 and cash flow positive in month 11, positioning for Series A financing. Enterprise customers command $8K/month pricing with superior retention (3% churn) and 30.5x LTV:CAC, while mid-market achieves scale through rapid adoption at $3.5K/month. By year 3, projected ARR reaches $22.5M across 298 customers with 75% gross margins, validating the market demand for AI-driven continuous compliance automation in enterprise software development.</p>
         <div class="chart-wrap">
           <div class="chart">
             <div class="bar-col">
-              <div class="bar-amount">$1,367</div>
+              <div class="bar-amount">$7,000</div>
               <div class="bar bar-m1"></div>
               <div class="bar-label">Month 1 MRR</div>
-              <div class="bar-pct">18.6% of peak</div>
+              <div class="bar-pct">11.4% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$4,100</div>
+              <div class="bar-amount">$29,000</div>
               <div class="bar bar-m2"></div>
               <div class="bar-label">Month 2 MRR</div>
-              <div class="bar-pct">55.8% of peak</div>
+              <div class="bar-pct">47.2% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$7,350</div>
+              <div class="bar-amount">$61,500</div>
               <div class="bar bar-m3"></div>
               <div class="bar-label">Month 3 MRR</div>
               <div class="bar-pct">100.0% of peak</div>
@@ -326,19 +332,19 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         <div class="finance-stats">
           <div class="card metric-card">
             <div class="lbl">Burn Rate / Month</div>
-            <div class="val">$65,867</div>
+            <div class="val">$0</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Runway</div>
-            <div class="val">6 mo</div>
+            <div class="val">14.3 mo</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Break-Even Target</div>
-            <div class="val">M22</div>
+            <div class="val">MN/A</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">LTV:CAC Ratio</div>
-            <div class="val">7.7:1</div>
+            <div class="val">19.1:1</div>
           </div>
         </div>
       </div>
@@ -357,20 +363,20 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         </div>
         <div class="card leads-metric">
           <div class="lbl" style="color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:0.75rem">Leads Identified</div>
-          <div class="val">10</div>
+          <div class="val">11</div>
         </div>
         <div class="card">
           <h3>Outreach Strategy</h3>
-          <p>Identify and compile list of 50+ qualified enterprise software team leads (CTOs, Engineering Directors, DevOps managers) at companies with 100+ engineers. Draft personalized outreach campaigns and sales playbooks targeting companies with compliance/audit needs. Set up initial discovery call framework.</p>
+          <p>Identify and segment target leads: HR departments at Fortune 500 companies, corporate wellness programs, and enterprise fitness vendors. Draft personalized outreach campaigns highlighting time-efficient workout solutions. Create sales collateral including one-sheets, demo scripts, and ROI calculators for B2B partnerships.</p>
         </div>
         <div class="card">
           <h3>Conversion Assumptions</h3>
           <div class="funnel">
             <div class="funnel-step">45 Monthly Leads</div>
-            <div class="funnel-step">3.2% Conversion Rate</div>
+            <div class="funnel-step">1.8% Conversion Rate</div>
             <div class="funnel-step">~1 Paying Customers / Mo</div>
           </div>
-          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">AuditAI projects modest early traction with 6 enterprise customers and $7,350 MRR by month 3, generating $12,817 in three-month revenue against $197,600 in operating expenses. The company burns approximately $65,867 monthly with current cost structure and 6.1-month runway from the $400K seed. With conservative 2-4 new customer additions monthly and 1.5% churn, the platform achieves 18 customers and $224K ARR by year-end with $784K expenses. Year 2 scales to 52 customers and $853K ARR, while year 3 reaches profitability at 118 customers and $1.9M ARR. The 7.7x LTV/CAC ratio and 72% gross margin support a viable unit economics model. A $600K seed extension or $3.5M Series A in month 9 is recommended to achieve profitability in month 28, with break-even occurring when the company reaches ~90 customers at approximately $1.2M ARR.</p>
+          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">AuditAI projects $97.5K in revenue within 3 months driven by 15 customers (2 enterprise, 13 mid-market) with strong 19.1x LTV:CAC ratio indicating healthy unit economics. Initial burn rate of $110K/month escalates to $143K by month 3 due to sales team expansion, requiring $500K seed capital which provides 3.5 months runway. With conservative revenue growth assumptions (18% MoM declining to 8% by month 6), the company reaches break-even profitability in month 9 and cash flow positive in month 11, positioning for Series A financing. Enterprise customers command $8K/month pricing with superior retention (3% churn) and 30.5x LTV:CAC, while mid-market achieves scale through rapid adoption at $3.5K/month. By year 3, projected ARR reaches $22.5M across 298 customers with 75% gross margins, validating the market demand for AI-driven continuous compliance automation in enterprise software development.</p>
         </div>
       </div>
     </section>
@@ -382,7 +388,7 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         <span class="negotiation-badge">⚡ NEGOTIATION ACTIVATED</span>
         <div class="risk-top">
           <span class="overall-badge critical">Overall: CRITICAL</span>
-          <div class="confidence-ring"><span>52%</span></div>
+          <div class="confidence-ring"><span>62%</span></div>
           <span style="color:var(--muted);font-size:0.9rem">Agent Confidence Score</span>
         </div>
         
@@ -391,11 +397,11 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Enterprise Sales Pipeline Completely Unvalidated with Misaligned Financial Model</h3>
+                  <h3>Sales Pipeline Completely Unvalidated with Fundamentally Misaligned Financial Model</h3>
                 </div>
-                <p class="risk-desc">Sales agent drafted 10 outreach emails to enterprise prospects (Stripe, Datadog, Figma, Notion, Atlassian, Okta, Retool, Twilio, HashiCorp, Canva) but emails remain UNSENT with zero response data. Finance model assumes 45-day sales cycle, 3.2% conversion rate, and 2-4 new customers monthly starting month 1. However, enterprise SaaS audit tools typically have 6-12 month sales cycles (as specified in risk brief). No VP Sales hired. No pilot customers closed. No proof-of-concept traction. Finance projects only $12,817 revenue in first 3 months against $197,600 expenses ($65,867 monthly burn). Model breaks even at month 22 assuming 90 customers, but actual pipeline validation shows zero qualified opportunities to date.</p>
+                <p class="risk-desc">Sales agent drafted 10 outreach emails to enterprise prospects but they remain UNSENT with zero response data or validated opportunities. Finance model assumes unrealistic 45-day enterprise sales cycle, 3.2% cold conversion rate, and 2-4 new customers monthly starting month 1. Industry standard for enterprise SaaS audit tools is 6-12 month sales cycles. No VP Sales hired. Zero pilot customers closed. Zero proof-of-concept traction. Finance projects $12,817 revenue in first 3 months against $197,600 expenses ($65,867 monthly burn), breaking even at month 22 with 90 customers. Actual pipeline validation shows zero qualified opportunities to date.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (Days 1-7): Execute all 10 drafted sales emails today; track response rate, meeting conversion, and pipeline stage progression. WEEK 2: Hire VP Sales with proven B2B SaaS enterprise experience; prioritize speed. WEEK 3: Reset financial model to reflect 6-month sales cycle minimum and 0.5-1% conversion rate from cold outreach. TARGET: 3-5 qualified opportunities in pipeline by day 30, 1-2 pilot agreements signed by day 90. If pipeline &lt; 3 opportunities by day 30, pivot to product-led growth or pivot target market to mid-market (90-day cycles vs. 180+). Reduce burn by 30% if no pipeline traction by week 4.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (Days 1-7): Execute all 10 drafted sales emails today; establish daily pipeline tracking. WEEK 1: Hire VP Sales with B2B SaaS enterprise experience; mandate 3+ qualified opportunities in pipeline by day 30. WEEK 2: Reset financial model to 6-month sales cycle minimum and 0.5-1% conversion from cold outreach. If pipeline &lt; 3 opportunities by day 30, execute pivot to product-led growth or mid-market (90-day cycles). Reduce burn by 30% immediately if no pipeline traction by week 4.</div>
               </div>
             </div>
             <div class="card risk-card sev-critical">
@@ -403,11 +409,11 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Critical Data Security and Liability Gaps for Enterprise Audit Platform</h3>
+                  <h3>Critical Legal and Security Gaps Block Enterprise Pilots and Create Unlimited Liability Exposure</h3>
                 </div>
-                <p class="risk-desc">AuditAI scans enterprise codebases for SOC2, HIPAA, PCI-DSS, GDPR compliance violations and stores sensitive code/audit data. Legal agent generated boilerplate ToS, Privacy Policy, and DPA templates but critical gaps remain: (1) No liability cap strategy defined for audit false negatives (missed vulnerabilities that cause breaches); (2) No data residency/encryption requirements specified for enterprise customers handling regulated code; (3) No SOC2 Type II audit timeline defined (enterprises require SOC2 before pilot, not after); (4) No API security standards documented for GitHub/GitLab/Bitbucket integrations; (5) No incident response protocol for data breaches; (6) DPA templates are generic—no GDPR Article 32 technical/organizational security measures detailed. Enterprise legal teams will reject contract without clear indemnification for audit failures and security certifications. Sales drafts target companies like Stripe, Okta, Twilio—all high-security environments requiring extensive legal/compliance vetting before pilot.</p>
+                <p class="risk-desc">AuditAI scans enterprise codebases for SOC2, HIPAA, PCI-DSS, GDPR compliance violations and stores sensitive code/audit data. Legal agent generated boilerplate ToS and Privacy Policy but critical gaps remain: (1) No liability cap strategy for audit false negatives (missed vulnerabilities that cause breaches); (2) No data residency/encryption requirements for regulated code; (3) SOC2 Type II audit not scoped (enterprises require this before pilot, not after); (4) No API security standards for GitHub/GitLab/Bitbucket integrations; (5) No incident response protocol; (6) DPA templates generic without GDPR Article 32 technical security measures. Enterprise legal teams will reject all proposals without explicit indemnification, security certifications, and liability caps. Target customers (Stripe, Okta, Twilio) require these as preconditions.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> WEEK 1: Engage enterprise law firm specializing in SaaS/security compliance; budget $15K-25K for legal work. Define liability caps (e.g., $500K per customer, exclude indirect damages per MSA). WEEK 2: Commission SOC2 Type II audit immediately (6-month process)—required for any enterprise close by month 9+. Prioritize interim SOC2 Letter of Readiness to accelerate early pilots. WEEK 3: Document GitHub/GitLab API security requirements; conduct threat model for audit platform data flows. WEEK 4: Update MSA templates with: (a) liability caps, (b) data residency (US/EU options), (c) Article 32 security controls (encryption, access logs, incident response), (d) 30-day breach notification SLA. Brief sales team on legal requirements to prevent unqualified prospects. Target: SOC2 Type II scoping complete by day 30; interim Letter of Readiness by day 45.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> WEEK 1: Engage enterprise SaaS law firm; budget $15K-25K to define liability caps ($500K per customer, exclude indirect damages), document API security requirements, and update MSA templates. Immediately scope SOC2 Type II audit (6-month process)—required for month 9+ enterprise closes. WEEK 2: Obtain SOC2 Letter of Readiness for early pilots. WEEK 3: Document GitHub/GitLab API threat model; implement GDPR Article 32 controls (encryption, access logs, 30-day breach notification SLA). Brief sales team on legal blockers to prevent unqualified outreach. TARGET: Updated MSA templates by day 14; SOC2 scoping complete by day 30; Letter of Readiness by day 45.</div>
               </div>
             </div>
             <div class="card risk-card sev-critical">
@@ -415,11 +421,11 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Technical Risk: Missing Engineering Team and Undefined Product Architecture for Multi-Stack Integration</h3>
+                  <h3>Missing Engineering Leadership and Severely Underestimated Technical Complexity for Multi-Stack MVP</h3>
                 </div>
-                <p class="risk-desc">Engineer agent failed to deliver (returned 401 GitHub API auth error). CEO strategy requires integrations with GitHub, GitLab, Bitbucket, and diverse enterprise stacks (mentioned: &#x27;CI/CD pipeline,&#x27; &#x27;infrastructure-as-code,&#x27; &#x27;SOC2/HIPAA/PCI-DSS compliance modules&#x27;). No CTO hired. No engineering team named. No technical architecture documented. Finance model assumes 4 engineers Year 1 but doesn&#x27;t specify skill requirements (security scanning, LLM ops, infrastructure, integrations). Risk brief specifies &#x27;technical complexity of integrating with diverse enterprise stacks&#x27; as a key risk—remains unaddressed. Product requires: (1) AST/SAST engine for multi-language code scanning (not build-your-own; likely third-party SIEM integration), (2) LLM-powered remediation recommendations (Claude/GPT-4 API integration + prompt engineering), (3) Real-time GitHub/GitLab webhooks and CI/CD pipeline triggers, (4) Compliance rule engine for SOC2/HIPAA/PCI-DSS (complex, vendor-specific), (5) Executive dashboard with audit trail/audit logs. No clarity on build vs. buy strategy; no vendor partnerships identified despite sales agent mentioning &#x27;partnerships with 2+ DevSecOps tools.&#x27;</p>
+                <p class="risk-desc">Engineer agent deliverable failed (401 GitHub auth error). CEO strategy requires GitHub, GitLab, Bitbucket integrations plus SOC2/HIPAA/PCI-DSS compliance modules. No CTO hired. No engineering team named. Finance assumes 4 engineers Year 1 without skill specification. Product requires: (1) multi-language SAST/AST engine (not viable to build—requires third-party integration), (2) LLM-powered remediation (Claude/GPT-4 API dependency), (3) real-time CI/CD webhook triggers, (4) vendor-specific compliance rule engines, (5) executive audit dashboards. CEO targets public beta day 90; impossible without CTO by week 2. No build vs. buy strategy; no vendor partnerships identified despite sales agent mentioning &#x27;partnerships with 2+ DevSecOps tools.&#x27;</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (Days 1-3): Hire CTO with proven SIEM/security SaaS engineering background (prior startup exit or Snyk/Lacework/Wiz engineering leadership preferred). WEEK 1: CTO defines MVP technical scope: (1) Focus on GitHub-only integration for beta (GitLab/Bitbucket deferred to post-launch), (2) Integrate third-party SAST vendor (e.g., Semgrep, SonarQube API) rather than building AST engine from scratch, (3) Use OpenAI/Anthropic API for remediation suggestions (avoid building proprietary LLM), (4) License compliance templates from regulatory vendor (e.g., CloudSecure, Lacework) vs. building custom modules. WEEK 2: CTO builds 4-week engineering plan: Week 1-2 GitHub integration + Semgrep API wiring, Week 3 LLM remediation prompt engineering, Week 4 executive dashboard MVP. Hire 2 senior engineers (full-stack security + infrastructure) by week 3. BUDGET: Add $50K to Year 1 engineering burn for LLM API costs and third-party SAST licensing. TARGET: Technical architecture doc + GitHub integration prototype by day 30; product demo for pilot prospects by day 60.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (Days 1-3): Hire CTO with Snyk/Wiz/Lacework security SaaS background. WEEK 1: CTO defines GitHub-only MVP scope (GitLab/Bitbucket deferred post-launch); commit to third-party SAST vendor (Semgrep, SonarQube) instead of building AST engine; use OpenAI/Anthropic API for remediation; license compliance templates from CloudSecure/Lacework. WEEK 2: CTO delivers 4-week engineering plan—week 1-2 GitHub + Semgrep wiring, week 3 LLM remediation, week 4 dashboard MVP. Hire 2 senior security engineers by week 3. Add $50K Year 1 budget for LLM API and third-party licensing. TARGET: Technical architecture doc by day 20; GitHub integration prototype by day 30; product demo for pilots by day 60.</div>
               </div>
             </div>
       </div>
