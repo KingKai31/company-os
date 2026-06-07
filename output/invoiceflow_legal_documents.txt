@@ -1,0 +1,95 @@
+LEGAL DOCUMENTS — InvoiceFlow
+==================================================
+
+# Legal Documents for InvoiceFlow
+
+---
+
+## DOCUMENT 1: TERMS OF SERVICE
+
+**Last Updated: [INSERT DATE]**
+
+---
+
+### 1. ACCEPTANCE OF TERMS
+
+By accessing and using InvoiceFlow ("Service"), you ("Customer," "you," or "your") agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.
+
+These Terms apply to all users of InvoiceFlow, including but not limited to employees, contractors, and agents acting on behalf of Customer's organization ("Authorized Users").
+
+InvoiceFlow ("Company," "we," "us," or "our") reserves the right to modify these Terms at any time. Changes become effective immediately upon posting. Your continued use of the Service following any modifications constitutes your acceptance of the updated Terms. We will notify you of material changes via email or through the Service.
+
+---
+
+### 2. SERVICE DESCRIPTION
+
+InvoiceFlow is a cloud-based invoice automation platform that:
+
+- Captures invoices via email, file upload, or API integration
+- Uses artificial intelligence and optical character recognition (OCR) to extract invoice data
+- Validates extracted data for accuracy and completeness
+- Detects duplicate invoices and matches vendor information
+- Routes approved invoices to Customer's accounting software (including QuickBooks, Xero, Wave, and NetSuite)
+- Provides approval workflows, intelligent categorization, and real-time accounts payable (AP) reporting
+
+**Service Limitations:**
+- InvoiceFlow is designed for organizations with 10-100 employees processing 20-500 invoices monthly
+- The Service processes invoices in English and common file formats (PDF, JPEG, PNG, TIFF)
+- AI-powered extraction typically achieves 95-98% accuracy; Customer remains responsible for final validation
+
+---
+
+### 3. ACCOUNT REGISTRATION AND RESPONSIBILITIES
+
+**Account Creation:**
+Customer must provide accurate, complete, and current information during registration, including organization name, contact details, and billing information.
+
+**Account Security:**
+- Customer is responsible for maintaining the confidentiality of login credentials and account access
+- Customer is solely responsible for all activities occurring under its account, including actions by Authorized Users
+- Customer must immediately notify us of any unauthorized access or security breaches
+- We are not liable for unauthorized access caused by Customer's failure to secure credentials
+
+**Authorized Users:**
+- Customer is responsible for ensuring all Authorized Users comply with these Terms
+- Customer must ensure Authorized Users have legitimate business need for access
+- Customer remains liable for all actions of Authorized Users
+- Customer may revoke access at any time
+
+---
+
+### 4. USE RESTRICTIONS AND ACCEPTABLE USE POLICY
+
+**Permitted Uses:**
+Customer may use the Service solely for lawful business purposes related to accounts payable processing, invoice management, and financial reporting for its own organization.
+
+**Prohibited Uses:**
+Customer shall NOT:
+
+- Use the Service for any illegal purpose or in violation of any applicable laws or regulations
+- Reverse-engineer, decompile, disassemble, or attempt to derive the source code, algorithms, or trade secrets of the Service
+- Access, test, or exploit any security vulnerabilities in the Service
+- Attempt to gain unauthorized access to the Service, accounts, or systems
+- Use the Service to process, store, or transmit malware, viruses, or malicious code
+- Engage in any form of harassment, abuse, or threatening behavior toward Company staff or other users
+- Scrape, crawl, or automate data collection from the Service (except through authorized API integrations)
+- Interfere with the normal operation of the Service or access by other users
+- Use the Service for competitive analysis, benchmarking, or developing competing products
+- Remove, obscure, or alter any proprietary notices, labels, or marks in the Service
+- Resell, sublicense, or share access to the Service with third parties (unless explicitly authorized in writing)
+- Process invoices on behalf of unaffiliated third parties without written consent
+- Exceed reasonable API rate limits or consume excessive system resources
+
+---
+
+### 5. INTELLECTUAL PROPERTY RIGHTS
+
+**Company IP:**
+All content, features, functionality, design, graphics, and technology in the Service remain the exclusive property of Company or its licensors. This includes but is not limited to:
+- Software code and algorithms
+- AI/OCR models and training data
+- Dashboard design and user interface
+- Documentation and help materials
+- Trademarks and logos
+
+Customer receives a limited,

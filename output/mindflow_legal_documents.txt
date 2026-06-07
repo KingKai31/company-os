@@ -1,0 +1,126 @@
+LEGAL DOCUMENTS — MindFlow
+==================================================
+
+# MindFlow Legal Documents
+
+## DOCUMENT 1: TERMS OF SERVICE
+
+**Last Updated: [Current Date]**
+
+---
+
+### TABLE OF CONTENTS
+1. Acceptance of Terms
+2. Service Description
+3. User Eligibility and Accounts
+4. User Responsibilities
+5. Intellectual Property Rights
+6. Limitations of Liability
+7. Disclaimers and Medical Acknowledgments
+8. Crisis and Emergency Situations
+9. Privacy and Data Protection
+10. Third-Party Services
+11. User Content and Community Guidelines
+12. Termination and Account Deletion
+13. Changes to Terms
+14. Contact Information
+
+---
+
+### 1. ACCEPTANCE OF TERMS
+
+By accessing, downloading, or using the MindFlow mobile application and website (collectively, the "Service"), you agree to be legally bound by these Terms of Service ("Terms"). If you do not accept these Terms, do not use MindFlow.
+
+**Your Agreement**: By using MindFlow, you acknowledge that:
+- You have read and understand these Terms
+- You agree to comply with all applicable laws and regulations
+- You accept the disclaimers and limitations of liability outlined below
+
+If you are under 18, you represent that you have parental or guardian consent to use MindFlow.
+
+---
+
+### 2. SERVICE DESCRIPTION
+
+MindFlow is a mobile-first mental health support platform designed for college students. The Service includes:
+
+**Core Features (Free Tier)**
+- Daily mood tracking with pattern recognition
+- Private journaling functionality
+- Moderated peer support community forums
+- Mental wellness content library (meditation, coping strategies)
+- Crisis resources and safety planning tools
+- Integration with campus counseling center information
+
+**Premium Features**
+- On-demand access to licensed therapists via video and chat
+- Advanced AI-powered mood insights
+- Personalized wellness recommendations
+
+**What MindFlow Is NOT**
+- MindFlow is NOT a substitute for professional mental health treatment
+- MindFlow does NOT provide emergency psychiatric care
+- MindFlow does NOT replace crisis intervention services
+- MindFlow does NOT diagnose, treat, or cure mental health conditions
+- Our AI insights are supplementary tools only, not clinical diagnoses
+
+---
+
+### 3. USER ELIGIBILITY AND ACCOUNTS
+
+**Age Requirements**
+- Users must be at least 13 years old
+- Users under 18 must have parental or guardian consent
+- Users under 18 agree that parents/guardians may request account information
+- College students: MindFlow is designed for users 18+ at accredited institutions
+
+**Account Registration**
+You agree to:
+- Provide accurate, complete, and current information
+- Maintain the confidentiality of your password and account credentials
+- Notify MindFlow immediately of unauthorized account access
+- Be responsible for all activities under your account
+
+**Account Termination for Violation**
+MindFlow may suspend or terminate your account if you:
+- Violate these Terms
+- Engage in harassment, abuse, or threats toward other users
+- Share another person's health information without consent
+- Attempt to hack or compromise platform security
+- Use the Service for illegal purposes
+
+---
+
+### 4. USER RESPONSIBILITIES
+
+**You Agree To:**
+
+- Use MindFlow only for legitimate mental health support purposes
+- Not harass, threaten, abuse, or harm other community members
+- Not share others' personal or health information
+- Not attempt to access other users' accounts or data
+- Not upload malware, viruses, or harmful code
+- Not reverse-engineer or attempt to access our technology
+- Not use automated tools or bots to scrape data
+- Respect intellectual property rights
+- Use the Service in compliance with all applicable laws
+
+**Your Content Responsibility**
+- You own content you create (journal entries, mood entries, community posts)
+- You grant MindFlow a license to store and process your content to provide the Service
+- You are responsible for content you post in community forums
+- Do not post others' health information or private details
+
+---
+
+### 5. INTELLECTUAL PROPERTY RIGHTS
+
+**MindFlow's Intellectual Property**
+All content, code, design, algorithms, and materials in MindFlow (except user-generated content) are owned by MindFlow or licensed partners. This includes:
+- The MindFlow app and website design
+- AI algorithms and machine learning models
+- Wellness content and educational materials
+- Our database and technology infrastructure
+
+**Your Limited License**
+MindFlow grants you a non-exclusive, non-transferable license to

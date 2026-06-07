@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COMPANY_NAME_PLACEHOLDER — TAGLINE_PLACEHOLDER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0e1a;
+      color: #e2e8f0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Navbar ── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(10, 14, 26, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.12);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem; font-weight: 700;
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 0.9rem; font-weight: 500; color: #94a3b8;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #00d4ff; }
+    .btn-nav {
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      color: #0a0e1a !important; font-weight: 700 !important;
+      padding: 10px 22px; border-radius: 8px;
+      box-shadow: 0 0 24px rgba(0, 212, 255, 0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(0, 212, 255, 0.45); color: #0a0e1a !important; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 0 80px; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(135deg, #0a0e1a 0%, #0f1729 40%, #12102a 70%, #0a0e1a 100%);
+      animation: heroGradient 12s ease infinite alternate;
+    }
+    .hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 212, 255, 0.12), transparent),
+                  radial-gradient(ellipse 60% 50% at 80% 50%, rgba(139, 92, 246, 0.1), transparent);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.15;
+      background-image: linear-gradient(rgba(0,212,255,0.3) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,212,255,0.3) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0, 212, 255, 0.08); border: 1px solid rgba(0, 212, 255, 0.25);
+      color: #00d4ff; font-size: 0.8rem; font-weight: 600;
+      padding: 6px 14px; border-radius: 999px; margin-bottom: 24px;
+    }
+    .hero-badge span { width: 6px; height: 6px; background: #00ff88; border-radius: 50%; animation: pulse 2s infinite; }
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 700; line-height: 1.1; color: #ffffff;
+      margin-bottom: 20px;
+    }
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.15rem; color: #94a3b8; min-height: 2.8em;
+      margin-bottom: 32px; max-width: 520px;
+    }
+    .hero-sub .cursor { color: #00d4ff; animation: blink 1s step-end infinite; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      color: #0a0e1a; font-weight: 700; font-size: 1rem;
+      padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(0, 212, 255, 0.5); }
+    .btn-secondary {
+      background: transparent; color: #e2e8f0; font-weight: 600; font-size: 1rem;
+      padding: 14px 28px; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: #00d4ff; background: rgba(0,212,255,0.05); }
+
+    /* Dashboard mockup */
+    .mockup {
+      background: #0d1526; border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 16px; padding: 20px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 212, 255, 0.08);
+      animation: floatMockup 6s ease-in-out infinite;
+    }
+    .mockup-bar {
+      display: flex; gap: 6px; margin-bottom: 16px;
+    }
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mockup-dot.r { background: #ff5f57; }
+    .mockup-dot.y { background: #febc2e; }
+    .mockup-dot.g { background: #28c840; }
+    .mockup-metrics {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;
+    }
+    .metric-box {
+      background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 10px; padding: 14px;
+    }
+    .metric-label { font-size: 0.65rem; color: #64748b; text-transform: uppercase; letter-spacing: 1px; }
+    .metric-val {
+      font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700;
+      color: #00d4ff; margin-top: 4px;
+    }
+    .metric-val.purple { color: #8b5cf6; }
+    .metric-val.green { color: #00ff88; }
+    .mockup-chart {
+      height: 80px; display: flex; align-items: flex-end; gap: 6px; padding-top: 8px;
+    }
+    .chart-bar {
+      flex: 1; background: linear-gradient(to top, #8b5cf6, #00d4ff);
+      border-radius: 4px 4px 0 0; opacity: 0.8;
+      animation: barGrow 2s ease forwards;
+    }
+    .chart-bar:nth-child(1) { height: 40%; animation-delay: 0.1s; }
+    .chart-bar:nth-child(2) { height: 65%; animation-delay: 0.2s; }
+    .chart-bar:nth-child(3) { height: 45%; animation-delay: 0.3s; }
+    .chart-bar:nth-child(4) { height: 80%; animation-delay: 0.4s; }
+    .chart-bar:nth-child(5) { height: 55%; animation-delay: 0.5s; }
+    .chart-bar:nth-child(6) { height: 90%; animation-delay: 0.6s; }
+    .chart-bar:nth-child(7) { height: 70%; animation-delay: 0.7s; }
+
+    /* ── Social proof ── */
+    .social-proof {
+      padding: 48px 0; border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(6, 11, 24, 0.5);
+    }
+    .proof-inner { text-align: center; }
+    .proof-text { font-size: 0.95rem; color: #94a3b8; margin-bottom: 24px; }
+    .stars { color: #fbbf24; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 8px; }
+    .proof-logos {
+      display: flex; justify-content: center; align-items: center;
+      gap: 16px; flex-wrap: wrap; margin-top: 20px;
+    }
+    .logo-badge {
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600;
+      color: #64748b; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 10px 20px; border-radius: 8px; letter-spacing: 1px;
+    }
+
+    /* ── Features ── */
+    .features { padding: 100px 0; }
+    .section-head { text-align: center; margin-bottom: 56px; }
+    .section-head h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700;
+      color: #ffffff; margin-bottom: 12px;
+    }
+    .section-head p { color: #94a3b8; font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .feature-card {
+      background: #0d1526; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 32px 28px;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 212, 255, 0.5);
+      box-shadow: 0 16px 48px rgba(0, 212, 255, 0.12);
+    }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(139,92,246,0.15));
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; position: relative;
+    }
+    .feature-icon::after {
+      content: ''; width: 20px; height: 20px;
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      border-radius: 4px;
+    }
+    .feature-card:nth-child(2) .feature-icon::after { border-radius: 50%; width: 16px; height: 16px; }
+    .feature-card:nth-child(3) .feature-icon::after {
+      width: 0; height: 0; background: transparent;
+      border-left: 10px solid transparent; border-right: 10px solid transparent;
+      border-bottom: 18px solid #00d4ff; border-radius: 0;
+    }
+    .feature-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem; font-weight: 600; color: #ffffff; margin-bottom: 10px;
+    }
+    .feature-card p { font-size: 0.9rem; color: #94a3b8; line-height: 1.65; }
+
+    /* ── How it works ── */
+    .how-it-works { padding: 100px 0; background: rgba(6, 11, 24, 0.4); }
+    .steps {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+      position: relative; margin-top: 48px;
+    }
+    .steps::before {
+      content: ''; position: absolute; top: 36px; left: 16%; right: 16%;
+      height: 2px; background: linear-gradient(90deg, #00d4ff, #8b5cf6);
+      opacity: 0.3;
+    }
+    .step {
+      text-align: center; padding: 0 24px; opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .step.visible { opacity: 1; transform: translateY(0); }
+    .step-num {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      color: #0a0e1a; font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; position: relative; z-index: 1;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+    }
+    .step h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem; font-weight: 600; color: #ffffff; margin-bottom: 8px;
+    }
+    .step p { font-size: 0.88rem; color: #94a3b8; }
+
+    /* ── Pricing ── */
+    .pricing { padding: 100px 0; }
+    .pricing-card-wrap { max-width: 420px; margin: 0 auto; position: relative; }
+    .popular-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      color: #0a0e1a; font-size: 0.7rem; font-weight: 700;
+      padding: 6px 18px; border-radius: 999px; letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .pricing-card {
+      background: #0d1526; border: 1px solid rgba(0, 212, 255, 0.25);
+      border-radius: 20px; padding: 40px 36px; text-align: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+    }
+    .pricing-card h3 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem;
+      color: #ffffff; margin-bottom: 8px;
+    }
+    .price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem; font-weight: 700; color: #ffffff; margin: 16px 0;
+    }
+    .price span { font-size: 1rem; font-weight: 500; color: #64748b; }
+    .pricing-features { list-style: none; text-align: left; margin: 28px 0; }
+    .pricing-features li {
+      padding: 10px 0; font-size: 0.9rem; color: #cbd5e1;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .pricing-features li::before {
+      content: '✓'; color: #00ff88; font-weight: 700; font-size: 0.85rem;
+    }
+    .btn-pricing {
+      width: 100%; background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+      color: #0a0e1a; font-weight: 700; font-size: 1rem;
+      padding: 16px; border-radius: 10px; border: none; cursor: pointer;
+      animation: btnPulse 2.5s ease-in-out infinite;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #060b18; border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 48px 0; text-align: center;
+    }
+    footer .footer-logo {
+      font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700;
+      color: #ffffff; margin-bottom: 8px;
+    }
+    footer .footer-tagline { color: #64748b; font-size: 0.9rem; margin-bottom: 24px; }
+    footer .footer-hackathon {
+      font-size: 0.75rem; color: #475569;
+      font-family: 'Inter', monospace; letter-spacing: 0.5px;
+    }
+
+    /* ── Keyframes ── */
+    @keyframes heroGradient {
+      0% { background: linear-gradient(135deg, #0a0e1a, #0f1729, #12102a); }
+      50% { background: linear-gradient(135deg, #0d1220, #0a1628, #150f28); }
+      100% { background: linear-gradient(135deg, #0a0e1a, #101828, #0f1020); }
+    }
+    @keyframes floatMockup {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes barGrow { from { height: 0; } }
+    @keyframes btnPulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.6); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; text-align: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-btns { justify-content: center; }
+      .mockup { max-width: 480px; margin: 0 auto; }
+      .features-grid, .steps { grid-template-columns: 1fr; gap: 24px; }
+      .steps::before { display: none; }
+      .nav-links li:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">COMPANY_NAME_PLACEHOLDER</a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#pricing" class="btn-nav">Get Early Access</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge"><span></span> Now in public beta</div>
+        <h1>Build faster with <span class="gradient">COMPANY_NAME_PLACEHOLDER</span></h1>
+        <p class="hero-sub"><span id="typed-text"></span><span class="cursor">|</span></p>
+        <div class="hero-btns">
+          <a href="#pricing"><button class="btn-primary">Start Free</button></a>
+          <button class="btn-secondary">Watch Demo</button>
+        </div>
+      </div>
+      <div class="mockup">
+        <div class="mockup-bar">
+          <div class="mockup-dot r"></div>
+          <div class="mockup-dot y"></div>
+          <div class="mockup-dot g"></div>
+        </div>
+        <div class="mockup-metrics">
+          <div class="metric-box">
+            <div class="metric-label">Revenue</div>
+            <div class="metric-val">$48.2k</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Users</div>
+            <div class="metric-val purple">2,847</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Growth</div>
+            <div class="metric-val green">+127%</div>
+          </div>
+        </div>
+        <div class="mockup-chart">
+          <div class="chart-bar"></div>
+          <div class="chart-bar"></div>
+          <div class="chart-bar"></div>
+          <div class="chart-bar"></div>
+          <div class="chart-bar"></div>
+          <div class="chart-bar"></div>
+          <div class="chart-bar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="social-proof">
+    <div class="container proof-inner">
+      <div class="stars">★★★★★</div>
+      <p class="proof-text">Trusted by <strong style="color:#fff">2,400+ founders</strong> building the next generation of companies</p>
+      <div class="proof-logos">
+        <span class="logo-badge">NEXUS</span>
+        <span class="logo-badge">VELOCITY</span>
+        <span class="logo-badge">APEX LABS</span>
+        <span class="logo-badge">STRIDE</span>
+        <span class="logo-badge">ORBIT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-head">
+        <h2>Everything COMPANY_NAME_PLACEHOLDER delivers</h2>
+        <p>TAGLINE_PLACEHOLDER</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"></div>
+          <h3>Lightning-fast deployment</h3>
+          <p>Go from idea to live product in minutes. COMPANY_NAME_PLACEHOLDER automates the heavy lifting so you ship before competitors wake up.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"></div>
+          <h3>AI-native intelligence</h3>
+          <p>PRODUCT_DESC_PLACEHOLDER — powered by autonomous agents that learn, adapt, and optimize every workflow in real time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"></div>
+          <h3>Enterprise-grade security</h3>
+          <p>Bank-level encryption, SOC 2 ready infrastructure, and zero-trust architecture. Your data stays yours — always.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how">
+    <div class="container">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>Three steps from zero to launched company</p>
+      </div>
+      <div class="steps">
+        <div class="step" data-step>
+          <div class="step-num">1</div>
+          <h3>Share your vision</h3>
+          <p>Describe your company idea in one sentence. Our agent swarm understands context instantly.</p>
+        </div>
+        <div class="step" data-step>
+          <div class="step-num">2</div>
+          <h3>Agents build everything</h3>
+          <p>Strategy, engineering, legal, sales, and finance — all generated and deployed autonomously.</p>
+        </div>
+        <div class="step" data-step>
+          <div class="step-num">3</div>
+          <h3>Launch and scale</h3>
+          <p>Your landing page goes live, outreach drafts ready, and financial projections in hand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <h2>Simple, transparent pricing</h2>
+        <p>One plan. Everything included. Cancel anytime.</p>
+      </div>
+      <div class="pricing-card-wrap">
+        <span class="popular-badge">Most Popular</span>
+        <div class="pricing-card">
+          <h3>Pro</h3>
+          <div class="price">$49<span>/month</span></div>
+          <ul class="pricing-features">
+            <li>Unlimited agent pipeline runs</li>
+            <li>GitHub Pages deployment</li>
+            <li>Cosmos DB shared brain</li>
+            <li>Sales outreach drafts</li>
+            <li>Financial projections</li>
+            <li>Risk monitoring &amp; alerts</li>
+            <li>Priority support</li>
+          </ul>
+          <button class="btn-pricing">Get Started — $49/mo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">COMPANY_NAME_PLACEHOLDER</div>
+      <div class="footer-tagline">TAGLINE_PLACEHOLDER</div>
+      <div class="footer-hackathon">Built by Company OS Agent Swarm — Microsoft Build AI Hackathon 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var fullText = "PRODUCT_DESC_PLACEHOLDER";
+      var el = document.getElementById("typed-text");
+      var i = 0;
+      function typeChar() {
+        if (i < fullText.length) {
+          el.textContent += fullText.charAt(i);
+          i++;
+          setTimeout(typeChar, 28 + Math.random() * 20);
+        }
+      }
+      setTimeout(typeChar, 600);
+
+      var steps = document.querySelectorAll("[data-step]");
+      if ("IntersectionObserver" in window) {
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        }, { threshold: 0.3 });
+        steps.forEach(function (step, idx) {
+          step.style.transitionDelay = (idx * 0.15) + "s";
+          obs.observe(step);
+        });
+      } else {
+        steps.forEach(function (step) { step.classList.add("visible"); });
+      }
+    })();
+  </script>
+</body>
+</html>

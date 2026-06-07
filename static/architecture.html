@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company OS — Architecture</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060b18; --card: #0d1526; --border: #1a2d4f;
+      --cyan: #00d4ff; --purple: #8b5cf6; --green: #00ff88;
+      --text: #e2e8f0; --muted: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 32px 24px 48px;
+    }
+    h1 {
+      text-align: center; font-size: 1.5rem; color: #fff;
+      margin-bottom: 6px; letter-spacing: 1px;
+    }
+    .subtitle {
+      text-align: center; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--cyan); letter-spacing: 2px;
+      margin-bottom: 32px; text-transform: uppercase;
+    }
+    .diagram { max-width: 960px; margin: 0 auto; }
+
+    .layer {
+      border: 1px solid var(--border); border-radius: 12px;
+      padding: 16px 20px; margin-bottom: 16px;
+      background: var(--card); position: relative;
+    }
+    .layer-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; letter-spacing: 2px;
+      color: var(--muted); text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .layer-title {
+      font-size: 0.95rem; font-weight: 600; color: #fff;
+    }
+    .layer-sub { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+
+    .layer-input { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,212,255,0.08); text-align: center; }
+    .layer-ai { border-color: var(--purple); background: linear-gradient(135deg, rgba(139,92,246,0.08), var(--card)); }
+    .layer-brain { border-color: var(--cyan); background: rgba(0,212,255,0.04); }
+    .layer-monitor { border-color: #0078d4; }
+    .layer-outputs { border-color: var(--green); }
+
+    .connector {
+      text-align: center; color: var(--cyan); font-size: 1.2rem;
+      margin: -4px 0; opacity: 0.6;
+    }
+
+    .orchestrator-box {
+      text-align: center; padding: 20px;
+      border: 2px solid var(--cyan); border-radius: 12px;
+      background: rgba(0,212,255,0.06);
+      box-shadow: 0 0 30px rgba(0,212,255,0.12);
+      margin-bottom: 16px;
+    }
+    .orchestrator-box .icon { font-size: 2rem; }
+    .orchestrator-box h2 { font-size: 1.1rem; color: var(--cyan); margin-top: 8px; }
+
+    .agents-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+      margin-bottom: 16px;
+    }
+    .agent-box {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 10px; text-align: center;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .agent-box:hover { border-color: var(--cyan); box-shadow: 0 0 16px rgba(0,212,255,0.15); }
+    .agent-box .emoji { font-size: 1.5rem; }
+    .agent-box .name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem; color: var(--cyan);
+      letter-spacing: 1px; margin-top: 6px;
+    }
+    .agent-box .role { font-size: 0.65rem; color: var(--muted); margin-top: 2px; }
+
+    .outputs-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    }
+    .output-box {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px; text-align: center;
+    }
+    .output-box .emoji { font-size: 1.6rem; }
+    .output-box .name { font-size: 0.8rem; font-weight: 600; color: var(--green); margin-top: 8px; }
+    .output-box .desc { font-size: 0.65rem; color: var(--muted); margin-top: 4px; font-family: 'JetBrains Mono', monospace; }
+
+    .flow-line {
+      stroke: var(--border); stroke-width: 2; fill: none;
+    }
+    .flow-line.active { stroke: var(--cyan); stroke-dasharray: 6 4; animation: flow 1.5s linear infinite; }
+    @keyframes flow { to { stroke-dashoffset: -20; } }
+
+    svg.arrows { width: 100%; height: 24px; display: block; margin: 0 auto; }
+
+    .legend {
+      display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+      margin-top: 28px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+    }
+    .legend span { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+    .legend .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dot-cyan { background: var(--cyan); }
+    .dot-purple { background: var(--purple); }
+    .dot-green { background: var(--green); }
+
+    @media (max-width: 700px) {
+      .agents-grid { grid-template-columns: repeat(2, 1fr); }
+      .outputs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h1>◈ Company OS Architecture</h1>
+  <p class="subtitle">Autonomous Agent Swarm · Dependency-Aware Shared Brain</p>
+
+  <div class="diagram">
+    <!-- User Input -->
+    <div class="layer layer-input">
+      <div class="layer-label">Entry Point</div>
+      <div class="layer-title">Founder Input — One Sentence Company Idea</div>
+      <div class="layer-sub">Flask Dashboard · SSE Live Stream · POST /api/run</div>
+    </div>
+
+    <svg class="arrows" viewBox="0 0 400 24"><line class="flow-line active" x1="200" y1="0" x2="200" y2="24"/></svg>
+
+    <!-- Azure AI Foundry -->
+    <div class="layer layer-ai">
+      <div class="layer-label">Azure AI Foundry</div>
+      <div class="layer-title">Claude Models · Prompt Flow · Agent Reasoning</div>
+      <div class="layer-sub">Strategy · Code · Legal · Sales · Finance · Risk analysis</div>
+    </div>
+
+    <svg class="arrows" viewBox="0 0 400 24"><line class="flow-line active" x1="200" y1="0" x2="200" y2="24"/></svg>
+
+    <!-- Orchestrator -->
+    <div class="orchestrator-box">
+      <div class="icon">🔀</div>
+      <h2>ORCHESTRATOR</h2>
+      <div class="layer-sub">Dependency graph · Task routing · Agent sequencing</div>
+    </div>
+
+    <svg class="arrows" viewBox="0 0 400 24"><line class="flow-line active" x1="200" y1="0" x2="200" y2="24"/></svg>
+
+    <!-- 7 Agents -->
+    <div class="layer">
+      <div class="layer-label">Agent Swarm — 7 Specialized Functions</div>
+      <div class="agents-grid">
+        <div class="agent-box"><div class="emoji">🎯</div><div class="name">CEO</div><div class="role">Strategy & OKRs</div></div>
+        <div class="agent-box"><div class="emoji">⚙️</div><div class="name">ENGINEER</div><div class="role">Landing Page</div></div>
+        <div class="agent-box"><div class="emoji">⚖️</div><div class="name">LEGAL</div><div class="role">ToS & Policy</div></div>
+        <div class="agent-box"><div class="emoji">📧</div><div class="name">SALES</div><div class="role">Outreach</div></div>
+        <div class="agent-box"><div class="emoji">💰</div><div class="name">FINANCE</div><div class="role">Projections</div></div>
+        <div class="agent-box"><div class="emoji">⚠️</div><div class="name">RISK</div><div class="role">Alerts</div></div>
+        <div class="agent-box"><div class="emoji">✅</div><div class="name">VALIDATOR</div><div class="role">Fact-check</div></div>
+        <div class="agent-box"><div class="emoji">🔒</div><div class="name">APPROVAL</div><div class="role">Human gate</div></div>
+      </div>
+    </div>
+
+    <!-- Cosmos DB -->
+    <div class="layer layer-brain">
+      <div class="layer-label">Shared Brain</div>
+      <div class="layer-title">Azure Cosmos DB — agent_state container</div>
+      <div class="layer-sub">Change feed nervous system · Read/write per agent · Persistent company memory</div>
+    </div>
+
+    <!-- Azure Monitor -->
+    <div class="layer layer-monitor">
+      <div class="layer-label">Observability</div>
+      <div class="layer-title">Azure Monitor · Application Insights</div>
+      <div class="layer-sub">Pipeline telemetry · Agent confidence scores · Critical risk alerts</div>
+    </div>
+
+    <svg class="arrows" viewBox="0 0 400 24"><line class="flow-line active" x1="200" y1="0" x2="200" y2="24"/></svg>
+
+    <!-- Outputs -->
+    <div class="layer layer-outputs">
+      <div class="layer-label">Real-World Outputs — Verifiable After Demo</div>
+      <div class="outputs-grid">
+        <div class="output-box">
+          <div class="emoji">🌐</div>
+          <div class="name">GitHub Pages</div>
+          <div class="desc">Live landing URL</div>
+        </div>
+        <div class="output-box">
+          <div class="emoji">📧</div>
+          <div class="name">Gmail SMTP</div>
+          <div class="desc">Real beta email sent</div>
+        </div>
+        <div class="output-box">
+          <div class="emoji">📄</div>
+          <div class="name">Legal Docs</div>
+          <div class="desc">ToS + Refund Policy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><span class="dot dot-cyan"></span> Data flow</span>
+      <span><span class="dot dot-purple"></span> AI reasoning</span>
+      <span><span class="dot dot-green"></span> Deliverables</span>
+    </div>
+  </div>
+</body>
+</html>

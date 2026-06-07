@@ -1,0 +1,99 @@
+LEGAL DOCUMENTS — MindBridge
+==================================================
+
+# MindBridge Legal Documents Package
+
+**Disclaimer:** These documents are templates for educational and guidance purposes. They should be reviewed and customized by licensed legal counsel before use, as they do not constitute legal advice and do not replace professional legal review.
+
+---
+
+## DOCUMENT 1: TERMS OF SERVICE
+
+**MindBridge Terms of Service**
+**Effective Date: [INSERT DATE]**
+**Last Updated: [INSERT DATE]**
+
+---
+
+### 1. ACCEPTANCE OF TERMS
+
+By downloading, accessing, or using the MindBridge mobile application and website (collectively, the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not access or use the Service.
+
+MindBridge ("Company," "we," "us," or "our") reserves the right to modify these Terms at any time. We will notify you of material changes via email or through the Service. Your continued use of the Service following such notification constitutes acceptance of the modified Terms. If you do not accept the modified Terms, your sole remedy is to cease using the Service.
+
+---
+
+### 2. SERVICE DESCRIPTION
+
+MindBridge is a mental health support platform designed for college students. The Service provides:
+- Anonymous peer support matching
+- Mood tracking and trend analytics
+- Crisis resources and emergency contacts
+- Mental health professional directories
+- Coping tools and guided meditations
+- Moderated community forums
+- Integration with campus mental health services
+
+**MindBridge is NOT a substitute for professional mental health treatment.** The Service is designed to supplement, not replace, professional medical advice, diagnosis, or treatment.
+
+---
+
+### 3. ELIGIBILITY AND ACCOUNT CREATION
+
+**Age Requirements:** You must be at least 13 years old to use MindBridge. If you are under 18, you represent that you have parental or guardian consent to use the Service. If you are under 13, you may not use this Service.
+
+**College Student Eligibility:** MindBridge is optimized for college students (typically ages 18-30). Users outside this demographic may use the Service, but features and support resources are designed with college populations in mind.
+
+**Account Registration:**
+- You are responsible for maintaining the confidentiality of your account credentials
+- You agree to provide accurate, current, and complete information during registration
+- You are solely responsible for all activities under your account
+- You agree to notify us immediately of any unauthorized use of your account
+
+---
+
+### 4. USER CONDUCT AND PROHIBITED BEHAVIOR
+
+You agree NOT to:
+
+**a) Create Harm**
+- Engage in self-harm, suicidal ideation, or encourage others to do so
+- Harass, threaten, or bully other users or staff members
+- Share content depicting abuse, violence, or exploitation
+
+**b) Violate Laws**
+- Use the Service for illegal purposes or to violate any applicable laws
+- Share content that is illegal in your jurisdiction
+- Attempt to circumvent platform security measures
+
+**c) Compromise Platform Integrity**
+- Share another person's personal information without consent
+- Attempt to gain unauthorized access to accounts or systems
+- Upload malware, viruses, or malicious code
+- Spam, phish, or conduct automated scraping
+
+**d) Manipulate the Service**
+- Create multiple accounts to evade moderation or bans
+- Impersonate other users or mental health professionals
+- Share medical or therapeutic credentials you do not hold
+- Engage in sexual, romantic, or financial exploitation
+
+**e) Share Regulated Content**
+- Share medical advice (unless you are a licensed provider)
+- Promote unverified treatments or medical claims
+- Share prescription medications or controlled substances
+- Solicit or share personal health information of others
+
+---
+
+### 5. CRISIS SUPPORT DISCLAIMERS
+
+**The MindBridge Crisis Support Feature Is NOT a Replacement for Emergency Services.**
+
+If you or someone else is in immediate danger, experiencing suicidal thoughts, or experiencing a mental health crisis:
+- **Call the 988 Suicide & Crisis Lifeline:** 988 (US, call or text)
+- **International Association for Suicide Prevention:** https://www.iasp.info/resources/Crisis_Centres/
+- **Call Emergency Services:** 911 (US) or your local emergency number
+- **Go to the nearest emergency room**
+
+Our crisis resources provide information and links to professional services. We cannot guarantee response times or the quality of external resources. **You are solely responsible

@@ -1,0 +1,114 @@
+LEGAL DOCUMENTS — MindWell
+==================================================
+
+# LEGAL DOCUMENTS FOR MINDWELL
+
+---
+
+## DOCUMENT 1: TERMS OF SERVICE
+
+**Last Updated: [DATE]**
+
+---
+
+### 1. ACCEPTANCE OF TERMS
+
+By downloading, accessing, or using the MindWell mobile application and website (collectively, the "Service"), you agree to be legally bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.
+
+**For College Students Under 18:** If you are under 18 years old, your parent or legal guardian must review and accept these Terms on your behalf. By using the Service, you represent that your parent or guardian has consented.
+
+**For University Partners:** If you are accessing the University Counselor Dashboard, you also agree to our Data Processing Agreement and any institutional agreements executed between MindWell and your institution.
+
+---
+
+### 2. SERVICE DESCRIPTION
+
+MindWell ("we," "us," "our," or "Company") provides a mobile-first mental health support application designed for college students. The Service includes:
+
+- Daily mood tracking and trend analysis
+- Mental health content library (meditations, exercises, articles)
+- Moderated peer support community forums
+- Crisis resource directory
+- Journaling and reflection tools with AI-assisted analysis
+- Preventive assessment tools (PHQ-9, GAD-7)
+- Optional premium features including therapist matching and enhanced storage
+
+**What MindWell Is NOT:** MindWell is not a replacement for professional mental health treatment, emergency services, or crisis intervention. The Service is a supplementary mental health support tool designed to complement, not substitute, care from licensed mental health professionals.
+
+---
+
+### 3. WHO CAN USE MINDWELL
+
+You may use MindWell if you:
+
+- Are a college or university student, or authorized staff/faculty member (for institutional dashboard access)
+- Are at least 13 years old (or have parental consent if under 18)
+- Have the legal capacity to enter into a binding agreement
+- Are not prohibited by law from using the Service
+- Agree to comply with all applicable laws and these Terms
+- Have not violated MindWell's terms in the past
+
+MindWell reserves the right to refuse service to anyone, at any time, for any lawful reason.
+
+---
+
+### 4. USER ACCOUNTS AND REGISTRATION
+
+**Account Creation:** You must create an account to access most features. You agree to:
+
+- Provide accurate, current, and complete information during registration
+- Update your information promptly if it changes
+- Maintain the confidentiality of your password
+- Accept responsibility for all activities under your account
+- Notify us immediately of unauthorized access
+
+**Account Verification:** For users under 18, we may require parental verification before account activation.
+
+**Institutional Accounts:** University counselor dashboard accounts are for authorized institutional staff only. You may not share credentials or allow unauthorized access.
+
+---
+
+### 5. ACCEPTABLE USE POLICY
+
+You agree NOT to:
+
+**Illegal Activity:**
+- Use the Service for any illegal purpose or in violation of any law
+- Engage in harassment, threats, abuse, or hate speech
+- Distribute or access illegal content
+
+**Harmful Content:**
+- Post content that encourages self-harm, suicide, or violence
+- Share content that sexualizes minors or exploits children
+- Distribute malware, viruses, or harmful code
+- Attempt to hack, exploit, or disable the Service
+
+**Privacy and Intellectual Property:**
+- Impersonate others or misrepresent your identity
+- Access others' private information or journals without consent
+- Scrape, copy, or reproduce content without permission
+- Reverse-engineer or attempt to access source code
+
+**Community Disruption:**
+- Spam, flood, or send unsolicited messages
+- Post commercial advertisements or solicitations
+- Disrupt the moderated peer support community
+- Share others' personal information without consent
+
+**Violation Consequences:** We may:
+- Suspend or terminate your account
+- Remove harmful content
+- Report illegal activity to authorities
+- Pursue legal action if necessary
+
+---
+
+### 6. MENTAL HEALTH DISCLAIMER & LIMITATIONS
+
+**CRITICAL: MINDWELL IS NOT EMERGENCY CARE**
+
+MindWell is not a substitute for professional mental health treatment, emergency services, or crisis intervention. **If you are in crisis, experiencing suicidal thoughts, or in immediate danger, contact emergency services immediately.**
+
+**Limitations of the Service:**
+
+- **No Professional Diagnosis:**

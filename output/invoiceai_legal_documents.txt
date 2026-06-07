@@ -1,0 +1,110 @@
+LEGAL DOCUMENTS — InvoiceAI
+==================================================
+
+# InvoiceAI Legal Documents
+
+---
+
+## DOCUMENT 1: TERMS OF SERVICE
+
+**Last Updated: [DATE]**
+
+---
+
+### 1. INTRODUCTION AND ACCEPTANCE
+
+These Terms of Service ("Terms") govern your access to and use of the InvoiceAI platform, including all associated features, software, and services (collectively, the "Service"). InvoiceAI, Inc. ("InvoiceAI," "we," "us," or "our") provides this Service to you on these Terms.
+
+**By accessing or using InvoiceAI, you agree to be bound by these Terms.** If you do not agree to all terms and conditions, you may not access or use the Service.
+
+**Important Note for Financial Document Processing:** InvoiceAI processes sensitive financial documents. By using our Service, you acknowledge that you understand the responsibilities involved in handling accounting data and agree to comply with all applicable financial regulations in your jurisdiction.
+
+---
+
+### 2. USE LICENSE AND RESTRICTIONS
+
+**2.1 Grant of License**
+
+We grant you a limited, non-exclusive, non-transferable license to access and use InvoiceAI solely for your internal business purposes. This license is personal to you and your company.
+
+**2.2 What You Cannot Do**
+
+You agree NOT to:
+- Reverse engineer, decompile, or attempt to discover the source code or underlying algorithms
+- Use InvoiceAI for illegal purposes or to violate any applicable laws
+- Attempt to gain unauthorized access to any portion or feature of the Service
+- Rent, sell, lease, or transfer your access rights to third parties
+- Remove or alter any proprietary notices, labels, or marks on the Service
+- Use the Service to process documents for customers or clients without our written approval (reseller terms)
+- Extract bulk data systematically for purposes outside the Service's intended use
+- Interfere with or disrupt the integrity or performance of the Service
+
+**2.3 Compliance with Laws**
+
+You are responsible for ensuring your use of InvoiceAI complies with all applicable laws, including but not limited to:
+- Accounting and audit regulations in your jurisdiction
+- Tax reporting requirements
+- Data protection laws (GDPR, CCPA, and others)
+- Financial document retention requirements
+- Industry-specific regulations (if applicable)
+
+---
+
+### 3. USER ACCOUNTS AND RESPONSIBILITIES
+
+**3.1 Account Creation**
+
+You are responsible for:
+- Providing accurate, current, and complete information when creating your account
+- Maintaining the confidentiality of your login credentials and passwords
+- Notifying us immediately of any unauthorized access to your account
+- All activities that occur under your account
+
+**3.2 Company Administrator**
+
+The person who creates the account ("Administrator") is responsible for:
+- Establishing approval workflows and permissions for team members
+- Ensuring team members understand their responsibilities
+- Monitoring who has access to sensitive financial documents
+- Maintaining appropriate segregation of duties (e.g., requesters cannot approve invoices)
+
+**3.3 Acceptable Use**
+
+You agree to:
+- Use accurate, legitimate business data only
+- Not process test data, fraudulent documents, or fake invoices in production
+- Maintain proper documentation and audit trails of processed invoices
+- Use the Service in a way that does not overburden our infrastructure
+- Comply with the approval workflows your company establishes
+
+---
+
+### 4. PAYMENT TERMS AND BILLING
+
+**4.1 Pricing Structure**
+
+InvoiceAI offers two pricing models:
+
+**Usage-Based Pricing:**
+- $0.25 - $0.50 per invoice processed (exact rate depends on plan selected)
+- Billed monthly based on invoices processed during the billing period
+- Price subject to change with 30 days' written notice
+
+**Flat-Rate Plans:**
+- Fixed monthly fee for predetermined invoice volume
+- Overage charges apply if volume exceeded
+- Terms specified in your subscription agreement
+
+**4.2 Billing and Payment**
+
+- Invoices are issued on the 1st of each month for the previous month's activity
+- Payment is due within 30 days of invoice date
+- We accept major credit cards and bank transfers
+- All fees are exclusive of applicable taxes (sales tax, VAT, etc.)
+- You are responsible for any applicable taxes in your jurisdiction
+
+**4.3 Failed Payments**
+
+If payment fails:
+1. We will attempt to recharge after 3 days
+2. If payment

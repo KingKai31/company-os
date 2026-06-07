@@ -1,0 +1,6 @@
+anthropic
+python-dotenv
+azure-cosmos
+PyGithub
+streamlit
+flask

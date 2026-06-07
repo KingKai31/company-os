@@ -1,0 +1,108 @@
+LEGAL DOCUMENTS — TemplateFlow
+==================================================
+
+# TEMPLATEFLOW LEGAL DOCUMENTS
+
+---
+
+## DOCUMENT 1: TERMS OF SERVICE
+
+**Last Updated: January 2024**
+
+---
+
+### 1. ACCEPTANCE OF TERMS
+
+By accessing, browsing, or using TemplateFlow (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.
+
+These Terms apply to all users of TemplateFlow, including but not limited to individuals, freelancers, small business owners, and organizations (collectively, "Users" or "you"). TemplateFlow Inc. ("Company," "we," "us," or "our") reserves the right to modify these Terms at any time. Changes become effective when posted to the Service. Your continued use of TemplateFlow after modifications indicates your acceptance of updated Terms.
+
+---
+
+### 2. SERVICE DESCRIPTION
+
+**2.1 What TemplateFlow Provides**
+
+TemplateFlow is a Software-as-a-Service (SaaS) platform that provides:
+
+- Pre-built, customizable productivity templates for freelancers
+- Templates across writing, design, and development verticals
+- AI integration with third-party tools (ChatGPT, Claude, and others)
+- Connections to popular productivity and business applications
+- Cloud-based storage and management of your customized templates
+
+**2.2 Service Availability**
+
+We strive to maintain 99.5% uptime but do not guarantee uninterrupted service. The Service may be unavailable for maintenance, updates, or due to circumstances beyond our reasonable control.
+
+---
+
+### 3. USER ACCOUNTS AND REGISTRATION
+
+**3.1 Account Creation**
+
+To use TemplateFlow, you must:
+
+- Be at least 18 years old
+- Provide accurate, complete, and current information during registration
+- Maintain the confidentiality of your password and account information
+- Accept responsibility for all activities under your account
+
+**3.2 Account Security**
+
+You are responsible for:
+
+- Protecting your login credentials
+- Notifying us immediately of unauthorized access
+- All activities conducted through your account, whether authorized or unauthorized
+
+We are not liable for unauthorized access resulting from your failure to secure your account.
+
+**3.3 Account Termination**
+
+You may terminate your account at any time by contacting support@templateflow.com. Upon termination, your access ends immediately, though we may retain certain data as required by law or for backup purposes.
+
+---
+
+### 4. INTELLECTUAL PROPERTY RIGHTS
+
+**4.1 TemplateFlow Owns the Platform and Base Templates**
+
+All content, features, and functionality of TemplateFlow—including base templates, software code, design elements, and documentation—are owned by TemplateFlow Inc. or our licensors. These are protected by copyright, trademark, and other intellectual property laws.
+
+**4.2 Your License to Use Templates**
+
+We grant you a limited, non-exclusive, non-transferable, revocable license to:
+
+- Access and use TemplateFlow templates for your personal or business purposes
+- Customize templates for your specific needs
+- Create derivative works based on templates for your own use
+- Export customized templates in supported formats
+
+**4.3 Restrictions on Your Use**
+
+You may NOT:
+
+- Redistribute, resell, or sublicense templates to third parties
+- Claim ownership of TemplateFlow templates or base content
+- Remove or alter copyright notices, trademarks, or attribution
+- Use templates for illegal purposes or to violate others' rights
+- Reverse-engineer or attempt to extract TemplateFlow's underlying code
+- Create competing products based on TemplateFlow templates or functionality
+- Share your account or license with others outside your immediate organization
+- Use templates to develop a competing template library or service
+
+**4.4 User-Generated Content**
+
+When you customize templates, upload content, or generate new materials using TemplateFlow:
+
+- You retain ownership of content you create
+- You grant TemplateFlow a worldwide, royalty-free license to use, reproduce, and display your content for the purpose of providing and improving the Service
+- You are responsible for ensuring your content does not infringe third-party rights
+- You represent that you own or have rights to all content you upload
+
+**4.5 AI-Generated Content**
+
+Templates may integrate with third-party AI tools (ChatGPT, Claude, etc.). When you use AI features:
+
+- You are responsible for complying with those tools
