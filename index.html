@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="/">
   <title>MindCampus — Company Intelligence Report</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -13,96 +12,206 @@
       --border: rgba(0,0,0,0.08); --muted: #64748b;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text);
+      line-height: 1.6; overflow-x: hidden;
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     h1,h2,h3 { font-family: 'Space Grotesk', sans-serif; color: var(--heading); }
-    .section { padding: 64px 0; border-top: 1px solid var(--border); }
-    .section-label {
-      font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 8px;
+    .section { padding: 72px 0; border-top: 1px solid var(--border); }
+    .section-title {
+      font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 10px; font-weight: 600;
     }
     .card {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 24px; margin-bottom: 16px;
+      border-radius: 14px; padding: 24px; margin-bottom: 16px;
     }
+    /* Splash */
+    .splash {
+      position: fixed; inset: 0; z-index: 9999; background: var(--bg);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      animation: splashOut 0.6s ease 1.5s forwards;
+    }
+    .splash h1 { font-size: 2.5rem; animation: splashIn 0.8s ease; }
+    .splash p { color: var(--muted); margin-top: 12px; animation: splashIn 0.8s ease 0.3s both; }
+    @keyframes splashIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @keyframes splashOut { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+    .main-content { animation: contentIn 0.8s ease 1.6s both; }
+    @keyframes contentIn { from { opacity: 0; } to { opacity: 1; } }
+    /* Navbar */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      -webkit-backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; gap: 16px;
+    }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--heading) !important; text-decoration: none; font-size: 0.95rem; }
+    .nav-links { display: flex; gap: 8px; flex-wrap: wrap; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted) !important; font-size: 0.82rem;
+      font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent) !important; background: rgba(255,255,255,0.06); }
     /* Hero */
-    .hero { padding: 80px 0 64px; text-align: center; }
+    .hero { padding: 72px 0 56px; text-align: center; }
     .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 16px; }
-    .hero .value-prop { font-size: 1.15rem; max-width: 720px; margin: 0 auto 20px; color: var(--text); }
+    .hero .value-prop { font-size: 1.15rem; max-width: 720px; margin: 0 auto 20px; }
     .hero .built-for {
-      display: inline-block; background: rgba(0,212,255,0.08);
-      border: 1px solid var(--accent); border-radius: 999px;
+      display: inline-block; border: 1px solid var(--accent); border-radius: 999px;
       padding: 8px 20px; font-size: 0.85rem; margin-bottom: 32px;
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
     }
     .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .btn {
       padding: 14px 28px; border-radius: 8px; font-weight: 600;
-      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
     }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--gold));
-      color: #fff !important;
-    }
-    .btn-secondary {
-      border: 1px solid var(--accent); color: var(--accent) !important;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--gold)); color: #fff !important; }
+    .btn-secondary { border: 1px solid var(--accent); color: var(--accent) !important; background: transparent; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
     /* OKRs */
-    .okr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-    .okr-card ul { margin: 12px 0; padding-left: 20px; }
-    .okr-card li { margin-bottom: 6px; font-size: 0.9rem; }
-    .progress-wrap { background: rgba(255,255,255,0.1); border-radius: 999px; height: 6px; margin-top: 12px; }
-    .progress-bar { background: var(--accent); height: 100%; border-radius: 999px; }
-    .progress-label { font-size: 0.75rem; color: var(--muted); }
-    /* Timeline */
-    .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
-    @media (max-width: 768px) { .timeline { grid-template-columns: 1fr; } }
-    .timeline-item { border-left: 3px solid var(--accent); padding-left: 16px; }
-    .timeline-item h4 { color: var(--accent); margin-bottom: 8px; }
-    /* Finance chart */
-    .chart { display: flex; align-items: flex-end; gap: 24px; height: 200px; margin: 32px 0; justify-content: center; }
-    .bar-wrap { text-align: center; flex: 1; max-width: 120px; }
-    .bar {
-      background: linear-gradient(180deg, var(--accent), var(--gold));
-      border-radius: 8px 8px 0 0; min-height: 4px;
-      transition: height 1.2s ease;
+    .okr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px; }
+    .okr-card { border-left: 4px solid var(--accent); }
+    .okr-card h3 { color: var(--heading); font-weight: 700; margin-bottom: 12px; }
+    .kr-list { margin: 12px 0; padding-left: 18px; color: var(--muted); }
+    .kr-list li { margin-bottom: 6px; font-size: 0.9rem; }
+    .progress-wrap { background: rgba(255,255,255,0.08); border-radius: 999px; height: 6px; margin-top: 14px; }
+    .progress-bar { width: 0%; background: var(--accent); height: 100%; border-radius: 999px; }
+    .progress-label { font-size: 0.75rem; color: var(--muted); margin-top: 6px; display: block; }
+    /* Timeline steps */
+    .timeline-steps {
+      display: flex; align-items: flex-start; gap: 0; margin-top: 32px; position: relative;
     }
-    .bar-label { margin-top: 8px; font-weight: 600; }
-    .bar-value { font-size: 1.1rem; color: var(--accent); font-weight: 700; }
-    .finance-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
-    .stat-box { text-align: center; padding: 20px; }
-    .stat-box .num { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
-    .stat-box .lbl { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .timeline-steps::before {
+      content: ''; position: absolute; top: 24px; left: 10%; right: 10%;
+      height: 2px; background: var(--accent); z-index: 0;
+    }
+    .step {
+      flex: 1; text-align: center; position: relative; z-index: 1; padding: 0 8px;
+    }
+    .step-circle {
+      width: 48px; height: 48px; border-radius: 50%; background: var(--accent);
+      color: #fff; font-weight: 700; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;
+      box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 40%, transparent);
+    }
+    .step h4 { color: var(--accent); margin-bottom: 8px; font-size: 0.95rem; }
+    .step p { font-size: 0.85rem; color: var(--muted); text-align: left; }
+    @media (max-width: 768px) {
+      .timeline-steps { flex-direction: column; gap: 24px; }
+      .timeline-steps::before { display: none; }
+    }
+    /* Finance chart */
+    .chart-wrap { margin: 32px 0; padding: 24px; background: var(--card); border-radius: 14px; border: 1px solid var(--border); }
+    .chart { display: flex; align-items: flex-end; justify-content: center; gap: 32px; height: 220px; }
+    .bar-col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 200px; flex: 1; max-width: 100px; }
+    .bar-amount { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+    .bar {
+      width: 56px; border-radius: 8px 8px 0 0;
+      background: linear-gradient(180deg, var(--accent), var(--gold));
+      height: 0; animation-fill-mode: forwards;
+    }
+    .bar-m1 { animation: growBar1 1.2s ease-out 0.3s forwards; }
+    .bar-m2 { animation: growBar2 1.2s ease-out 0.5s forwards; }
+    .bar-m3 { animation: growBar3 1.2s ease-out 0.7s forwards; }
+    @keyframes growBar1 { from { height: 0; } to { height: 4px; } }
+    @keyframes growBar2 { from { height: 0; } to { height: 4px; } }
+    @keyframes growBar3 { from { height: 0; } to { height: 4px; } }
+    .bar-label { margin-top: 10px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+    .bar-pct { font-size: 0.7rem; color: var(--muted); }
+    .finance-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 24px; }
+    .metric-card { text-align: center; padding: 24px 16px; }
+    .metric-card .lbl { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .metric-card .val { font-size: 1.9rem; font-weight: 700; color: var(--accent); }
+    /* Market */
+    .profile-card { display: flex; gap: 20px; align-items: flex-start; }
+    .avatar {
+      width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      color: #fff; font-weight: 700; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .leads-metric { text-align: center; padding: 32px; }
+    .leads-metric .val { font-size: 3.5rem; font-weight: 700; color: var(--accent); line-height: 1; }
+    .funnel { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 16px; }
+    .funnel-step {
+      text-align: center; padding: 12px; color: #fff; font-weight: 600; font-size: 0.85rem;
+    }
+    .funnel-step:nth-child(1) { width: 100%; background: var(--accent); clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%); }
+    .funnel-step:nth-child(2) { width: 75%; background: color-mix(in srgb, var(--accent) 70%, var(--gold)); clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); }
+    .funnel-step:nth-child(3) { width: 50%; background: var(--gold); clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); color: #fff; }
     /* Risk */
+    .risk-top { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+    .overall-badge {
+      font-size: 0.85rem; font-weight: 700; padding: 10px 20px; border-radius: 8px;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .overall-badge.critical { background: #ef4444; color: #fff; }
+    .overall-badge.medium { background: #eab308; color: #000; }
+    .overall-badge.low { background: #22c55e; color: #fff; }
+    .confidence-ring {
+      width: 72px; height: 72px; border-radius: 50%; position: relative;
+      background: conic-gradient(var(--accent) 223deg, rgba(255,255,255,0.1) 0deg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .confidence-ring::before {
+      content: ''; position: absolute; inset: 6px; border-radius: 50%; background: var(--card);
+    }
+    .confidence-ring span { position: relative; z-index: 1; font-weight: 700; font-size: 0.85rem; color: var(--accent); }
+    .risk-card { display: flex; overflow: hidden; padding: 0; }
+    .risk-severity-bar { width: 5px; flex-shrink: 0; }
+    .sev-critical .risk-severity-bar { background: #ef4444; }
+    .sev-medium .risk-severity-bar { background: #eab308; }
+    .sev-low .risk-severity-bar { background: #22c55e; }
+    .risk-body { padding: 20px 24px; flex: 1; }
     .badge { font-size: 0.65rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; letter-spacing: 1px; }
     .badge.critical { background: #ef4444; color: #fff; }
     .badge.medium { background: #eab308; color: #000; }
     .badge.low { background: #22c55e; color: #fff; }
-    .risk-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
-    .risk-header h3 { font-size: 1rem; }
-    .mitigation { margin-top: 12px; padding: 12px; background: rgba(255,255,255,0.04); border-radius: 8px; font-size: 0.9rem; }
-    .negotiation-badge {
-      display: inline-block; background: #ef4444; color: #fff;
-      padding: 8px 16px; border-radius: 8px; font-weight: 700;
-      font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 16px;
-      animation: pulse 2s infinite;
+    .risk-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .risk-header h3 { color: var(--heading); font-weight: 700; font-size: 1rem; }
+    .risk-desc { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
+    .mit-toggle {
+      background: none; border: 1px solid var(--border); color: var(--accent);
+      padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 0.82rem;
     }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .mitigation-panel {
+      display: none; margin-top: 12px; padding: 14px;
+      background: rgba(255,255,255,0.04); border-radius: 8px; font-size: 0.9rem;
+    }
+    .mitigation-panel.open { display: block; }
+    .negotiation-badge {
+      display: inline-block; background: #eab308; color: #000;
+      padding: 10px 18px; border-radius: 8px; font-weight: 700;
+      font-size: 0.82rem; letter-spacing: 1px; margin-bottom: 16px;
+      animation: negPulse 1.5s ease infinite;
+    }
+    @keyframes negPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(234,179,8,0.6); } 50% { box-shadow: 0 0 0 12px rgba(234,179,8,0); } }
     /* Legal */
-    .legal-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; }
-    .check-ok { color: #22c55e; font-size: 1.4rem; font-weight: 700; }
-    .check-pending { color: var(--muted); font-size: 1.4rem; }
+    .legal-row {
+      display: flex; align-items: center; gap: 16px; padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-row:last-child { border-bottom: none; }
+    .icon-circle {
+      width: 36px; height: 36px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;
+    }
+    .icon-circle.ok { background: rgba(34,197,94,0.15); color: #22c55e; }
+    .icon-circle.pending { background: rgba(148,163,184,0.15); color: var(--muted); }
+    .status-badge { margin-left: auto; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; letter-spacing: 1px; }
+    .status-badge.ok { background: rgba(34,197,94,0.15); color: #22c55e; }
+    .status-badge.pending { background: rgba(148,163,184,0.15); color: var(--muted); }
     /* Attribution */
-    .attrib { text-align: center; padding: 48px 0; }
+    .attrib { text-align: center; padding: 64px 0; }
     .attrib h2 { margin-bottom: 16px; }
     .attrib p { color: var(--muted); margin-bottom: 8px; }
-    .attrib a { color: var(--accent) !important; font-weight: 600; }
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
@@ -121,190 +230,251 @@ p,span,li,td,th,label { color: #334155 !important; }
 </style>
 </head>
 <body>
-  <section class="hero">
-    <div class="container">
-      <div class="section-label">Company OS Intelligence Report</div>
-      <h1>MindCampus</h1>
-      <p class="value-prop">Make mental health support accessible, affordable, and tailored to the unique stressors college students face.</p>
-      <div class="built-for">Built for: College students ages 18-26 across all class years (freshman through graduate/professional students) at 4-year universities, with initial focus on mid-to-large institutions (5,000+ students) in US, prioritizing students experiencing moderate mental health challenges (anxiety, depression, stress) who are price-sensitive, digitally native, and seek specialized support for college-specific stressors over general adult mental health platforms.</div>
-      <div class="hero-btns">
-        <a href="#strategy" class="btn btn-primary">View Strategy</a>
-        <a href="#financials" class="btn btn-secondary">See Financials</a>
-      </div>
-    </div>
-  </section>
+  <div class="splash">
+    <h1>MindCampus</h1>
+    <p>Built by Company OS</p>
+  </div>
 
-  <section id="strategy" class="section">
-    <div class="container">
-      <div class="section-label">Section 2</div>
-      <h2>90-Day Strategy</h2>
-      <div class="okr-grid">
+  <div class="main-content">
+    <nav class="navbar">
+      <div class="container nav-inner">
+        <a class="nav-logo" href="#">MindCampus</a>
+        <ul class="nav-links">
+          <li><a href="#strategy" data-nav="strategy">Strategy</a></li>
+          <li><a href="#financials" data-nav="financials">Financials</a></li>
+          <li><a href="#market" data-nav="market">Market</a></li>
+          <li><a href="#risks" data-nav="risks">Risks</a></li>
+          <li><a href="#legal" data-nav="legal">Legal</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="container">
+        <div class="section-title">Company Intelligence Report</div>
+        <h1>MindCampus</h1>
+        <p class="value-prop">To make mental health support accessible, affordable, and stigma-free for every college student in America.</p>
+        <div class="built-for">Built for: Primary: College students aged 18-24 at 4-year US universities (4.5M students) with high stress/anxiety/depression rates. Secondary: College counseling centers and campus health systems seeking digital mental health solutions. Tertiary: Students at community colleges and international student populations.</div>
+        <div class="hero-btns">
+          <a href="#strategy" class="btn btn-primary">View Strategy</a>
+          <a href="#financials" class="btn btn-secondary">See Financials</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="strategy" class="section">
+      <div class="container">
+        <div class="section-title">90-Day Strategy</div>
+        <h2>Strategic OKRs &amp; Milestones</h2>
+        <div class="okr-grid">
             <div class="card okr-card fade-in">
-              <h3>Establish market fit and clinical credibility with college student population</h3>
-              <ul><li>Achieve 80%+ DAU/MAU ratio among beta users by day 60</li><li>Complete and publish clinical outcomes study showing 35%+ improvement in anxiety/depression metrics for engaged users by day 90</li><li>Secure partnerships with 15 universities including top-50 institutions by day 90</li></ul>
-              <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div></div>
-              <span class="progress-label">0% — Just started</span>
+              <h3>Validate product-market fit with college student segment</h3>
+              <ul class="kr-list"><li>Achieve 40%+ 4-week retention rate across active users</li><li>Conduct 50+ user interviews with target users, achieve &gt;70% positive feedback on core use cases</li><li>Reach 4.5+ app store rating with 500+ reviews</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card fade-in">
-              <h3>Drive user acquisition targeting college-specific channels</h3>
-              <ul><li>Reach 5,000+ total app downloads by day 90 (target: 2,000 by day 60)</li><li>Achieve 2,000+ paid subscribers (premium or institutional) by day 90</li><li>Build user referral program generating 25%+ of new user signups by day 90</li></ul>
-              <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div></div>
-              <span class="progress-label">0% — Just started</span>
+              <h3>Build and activate engaged user base</h3>
+              <ul class="kr-list"><li>Grow to 10,000 monthly active users by end of Q1</li><li>Achieve 25%+ weekly active user rate (2,500+ WAU)</li><li>Establish presence on 30+ college campuses with ambassador network of 50+ students</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card fade-in">
-              <h3>Build sustainable retention and engagement metrics</h3>
-              <ul><li>Maintain 70%+ month-2 retention rate for free users and 85%+ for paid subscribers</li><li>Achieve 4+ average weekly sessions per active user by day 90</li><li>Reach 90%+ completion rate on onboarding and initial mental health assessment</li></ul>
-              <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div></div>
-              <span class="progress-label">0% — Just started</span>
+              <h3>Establish viable institutional partnership revenue model</h3>
+              <ul class="kr-list"><li>Secure 2-3 paid college partnerships generating $15K+ MRR combined</li><li>Develop and validate institutional pricing model ($2-$5 per student per year)</li><li>Create sales playbook with &gt;30% sales qualified lead conversion rate</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card fade-in">
-              <h3>Establish differentiated competitive positioning</h3>
-              <ul><li>Develop and launch 3 college-specific features (peer support matching, exam stress module, dorm adjustment resources) unavailable on BetterHelp/Talkspace by day 90</li><li>Achieve 40%+ lower average cost per therapy session vs. competitors through efficient matching and group offerings</li><li>Secure testimonials/case studies from 10+ students and 5+ university counselors demonstrating superiority in college context</li></ul>
-              <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div></div>
-              <span class="progress-label">0% — Just started</span>
+              <h3>Build differentiated feature set for mental health support</h3>
+              <ul class="kr-list"><li>Launch AI-powered mental wellness insights feature with 50%+ adoption among active users</li><li>Integrate telehealth counselor marketplace with 2+ licensed providers</li><li>Achieve 60%+ daily active user feature adoption (mood tracking, peer support, resources)</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card fade-in">
-              <h3>Build clinical infrastructure and therapeutic quality</h3>
-              <ul><li>Recruit and train 30+ licensed therapists specialized in college mental health by day 90</li><li>Achieve 95%+ therapist availability (median wait time &lt;24 hours for matched session) by day 90</li><li>Implement clinical quality audit system with 98%+ satisfaction rating on therapist interactions</li></ul>
-              <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div></div>
-              <span class="progress-label">0% — Just started</span>
+              <h3>Establish brand trust and safety credibility</h3>
+              <ul class="kr-list"><li>Secure partnerships with 2 college counseling centers for clinical validation</li><li>Achieve Crisis Text Line / SAMHSA resource integration with zero safety incidents</li><li>Publish 1 third-party safety audit report or security certification</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div></div>
-      <div class="timeline">
-        <div class="timeline-item card">
-          <h4>Month 1</h4>
-          <p>Market research and MVP refinement. Conduct 50+ interviews with freshman through grad students across 5-10 universities to validate core pain points (academic pressure, social isolation, financial stress, sleep issues). Finalize clinical advisory board with licensed therapists specializing in college-age populations. Build partnerships with 3-5 university counseling centers for referral pathways. Launch closed beta with 500 students at partner universities. Establish pricing model: freemium tier (peer support, meditation) + $15-25/month premium (therapist access) + institutional partnerships.</p>
-        </div>
-        <div class="timeline-item card">
-          <h4>Month 2</h4>
-          <p>Product optimization and early traction. Iterate MVP based on beta feedback with focus on onboarding experience, matching algorithms for peer support, and crisis intervention features. Achieve 80%+ week-2 retention on core features. Launch official partnerships with 10 universities for in-app promotion and counseling center integration. Recruit 25-30 licensed therapists and train on college-specific mental health protocols. Scale beta to 2,000 active users. Implement analytics dashboard tracking engagement metrics, therapeutic outcomes, and user cohort behavior.</p>
-        </div>
-        <div class="timeline-item card">
-          <h4>Month 3</h4>
-          <p>Growth acceleration and clinical validation. Launch public campaign targeting freshman recruitment during peak orientation periods (August-September). Expand to 15 universities with active partnerships and promotional presence. Achieve 5,000+ app downloads and 2,000+ paid subscribers. Complete first clinical outcomes study with peer-reviewed results (anxiety/depression score improvements). Build institutional sales pipeline with 5+ universities interested in school-wide licensing. Implement referral program incentivizing student-to-student growth. Establish board of student advisors (1-2 from each university) for ongoing product feedback.</p>
+        <div class="timeline-steps">
+          <div class="step fade-in">
+            <div class="step-circle">1</div>
+            <h4>Month 1</h4>
+            <p>Product Stabilization &amp; MVP Launch: Finalize core MVP (mood tracking, resource library, crisis support directory, peer support forums). Launch on iOS/Android. Partner with 3-5 pilot colleges (target schools with 10K-30K students). Recruit 500 early beta users. Establish product analytics and feedback loops. Create college ambassador program.</p>
+          </div>
+          <div class="step fade-in">
+            <div class="step-circle">2</div>
+            <h4>Month 2</h4>
+            <p>Product-Market Fit Validation: Scale to 15-20 campus partnerships. Grow user base to 5,000+ active users. Conduct weekly user interviews (20+ interviews) to refine core value proposition. Release 2-3 feature iterations based on feedback (AI-powered wellness insights, telehealth counselor integration). Launch referral program. Achieve 35%+ weekly retention.</p>
+          </div>
+          <div class="step fade-in">
+            <div class="step-circle">3</div>
+            <h4>Month 3</h4>
+            <p>Growth &amp; Monetization Foundation: Expand to 30+ campuses. Hit 10,000+ active users. Finalize institutional partnership model (per-student pricing with colleges). Launch premium tier ($4.99/month). Secure first 2-3 paid college partnerships ($5K-$15K monthly). Establish partnerships with 2+ licensed telehealth platforms. Build sales playbook and recruit first partnerships manager.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="financials" class="section">
-    <div class="container">
-      <div class="section-label">Section 3</div>
-      <h2>Financial Projections</h2>
-      <p style="margin-bottom:16px;color:var(--muted)">MindCampus projects reaching 91 paid subscribers by month 3 with $1,364 MRR, targeting a $14.99/month price point optimized for price-sensitive college students. With a healthy 9.78x LTV:CAC ratio and 2.4-month payback period, the unit economics support scaling. However, the platform requires $400K seed funding to reach break-even at 1,215 paid subscribers (approximately month 18), assuming 3.2% freemium conversion, 8.5% monthly churn, and institutional partnerships driving organic growth. Monthly burn averages $18,233 across engineering, clinical staff (licensed therapists), marketing, and operations, declining as a percentage of revenue as MRR compounds. The model assumes conservative early-stage adoption and emphasizes institutional distribution partnerships to achieve cost-efficient customer acquisition at scale.</p>
-      <div class="chart">
-        <div class="bar-wrap">
-          <div class="bar" data-height="15" style="height:0"></div>
-          <div class="bar-value counter" data-target="210">$0</div>
-          <div class="bar-label">Month 1 MRR</div>
-        </div>
-        <div class="bar-wrap">
-          <div class="bar" data-height="49" style="height:0"></div>
-          <div class="bar-value counter" data-target="675">$0</div>
-          <div class="bar-label">Month 2 MRR</div>
-        </div>
-        <div class="bar-wrap">
-          <div class="bar" data-height="100" style="height:0"></div>
-          <div class="bar-value counter" data-target="1364">$0</div>
-          <div class="bar-label">Month 3 MRR</div>
-        </div>
-      </div>
-      <div class="finance-stats">
-        <div class="card stat-box">
-          <div class="num counter" data-target="18233">$0</div>
-          <div class="lbl">Burn Rate / Month</div>
-        </div>
-        <div class="card stat-box">
-          <div class="num">5.5 months</div>
-          <div class="lbl">Runway</div>
-        </div>
-        <div class="card stat-box">
-          <div class="num">Month 18</div>
-          <div class="lbl">Break-Even Target</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="market" class="section">
-    <div class="container">
-      <div class="section-label">Section 4</div>
-      <h2>Market Intelligence</h2>
-      <div class="card">
-        <h3>Target Customer Profile</h3>
-        <p>College students ages 18-26 across all class years (freshman through graduate/professional students) at 4-year universities, with initial focus on mid-to-large institutions (5,000+ students) in US, prioritizing students experiencing moderate mental health challenges (anxiety, depression, stress) who are price-sensitive, digitally native, and seek specialized support for college-specific stressors over general adult mental health platforms.</p>
-      </div>
-      <div class="finance-stats">
-        <div class="card stat-box">
-          <div class="num counter" data-target="10">0</div>
-          <div class="lbl">Leads Identified</div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Outreach Strategy</h3>
-        <p>Identify and qualify leads targeting college health centers, student counseling departments, and campus wellness programs at top 100 US universities; draft personalized outreach emails emphasizing cost savings and student mental health outcomes with 10+ initial prospects.</p>
-      </div>
-      <div class="card">
-        <h3>Conversion Assumptions</h3>
-        <p>MindCampus projects reaching 91 paid subscribers by month 3 with $1,364 MRR, targeting a $14.99/month price point optimized for price-sensitive college students. With a healthy 9.78x LTV:CAC ratio and 2.4-month payback period, the unit economics support scaling. However, the platform requires $400K seed funding to reach break-even at 1,215 paid subscribers (approximately month 18), assuming 3.2% freemium conversion, 8.5% monthly churn, and institutional partnerships driving organic growth. Monthly burn averages $18,233 across engineering, clinical staff (licensed therapists), marketing, and operations, declining as a percentage of revenue as MRR compounds. The model assumes conservative early-stage adoption and emphasizes institutional distribution partnerships to achieve cost-efficient customer acquisition at scale.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="risk" class="section">
-    <div class="container">
-      <div class="section-label">Section 5</div>
-      <h2>Risk Dashboard</h2>
-      <span class="negotiation-badge">NEGOTIATION ACTIVATED</span>
-      <p style="margin-bottom:16px">Overall risk level: <strong>CRITICAL</strong> — Confidence score: <strong>62%</strong></p>
-      
-            <div class="card risk-card fade-in">
-              <div class="risk-header">
-                <span class="badge critical">CRITICAL</span>
-                <h3>Critical Regulatory and Licensing Framework Missing for Telehealth Mental Health Operations</h3>
-              </div>
-              <p class="risk-desc">MindCampus operates as a telehealth mental health platform requiring state-by-state licensing compliance, therapist credentialing, and clinical oversight. Legal agent completed basic ToS/Privacy (HIPAA-compliant in name only, confidence 72%) but delivered NO state-specific licensing requirements, therapist vetting procedures, or clinical liability frameworks. Risk agent identified this as top risk but provided no remediation timeline. Launching with unlicensed therapists, inadequate vetting, or missing state compliance creates immediate regulatory shutdown risk and criminal liability for practicing medicine without license.</p>
-              <div class="mitigation"><strong>Mitigation:</strong> IMMEDIATE (48 hours): Engage healthcare compliance attorney specializing in telehealth. Within 7 days: (1) Document therapist licensing requirements by all 50 states; (2) Create credentialing/vetting SOP requiring verified licenses, malpractice insurance, background checks, clinical supervision logs; (3) Establish clinical advisory board of licensed psychologists to oversee treatment protocols; (4) Implement HIPAA BAA (Business Associate Agreement) with all therapists; (5) Secure malpractice insurance covering telehealth delivery. Target: Full compliance framework in place before ANY therapist onboarding. This is non-negotiable launch blocker.</div>
+    <section id="financials" class="section">
+      <div class="container">
+        <div class="section-title">Financial Projections</div>
+        <h2>Revenue &amp; Runway Analysis</h2>
+        <p style="margin:16px 0;color:var(--muted)">MindCampus requires seed funding of $350K to reach break-even at month 18 with conservative assumptions: 8.5% free-to-premium conversion, $4.99/month subscription, and customer acquisition costs of $15 per user through organic campus outreach. Initial 3-month burn rate is $21.1K monthly with heavy marketing investment ($8.75K avg) to build critical user mass across target universities. The model assumes viral adoption within campus communities reduces CAC over time. Premium tier penetration must reach 12,000+ paid subscribers by month 18 to achieve profitability. Key risks include churn sensitivity (12% monthly) and competitive pressure from established telehealth platforms. Diversified revenue (institutional partnerships, counseling center licensing) should be prioritized post-launch to reduce dependency on individual subscriptions.</p>
+        <div class="chart-wrap">
+          <div class="chart">
+            <div class="bar-col">
+              <div class="bar-amount">$0</div>
+              <div class="bar bar-m1"></div>
+              <div class="bar-label">Month 1 MRR</div>
+              <div class="bar-pct">0.0% of peak</div>
             </div>
-            <div class="card risk-card fade-in">
-              <div class="risk-header">
-                <span class="badge critical">CRITICAL</span>
-                <h3>Severe Student Data Privacy and Security Vulnerabilities with No Encryption or Incident Response Plan</h3>
-              </div>
-              <p class="risk-desc">MindCampus collects highly sensitive student mental health data (diagnoses, therapy notes, crisis assessments, personal identifiers). Legal agent delivered Privacy Policy (confidence 72%) but NO technical security specifications: no encryption standards documented, no data retention policy, no breach notification procedures, no access controls, no audit logging. Engineer agent status incomplete (confidence 82% on strategy only, zero security implementation detail). Risk agent noted this but offered generic remediation. FERPA (Family Educational Rights and Privacy Act) and state health privacy laws require specific technical and procedural safeguards. Launching without these creates inevitable data breach liability.</p>
-              <div class="mitigation"><strong>Mitigation:</strong> IMMEDIATE (3 days): Pause therapist onboarding and student data collection until security framework complete. Within 14 days: (1) Engage SOC 2 certified security auditor for comprehensive technical assessment; (2) Implement encryption at-rest (AES-256) and in-transit (TLS 1.2+) for all student data; (3) Create detailed HIPAA BAA and FERPA compliance documentation; (4) Establish data retention and secure deletion policies; (5) Implement role-based access controls and audit logging; (6) Create breach notification procedure with mandatory notification SLA (&lt;72 hours); (7) Obtain Cyber Liability Insurance ($1M+ coverage). Target: SOC 2 Type I audit completion within 30 days before any paying student enrollment.</div>
+            <div class="bar-col">
+              <div class="bar-amount">$0</div>
+              <div class="bar bar-m2"></div>
+              <div class="bar-label">Month 2 MRR</div>
+              <div class="bar-pct">0.0% of peak</div>
             </div>
-            <div class="card risk-card fade-in">
-              <div class="risk-header">
-                <span class="badge critical">CRITICAL</span>
-                <h3>Inadequate Clinical Liability Framework and Therapist Vetting Creates Direct Harm Risk</h3>
-              </div>
-              <p class="risk-desc">Finance projections assume 30 licensed therapists by day 90 with no documented vetting SOP, quality assurance, or clinical supervision. CEO strategy mentions &#x27;therapists specializing in college mental health&#x27; but no credentialing verification process exists. Sales emails target university counseling directors with promises of &#x27;24/7 support&#x27; and &#x27;crisis intervention pathways&#x27; but MindCampus has zero clinical governance, no psychiatrist oversight, no crisis protocol documentation. High suicide risk exists in college populations (2nd leading cause of death ages 18-25). Inadequately supervised or unqualified therapists delivering crisis care will inevitably harm students and create massive liability.</p>
-              <div class="mitigation"><strong>Mitigation:</strong> IMMEDIATE (7 days): Hire Licensed Clinical Psychologist as Chief Clinical Officer (C-level role, not contractor). Within 14 days: (1) Create comprehensive therapist credentialing SOP: verified state license, DEA/NPI verification, malpractice insurance proof, background check, clinical supervision plan; (2) Establish Clinical Quality Committee with external licensed psychologists; (3) Document evidence-based treatment protocols for college-specific mental health issues; (4) Create crisis response protocol with 24/7 escalation pathway to licensed psychiatrist/emergency services; (5) Implement mandatory case review and clinical supervision for all therapists; (6) Secure $5M+ professional liability insurance with crisis/suicide coverage; (7) Require all therapists sign Clinical Governance Addendum with liability acknowledgment. Block therapist onboarding until CCO in place and protocol approved by external clinical board.</div>
+            <div class="bar-col">
+              <div class="bar-amount">$0</div>
+              <div class="bar bar-m3"></div>
+              <div class="bar-label">Month 3 MRR</div>
+              <div class="bar-pct">0.0% of peak</div>
             </div>
-    </div>
-  </section>
-
-  <section id="legal" class="section">
-    <div class="container">
-      <div class="section-label">Section 6</div>
-      <h2>Legal Status</h2>
-      <div class="card">
-        <div class="legal-item"><span class="check-ok">✓</span> Terms of Service — GENERATED</div>
-        <div class="legal-item"><span class="check-pending">○</span> Refund Policy — PENDING</div>
-        <p style="margin-top:16px;color:var(--muted)">Powered by Company OS Legal Agent</p>
+          </div>
+        </div>
+        <div class="finance-stats">
+          <div class="card metric-card">
+            <div class="lbl">Burn Rate / Month</div>
+            <div class="val">$21,117</div>
+          </div>
+          <div class="card metric-card">
+            <div class="lbl">Runway</div>
+            <div class="val">4.7 mo</div>
+          </div>
+          <div class="card metric-card">
+            <div class="lbl">Break-Even Target</div>
+            <div class="val">M18</div>
+          </div>
+          <div class="card metric-card">
+            <div class="lbl">LTV:CAC Ratio</div>
+            <div class="val">0.0:1</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="attrib">
-    <div class="container">
-      <div class="section-label">Section 7</div>
-      <h2>This company was built autonomously by Company OS</h2>
-      <p>7 AI agents — 90 seconds — zero human input</p>
-      <p>Microsoft Build AI Hackathon 2026 — Agent Swarms</p>
-      <p style="margin-top:24px"><a href="http://localhost:5000">← Back to Company OS Dashboard</a></p>
-    </div>
-  </section>
+    <section id="market" class="section">
+      <div class="container">
+        <div class="section-title">Market Intelligence</div>
+        <h2>Sales &amp; Customer Profile</h2>
+        <div class="card profile-card fade-in">
+          <div class="avatar">PC</div>
+          <div>
+            <h3>Target Customer Profile</h3>
+            <p>Primary: College students aged 18-24 at 4-year US universities (4.5M students) with high stress/anxiety/depression rates. Secondary: College counseling centers and campus health systems seeking digital mental health solutions. Tertiary: Students at community colleges and international student populations.</p>
+          </div>
+        </div>
+        <div class="card leads-metric fade-in">
+          <div class="lbl" style="color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:0.75rem">Leads Identified</div>
+          <div class="val">10</div>
+        </div>
+        <div class="card fade-in">
+          <h3>Outreach Strategy</h3>
+          <p>Identify and qualify 50+ leads from target segments (university counseling centers, student health departments, resident life offices) and draft personalized outreach campaign with demo scheduling sequences</p>
+        </div>
+        <div class="card fade-in">
+          <h3>Conversion Assumptions</h3>
+          <div class="funnel">
+            <div class="funnel-step">450 Monthly Leads</div>
+            <div class="funnel-step">8.5% Conversion Rate</div>
+            <div class="funnel-step">~38 Paying Customers / Mo</div>
+          </div>
+          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">MindCampus requires seed funding of $350K to reach break-even at month 18 with conservative assumptions: 8.5% free-to-premium conversion, $4.99/month subscription, and customer acquisition costs of $15 per user through organic campus outreach. Initial 3-month burn rate is $21.1K monthly with heavy marketing investment ($8.75K avg) to build critical user mass across target universities. The model assumes viral adoption within campus communities reduces CAC over time. Premium tier penetration must reach 12,000+ paid subscribers by month 18 to achieve profitability. Key risks include churn sensitivity (12% monthly) and competitive pressure from established telehealth platforms. Diversified revenue (institutional partnerships, counseling center licensing) should be prioritized post-launch to reduce dependency on individual subscriptions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="risks" class="section">
+      <div class="container">
+        <div class="section-title">Risk Dashboard</div>
+        <h2>Risk Analysis &amp; Mitigation</h2>
+        <span class="negotiation-badge">⚡ NEGOTIATION ACTIVATED</span>
+        <div class="risk-top">
+          <span class="overall-badge critical">Overall: CRITICAL</span>
+          <div class="confidence-ring"><span>62%</span></div>
+          <span style="color:var(--muted);font-size:0.9rem">Agent Confidence Score</span>
+        </div>
+        
+            <div class="card risk-card fade-in sev-critical">
+              <div class="risk-severity-bar"></div>
+              <div class="risk-body">
+                <div class="risk-header">
+                  <span class="badge critical">CRITICAL</span>
+                  <h3>State-by-State Telehealth Licensing and Therapist Credentialing Framework Completely Missing</h3>
+                </div>
+                <p class="risk-desc">MindCampus operates as a licensed telehealth mental health platform requiring state medical board approval, therapist licensing verification across 50 states, DEA/NPI credentialing, and clinical supervision protocols. Legal agent delivered only generic ToS/Privacy Policy (72% confidence) with zero state-specific compliance requirements. CEO strategy assumes 30 qualified therapists by day 90 and sales emails promise &#x27;licensed telehealth counselors&#x27; and &#x27;therapist marketplace&#x27; with no documented vetting SOP. Launching without state compliance creates immediate regulatory shutdown risk and criminal liability for unlicensed therapy provision.</p>
+                <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (48 hours): Hire healthcare compliance attorney specializing in telehealth mental health. Within 7 days: (1) Audit state licensing requirements for all 50 states; (2) Create mandatory therapist credentialing SOP (verified state license, DEA/NPI, malpractice insurance, background check, clinical supervision requirements); (3) Establish Clinical Advisory Board of licensed psychologists to approve all therapist onboarding; (4) Implement HIPAA BAA with all therapist contracts. CRITICAL: Do NOT recruit any therapists until compliance framework is approved by legal counsel and clinical board. Target completion: 30 days. This is a non-negotiable launch blocker.</div>
+              </div>
+            </div>
+            <div class="card risk-card fade-in sev-critical">
+              <div class="risk-severity-bar"></div>
+              <div class="risk-body">
+                <div class="risk-header">
+                  <span class="badge critical">CRITICAL</span>
+                  <h3>Student Data Security and Privacy Technical Implementation Undefined—Guaranteed HIPAA/FERPA Violations</h3>
+                </div>
+                <p class="risk-desc">MindCampus collects highly sensitive student mental health records (diagnoses, therapy notes, crisis assessments, personal identifiers, location data). Legal agent delivered Privacy Policy (72% confidence) but zero technical security specifications: no encryption standards, no data retention policy, no breach notification SOP, no access controls, no audit logging. Engineer agent reports &#x27;planned&#x27; status with zero security implementation details. Finance model projects user acquisition to thousands by month 3 without any security baseline. FERPA (Family Educational Rights and Privacy Act) and state health privacy laws mandate specific technical controls before ANY student data collection. Current trajectory guarantees data breach liability.</p>
+                <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (3 days): Pause all student data collection and therapist onboarding. Within 14 days: (1) Engage SOC 2 Type II certified security auditor for comprehensive technical assessment; (2) Implement encryption at-rest (AES-256) and in-transit (TLS 1.2+) for all student data; (3) Create detailed HIPAA BAA and FERPA compliance documentation with specific technical controls; (4) Establish data retention and secure deletion policies with destruction timelines; (5) Implement role-based access controls and immutable audit logging; (6) Create breach notification procedure with &lt;72-hour notification SLA; (7) Obtain Cyber Liability Insurance ($1M+ coverage minimum). Target: SOC 2 Type I audit completion within 30 days, Type II within 6 months before any paying student enrollment. Block all student onboarding until SOC 2 Type I is complete.</div>
+              </div>
+            </div>
+            <div class="card risk-card fade-in sev-critical">
+              <div class="risk-severity-bar"></div>
+              <div class="risk-body">
+                <div class="risk-header">
+                  <span class="badge critical">CRITICAL</span>
+                  <h3>Clinical Governance Framework Absent—Direct Student Harm and Wrongful Death Liability Risk</h3>
+                </div>
+                <p class="risk-desc">CEO strategy promises &#x27;licensed telehealth counselors&#x27; and &#x27;24/7 support&#x27; integrated into crisis care pathways by day 90. Sales emails target university counseling directors with crisis intervention commitments. However, zero clinical governance exists: no Chief Clinical Officer, no therapist supervision SOP, no evidence-based treatment protocols, no crisis escalation procedures, no psychiatrist oversight. College populations have suicide as the 2nd leading cause of death (ages 18-25). Inadequately supervised therapists or crisis protocols missing will inevitably result in student harm. Company has zero clinical credibility review or quality assurance framework. This directly violates standard-of-care for mental health platforms.</p>
+                <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (7 days): Hire Licensed Clinical Psychologist as Chief Clinical Officer (C-level role, equity compensation, full-time). Within 14 days: (1) Create mandatory therapist quality assurance SOP: case review, clinical supervision, peer consultation requirements; (2) Establish Clinical Quality Committee (CCO + 2-3 external licensed psychologists) with quarterly meeting requirements; (3) Document evidence-based treatment protocols for college-specific mental health issues (anxiety, depression, substance use, eating disorders); (4) Create 24/7 crisis response protocol with mandatory psychiatrist escalation pathway and emergency service coordination; (5) Require all therapists sign Clinical Governance Addendum with malpractice liability acknowledgment; (6) Secure $5M+ professional liability insurance with crisis/suicide carve-out coverage. CRITICAL: No therapist recruitment begins until CCO is hired and clinical protocols approved by external clinical board. Target completion: 30 days.</div>
+              </div>
+            </div>
+      </div>
+    </section>
+
+    <section id="legal" class="section">
+      <div class="container">
+        <div class="section-title">Legal Status</div>
+        <h2>Compliance &amp; Documentation</h2>
+        <div class="card">
+          <div class="legal-row">
+            <div class="icon-circle ok">✓</div>
+            <span>Terms of Service</span>
+            <span class="status-badge ok">GENERATED</span>
+          </div>
+          <div class="legal-row">
+            <div class="icon-circle pending">○</div>
+            <span>Refund Policy</span>
+            <span class="status-badge pending">PENDING</span>
+          </div>
+          <p style="margin-top:16px;color:var(--muted);font-size:0.85rem">Powered by Company OS Legal Agent</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section attrib">
+      <div class="container">
+        <div class="section-title">About Company OS</div>
+        <h2>This company was built autonomously by Company OS</h2>
+        <p>7 AI agents — 90 seconds — zero human input</p>
+        <p>Microsoft Build AI Hackathon 2026 — Agent Swarms</p>
+      </div>
+    </section>
+  </div>
 
   <script>
     document.querySelectorAll('.fade-in').forEach(el => {
@@ -313,33 +483,29 @@ p,span,li,td,th,label { color: #334155 !important; }
       }, { threshold: 0.1 }).observe(el);
     });
 
-    function animateCounter(el) {
-      const target = parseFloat(el.dataset.target) || 0;
-      const isMoney = el.textContent.includes('$') || el.closest('.stat-box') || el.classList.contains('bar-value');
-      const start = performance.now();
-      const dur = 1500;
-      function tick(now) {
-        const p = Math.min((now - start) / dur, 1);
-        const val = Math.floor(p * target);
-        el.textContent = isMoney ? '$' + val.toLocaleString() : val.toLocaleString();
-        if (p < 1) requestAnimationFrame(tick);
-        else el.textContent = isMoney ? '$' + Math.floor(target).toLocaleString() : Math.floor(target).toLocaleString();
-      }
-      requestAnimationFrame(tick);
-    }
+    const navLinks = document.querySelectorAll('.nav-links a[data-nav]');
+    const sections = ['strategy','financials','market','risks','legal'].map(id => document.getElementById(id));
 
-    const chartObs = new IntersectionObserver(entries => {
+    const navObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        e.target.querySelectorAll('.bar').forEach(bar => {
-          bar.style.height = bar.dataset.height + '%';
-        });
-        e.target.querySelectorAll('.counter').forEach(animateCounter);
-        chartObs.unobserve(e.target);
+        if (e.isIntersecting) {
+          navLinks.forEach(a => a.classList.toggle('active', a.dataset.nav === e.target.id));
+        }
       });
-    }, { threshold: 0.3 });
+    }, { rootMargin: '-30% 0px -60% 0px' });
 
-    document.querySelectorAll('#financials, #market').forEach(s => chartObs.observe(s));
+    sections.forEach(s => { if (s) navObs.observe(s); });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id && id.length > 1) {
+          e.preventDefault();
+          const el = document.querySelector(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
   </script>
 </body>
 </html>
