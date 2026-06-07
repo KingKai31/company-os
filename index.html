@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindBridge — Company Intelligence Report</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Company OS — content always visible */
+    body, main, .main-content, section, .container, .hero, .strategy, .financials {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    :root {
+      --bg: #f0fdf4; --card: #ffffff; --text: #334155;
+      --heading: #059669; --accent: #0ea5e9; --gold: #059669;
+      --border: rgba(0,0,0,0.08); --muted: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text);
+      line-height: 1.6; overflow-x: hidden;
+      animation: fadeInPage 0.8s ease forwards;
+    }
+    @keyframes fadeInPage {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    h1,h2,h3 { font-family: 'Space Grotesk', sans-serif; color: var(--heading); }
+    .section { padding: 72px 0; border-top: 1px solid var(--border); }
+    .section-title {
+      font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 10px; font-weight: 600;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px; margin-bottom: 16px;
+    }
+    /* Navbar */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      -webkit-backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; gap: 16px;
+    }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--heading) !important; text-decoration: none; font-size: 0.95rem; }
+    .nav-links { display: flex; gap: 8px; flex-wrap: wrap; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted) !important; font-size: 0.82rem;
+      font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent) !important; background: rgba(255,255,255,0.06); }
+    /* Hero */
+    .hero { padding: 72px 0 56px; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 16px; }
+    .hero .value-prop { font-size: 1.15rem; max-width: 720px; margin: 0 auto 20px; }
+    .hero .built-for {
+      display: inline-block; border: 1px solid var(--accent); border-radius: 999px;
+      padding: 8px 20px; font-size: 0.85rem; margin-bottom: 32px;
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
+    }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 14px 28px; border-radius: 8px; font-weight: 600;
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--gold)); color: #fff !important; }
+    .btn-secondary { border: 1px solid var(--accent); color: var(--accent) !important; background: transparent; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+    /* OKRs */
+    .okr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px; }
+    .okr-card { border-left: 4px solid var(--accent); }
+    .okr-card h3 { color: var(--heading); font-weight: 700; margin-bottom: 12px; }
+    .kr-list { margin: 12px 0; padding-left: 18px; color: var(--muted); }
+    .kr-list li { margin-bottom: 6px; font-size: 0.9rem; }
+    .progress-wrap { background: rgba(255,255,255,0.08); border-radius: 999px; height: 6px; margin-top: 14px; }
+    .progress-bar { width: 0%; background: var(--accent); height: 100%; border-radius: 999px; }
+    .progress-label { font-size: 0.75rem; color: var(--muted); margin-top: 6px; display: block; }
+    /* Timeline steps */
+    .timeline-steps {
+      display: flex; align-items: flex-start; gap: 0; margin-top: 32px; position: relative;
+    }
+    .timeline-steps::before {
+      content: ''; position: absolute; top: 24px; left: 10%; right: 10%;
+      height: 2px; background: var(--accent); z-index: 0;
+    }
+    .step {
+      flex: 1; text-align: center; position: relative; z-index: 1; padding: 0 8px;
+    }
+    .step-circle {
+      width: 48px; height: 48px; border-radius: 50%; background: var(--accent);
+      color: #fff; font-weight: 700; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;
+      box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 40%, transparent);
+    }
+    .step h4 { color: var(--accent); margin-bottom: 8px; font-size: 0.95rem; }
+    .step p { font-size: 0.85rem; color: var(--muted); text-align: left; }
+    @media (max-width: 768px) {
+      .timeline-steps { flex-direction: column; gap: 24px; }
+      .timeline-steps::before { display: none; }
+    }
+    /* Finance chart */
+    .chart-wrap { margin: 32px 0; padding: 24px; background: var(--card); border-radius: 14px; border: 1px solid var(--border); }
+    .chart { display: flex; align-items: flex-end; justify-content: center; gap: 32px; height: 220px; }
+    .bar-col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 200px; flex: 1; max-width: 100px; }
+    .bar-amount { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+    .bar {
+      width: 56px; border-radius: 8px 8px 0 0;
+      background: linear-gradient(180deg, var(--accent), var(--gold));
+      height: 0; animation-fill-mode: forwards;
+    }
+    .bar-m1 { animation: growBar1 1.2s ease-out 0.3s forwards; }
+    .bar-m2 { animation: growBar2 1.2s ease-out 0.5s forwards; }
+    .bar-m3 { animation: growBar3 1.2s ease-out 0.7s forwards; }
+    @keyframes growBar1 { from { height: 0; } to { height: 37px; } }
+    @keyframes growBar2 { from { height: 0; } to { height: 100px; } }
+    @keyframes growBar3 { from { height: 0; } to { height: 200px; } }
+    .bar-label { margin-top: 10px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+    .bar-pct { font-size: 0.7rem; color: var(--muted); }
+    .finance-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 24px; }
+    .metric-card { text-align: center; padding: 24px 16px; }
+    .metric-card .lbl { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .metric-card .val { font-size: 1.9rem; font-weight: 700; color: var(--accent); }
+    /* Market */
+    .profile-card { display: flex; gap: 20px; align-items: flex-start; }
+    .avatar {
+      width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      color: #fff; font-weight: 700; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .leads-metric { text-align: center; padding: 32px; }
+    .leads-metric .val { font-size: 3.5rem; font-weight: 700; color: var(--accent); line-height: 1; }
+    .funnel { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 16px; }
+    .funnel-step {
+      text-align: center; padding: 12px; color: #fff; font-weight: 600; font-size: 0.85rem;
+    }
+    .funnel-step:nth-child(1) { width: 100%; background: var(--accent); clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%); }
+    .funnel-step:nth-child(2) { width: 75%; background: color-mix(in srgb, var(--accent) 70%, var(--gold)); clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); }
+    .funnel-step:nth-child(3) { width: 50%; background: var(--gold); clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); color: #fff; }
+    /* Risk */
+    .risk-top { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+    .overall-badge {
+      font-size: 0.85rem; font-weight: 700; padding: 10px 20px; border-radius: 8px;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .overall-badge.critical { background: #ef4444; color: #fff; }
+    .overall-badge.medium { background: #eab308; color: #000; }
+    .overall-badge.low { background: #22c55e; color: #fff; }
+    .confidence-ring {
+      width: 72px; height: 72px; border-radius: 50%; position: relative;
+      background: conic-gradient(var(--accent) 223deg, rgba(255,255,255,0.1) 0deg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .confidence-ring::before {
+      content: ''; position: absolute; inset: 6px; border-radius: 50%; background: var(--card);
+    }
+    .confidence-ring span { position: relative; z-index: 1; font-weight: 700; font-size: 0.85rem; color: var(--accent); }
+    .risk-card { display: flex; overflow: hidden; padding: 0; }
+    .risk-severity-bar { width: 5px; flex-shrink: 0; }
+    .sev-critical .risk-severity-bar { background: #ef4444; }
+    .sev-medium .risk-severity-bar { background: #eab308; }
+    .sev-low .risk-severity-bar { background: #22c55e; }
+    .risk-body { padding: 20px 24px; flex: 1; }
+    .badge { font-size: 0.65rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; letter-spacing: 1px; }
+    .badge.critical { background: #ef4444; color: #fff; }
+    .badge.medium { background: #eab308; color: #000; }
+    .badge.low { background: #22c55e; color: #fff; }
+    .risk-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .risk-header h3 { color: var(--heading); font-weight: 700; font-size: 1rem; }
+    .risk-desc { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
+    .mit-toggle {
+      background: none; border: 1px solid var(--border); color: var(--accent);
+      padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 0.82rem;
+    }
+    .mitigation-panel {
+      display: none; margin-top: 12px; padding: 14px;
+      background: rgba(255,255,255,0.04); border-radius: 8px; font-size: 0.9rem;
+    }
+    .mitigation-panel.open { display: block; }
+    .negotiation-badge {
+      display: inline-block; background: #eab308; color: #000;
+      padding: 10px 18px; border-radius: 8px; font-weight: 700;
+      font-size: 0.82rem; letter-spacing: 1px; margin-bottom: 16px;
+      animation: negPulse 1.5s ease infinite;
+    }
+    @keyframes negPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(234,179,8,0.6); } 50% { box-shadow: 0 0 0 12px rgba(234,179,8,0); } }
+    /* Legal */
+    .legal-row {
+      display: flex; align-items: center; gap: 16px; padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-row:last-child { border-bottom: none; }
+    .icon-circle {
+      width: 36px; height: 36px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;
+    }
+    .icon-circle.ok { background: rgba(34,197,94,0.15); color: #22c55e; }
+    .icon-circle.pending { background: rgba(148,163,184,0.15); color: var(--muted); }
+    .status-badge { margin-left: auto; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; letter-spacing: 1px; }
+    .status-badge.ok { background: rgba(34,197,94,0.15); color: #22c55e; }
+    .status-badge.pending { background: rgba(148,163,184,0.15); color: var(--muted); }
+    /* Attribution */
+    .attrib { text-align: center; padding: 64px 0; }
+    .attrib h2 { margin-bottom: 16px; }
+    .attrib p { color: var(--muted); margin-bottom: 8px; }
+  </style>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<style>
+/* Company OS render fix */
+body { min-height: 100vh; }
+h1,h2,h3,h4,h5,h6,p,span,a,li,td,th,label { color: inherit; }
+section, div { visibility: visible !important; opacity: 1 !important; }
+</style>
+<style>
+/* Company OS theme fix */
+body { background-color: #f0fdf4 !important; color: #334155 !important; }
+h1,h2,h3,h4,h5,h6 { color: #059669 !important; }
+p,span,li,td,th,label { color: #334155 !important; }
+</style>
+</head>
+<body>
+    <nav class="navbar">
+      <div class="container nav-inner">
+        <a class="nav-logo" href="#">MindBridge</a>
+        <ul class="nav-links">
+          <li><a href="#strategy" data-nav="strategy">Strategy</a></li>
+          <li><a href="#financials" data-nav="financials">Financials</a></li>
+          <li><a href="#market" data-nav="market">Market</a></li>
+          <li><a href="#risks" data-nav="risks">Risks</a></li>
+          <li><a href="#legal" data-nav="legal">Legal</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="container">
+        <div class="section-title">Company Intelligence Report</div>
+        <h1>MindBridge</h1>
+        <p class="value-prop">Democratizing accessible mental health support for college students through technology-enabled peer connection and professional guidance.</p>
+        <div class="built-for">Built for: Full-time undergraduate and graduate students aged 18-28 attending 4-year universities in the US, with initial focus on large state universities (10,000+ students) and private institutions with strong mental health awareness initiatives. Secondary targets: university counseling centers, student health departments, and Greek life organizations seeking mental health solutions.</div>
+        <div class="hero-btns">
+          <a href="#strategy" class="btn btn-primary">View Strategy</a>
+          <a href="#financials" class="btn btn-secondary">See Financials</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="strategy" class="section">
+      <div class="container">
+        <div class="section-title">90-Day Strategy</div>
+        <h2>Strategic OKRs &amp; Milestones</h2>
+        <div class="okr-grid">
+            <div class="card okr-card">
+              <h3>Establish product-market fit with college student segment</h3>
+              <ul class="kr-list"><li>Achieve 50+ NPS score from beta users by day 90</li><li>Reach 2,000 beta signups with 40% weekly active user retention</li><li>Document 3+ use cases of peer support leading to positive mental health outcomes</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
+            </div>
+            <div class="card okr-card">
+              <h3>Build institutional credibility and campus partnerships</h3>
+              <ul class="kr-list"><li>Secure partnerships with 3 universities providing access to student populations</li><li>Establish clinical advisory board with 5 licensed mental health professionals</li><li>Achieve compliance certification for HIPAA and student data privacy standards</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
+            </div>
+            <div class="card okr-card">
+              <h3>Drive user acquisition and retention at scale</h3>
+              <ul class="kr-list"><li>Grow user base to 5,000 college students by end of Q1</li><li>Achieve 35%+ month-over-month user growth through organic + partnership channels</li><li>Reach 45%+ 30-day retention rate for active users</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
+            </div>
+            <div class="card okr-card">
+              <h3>Validate clinical impact and mental health outcomes</h3>
+              <ul class="kr-list"><li>Track and report measurable improvement in 60%+ of users&#x27; self-reported stress/anxiety metrics</li><li>Generate peer-reviewed research collaboration with university partner on app efficacy</li><li>Achieve 90%+ user satisfaction on crisis resource accessibility and support quality</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
+            </div>
+            <div class="card okr-card">
+              <h3>Establish sustainable revenue model and path to profitability</h3>
+              <ul class="kr-list"><li>Define and launch tiered pricing model with 3 revenue streams identified</li><li>Achieve $50K+ MRR commitment from university partnerships</li><li>Validate unit economics showing 3:1+ LTV:CAC ratio for paid channels</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
+            </div></div>
+        <div class="timeline-steps">
+          <div class="step">
+            <div class="step-circle">1</div>
+            <h4>Month 1</h4>
+            <p>Foundation &amp; MVP Development: Complete MVP with core features (mood tracking, peer support matching, crisis resources, therapist directory). Conduct 20+ user interviews with college students across 5 universities. Establish advisory board of college counselors and mental health experts. Set up legal/compliance framework for HIPAA and student privacy. Identify and approach 3-5 campus partnership opportunities.</p>
+          </div>
+          <div class="step">
+            <div class="step-circle">2</div>
+            <h4>Month 2</h4>
+            <p>Beta Launch &amp; Initial Traction: Launch closed beta with 500 college students across 2-3 pilot campuses. Implement core retention loops and in-app messaging. Secure first 2 university partnerships or MOUs. Conduct clinical outcome tracking setup with baseline metrics. Build social proof through testimonials and case studies. Establish social media presence and content strategy.</p>
+          </div>
+          <div class="step">
+            <div class="step-circle">3</div>
+            <h4>Month 3</h4>
+            <p>Scale Preparation &amp; Growth: Expand beta to 2,000 users across 5+ campuses. Achieve 40%+ weekly active user rate. Close first 3 official university partnerships with integration pathway. Finalize pricing model and subscription tiers. Recruit student ambassador network (20+ ambassadors). Prepare for Series Seed fundraising with clear unit economics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="financials" class="section">
+      <div class="container">
+        <div class="section-title">Financial Projections</div>
+        <h2>Revenue &amp; Runway Analysis</h2>
+        <p style="margin:16px 0;color:var(--muted)">MindBridge projects conservative early-stage traction with 1.2% conversion on university-targeted leads, reflecting the measured adoption cycle for student health apps. Month 3 shows 16 active subscribers generating $160 MRR with a blended monthly burn of ~$11,600 covering product development, targeted campus marketing, and legal/compliance overhead for campus partnerships. With $92,700 in seed funding, the company has approximately 8 months of runway, requiring aggressive user acquisition scaling and campus partnership activation by month 4. The 2.57x LTV:CAC ratio indicates unit economics will be sustainable at 5,000+ active subscribers, achievable by month 14-16 with 3-4 major university partnerships live. Focus areas: reduce CAC through direct campus partnerships, optimize conversion funnel targeting high-risk student cohorts, and establish initial counseling center integrations to drive viral adoption within institutional networks.</p>
+        <div class="chart-wrap">
+          <div class="chart">
+            <div class="bar-col">
+              <div class="bar-amount">$30</div>
+              <div class="bar bar-m1"></div>
+              <div class="bar-label">Month 1 MRR</div>
+              <div class="bar-pct">18.8% of peak</div>
+            </div>
+            <div class="bar-col">
+              <div class="bar-amount">$80</div>
+              <div class="bar bar-m2"></div>
+              <div class="bar-label">Month 2 MRR</div>
+              <div class="bar-pct">50.0% of peak</div>
+            </div>
+            <div class="bar-col">
+              <div class="bar-amount">$160</div>
+              <div class="bar bar-m3"></div>
+              <div class="bar-label">Month 3 MRR</div>
+              <div class="bar-pct">100.0% of peak</div>
+            </div>
+          </div>
+        </div>
+        <div class="finance-stats">
+          <div class="card metric-card">
+            <div class="lbl">Burn Rate / Month</div>
+            <div class="val">$11,583</div>
+          </div>
+          <div class="card metric-card">
+            <div class="lbl">Runway</div>
+            <div class="val">8 mo</div>
+          </div>
+          <div class="card metric-card">
+            <div class="lbl">Break-Even Target</div>
+            <div class="val">M28</div>
+          </div>
+          <div class="card metric-card">
+            <div class="lbl">LTV:CAC Ratio</div>
+            <div class="val">0.1:1</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="market" class="section">
+      <div class="container">
+        <div class="section-title">Market Intelligence</div>
+        <h2>Sales &amp; Customer Profile</h2>
+        <div class="card profile-card">
+          <div class="avatar">FU</div>
+          <div>
+            <h3>Target Customer Profile</h3>
+            <p>Full-time undergraduate and graduate students aged 18-28 attending 4-year universities in the US, with initial focus on large state universities (10,000+ students) and private institutions with strong mental health awareness initiatives. Secondary targets: university counseling centers, student health departments, and Greek life organizations seeking mental health solutions.</p>
+          </div>
+        </div>
+        <div class="card leads-metric">
+          <div class="lbl" style="color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:0.75rem">Leads Identified</div>
+          <div class="val">10</div>
+        </div>
+        <div class="card">
+          <h3>Outreach Strategy</h3>
+          <p>Identify and compile a list of 50+ target leads including college counseling centers, student health services, university administration offices, and student wellness organizations. Draft personalized outreach email sequences and partnership proposals for the first 10 priority leads.</p>
+        </div>
+        <div class="card">
+          <h3>Conversion Assumptions</h3>
+          <div class="funnel">
+            <div class="funnel-step">250 Monthly Leads</div>
+            <div class="funnel-step">1.2% Conversion Rate</div>
+            <div class="funnel-step">~3 Paying Customers / Mo</div>
+          </div>
+          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">MindBridge projects conservative early-stage traction with 1.2% conversion on university-targeted leads, reflecting the measured adoption cycle for student health apps. Month 3 shows 16 active subscribers generating $160 MRR with a blended monthly burn of ~$11,600 covering product development, targeted campus marketing, and legal/compliance overhead for campus partnerships. With $92,700 in seed funding, the company has approximately 8 months of runway, requiring aggressive user acquisition scaling and campus partnership activation by month 4. The 2.57x LTV:CAC ratio indicates unit economics will be sustainable at 5,000+ active subscribers, achievable by month 14-16 with 3-4 major university partnerships live. Focus areas: reduce CAC through direct campus partnerships, optimize conversion funnel targeting high-risk student cohorts, and establish initial counseling center integrations to drive viral adoption within institutional networks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="risks" class="section">
+      <div class="container">
+        <div class="section-title">Risk Dashboard</div>
+        <h2>Risk Analysis &amp; Mitigation</h2>
+        <span class="negotiation-badge">⚡ NEGOTIATION ACTIVATED</span>
+        <div class="risk-top">
+          <span class="overall-badge critical">Overall: CRITICAL</span>
+          <div class="confidence-ring"><span>62%</span></div>
+          <span style="color:var(--muted);font-size:0.9rem">Agent Confidence Score</span>
+        </div>
+        
+            <div class="card risk-card sev-critical">
+              <div class="risk-severity-bar"></div>
+              <div class="risk-body">
+                <div class="risk-header">
+                  <span class="badge critical">CRITICAL</span>
+                  <h3>State-by-State Telehealth Licensing and Therapist Credentialing Framework Completely Missing</h3>
+                </div>
+                <p class="risk-desc">MindBridge operates as a licensed telehealth mental health platform requiring state medical board approval, therapist licensing verification across 50 states, DEA/NPI credentialing, and clinical supervision protocols. Legal agent delivered only generic ToS/Privacy Policy (72% confidence) with zero state-specific compliance requirements. CEO strategy assumes 30 qualified therapists by day 90 and sales emails promise &#x27;licensed telehealth counselors&#x27; and &#x27;therapist marketplace&#x27; with no documented vetting SOP. Launching without state compliance creates immediate regulatory shutdown risk and criminal liability for unlicensed therapy provision.</p>
+                <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (48 hours): Hire healthcare compliance attorney specializing in telehealth mental health. Within 7 days: (1) Audit state licensing requirements for all 50 states; (2) Create mandatory therapist credentialing SOP (verified state license, DEA/NPI, malpractice insurance, background check, clinical supervision requirements); (3) Establish Clinical Advisory Board of licensed psychologists to approve all therapist onboarding; (4) Implement HIPAA BAA with all therapist contracts. CRITICAL: Do NOT recruit any therapists until compliance framework is approved by legal counsel and clinical board. Target completion: 30 days. This is a non-negotiable launch blocker.</div>
+              </div>
+            </div>
+            <div class="card risk-card sev-critical">
+              <div class="risk-severity-bar"></div>
+              <div class="risk-body">
+                <div class="risk-header">
+                  <span class="badge critical">CRITICAL</span>
+                  <h3>Student Data Security and Privacy Technical Implementation Undefined—Guaranteed HIPAA/FERPA Violations</h3>
+                </div>
+                <p class="risk-desc">MindBridge collects highly sensitive student mental health records (diagnoses, therapy notes, crisis assessments, personal identifiers, location data). Legal agent delivered Privacy Policy (72% confidence) but zero technical security specifications: no encryption standards, no data retention policy, no breach notification SOP, no access controls, no audit logging. Engineer agent reports &#x27;planned&#x27; status with zero security implementation details. Finance model projects user acquisition to thousands by month 3 without any security baseline. FERPA (Family Educational Rights and Privacy Act) and state health privacy laws mandate specific technical controls before ANY student data collection. Current trajectory guarantees data breach liability.</p>
+                <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (3 days): Pause all student data collection and therapist onboarding. Within 14 days: (1) Engage SOC 2 Type II certified security auditor for comprehensive technical assessment; (2) Implement encryption at-rest (AES-256) and in-transit (TLS 1.2+) for all student data; (3) Create detailed HIPAA BAA and FERPA compliance documentation with specific technical controls; (4) Establish data retention and secure deletion policies with destruction timelines; (5) Implement role-based access controls and immutable audit logging; (6) Create breach notification procedure with &lt;72-hour notification SLA; (7) Obtain Cyber Liability Insurance ($1M+ coverage minimum). Target: SOC 2 Type I audit completion within 30 days, Type II within 6 months before any paying student enrollment. Block all student onboarding until SOC 2 Type I is complete.</div>
+              </div>
+            </div>
+            <div class="card risk-card sev-critical">
+              <div class="risk-severity-bar"></div>
+              <div class="risk-body">
+                <div class="risk-header">
+                  <span class="badge critical">CRITICAL</span>
+                  <h3>Clinical Governance Framework Absent—Direct Student Harm and Wrongful Death Liability Risk</h3>
+                </div>
+                <p class="risk-desc">CEO strategy promises &#x27;licensed telehealth counselors&#x27; and &#x27;24/7 support&#x27; integrated into crisis care pathways by day 90. Sales emails target university counseling directors with crisis intervention commitments. However, zero clinical governance exists: no Chief Clinical Officer, no therapist supervision SOP, no evidence-based treatment protocols, no crisis escalation procedures, no psychiatrist oversight. College populations have suicide as the 2nd leading cause of death (ages 18-25). Inadequately supervised therapists or crisis protocols missing will inevitably result in student harm. Company has zero clinical credibility review or quality assurance framework. This directly violates standard-of-care for mental health platforms.</p>
+                <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (7 days): Hire Licensed Clinical Psychologist as Chief Clinical Officer (C-level role, equity compensation, full-time). Within 14 days: (1) Create mandatory therapist quality assurance SOP: case review, clinical supervision, peer consultation requirements; (2) Establish Clinical Quality Committee (CCO + 2-3 external licensed psychologists) with quarterly meeting requirements; (3) Document evidence-based treatment protocols for college-specific mental health issues (anxiety, depression, substance use, eating disorders); (4) Create 24/7 crisis response protocol with mandatory psychiatrist escalation pathway and emergency service coordination; (5) Require all therapists sign Clinical Governance Addendum with malpractice liability acknowledgment; (6) Secure $5M+ professional liability insurance with crisis/suicide carve-out coverage. CRITICAL: No therapist recruitment begins until CCO is hired and clinical protocols approved by external clinical board. Target completion: 30 days.</div>
+              </div>
+            </div>
+      </div>
+    </section>
+
+    <section id="legal" class="section">
+      <div class="container">
+        <div class="section-title">Legal Status</div>
+        <h2>Compliance &amp; Documentation</h2>
+        <div class="card">
+          <div class="legal-row">
+            <div class="icon-circle ok">✓</div>
+            <span>Terms of Service</span>
+            <span class="status-badge ok">GENERATED</span>
+          </div>
+          <div class="legal-row">
+            <div class="icon-circle pending">○</div>
+            <span>Refund Policy</span>
+            <span class="status-badge pending">PENDING</span>
+          </div>
+          <p style="margin-top:16px;color:var(--muted);font-size:0.85rem">Powered by Company OS Legal Agent</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section attrib">
+      <div class="container">
+        <div class="section-title">About Company OS</div>
+        <h2>This company was built autonomously by Company OS</h2>
+        <p>7 AI agents — 90 seconds — zero human input</p>
+        <p>Microsoft Build AI Hackathon 2026 — Agent Swarms</p>
+      </div>
+    </section>
+
+  <script>
+    const navLinks = document.querySelectorAll('.nav-links a[data-nav]');
+    const sections = ['strategy','financials','market','risks','legal'].map(id => document.getElementById(id));
+
+    const navObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(a => a.classList.toggle('active', a.dataset.nav === e.target.id));
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(s => { if (s) navObs.observe(s); });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id && id.length > 1) {
+          e.preventDefault();
+          const el = document.querySelector(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
