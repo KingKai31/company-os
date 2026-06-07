@@ -1,580 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InvoiceAI — Your invoices. Processed. Perfectly. Every time.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <base href="/">
+  <title>MindCampus — Company Intelligence Report</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f0fdf4; --card: #ffffff; --text: #334155;
+      --heading: #059669; --accent: #0ea5e9; --gold: #059669;
+      --border: rgba(0,0,0,0.08); --muted: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
-      background: #0a0e1a;
-      color: #e2e8f0;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden;
     }
-    a { text-decoration: none; color: inherit; }
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-
-    /* ── Navbar ── */
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(10, 14, 26, 0.75);
-      -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(0, 212, 255, 0.12);
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    h1,h2,h3 { font-family: 'Space Grotesk', sans-serif; color: var(--heading); }
+    .section { padding: 64px 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
     }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 72px;
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; margin-bottom: 16px;
     }
-    .logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem; font-weight: 700;
-      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+    /* Hero */
+    .hero { padding: 80px 0 64px; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 16px; }
+    .hero .value-prop { font-size: 1.15rem; max-width: 720px; margin: 0 auto 20px; color: var(--text); }
+    .hero .built-for {
+      display: inline-block; background: rgba(0,212,255,0.08);
+      border: 1px solid var(--accent); border-radius: 999px;
+      padding: 8px 20px; font-size: 0.85rem; margin-bottom: 32px;
     }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a {
-      font-size: 0.9rem; font-weight: 500; color: #94a3b8;
-      transition: color 0.2s;
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 14px 28px; border-radius: 8px; font-weight: 600;
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
     }
-    .nav-links a:hover { color: #00d4ff; }
-    .btn-nav {
-      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-      color: #0a0e1a !important; font-weight: 700 !important;
-      padding: 10px 22px; border-radius: 8px;
-      box-shadow: 0 0 24px rgba(0, 212, 255, 0.25);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(0, 212, 255, 0.45); color: #0a0e1a !important; }
-
-    /* ── Hero ── */
-    .hero {
-      position: relative; min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 120px 0 80px; overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background: linear-gradient(135deg, #0a0e1a 0%, #0f1729 40%, #12102a 70%, #0a0e1a 100%);
-      animation: heroGradient 12s ease infinite alternate;
-    }
-    .hero-bg::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 212, 255, 0.12), transparent),
-                  radial-gradient(ellipse 60% 50% at 80% 50%, rgba(139, 92, 246, 0.1), transparent);
-    }
-    .hero-grid {
-      position: absolute; inset: 0; opacity: 0.15;
-      background-image: linear-gradient(rgba(0,212,255,0.3) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(0,212,255,0.3) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero-content {
-      position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(0, 212, 255, 0.08); border: 1px solid rgba(0, 212, 255, 0.25);
-      color: #00d4ff; font-size: 0.8rem; font-weight: 600;
-      padding: 6px 14px; border-radius: 999px; margin-bottom: 24px;
-    }
-    .hero-badge span { width: 6px; height: 6px; background: #00ff88; border-radius: 50%; animation: pulse 2s infinite; }
-    .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 3.75rem);
-      font-weight: 700; line-height: 1.1; color: #ffffff;
-      margin-bottom: 20px;
-    }
-    .hero h1 .gradient {
-      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: 1.15rem; color: #94a3b8; min-height: 2.8em;
-      margin-bottom: 32px; max-width: 520px;
-    }
-    .hero-sub .cursor { color: #00d4ff; animation: blink 1s step-end infinite; }
-    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
     .btn-primary {
-      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-      color: #0a0e1a; font-weight: 700; font-size: 1rem;
-      padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      color: #fff !important;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(0, 212, 255, 0.5); }
     .btn-secondary {
-      background: transparent; color: #e2e8f0; font-weight: 600; font-size: 1rem;
-      padding: 14px 28px; border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
+      border: 1px solid var(--accent); color: var(--accent) !important;
     }
-    .btn-secondary:hover { border-color: #00d4ff; background: rgba(0,212,255,0.05); }
-
-    /* Dashboard mockup */
-    .mockup {
-      background: #0d1526; border: 1px solid rgba(0, 212, 255, 0.2);
-      border-radius: 16px; padding: 20px;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 212, 255, 0.08);
-      animation: floatMockup 6s ease-in-out infinite;
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    /* OKRs */
+    .okr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .okr-card ul { margin: 12px 0; padding-left: 20px; }
+    .okr-card li { margin-bottom: 6px; font-size: 0.9rem; }
+    .progress-wrap { background: rgba(255,255,255,0.1); border-radius: 999px; height: 6px; margin-top: 12px; }
+    .progress-bar { background: var(--accent); height: 100%; border-radius: 999px; }
+    .progress-label { font-size: 0.75rem; color: var(--muted); }
+    /* Timeline */
+    .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    @media (max-width: 768px) { .timeline { grid-template-columns: 1fr; } }
+    .timeline-item { border-left: 3px solid var(--accent); padding-left: 16px; }
+    .timeline-item h4 { color: var(--accent); margin-bottom: 8px; }
+    /* Finance chart */
+    .chart { display: flex; align-items: flex-end; gap: 24px; height: 200px; margin: 32px 0; justify-content: center; }
+    .bar-wrap { text-align: center; flex: 1; max-width: 120px; }
+    .bar {
+      background: linear-gradient(180deg, var(--accent), var(--gold));
+      border-radius: 8px 8px 0 0; min-height: 4px;
+      transition: height 1.2s ease;
     }
-    .mockup-bar {
-      display: flex; gap: 6px; margin-bottom: 16px;
+    .bar-label { margin-top: 8px; font-weight: 600; }
+    .bar-value { font-size: 1.1rem; color: var(--accent); font-weight: 700; }
+    .finance-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+    .stat-box { text-align: center; padding: 20px; }
+    .stat-box .num { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+    .stat-box .lbl { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    /* Risk */
+    .badge { font-size: 0.65rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; letter-spacing: 1px; }
+    .badge.critical { background: #ef4444; color: #fff; }
+    .badge.medium { background: #eab308; color: #000; }
+    .badge.low { background: #22c55e; color: #fff; }
+    .risk-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+    .risk-header h3 { font-size: 1rem; }
+    .mitigation { margin-top: 12px; padding: 12px; background: rgba(255,255,255,0.04); border-radius: 8px; font-size: 0.9rem; }
+    .negotiation-badge {
+      display: inline-block; background: #ef4444; color: #fff;
+      padding: 8px 16px; border-radius: 8px; font-weight: 700;
+      font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 16px;
+      animation: pulse 2s infinite;
     }
-    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .mockup-dot.r { background: #ff5f57; }
-    .mockup-dot.y { background: #febc2e; }
-    .mockup-dot.g { background: #28c840; }
-    .mockup-metrics {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;
-    }
-    .metric-box {
-      background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.15);
-      border-radius: 10px; padding: 14px;
-    }
-    .metric-label { font-size: 0.65rem; color: #64748b; text-transform: uppercase; letter-spacing: 1px; }
-    .metric-val {
-      font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700;
-      color: #00d4ff; margin-top: 4px;
-    }
-    .metric-val.purple { color: #8b5cf6; }
-    .metric-val.green { color: #00ff88; }
-    .mockup-chart {
-      height: 80px; display: flex; align-items: flex-end; gap: 6px; padding-top: 8px;
-    }
-    .chart-bar {
-      flex: 1; background: linear-gradient(0deg, #8b5cf6, #00d4ff);
-      border-radius: 4px 4px 0 0; opacity: 0.8;
-      animation: barGrow 2s ease forwards;
-    }
-    .chart-bar:nth-child(1) { height: 40%; animation-delay: 0.1s; }
-    .chart-bar:nth-child(2) { height: 65%; animation-delay: 0.2s; }
-    .chart-bar:nth-child(3) { height: 45%; animation-delay: 0.3s; }
-    .chart-bar:nth-child(4) { height: 80%; animation-delay: 0.4s; }
-    .chart-bar:nth-child(5) { height: 55%; animation-delay: 0.5s; }
-    .chart-bar:nth-child(6) { height: 90%; animation-delay: 0.6s; }
-    .chart-bar:nth-child(7) { height: 70%; animation-delay: 0.7s; }
-
-    /* ── Social proof ── */
-    .social-proof {
-      padding: 48px 0; border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      background: rgba(6, 11, 24, 0.5);
-    }
-    .proof-inner { text-align: center; }
-    .proof-text { font-size: 0.95rem; color: #94a3b8; margin-bottom: 24px; }
-    .stars { color: #fbbf24; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 8px; }
-    .proof-logos {
-      display: flex; justify-content: center; align-items: center;
-      gap: 16px; flex-wrap: wrap; margin-top: 20px;
-    }
-    .logo-badge {
-      font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600;
-      color: #64748b; background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 10px 20px; border-radius: 8px; letter-spacing: 1px;
-    }
-
-    /* ── Features ── */
-    .features { padding: 100px 0; }
-    .section-head { text-align: center; margin-bottom: 56px; }
-    .section-head h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700;
-      color: #ffffff; margin-bottom: 12px;
-    }
-    .section-head p { color: #94a3b8; font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
-    .features-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    }
-    .feature-card {
-      background: #0d1526; border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px; padding: 32px 28px;
-      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-    }
-    .feature-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(0, 212, 255, 0.5);
-      box-shadow: 0 16px 48px rgba(0, 212, 255, 0.12);
-    }
-    .feature-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(139,92,246,0.15));
-      border: 1px solid rgba(0, 212, 255, 0.25);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px; position: relative;
-    }
-    .feature-icon::after {
-      content: ''; width: 20px; height: 20px;
-      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-      border-radius: 4px;
-    }
-    .feature-card:nth-child(2) .feature-icon::after { border-radius: 50%; width: 16px; height: 16px; }
-    .feature-card:nth-child(3) .feature-icon::after {
-      width: 0; height: 0; background: transparent;
-      border-left: 10px solid transparent; border-right: 10px solid transparent;
-      border-bottom: 18px solid #00d4ff; border-radius: 0;
-    }
-    .feature-card h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.15rem; font-weight: 600; color: #ffffff; margin-bottom: 10px;
-    }
-    .feature-card p { font-size: 0.9rem; color: #94a3b8; line-height: 1.65; }
-
-    /* ── How it works ── */
-    .how-it-works { padding: 100px 0; background: rgba(6, 11, 24, 0.4); }
-    .steps {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-      position: relative; margin-top: 48px;
-    }
-    .steps::before {
-      content: ''; position: absolute; top: 36px; left: 16%; right: 16%;
-      height: 2px; background: linear-gradient(90deg, #00d4ff, #8b5cf6);
-      opacity: 0.3;
-    }
-    .step {
-      text-align: center; padding: 0 24px; opacity: 0; transform: translateY(30px);
-      transition: opacity 0.6s, transform 0.6s;
-    }
-    .step.visible { opacity: 1; transform: translateY(0); }
-    .step-num {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-      color: #0a0e1a; font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px; position: relative; z-index: 1;
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-    }
-    .step h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.1rem; font-weight: 600; color: #ffffff; margin-bottom: 8px;
-    }
-    .step p { font-size: 0.88rem; color: #94a3b8; }
-
-    /* ── Pricing ── */
-    .pricing { padding: 100px 0; }
-    .pricing-card-wrap { max-width: 420px; margin: 0 auto; position: relative; }
-    .popular-badge {
-      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-      background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-      color: #0a0e1a; font-size: 0.7rem; font-weight: 700;
-      padding: 6px 18px; border-radius: 999px; letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    .pricing-card {
-      background: #0d1526; border: 1px solid rgba(0, 212, 255, 0.25);
-      border-radius: 20px; padding: 40px 36px; text-align: center;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
-    }
-    .pricing-card h3 {
-      font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem;
-      color: #ffffff; margin-bottom: 8px;
-    }
-    .price {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 3rem; font-weight: 700; color: #ffffff; margin: 16px 0;
-    }
-    .price span { font-size: 1rem; font-weight: 500; color: #64748b; }
-    .pricing-features { list-style: none; text-align: left; margin: 28px 0; }
-    .pricing-features li {
-      padding: 10px 0; font-size: 0.9rem; color: #cbd5e1;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      display: flex; align-items: center; gap: 10px;
-    }
-    .pricing-features li::before {
-      content: '✓'; color: #00ff88; font-weight: 700; font-size: 0.85rem;
-    }
-    .btn-pricing {
-      width: 100%; background: linear-gradient(135deg, #00d4ff, #8b5cf6);
-      color: #0a0e1a; font-weight: 700; font-size: 1rem;
-      padding: 16px; border-radius: 10px; border: none; cursor: pointer;
-      animation: btnPulse 2.5s ease-in-out infinite;
-    }
-
-    /* ── Footer ── */
-    footer {
-      background: #060b18; border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 48px 0; text-align: center;
-    }
-    footer .footer-logo {
-      font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700;
-      color: #ffffff; margin-bottom: 8px;
-    }
-    footer .footer-tagline { color: #64748b; font-size: 0.9rem; margin-bottom: 24px; }
-    footer .footer-hackathon {
-      font-size: 0.75rem; color: #475569;
-      font-family: 'Inter', monospace; letter-spacing: 0.5px;
-    }
-
-    /* ── Keyframes ── */
-    @keyframes heroGradient {
-      0% { background: linear-gradient(135deg, #0a0e1a, #0f1729, #12102a); }
-      50% { background: linear-gradient(135deg, #0d1220, #0a1628, #150f28); }
-      100% { background: linear-gradient(135deg, #0a0e1a, #101828, #0f1020); }
-    }
-    @keyframes floatMockup {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    @keyframes blink { 50% { opacity: 0; } }
-    @keyframes barGrow { from { height: 0; } }
-    @keyframes btnPulse {
-      0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
-      50% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.6); }
-    }
-
-    @media (max-width: 900px) {
-      .hero-content { grid-template-columns: 1fr; text-align: center; }
-      .hero-sub { margin-left: auto; margin-right: auto; }
-      .hero-btns { justify-content: center; }
-      .mockup { max-width: 480px; margin: 0 auto; }
-      .features-grid, .steps { grid-template-columns: 1fr; gap: 24px; }
-      .steps::before { display: none; }
-      .nav-links li:not(:last-child) { display: none; }
-    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.7; } }
+    /* Legal */
+    .legal-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; }
+    .check-ok { color: #22c55e; font-size: 1.4rem; font-weight: 700; }
+    .check-pending { color: var(--muted); font-size: 1.4rem; }
+    /* Attribution */
+    .attrib { text-align: center; padding: 48px 0; }
+    .attrib h2 { margin-bottom: 16px; }
+    .attrib p { color: var(--muted); margin-bottom: 8px; }
+    .attrib a { color: var(--accent) !important; font-weight: 600; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
-<style>
-/* Company OS industry fallback theme — FINTECH */
-body { background: #0a0e1a !important; color: #e2e8f0 !important; }
-.hero h1, h2, h3 { color: #ffffff !important; }
-.hero-sub, p { color: #e2e8f0 !important; }
-.btn-primary, .btn-nav { background: linear-gradient(135deg, #00d4ff, #ffffff) !important; }
-.logo, .hero h1 .gradient { background: linear-gradient(135deg, #00d4ff, #ffffff) !important;
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-footer { border-top: 1px solid #00d4ff33; }
-</style>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <style>
 /* Company OS render fix */
 body { min-height: 100vh; }
-h1,h2,h3,h4,h5,h6,p,span,a,li,td,th,label {
-  color: inherit;
-}
-section, div {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
+h1,h2,h3,h4,h5,h6,p,span,a,li,td,th,label { color: inherit; }
+section, div { visibility: visible !important; opacity: 1 !important; }
 </style>
 <style>
 /* Company OS theme fix */
-body { background-color: #0a0e1a !important; color: #e2e8f0 !important; }
-h1,h2,h3,h4,h5,h6 { color: #ffffff !important; }
-p,span,li,td,th,label { color: #e2e8f0 !important; }
-a { color: #f8fafc !important; }
-.hero-sub, .muted, small { color: #94a3b8 !important; }
+body { background-color: #f0fdf4 !important; color: #334155 !important; }
+h1,h2,h3,h4,h5,h6 { color: #059669 !important; }
+p,span,li,td,th,label { color: #334155 !important; }
 </style>
 </head>
 <body>
-
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <a href="#" class="logo">InvoiceAI</a>
-      <ul class="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#how">How It Works</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#pricing" class="btn-nav">Get Early Access</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="container hero-content">
-      <div class="hero-text">
-        <div class="hero-badge"><span></span> Now in public beta</div>
-        <h1>Build faster with <span class="gradient">InvoiceAI</span></h1>
-        <p class="hero-sub"><span id="typed-text"></span><span class="cursor">|</span></p>
-        <div class="hero-btns">
-          <a href="#pricing"><button class="btn-primary">Start Free</button></a>
-          <button class="btn-secondary">Watch Demo</button>
-        </div>
-      </div>
-      <div class="mockup">
-        <div class="mockup-bar">
-          <div class="mockup-dot r"></div>
-          <div class="mockup-dot y"></div>
-          <div class="mockup-dot g"></div>
-        </div>
-        <div class="mockup-metrics">
-          <div class="metric-box">
-            <div class="metric-label">Revenue</div>
-            <div class="metric-val">$48.2k</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-label">Users</div>
-            <div class="metric-val purple">2,847</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-label">Growth</div>
-            <div class="metric-val green">+127%</div>
-          </div>
-        </div>
-        <div class="mockup-chart">
-          <div class="chart-bar"></div>
-          <div class="chart-bar"></div>
-          <div class="chart-bar"></div>
-          <div class="chart-bar"></div>
-          <div class="chart-bar"></div>
-          <div class="chart-bar"></div>
-          <div class="chart-bar"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOCIAL PROOF -->
-  <section class="social-proof">
-    <div class="container proof-inner">
-      <div class="stars">★★★★★</div>
-      <p class="proof-text">Trusted by <strong style="color:#fff">2,400+ founders</strong> building the next generation of companies</p>
-      <div class="proof-logos">
-        <span class="logo-badge">NEXUS</span>
-        <span class="logo-badge">VELOCITY</span>
-        <span class="logo-badge">APEX LABS</span>
-        <span class="logo-badge">STRIDE</span>
-        <span class="logo-badge">ORBIT</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features" id="features">
     <div class="container">
-      <div class="section-head">
-        <h2>Everything InvoiceAI delivers</h2>
-        <p>Your invoices. Processed. Perfectly. Every time.</p>
+      <div class="section-label">Company OS Intelligence Report</div>
+      <h1>MindCampus</h1>
+      <p class="value-prop">Make mental health support accessible, affordable, and tailored to the unique stressors college students face.</p>
+      <div class="built-for">Built for: College students ages 18-26 across all class years (freshman through graduate/professional students) at 4-year universities, with initial focus on mid-to-large institutions (5,000+ students) in US, prioritizing students experiencing moderate mental health challenges (anxiety, depression, stress) who are price-sensitive, digitally native, and seek specialized support for college-specific stressors over general adult mental health platforms.</div>
+      <div class="hero-btns">
+        <a href="#strategy" class="btn btn-primary">View Strategy</a>
+        <a href="#financials" class="btn btn-secondary">See Financials</a>
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon"></div>
-          <h3>Lightning-fast deployment</h3>
-          <p>Go from idea to live product in minutes. InvoiceAI automates the heavy lifting so you ship before competitors wake up.</p>
+    </div>
+  </section>
+
+  <section id="strategy" class="section">
+    <div class="container">
+      <div class="section-label">Section 2</div>
+      <h2>90-Day Strategy</h2>
+      <div class="okr-grid">
+            <div class="card okr-card fade-in">
+              <h3>Establish market fit and clinical credibility with college student population</h3>
+              <ul><li>Achieve 80%+ DAU/MAU ratio among beta users by day 60</li><li>Complete and publish clinical outcomes study showing 35%+ improvement in anxiety/depression metrics for engaged users by day 90</li><li>Secure partnerships with 15 universities including top-50 institutions by day 90</li></ul>
+              <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div></div>
+              <span class="progress-label">0% — Just started</span>
+            </div>
+            <div class="card okr-card fade-in">
+              <h3>Drive user acquisition targeting college-specific channels</h3>
+              <ul><li>Reach 5,000+ total app downloads by day 90 (target: 2,000 by day 60)</li><li>Achieve 2,000+ paid subscribers (premium or institutional) by day 90</li><li>Build user referral program generating 25%+ of new user signups by day 90</li></ul>
+              <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div></div>
+              <span class="progress-label">0% — Just started</span>
+            </div>
+            <div class="card okr-card fade-in">
+              <h3>Build sustainable retention and engagement metrics</h3>
+              <ul><li>Maintain 70%+ month-2 retention rate for free users and 85%+ for paid subscribers</li><li>Achieve 4+ average weekly sessions per active user by day 90</li><li>Reach 90%+ completion rate on onboarding and initial mental health assessment</li></ul>
+              <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div></div>
+              <span class="progress-label">0% — Just started</span>
+            </div>
+            <div class="card okr-card fade-in">
+              <h3>Establish differentiated competitive positioning</h3>
+              <ul><li>Develop and launch 3 college-specific features (peer support matching, exam stress module, dorm adjustment resources) unavailable on BetterHelp/Talkspace by day 90</li><li>Achieve 40%+ lower average cost per therapy session vs. competitors through efficient matching and group offerings</li><li>Secure testimonials/case studies from 10+ students and 5+ university counselors demonstrating superiority in college context</li></ul>
+              <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div></div>
+              <span class="progress-label">0% — Just started</span>
+            </div>
+            <div class="card okr-card fade-in">
+              <h3>Build clinical infrastructure and therapeutic quality</h3>
+              <ul><li>Recruit and train 30+ licensed therapists specialized in college mental health by day 90</li><li>Achieve 95%+ therapist availability (median wait time &lt;24 hours for matched session) by day 90</li><li>Implement clinical quality audit system with 98%+ satisfaction rating on therapist interactions</li></ul>
+              <div class="progress-wrap"><div class="progress-bar" style="width:0%"></div></div>
+              <span class="progress-label">0% — Just started</span>
+            </div></div>
+      <div class="timeline">
+        <div class="timeline-item card">
+          <h4>Month 1</h4>
+          <p>Market research and MVP refinement. Conduct 50+ interviews with freshman through grad students across 5-10 universities to validate core pain points (academic pressure, social isolation, financial stress, sleep issues). Finalize clinical advisory board with licensed therapists specializing in college-age populations. Build partnerships with 3-5 university counseling centers for referral pathways. Launch closed beta with 500 students at partner universities. Establish pricing model: freemium tier (peer support, meditation) + $15-25/month premium (therapist access) + institutional partnerships.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon"></div>
-          <h3>AI-native intelligence</h3>
-          <p>InvoiceAI is an intelligent invoice processing platform for small businesses that automates the entire AP workflow. Core features: multi-channel invoice capture (email, PDF uploads, portals), AI-powered OCR extraction with 95%+ accuracy, automatic invoice classification and routing, PO matching, duplicate detection, approval workflows, and integration with accounting software (QuickBooks, Xero). The platform reduces manual invoice processing time by 80-90% and eliminates common errors like duplicate payments and data entry mistakes. Pricing: usage-based ($0.25-0.50 per invoice) with optional flat-rate plans. — powered by autonomous agents that learn, adapt, and optimize every workflow in real time.</p>
+        <div class="timeline-item card">
+          <h4>Month 2</h4>
+          <p>Product optimization and early traction. Iterate MVP based on beta feedback with focus on onboarding experience, matching algorithms for peer support, and crisis intervention features. Achieve 80%+ week-2 retention on core features. Launch official partnerships with 10 universities for in-app promotion and counseling center integration. Recruit 25-30 licensed therapists and train on college-specific mental health protocols. Scale beta to 2,000 active users. Implement analytics dashboard tracking engagement metrics, therapeutic outcomes, and user cohort behavior.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon"></div>
-          <h3>Enterprise-grade security</h3>
-          <p>Bank-level encryption, SOC 2 ready infrastructure, and zero-trust architecture. Your data stays yours — always.</p>
+        <div class="timeline-item card">
+          <h4>Month 3</h4>
+          <p>Growth acceleration and clinical validation. Launch public campaign targeting freshman recruitment during peak orientation periods (August-September). Expand to 15 universities with active partnerships and promotional presence. Achieve 5,000+ app downloads and 2,000+ paid subscribers. Complete first clinical outcomes study with peer-reviewed results (anxiety/depression score improvements). Build institutional sales pipeline with 5+ universities interested in school-wide licensing. Implement referral program incentivizing student-to-student growth. Establish board of student advisors (1-2 from each university) for ongoing product feedback.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="how-it-works" id="how">
+  <section id="financials" class="section">
     <div class="container">
-      <div class="section-head">
-        <h2>How it works</h2>
-        <p>Three steps from zero to launched company</p>
+      <div class="section-label">Section 3</div>
+      <h2>Financial Projections</h2>
+      <p style="margin-bottom:16px;color:var(--muted)">MindCampus projects reaching 91 paid subscribers by month 3 with $1,364 MRR, targeting a $14.99/month price point optimized for price-sensitive college students. With a healthy 9.78x LTV:CAC ratio and 2.4-month payback period, the unit economics support scaling. However, the platform requires $400K seed funding to reach break-even at 1,215 paid subscribers (approximately month 18), assuming 3.2% freemium conversion, 8.5% monthly churn, and institutional partnerships driving organic growth. Monthly burn averages $18,233 across engineering, clinical staff (licensed therapists), marketing, and operations, declining as a percentage of revenue as MRR compounds. The model assumes conservative early-stage adoption and emphasizes institutional distribution partnerships to achieve cost-efficient customer acquisition at scale.</p>
+      <div class="chart">
+        <div class="bar-wrap">
+          <div class="bar" data-height="15" style="height:0"></div>
+          <div class="bar-value counter" data-target="210">$0</div>
+          <div class="bar-label">Month 1 MRR</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar" data-height="49" style="height:0"></div>
+          <div class="bar-value counter" data-target="675">$0</div>
+          <div class="bar-label">Month 2 MRR</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar" data-height="100" style="height:0"></div>
+          <div class="bar-value counter" data-target="1364">$0</div>
+          <div class="bar-label">Month 3 MRR</div>
+        </div>
       </div>
-      <div class="steps">
-        <div class="step" data-step>
-          <div class="step-num">1</div>
-          <h3>Share your vision</h3>
-          <p>Describe your company idea in one sentence. Our agent swarm understands context instantly.</p>
+      <div class="finance-stats">
+        <div class="card stat-box">
+          <div class="num counter" data-target="18233">$0</div>
+          <div class="lbl">Burn Rate / Month</div>
         </div>
-        <div class="step" data-step>
-          <div class="step-num">2</div>
-          <h3>Agents build everything</h3>
-          <p>Strategy, engineering, legal, sales, and finance — all generated and deployed autonomously.</p>
+        <div class="card stat-box">
+          <div class="num">5.5 months</div>
+          <div class="lbl">Runway</div>
         </div>
-        <div class="step" data-step>
-          <div class="step-num">3</div>
-          <h3>Launch and scale</h3>
-          <p>Your landing page goes live, outreach drafts ready, and financial projections in hand.</p>
+        <div class="card stat-box">
+          <div class="num">Month 18</div>
+          <div class="lbl">Break-Even Target</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section class="pricing" id="pricing">
+  <section id="market" class="section">
     <div class="container">
-      <div class="section-head">
-        <h2>Simple, transparent pricing</h2>
-        <p>One plan. Everything included. Cancel anytime.</p>
+      <div class="section-label">Section 4</div>
+      <h2>Market Intelligence</h2>
+      <div class="card">
+        <h3>Target Customer Profile</h3>
+        <p>College students ages 18-26 across all class years (freshman through graduate/professional students) at 4-year universities, with initial focus on mid-to-large institutions (5,000+ students) in US, prioritizing students experiencing moderate mental health challenges (anxiety, depression, stress) who are price-sensitive, digitally native, and seek specialized support for college-specific stressors over general adult mental health platforms.</p>
       </div>
-      <div class="pricing-card-wrap">
-        <span class="popular-badge">Most Popular</span>
-        <div class="pricing-card">
-          <h3>Pro</h3>
-          <div class="price">$49<span>/month</span></div>
-          <ul class="pricing-features">
-            <li>Unlimited agent pipeline runs</li>
-            <li>GitHub Pages deployment</li>
-            <li>Cosmos DB shared brain</li>
-            <li>Sales outreach drafts</li>
-            <li>Financial projections</li>
-            <li>Risk monitoring &amp; alerts</li>
-            <li>Priority support</li>
-          </ul>
-          <button class="btn-pricing">Get Started — $49/mo</button>
+      <div class="finance-stats">
+        <div class="card stat-box">
+          <div class="num counter" data-target="10">0</div>
+          <div class="lbl">Leads Identified</div>
         </div>
+      </div>
+      <div class="card">
+        <h3>Outreach Strategy</h3>
+        <p>Identify and qualify leads targeting college health centers, student counseling departments, and campus wellness programs at top 100 US universities; draft personalized outreach emails emphasizing cost savings and student mental health outcomes with 10+ initial prospects.</p>
+      </div>
+      <div class="card">
+        <h3>Conversion Assumptions</h3>
+        <p>MindCampus projects reaching 91 paid subscribers by month 3 with $1,364 MRR, targeting a $14.99/month price point optimized for price-sensitive college students. With a healthy 9.78x LTV:CAC ratio and 2.4-month payback period, the unit economics support scaling. However, the platform requires $400K seed funding to reach break-even at 1,215 paid subscribers (approximately month 18), assuming 3.2% freemium conversion, 8.5% monthly churn, and institutional partnerships driving organic growth. Monthly burn averages $18,233 across engineering, clinical staff (licensed therapists), marketing, and operations, declining as a percentage of revenue as MRR compounds. The model assumes conservative early-stage adoption and emphasizes institutional distribution partnerships to achieve cost-efficient customer acquisition at scale.</p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
+  <section id="risk" class="section">
     <div class="container">
-      <div class="footer-logo">InvoiceAI</div>
-      <div class="footer-tagline">Your invoices. Processed. Perfectly. Every time.</div>
-      <div class="footer-hackathon">Built by Company OS Agent Swarm — Microsoft Build AI Hackathon 2026</div>
+      <div class="section-label">Section 5</div>
+      <h2>Risk Dashboard</h2>
+      <span class="negotiation-badge">NEGOTIATION ACTIVATED</span>
+      <p style="margin-bottom:16px">Overall risk level: <strong>CRITICAL</strong> — Confidence score: <strong>62%</strong></p>
+      
+            <div class="card risk-card fade-in">
+              <div class="risk-header">
+                <span class="badge critical">CRITICAL</span>
+                <h3>Critical Regulatory and Licensing Gap: State-by-State Telehealth Requirements Unaddressed</h3>
+              </div>
+              <p class="risk-desc">MindCampus operates a therapist-mediated telehealth platform but legal agent deliverables show no evidence of state-by-state licensing compliance analysis. Legal documents include basic ToS/Privacy Policy (HIPAA-compliant on paper) and liability waiver, but NO documented state-specific telehealth licensing requirements, therapist credentialing standards, state board registration, informed consent protocols, or crisis intervention compliance. Risk agent&#x27;s task explicitly required &#x27;regulatory/licensing requirements by state&#x27; analysis—this was never delivered. Launching with unlicensed therapists or non-compliant practices across 50 states creates immediate regulatory violation exposure.</p>
+              <div class="mitigation"><strong>Mitigation:</strong> IMMEDIATE (48 hours): Engage healthcare compliance attorney specializing in telehealth. Mandate: audit all 50 states&#x27; licensure requirements for therapists, telehealth supervision rules, crisis intervention protocols, and patient consent language. Deliver state compliance matrix with go/no-go decision per state within 7 days. CONCURRENT (7-14 days): (1) Implement therapist credentialing checklist including state board verification, malpractice insurance requirements, background checks, and clinical supervision protocols; (2) Establish state-specific consent workflows with liability waivers; (3) Define crisis escalation procedures compliant with each state&#x27;s emergency mental health law. DO NOT launch in any state until compliance attorney signs off. Target 5-10 compliant states (CA, NY, TX, FL, IL) for beta before expansion. Make compliance a non-negotiable gating criterion for university partnerships.</div>
+            </div>
+            <div class="card risk-card fade-in">
+              <div class="risk-header">
+                <span class="badge critical">CRITICAL</span>
+                <h3>Therapist Liability, Vetting, and Clinical Quality Control Infrastructure Missing</h3>
+              </div>
+              <p class="risk-desc">CEO strategy commits to recruiting 30+ licensed therapists by Day 90, but zero documented infrastructure exists for therapist vetting, credentialing, malpractice liability mitigation, or clinical quality assurance. Legal documents mention &#x27;Therapist/Counselor Contractor Agreements&#x27; (status: generated) but no evidence of: (1) Background check + state board verification protocols, (2) Malpractice insurance requirements, (3) Clinical supervision standards for college mental health specialization, (4) Liability allocation in contractor agreements, (5) Adverse event reporting procedures, (6) Patient complaint resolution workflow. Finance model budgets $4-6.5K/month for &#x27;clinical staff costs&#x27; but provides no detail on liability reserves, insurance, or quality audits. If any therapist provides substandard care resulting in patient harm/suicide, MindCampus faces direct negligent hiring/retention liability plus vicarious liability. Current contractor agreements likely fail to shift liability adequately.</p>
+              <div class="mitigation"><strong>Mitigation:</strong> IMMEDIATE (14 days): Establish Therapist Credentialing Committee with clinical advisor + compliance counsel. Mandate: (1) Background check (NCIC, state sexual offender registry, clinical board history) for ALL therapists; (2) State board license verification via automated system; (3) Malpractice insurance minimum ($1M per incident) as contract requirement with proof of coverage; (4) Clinical supervision plan (20% of sessions reviewed by licensed supervisor) for first 90 days; (5) Redline contractor agreement to explicitly shift clinical liability to therapist while MindCampus retains vicarious liability, with indemnification clause. CONCURRENT (14-30 days): (1) Establish Quality Assurance audit (10% of therapy sessions reviewed for clinical appropriateness); (2) Create adverse event reporting system with automatic escalation to clinical committee + legal; (3) Develop crisis intervention protocol with clear handoff procedures to university counseling centers; (4) Obtain tail malpractice insurance ($500K minimum). DO NOT onboard therapists until credentialing process is operational. Budget additional $8-10K/month for clinical supervision + quality audits.</div>
+            </div>
+            <div class="card risk-card fade-in">
+              <div class="risk-header">
+                <span class="badge critical">CRITICAL</span>
+                <h3>Student Data Privacy Vulnerabilities and HIPAA Compliance Gaps in Technical Infrastructure</h3>
+              </div>
+              <p class="risk-desc">MindCampus handles sensitive mental health data (assessment results, therapy notes, crisis history) from minors and adults requiring HIPAA + FERPA compliance. Legal documents include Privacy Policy marked &#x27;HIPAA-compliant&#x27; but engineer agent&#x27;s deliverable (company dashboard) shows ZERO security architecture details: no mention of data encryption (at-rest, in-transit), access controls, audit logging, vendor security vetting, or incident response procedures. Finance agent&#x27;s budget includes no security/compliance line items. Risk agent task specifically required &#x27;student data privacy vulnerabilities&#x27; analysis—risk report is MISSING. Landing page tech stack includes unvetted third-party integrations (Stripe for payments) without documented data handling agreements. No evidence of: (1) Business Associate Agreements (BAAs) with vendors, (2) Encryption key management, (3) Breach notification procedures, (4) Data retention/deletion policies, (5) Student consent for data use, (6) FERPA compliance for institutional data sharing. A single data breach exposes MindCampus to HIPAA fines ($100-50K per violation, max $1.5M/year), state AG enforcement, and institutional partnership collapse.</p>
+              <div class="mitigation"><strong>Mitigation:</strong> IMMEDIATE (7 days): Engage healthcare security consultant to conduct HIPAA Security Rule gap analysis on current tech infrastructure. Deliverable: written assessment of data encryption, access controls, audit logging, and vendor security requirements. CONCURRENT (7-14 days): (1) Implement data encryption at rest (AES-256) and in transit (TLS 1.2+); (2) Establish access control matrix (therapist sees only own patients, admins have audit-only access); (3) Execute Business Associate Agreements (BAAs) with ALL vendors (Stripe, cloud host, analytics); (4) Create incident response plan with 60-minute breach notification trigger; (5) Develop student data consent workflows with granular opt-in for research/institutional sharing. BEFORE BETA LAUNCH (14 days): Complete SOC 2 Type I readiness audit (path to Type II in 6 months). Update financial model with $3-5K/month security/compliance operating cost. Make data security certification (SOC 2 attestation letter) a non-negotiable requirement for institutional sales conversations. Document all controls in security policy and share with compliance attorney for sign-off.</div>
+            </div>
     </div>
-  </footer>
+  </section>
+
+  <section id="legal" class="section">
+    <div class="container">
+      <div class="section-label">Section 6</div>
+      <h2>Legal Status</h2>
+      <div class="card">
+        <div class="legal-item"><span class="check-ok">✓</span> Terms of Service — GENERATED</div>
+        <div class="legal-item"><span class="check-pending">○</span> Refund Policy — PENDING</div>
+        <p style="margin-top:16px;color:var(--muted)">Powered by Company OS Legal Agent</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="attrib">
+    <div class="container">
+      <div class="section-label">Section 7</div>
+      <h2>This company was built autonomously by Company OS</h2>
+      <p>7 AI agents — 90 seconds — zero human input</p>
+      <p>Microsoft Build AI Hackathon 2026 — Agent Swarms</p>
+      <p style="margin-top:24px"><a href="http://localhost:5000">← Back to Company OS Dashboard</a></p>
+    </div>
+  </section>
 
   <script>
-    (function () {
-      var fullText = "InvoiceAI is an intelligent invoice processing platform for small businesses that automates the entire AP workflow. Core features: multi-channel invoice capture (email, PDF uploads, portals), AI-powered OCR extraction with 95%+ accuracy, automatic invoice classification and routing, PO matching, duplicate detection, approval workflows, and integration with accounting software (QuickBooks, Xero). The platform reduces manual invoice processing time by 80-90% and eliminates common errors like duplicate payments and data entry mistakes. Pricing: usage-based ($0.25-0.50 per invoice) with optional flat-rate plans.";
-      var el = document.getElementById("typed-text");
-      var i = 0;
-      function typeChar() {
-        if (i < fullText.length) {
-          el.textContent += fullText.charAt(i);
-          i++;
-          setTimeout(typeChar, 28 + Math.random() * 20);
-        }
-      }
-      setTimeout(typeChar, 600);
+    document.querySelectorAll('.fade-in').forEach(el => {
+      new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      }, { threshold: 0.1 }).observe(el);
+    });
 
-      var steps = document.querySelectorAll("[data-step]");
-      if ("IntersectionObserver" in window) {
-        var obs = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        }, { threshold: 0.3 });
-        steps.forEach(function (step, idx) {
-          step.style.transitionDelay = (idx * 0.15) + "s";
-          obs.observe(step);
-        });
-      } else {
-        steps.forEach(function (step) { step.classList.add("visible"); });
+    function animateCounter(el) {
+      const target = parseFloat(el.dataset.target) || 0;
+      const isMoney = el.textContent.includes('$') || el.closest('.stat-box') || el.classList.contains('bar-value');
+      const start = performance.now();
+      const dur = 1500;
+      function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const val = Math.floor(p * target);
+        el.textContent = isMoney ? '$' + val.toLocaleString() : val.toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = isMoney ? '$' + Math.floor(target).toLocaleString() : Math.floor(target).toLocaleString();
       }
-    })();
+      requestAnimationFrame(tick);
+    }
+
+    const chartObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.querySelectorAll('.bar').forEach(bar => {
+          bar.style.height = bar.dataset.height + '%';
+        });
+        e.target.querySelectorAll('.counter').forEach(animateCounter);
+        chartObs.unobserve(e.target);
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('#financials, #market').forEach(s => chartObs.observe(s));
   </script>
-<p style='text-align:center;padding:24px;font-size:0.85rem;opacity:0.7;'>Built by Company OS — Microsoft Build AI Hackathon 2026</p>
 </body>
 </html>
