@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AuditTest — Company Intelligence Report</title>
+  <title>FoodFlow AI — Company Intelligence Report</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Company OS — content always visible */
@@ -13,8 +13,8 @@
       opacity: 1 !important;
     }
     :root {
-      --bg: #0d1117; --card: #161b22; --text: #c9d1d9;
-      --heading: #ffffff; --accent: #58a6ff; --gold: #3fb950;
+      --bg: #0f172a; --card: #1e293b; --text: #e2e8f0;
+      --heading: #ffffff; --accent: #3b82f6; --gold: #10b981;
       --border: rgba(255,255,255,0.08); --muted: #94a3b8;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -119,9 +119,9 @@
     .bar-m1 { animation: growBar1 1.2s ease-out 0.3s forwards; }
     .bar-m2 { animation: growBar2 1.2s ease-out 0.5s forwards; }
     .bar-m3 { animation: growBar3 1.2s ease-out 0.7s forwards; }
-    @keyframes growBar1 { from { height: 0; } to { height: 4px; } }
-    @keyframes growBar2 { from { height: 0; } to { height: 4px; } }
-    @keyframes growBar3 { from { height: 0; } to { height: 4px; } }
+    @keyframes growBar1 { from { height: 0; } to { height: 40px; } }
+    @keyframes growBar2 { from { height: 0; } to { height: 100px; } }
+    @keyframes growBar3 { from { height: 0; } to { height: 200px; } }
     .bar-label { margin-top: 10px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
     .bar-pct { font-size: 0.7rem; color: var(--muted); }
     .finance-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 24px; }
@@ -221,7 +221,7 @@ section, div { visibility: visible !important; opacity: 1 !important; }
 </style>
 <style>
 /* Company OS theme fix */
-body { background-color: #0d1117 !important; color: #c9d1d9 !important; }
+body { background-color: #0f172a !important; color: #e2e8f0 !important; }
 h1,h2,h3,h4,h5,h6 { color: #ffffff !important; }
 p,span,li,td,th,label { color: #e2e8f0 !important; }
 </style>
@@ -229,7 +229,7 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
 <body>
     <nav class="navbar">
       <div class="container nav-inner">
-        <a class="nav-logo" href="#">AuditTest</a>
+        <a class="nav-logo" href="#">FoodFlow AI</a>
         <ul class="nav-links">
           <li><a href="#strategy" data-nav="strategy">Strategy</a></li>
           <li><a href="#financials" data-nav="financials">Financials</a></li>
@@ -243,9 +243,9 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
     <section class="hero">
       <div class="container">
         <div class="section-title">Company Intelligence Report</div>
-        <h1>AuditTest</h1>
-        <p class="value-prop">Democratize continuous software testing through autonomous, intelligent audit systems that catch defects before they reach production.</p>
-        <div class="built-for">Built for: Mid-market to enterprise SaaS companies and financial services firms (100-5000 employees) with mature development practices, multi-team engineering organizations, and regulatory/compliance requirements who conduct 500+ test executions monthly and seek to reduce manual QA effort while improving release confidence.</div>
+        <h1>FoodFlow AI</h1>
+        <p class="value-prop">Every restaurant optimizes inventory in real-time, eliminates food waste, and maximizes profitability through intelligent AI-driven insights.</p>
+        <div class="built-for">Built for: Independent and regional casual dining restaurants (20-200 locations) and quick-service restaurants (QSR) with annual food costs of $500K-$5M, struggling with manual inventory management, high waste rates (25-30%), and thin profit margins (3-9%). Primary personas: Kitchen managers, food and beverage directors, operations managers, and restaurant owners seeking cost reduction and operational efficiency without major infrastructure changes.</div>
         <div class="hero-btns">
           <a href="#strategy" class="btn btn-primary">View Strategy</a>
           <a href="#financials" class="btn btn-secondary">See Financials</a>
@@ -259,20 +259,26 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         <h2>Strategic OKRs &amp; Milestones</h2>
         <div class="okr-grid">
             <div class="card okr-card">
-              <h3>Establish market leadership in autonomous test audit accuracy and reliability</h3>
-              <ul class="kr-list"><li>Achieve 95%+ defect detection rate across beta customers with &lt;5% false positive rate, validated through third-party testing</li><li>Reduce average time to identify critical test coverage gaps from weeks to &lt;48 hours</li><li>Obtain SOC 2 Type II compliance certification and support 5 major regulatory framework mappings (SOX, GDPR, PCI-DSS, HIPAA, CCPA)</li></ul>
+              <h3>Validate product-market fit with target customer segment</h3>
+              <ul class="kr-list"><li>Achieve 20 paying customers by end of Q1 with NPS ≥ 45</li><li>Document measurable ROI: 15%+ food waste reduction and $2000+ monthly savings per restaurant</li><li>Maintain 80%+ customer retention rate (month-over-month churn ≤ 20%)</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Drive customer acquisition and establish product-market fit with target segments</h3>
-              <ul class="kr-list"><li>Secure 12 paying pilot customers representing minimum $180K ARR with &gt;80% implementation success rate</li><li>Achieve 4.5+ Net Promoter Score (NPS) from beta/pilot customers with 3+ reference-able case studies</li><li>Generate pipeline of 25+ qualified leads for next quarter through sales activities and partnerships</li></ul>
+              <h3>Build strategic ecosystem partnerships for distribution</h3>
+              <ul class="kr-list"><li>Secure partnerships with 2 major restaurant networks (100+ combined locations)</li><li>Integrate with 3 primary POS systems (Toast, Square, TouchBistro)</li><li>Partner with 1-2 major food distributor platforms for supply chain visibility</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Build operational efficiency and sustainable growth infrastructure</h3>
-              <ul class="kr-list"><li>Reduce mean time to onboard customers from 3 weeks to 5 business days through automation and templates</li><li>Establish product roadmap with prioritized features based on customer feedback achieving 90%+ alignment with top 5 customer requests</li><li>Build foundational infrastructure achieving 99.5% platform uptime and &lt;2 second audit analysis latency for standard test suites</li></ul>
+              <h3>Establish go-to-market motion and customer acquisition</h3>
+              <ul class="kr-list"><li>Achieve CAC under $500 and LTV:CAC ratio ≥ 4:1</li><li>Generate 50+ qualified leads with 30% demo-to-trial conversion rate</li><li>Build sales pipeline of $100K+ ARR in committed and signed letters of intent</li></ul>
+              <div class="progress-wrap"><div class="progress-bar"></div></div>
+              <span class="progress-label">Day 1 of 90 — 0% complete</span>
+            </div>
+            <div class="card okr-card">
+              <h3>Develop defensible AI/ML competitive advantage</h3>
+              <ul class="kr-list"><li>Waste prediction model achieves 80%+ accuracy on holdout test set</li><li>Implement demand forecasting module with 75%+ accuracy within 7-day window</li><li>Build proprietary dataset with 50K+ restaurant inventory transactions</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div></div>
@@ -280,17 +286,17 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
           <div class="step">
             <div class="step-circle">1</div>
             <h4>Month 1</h4>
-            <p>Foundation &amp; Market Validation: Finalize MVP with core autonomous test audit capabilities (test coverage analysis, defect detection, compliance mapping). Conduct 5-10 deep customer discovery interviews with mid-market SaaS companies and financial services firms. Establish partnerships with 2-3 QA tool vendors. Create competitive positioning document and launch landing page. Set up analytics and customer feedback loops.</p>
+            <p>Foundation &amp; Market Validation. Finalize MVP with core features: real-time inventory tracking, waste prediction ML model, and supplier integration. Conduct 20 customer discovery interviews with independent restaurants and regional chains. Establish partnerships with 2-3 food supplier networks (Sysco, US Foods, local distributors). Set up early access program and recruit 5 pilot restaurants. Build advisory board with restaurant operators and food supply chain experts.</p>
           </div>
           <div class="step">
             <div class="step-circle">2</div>
             <h4>Month 2</h4>
-            <p>Product-Market Fit &amp; Early Traction: Deploy MVP with 3-5 beta customers across different verticals. Implement automated audit accuracy benchmarking against industry standards. Launch customer education content (webinars, case studies) demonstrating audit effectiveness. Hire first sales/customer success resource. Establish pricing model based on test volume and audit frequency. Build integrations with 2 major CI/CD platforms.</p>
+            <p>Product Refinement &amp; Initial Traction. Deploy MVP with 5 pilot restaurants, collect usage data and feedback. Iterate on waste prediction accuracy (target: 80%+ precision). Launch integration API with major POS systems (Toast, Square, Toast). Conduct customer success sessions with pilots to document ROI metrics. Begin soft launch with 10-15 additional restaurants through referrals. Establish KPI tracking dashboard and baseline metrics.</p>
           </div>
           <div class="step">
             <div class="step-circle">3</div>
             <h4>Month 3</h4>
-            <p>Growth &amp; Operational Scaling: Close 8-12 pilot customers with contractual commitments. Implement customer feedback into product roadmap (2-3 feature iterations). Establish enterprise-grade security and compliance certifications (SOC 2 Type I pathway). Develop predictive ROI calculator for sales enablement. Launch referral program. Plan Series A positioning and investor outreach strategy.</p>
+            <p>Proof of Concept &amp; Growth Preparation. Achieve 20 active customers across independent and small chain segments. Document and publish case studies showing 15-25% waste reduction and 10-15% food cost savings. Secure strategic partnerships with 2 major restaurant networks (50+ locations each). Prepare Series Seed pitch deck and financial models. Launch customer referral program and implement NPS tracking. Establish sales and customer success processes.</p>
           </div>
         </div>
       </div>
@@ -300,45 +306,45 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
       <div class="container">
         <div class="section-title">Financial Projections</div>
         <h2>Revenue &amp; Runway Analysis</h2>
-        <p style="margin:16px 0;color:var(--muted)"></p>
+        <p style="margin:16px 0;color:var(--muted)">FoodFlow AI requires $300K in seed funding to sustain operations through month 8, with a monthly burn rate of $36.5K covering a 3-person founding team ($22K), product development ($8K), marketing ($5K average), and operations. The 3-month projection shows conservative growth from 2 to 10 customers with aggressive CAC spending, generating $20.4K revenue against $109.5K expenses. At $1,200 ARR per restaurant with 8% conversion from targeted outreach, the company achieves 50-month customer lifetime value ($60K) yielding a healthy 40:1 LTV:CAC ratio. Break-even occurs at month 18 with approximately 60 retained customers. Growth acceleration depends on product-market fit validation and operational efficiency improvements; recommend securing additional $150K Series A bridge by month 6 to de-risk runway and fund sales acceleration.</p>
         <div class="chart-wrap">
           <div class="chart">
             <div class="bar-col">
-              <div class="bar-amount">$0</div>
+              <div class="bar-amount">$2,400</div>
               <div class="bar bar-m1"></div>
               <div class="bar-label">Month 1 MRR</div>
-              <div class="bar-pct">0.0% of peak</div>
+              <div class="bar-pct">20.0% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$0</div>
+              <div class="bar-amount">$6,000</div>
               <div class="bar bar-m2"></div>
               <div class="bar-label">Month 2 MRR</div>
-              <div class="bar-pct">0.0% of peak</div>
+              <div class="bar-pct">50.0% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$0</div>
+              <div class="bar-amount">$12,000</div>
               <div class="bar bar-m3"></div>
               <div class="bar-label">Month 3 MRR</div>
-              <div class="bar-pct">0.0% of peak</div>
+              <div class="bar-pct">100.0% of peak</div>
             </div>
           </div>
         </div>
         <div class="finance-stats">
           <div class="card metric-card">
             <div class="lbl">Burn Rate / Month</div>
-            <div class="val">$0</div>
+            <div class="val">$36,500</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Runway</div>
-            <div class="val"> mo</div>
+            <div class="val">8 mo</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Break-Even Target</div>
-            <div class="val">MN/A</div>
+            <div class="val">M18</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">LTV:CAC Ratio</div>
-            <div class="val">N/A</div>
+            <div class="val">3.9:1</div>
           </div>
         </div>
       </div>
@@ -349,10 +355,10 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         <div class="section-title">Market Intelligence</div>
         <h2>Sales &amp; Customer Profile</h2>
         <div class="card profile-card">
-          <div class="avatar">MT</div>
+          <div class="avatar">IA</div>
           <div>
             <h3>Target Customer Profile</h3>
-            <p>Mid-market to enterprise SaaS companies and financial services firms (100-5000 employees) with mature development practices, multi-team engineering organizations, and regulatory/compliance requirements who conduct 500+ test executions monthly and seek to reduce manual QA effort while improving release confidence.</p>
+            <p>Independent and regional casual dining restaurants (20-200 locations) and quick-service restaurants (QSR) with annual food costs of $500K-$5M, struggling with manual inventory management, high waste rates (25-30%), and thin profit margins (3-9%). Primary personas: Kitchen managers, food and beverage directors, operations managers, and restaurant owners seeking cost reduction and operational efficiency without major infrastructure changes.</p>
           </div>
         </div>
         <div class="card leads-metric">
@@ -361,16 +367,16 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         </div>
         <div class="card">
           <h3>Outreach Strategy</h3>
-          <p>Identify and qualify enterprise leads in finance, healthcare, and tech sectors requiring automated audit solutions, draft personalized outreach campaigns highlighting test audit capabilities, and create pitch decks for compliance-focused decision makers</p>
+          <p>Identify and create a list of target restaurant leads (independent restaurants, small chains, and food service management companies). Draft personalized outreach emails, create a sales playbook highlighting AI-driven waste reduction benefits, and establish a pipeline of potential customers in Tier 1 and Tier 2 markets.</p>
         </div>
         <div class="card">
           <h3>Conversion Assumptions</h3>
           <div class="funnel">
-            <div class="funnel-step">0 Monthly Leads</div>
-            <div class="funnel-step">0% Conversion Rate</div>
-            <div class="funnel-step">~0 Paying Customers / Mo</div>
+            <div class="funnel-step">25 Monthly Leads</div>
+            <div class="funnel-step">8% Conversion Rate</div>
+            <div class="funnel-step">~2 Paying Customers / Mo</div>
           </div>
-          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem"></p>
+          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">FoodFlow AI requires $300K in seed funding to sustain operations through month 8, with a monthly burn rate of $36.5K covering a 3-person founding team ($22K), product development ($8K), marketing ($5K average), and operations. The 3-month projection shows conservative growth from 2 to 10 customers with aggressive CAC spending, generating $20.4K revenue against $109.5K expenses. At $1,200 ARR per restaurant with 8% conversion from targeted outreach, the company achieves 50-month customer lifetime value ($60K) yielding a healthy 40:1 LTV:CAC ratio. Break-even occurs at month 18 with approximately 60 retained customers. Growth acceleration depends on product-market fit validation and operational efficiency improvements; recommend securing additional $150K Series A bridge by month 6 to de-risk runway and fund sales acceleration.</p>
         </div>
       </div>
     </section>
@@ -381,7 +387,7 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
         <h2>Risk Analysis &amp; Mitigation</h2>
         <span class="negotiation-badge">⚡ NEGOTIATION ACTIVATED</span>
         <div class="risk-top">
-          <span class="overall-badge critical">Overall: CRITICAL</span>
+          <span class="overall-badge critical">Overall: HIGH</span>
           <div class="confidence-ring"><span>48%</span></div>
           <span style="color:var(--muted);font-size:0.9rem">Agent Confidence Score</span>
         </div>
@@ -391,23 +397,11 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Audit Liability Exposure &amp; Professional Negligence Risk</h3>
+                  <h3>AI Model Accuracy Liability &amp; Food Waste Prediction Risk</h3>
                 </div>
-                <p class="risk-desc">AuditTest positions itself as an autonomous audit platform making definitive claims about defect detection (95%+ accuracy target) and compliance mapping (SOX, HIPAA, PCI-DSS). If the platform misses critical defects that reach production or fails to identify compliance gaps, customers face regulatory penalties and data breaches. AuditTest becomes jointly liable for damages. Legal agent completed terms of service but explicitly did NOT generate refund policy, liability caps, or professional indemnity insurance requirements—critical omissions for a platform making audit determinations that affect regulatory compliance.</p>
+                <p class="risk-desc">FoodFlow AI makes explicit claims of 80%+ waste prediction accuracy and 15-25% waste reduction guarantees in customer communications and pitch materials. If the ML model underperforms in production (accuracy &lt;75%), customers will see promised ROI fail to materialize, triggering refund demands and breach-of-contract claims. Legal agent generated Terms of Service but explicitly did NOT include liability caps, accuracy disclaimers, or professional indemnity insurance requirements. The platform positions waste reduction as definitive business outcome, not advisory guidance—creating unlimited liability exposure if predictions fail at scale.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> Immediately: (1) Engage professional liability insurance broker to secure E&amp;O coverage ($5M+ limits) before customer acquisition. (2) Legal agent must complete liability waiver explicitly stating AuditTest is advisory, not authoritative—customer retains final audit responsibility. (3) Implement contractual liability caps (12 months of fees paid). (4) Establish independent third-party defect detection validation (annual testing against NIST/OWASP standards) with published accuracy benchmarks. (5) Create audit trail documentation proving platform recommendations vs. customer-implemented decisions.</div>
-              </div>
-            </div>
-            <div class="card risk-card sev-critical">
-              <div class="risk-severity-bar"></div>
-              <div class="risk-body">
-                <div class="risk-header">
-                  <span class="badge critical">CRITICAL</span>
-                  <h3>Security &amp; Data Exposure Risk in Test Data Handling</h3>
-                </div>
-                <p class="risk-desc">AuditTest requires ingestion of customer test suites, test results, and code coverage data—often containing sensitive information (authentication tokens, API keys, production data samples, PII in test fixtures). Platform must integrate with CI/CD pipelines and store this data. No engineer agent output addresses data residency, encryption, access controls, data retention policies, or secure data deletion. Legal agent generated SOC 2 documentation but no security implementation roadmap exists. Risk of data breach exposing customer sensitive data directly violates trust and triggers GDPR/HIPAA liability.</p>
-                <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> Immediate: (1) Engineer agent must deploy encrypted data pipeline (TLS 1.3 in transit, AES-256 at rest) with tokenization of sensitive test data before ingestion. (2) Implement role-based access control (RBAC) with audit logging for all data access. (3) Establish data residency compliance (EU data in EU, etc.) before European customer outreach. (4) Engineer dashboard must include data governance controls: customer-initiated data deletion, data retention limits (default 90-day purge). (5) Hire security engineer immediately; conduct third-party penetration testing before beta launch. (6) Obtain SOC 2 Type II compliance (not just Type I) before financial services customer wins.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> (1) Immediately engage professional liability insurance broker for $5M+ E&amp;O coverage before customer onboarding. (2) Legal must complete liability waiver explicitly stating FoodFlow recommendations are predictive guidance, not guarantees—customer retains final ordering/waste management decisions. (3) Implement contractual accuracy disclaimer: &#x27;Model accuracy varies by restaurant type (QSR vs. fine dining); 80% accuracy is target, not guaranteed.&#x27; (4) Establish independent quarterly ML model validation against holdout restaurant dataset with published accuracy benchmarks. (5) Cap contractual liability at 12 months of fees paid ($14.4K max exposure per customer). (6) Create versioned model audit trail with documented prediction confidence scores for each recommendation delivered to customer.</div>
               </div>
             </div>
             <div class="card risk-card sev-critical">
@@ -415,11 +409,23 @@ p,span,li,td,th,label { color: #e2e8f0 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">HIGH</span>
-                  <h3>Unrealistic 90-Day Customer Acquisition Plan &amp; Sales Execution Risk</h3>
+                  <h3>Unrealistic 90-Day Customer Acquisition &amp; Sales Execution Risk</h3>
                 </div>
-                <p class="risk-desc">CEO strategy targets closing 8-12 pilot customers generating $180K ARR within 90 days via 1 hired sales/success resource. Sales agent identified 10 qualified leads with personalized outreach approved but NOT SENT (&#x27;sent&#x27;: false). No finance agent output exists addressing CAC/LTV or pricing model viability. Target customers (Sarah Chen at Fintech Innovations, Robert Chen at FinServe Digital) are VP/CTO-level decision makers requiring 90+ day enterprise sales cycles, board approvals, and security reviews. Closing 8-12 deals in 90 days with zero sent emails and one sales resource is historically unachievable for B2B enterprise software. This creates credibility risk with investors and reveals strategic planning detachment.</p>
+                <p class="risk-desc">CEO strategy targets 20 paying customers ($5-10K MRR) within 90 days via unspecified sales team with no finance model addressing CAC or payback period. Sales agent identified 10 targets (mostly operations managers and owners at small chains) with personalized outreach approved but critically NOT SENT (&#x27;sent&#x27;: false). No sales team assigned; no fractional VP Sales hired. Target customers (e.g., Michael Chen at Urban Plate, Sarah Rodriguez at Rodriguez Family Restaurants) are mid-level decision makers requiring board approval, POS integration validation, and 60-90 day procurement cycles. Closing 20 paying customers in 90 days with zero emails sent and zero sales resources is historically unachievable for B2B enterprise restaurant software. This reveals strategic misalignment and creates investor credibility risk.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> Immediate: (1) Sales agent must SEND queued 10 emails TODAY with follow-up sequences. (2) Revise CEO 90-day plan to realistic phased targets: Days 1-30: 3-5 qualified pipeline conversations; Days 31-60: 2-3 signed pilots (not closed/paying); Days 61-90: 1 paying customer + 2-3 additional signed pilots (revenue recognition Q1). (3) Finance agent must model CAC for enterprise deals ($50K-100K typical). (4) Hire second sales/success resource immediately or bring in fractional VP Sales to mentor and scale. (5) Compress enterprise sales cycle via executive sponsor engagement and pre-built security/compliance packages (SOC 2 roadmap, data governance docs) reducing buyer friction.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> (1) Sales agent MUST SEND 10 queued emails TODAY with 7-day follow-up sequences. (2) Revise Q1 targets to realistic enterprise B2B milestones: Days 1-30: 5-8 qualified discovery conversations initiated; Days 31-60: 2-3 signed pilot agreements (revenue may not recognize until Q2); Days 61-90: 1 paying customer + 2-3 additional pilots in final stages. (3) Finance agent must model enterprise CAC: $1,500-2,500 per customer acquisition (not $500 assumed). (4) Hire dedicated Sales Lead (full-time or fractional VP Sales immediately) OR bring in restaurant industry sales mentor to manage pipeline and close mechanics. (5) Compress sales cycle via pre-built security/compliance packages: SOC 2 Type II roadmap, POS integration spec sheets, data privacy agreements—reduce buyer friction. (6) Reset Q1 revenue target from $5-10K MRR to $2-4K MRR (realistic for 2-3 pilots converting to paid within 90 days).</div>
+              </div>
+            </div>
+            <div class="card risk-card sev-critical">
+              <div class="risk-severity-bar"></div>
+              <div class="risk-body">
+                <div class="risk-header">
+                  <span class="badge critical">HIGH</span>
+                  <h3>Data Privacy &amp; Restaurant Operational Data Security Gap</h3>
+                </div>
+                <p class="risk-desc">FoodFlow AI integrates with POS systems, supplier networks, and requires real-time inventory data from restaurants—inherently capturing sales patterns, menu mix, supplier pricing, and operational metrics that restaurants consider confidential competitive information. Legal agent generated Privacy Policy and DPA documents but engineer agent status is &#x27;error&#x27;—no technical roadmap exists for data encryption, access controls, or secure data handling. Platform must comply with GDPR (if international expansion) and restaurant data residency expectations. No engineer dashboard output confirms encryption standards, data retention policies, or secure deletion procedures. Restaurants will not adopt if data privacy/security posture is unclear or non-compliant.</p>
+                <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> (1) Engineer agent must immediately deploy encrypted data pipeline: TLS 1.3 in-transit encryption, AES-256 at-rest encryption for all customer operational data. (2) Implement role-based access control (RBAC) with audit logging for all data access; restaurant operators control who sees what. (3) Engineer dashboard must expose data governance controls: customer-initiated data deletion, automatic 90-day data purge, data export capabilities. (4) Establish data residency compliance for EU/APAC expansion (EU data stored in EU, etc.). (5) Hire security engineer (contract basis acceptable for pre-seed) to conduct threat modeling and penetration test before beta launch. (6) Obtain SOC 2 Type II certification (not just Type I) before financial services or regulated restaurant customer wins—include data privacy audit. (7) Publish transparent Data Security Whitepaper for sales enablement; address restaurant data isolation and operational secrecy in customer contracts.</div>
               </div>
             </div>
       </div>
