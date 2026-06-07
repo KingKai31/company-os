@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MindBridge — Company Intelligence Report</title>
+  <title>FreshFlow — Company Intelligence Report</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Company OS — content always visible */
@@ -13,9 +13,9 @@
       opacity: 1 !important;
     }
     :root {
-      --bg: #f0fdf4; --card: #ffffff; --text: #334155;
-      --heading: #059669; --accent: #0ea5e9; --gold: #059669;
-      --border: rgba(0,0,0,0.08); --muted: #64748b;
+      --bg: #0f172a; --card: #1e293b; --text: #e2e8f0;
+      --heading: #ffffff; --accent: #3b82f6; --gold: #10b981;
+      --border: rgba(255,255,255,0.08); --muted: #94a3b8;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
@@ -71,7 +71,7 @@
       padding: 14px 28px; border-radius: 8px; font-weight: 600;
       text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
     }
-    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--gold)); color: #fff !important; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--gold)); color: #0a0e1a !important; }
     .btn-secondary { border: 1px solid var(--accent); color: var(--accent) !important; background: transparent; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
     /* OKRs */
@@ -96,7 +96,7 @@
     }
     .step-circle {
       width: 48px; height: 48px; border-radius: 50%; background: var(--accent);
-      color: #fff; font-weight: 700; font-size: 1.1rem;
+      color: #0a0e1a; font-weight: 700; font-size: 1.1rem;
       display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;
       box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 40%, transparent);
     }
@@ -119,7 +119,7 @@
     .bar-m1 { animation: growBar1 1.2s ease-out 0.3s forwards; }
     .bar-m2 { animation: growBar2 1.2s ease-out 0.5s forwards; }
     .bar-m3 { animation: growBar3 1.2s ease-out 0.7s forwards; }
-    @keyframes growBar1 { from { height: 0; } to { height: 37px; } }
+    @keyframes growBar1 { from { height: 0; } to { height: 50px; } }
     @keyframes growBar2 { from { height: 0; } to { height: 100px; } }
     @keyframes growBar3 { from { height: 0; } to { height: 200px; } }
     .bar-label { margin-top: 10px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
@@ -133,7 +133,7 @@
     .avatar {
       width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
       background: linear-gradient(135deg, var(--accent), var(--gold));
-      color: #fff; font-weight: 700; font-size: 1.1rem;
+      color: #0a0e1a; font-weight: 700; font-size: 1.1rem;
       display: flex; align-items: center; justify-content: center;
     }
     .leads-metric { text-align: center; padding: 32px; }
@@ -144,7 +144,7 @@
     }
     .funnel-step:nth-child(1) { width: 100%; background: var(--accent); clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%); }
     .funnel-step:nth-child(2) { width: 75%; background: color-mix(in srgb, var(--accent) 70%, var(--gold)); clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); }
-    .funnel-step:nth-child(3) { width: 50%; background: var(--gold); clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); color: #fff; }
+    .funnel-step:nth-child(3) { width: 50%; background: var(--gold); clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); color: #0a0e1a; }
     /* Risk */
     .risk-top { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
     .overall-badge {
@@ -221,15 +221,15 @@ section, div { visibility: visible !important; opacity: 1 !important; }
 </style>
 <style>
 /* Company OS theme fix */
-body { background-color: #f0fdf4 !important; color: #334155 !important; }
-h1,h2,h3,h4,h5,h6 { color: #059669 !important; }
-p,span,li,td,th,label { color: #334155 !important; }
+body { background-color: #0f172a !important; color: #e2e8f0 !important; }
+h1,h2,h3,h4,h5,h6 { color: #ffffff !important; }
+p,span,li,td,th,label { color: #e2e8f0 !important; }
 </style>
 </head>
 <body>
     <nav class="navbar">
       <div class="container nav-inner">
-        <a class="nav-logo" href="#">MindBridge</a>
+        <a class="nav-logo" href="#">FreshFlow</a>
         <ul class="nav-links">
           <li><a href="#strategy" data-nav="strategy">Strategy</a></li>
           <li><a href="#financials" data-nav="financials">Financials</a></li>
@@ -243,9 +243,9 @@ p,span,li,td,th,label { color: #334155 !important; }
     <section class="hero">
       <div class="container">
         <div class="section-title">Company Intelligence Report</div>
-        <h1>MindBridge</h1>
-        <p class="value-prop">Democratizing accessible mental health support for college students through technology-enabled peer connection and professional guidance.</p>
-        <div class="built-for">Built for: Full-time undergraduate and graduate students aged 18-28 attending 4-year universities in the US, with initial focus on large state universities (10,000+ students) and private institutions with strong mental health awareness initiatives. Secondary targets: university counseling centers, student health departments, and Greek life organizations seeking mental health solutions.</div>
+        <h1>FreshFlow</h1>
+        <p class="value-prop">FreshFlow is the operating system for restaurant inventory—turning waste into competitive advantage for every kitchen, from ghost kitchens to fine dining.</p>
+        <div class="built-for">Built for: Quick-service and fast-casual restaurant chains with 5-20 locations, high volume (1000+ transactions/week per location), and annual food costs of $500K-$2M, seeking to reduce waste, improve ordering efficiency, and optimize profitability without enterprise complexity or cost.</div>
         <div class="hero-btns">
           <a href="#strategy" class="btn btn-primary">View Strategy</a>
           <a href="#financials" class="btn btn-secondary">See Financials</a>
@@ -259,32 +259,32 @@ p,span,li,td,th,label { color: #334155 !important; }
         <h2>Strategic OKRs &amp; Milestones</h2>
         <div class="okr-grid">
             <div class="card okr-card">
-              <h3>Establish product-market fit with college student segment</h3>
-              <ul class="kr-list"><li>Achieve 50+ NPS score from beta users by day 90</li><li>Reach 2,000 beta signups with 40% weekly active user retention</li><li>Document 3+ use cases of peer support leading to positive mental health outcomes</li></ul>
+              <h3>Validate product-market fit with early adopters and demonstrate clear ROI</h3>
+              <ul class="kr-list"><li>Secure and successfully onboard 8 founding customers with 90%+ activation rate</li><li>Achieve 50% average reduction in monitored waste categories within 60 days</li><li>Collect testimonials showing minimum 12% improvement in food cost percentage</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Build institutional credibility and campus partnerships</h3>
-              <ul class="kr-list"><li>Secure partnerships with 3 universities providing access to student populations</li><li>Establish clinical advisory board with 5 licensed mental health professionals</li><li>Achieve compliance certification for HIPAA and student data privacy standards</li></ul>
+              <h3>Build repeatable, scalable onboarding and customer success process</h3>
+              <ul class="kr-list"><li>Reduce time-to-first-insight from 7 days to 3 days</li><li>Establish onboarding SOP with documented customer journey stages</li><li>Achieve Net Promoter Score (NPS) of 50+ from paying customers</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Drive user acquisition and retention at scale</h3>
-              <ul class="kr-list"><li>Grow user base to 5,000 college students by end of Q1</li><li>Achieve 35%+ month-over-month user growth through organic + partnership channels</li><li>Reach 45%+ 30-day retention rate for active users</li></ul>
+              <h3>Develop credible go-to-market pipeline and distribution channels</h3>
+              <ul class="kr-list"><li>Build partnerships with 3 QSR consulting firms or tech integrators for channel sales</li><li>Generate 50+ qualified leads with confirmed pain point match</li><li>Achieve $5K MRR with 3+ month retention cohort</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Validate clinical impact and mental health outcomes</h3>
-              <ul class="kr-list"><li>Track and report measurable improvement in 60%+ of users&#x27; self-reported stress/anxiety metrics</li><li>Generate peer-reviewed research collaboration with university partner on app efficacy</li><li>Achieve 90%+ user satisfaction on crisis resource accessibility and support quality</li></ul>
+              <h3>Establish technical foundation and AI/ML differentiation</h3>
+              <ul class="kr-list"><li>Develop demand forecasting model with 85%+ accuracy on training restaurants</li><li>Integrate with 2 major POS systems (Toast, Square) for automated data flow</li><li>Build automated ordering recommendation engine with 40%+ adoption rate among users</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Establish sustainable revenue model and path to profitability</h3>
-              <ul class="kr-list"><li>Define and launch tiered pricing model with 3 revenue streams identified</li><li>Achieve $50K+ MRR commitment from university partnerships</li><li>Validate unit economics showing 3:1+ LTV:CAC ratio for paid channels</li></ul>
+              <h3>Secure pre-seed funding and build investor-ready narrative</h3>
+              <ul class="kr-list"><li>Close $500K pre-seed round with lead investor committed</li><li>Build case studies and financial model showing 8-month payback period</li><li>Articulate clear path to 15% market penetration in target QSR segment within 24 months</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div></div>
@@ -292,17 +292,17 @@ p,span,li,td,th,label { color: #334155 !important; }
           <div class="step">
             <div class="step-circle">1</div>
             <h4>Month 1</h4>
-            <p>Foundation &amp; MVP Development: Complete MVP with core features (mood tracking, peer support matching, crisis resources, therapist directory). Conduct 20+ user interviews with college students across 5 universities. Establish advisory board of college counselors and mental health experts. Set up legal/compliance framework for HIPAA and student privacy. Identify and approach 3-5 campus partnership opportunities.</p>
+            <p>Market validation and MVP definition. Conduct 15 discovery interviews with QSR and fast-casual operators to map core pain points and willingness-to-pay. Define MVP scope: dashboard for inventory tracking, basic waste logging, and forecasting. Set up founding customer program (5-7 restaurants) for beta testing. Build pitch deck and secure pre-seed conversations. Establish technical foundation and hire 1-2 engineers.</p>
           </div>
           <div class="step">
             <div class="step-circle">2</div>
             <h4>Month 2</h4>
-            <p>Beta Launch &amp; Initial Traction: Launch closed beta with 500 college students across 2-3 pilot campuses. Implement core retention loops and in-app messaging. Secure first 2 university partnerships or MOUs. Conduct clinical outcome tracking setup with baseline metrics. Build social proof through testimonials and case studies. Establish social media presence and content strategy.</p>
+            <p>MVP development and initial deployment. Complete core product build: inventory dashboard, waste tracking module, and 7-day demand forecast engine. Deploy at 3 founding customers in parallel locations. Collect weekly feedback and iterate on UX. Establish basic onboarding process. Launch initial website and begin organic outreach to QSR networks. Achieve first $5K MRR via founding customers.</p>
           </div>
           <div class="step">
             <div class="step-circle">3</div>
             <h4>Month 3</h4>
-            <p>Scale Preparation &amp; Growth: Expand beta to 2,000 users across 5+ campuses. Achieve 40%+ weekly active user rate. Close first 3 official university partnerships with integration pathway. Finalize pricing model and subscription tiers. Recruit student ambassador network (20+ ambassadors). Prepare for Series Seed fundraising with clear unit economics.</p>
+            <p>Refine product-market fit and scale onboarding. Incorporate founding customer feedback into product v1.0. Deploy at 4-5 additional customers and systematize onboarding. Establish 50+ qualified leads pipeline through restaurant associations and broker partnerships. Measure and optimize activation (dashboard login 3x/week threshold). Demonstrate 15-20% food cost reduction across customer cohort. Finalize pre-seed funding deck with traction metrics.</p>
           </div>
         </div>
       </div>
@@ -312,23 +312,23 @@ p,span,li,td,th,label { color: #334155 !important; }
       <div class="container">
         <div class="section-title">Financial Projections</div>
         <h2>Revenue &amp; Runway Analysis</h2>
-        <p style="margin:16px 0;color:var(--muted)">MindBridge projects conservative early-stage traction with 1.2% conversion on university-targeted leads, reflecting the measured adoption cycle for student health apps. Month 3 shows 16 active subscribers generating $160 MRR with a blended monthly burn of ~$11,600 covering product development, targeted campus marketing, and legal/compliance overhead for campus partnerships. With $92,700 in seed funding, the company has approximately 8 months of runway, requiring aggressive user acquisition scaling and campus partnership activation by month 4. The 2.57x LTV:CAC ratio indicates unit economics will be sustainable at 5,000+ active subscribers, achievable by month 14-16 with 3-4 major university partnerships live. Focus areas: reduce CAC through direct campus partnerships, optimize conversion funnel targeting high-risk student cohorts, and establish initial counseling center integrations to drive viral adoption within institutional networks.</p>
+        <p style="margin:16px 0;color:var(--muted)">FreshFlow enters the market with a conservative outbound motion targeting 45-60 monthly leads from email outreach, converting at 1.8% with a 30-day sales cycle. Month 1 acquires 1 customer (5 locations) generating $502 MRR; by Month 3, the company achieves 4 customers and $2,008 MRR with a 75% gross margin, though net burn remains ~$44K/month as engineering (44%) and sales/marketing (30%) drive product development and customer acquisition. With $1.05M initial funding, the company projects 24 months of runway, reaching 156 customers and $780K ARR by month 18 with improving unit economics. Break-even is targeted at month 18 as customer base scales and CAC payback strengthens to 5.6 months, supporting a 16.8x LTV-to-CAC ratio. The model reflects realistic SaaS dynamics for B2B vertical software, with disciplined cost structure prioritizing product-market fit over rapid scaling.</p>
         <div class="chart-wrap">
           <div class="chart">
             <div class="bar-col">
-              <div class="bar-amount">$30</div>
+              <div class="bar-amount">$502</div>
               <div class="bar bar-m1"></div>
               <div class="bar-label">Month 1 MRR</div>
-              <div class="bar-pct">18.8% of peak</div>
+              <div class="bar-pct">25.0% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$80</div>
+              <div class="bar-amount">$1,004</div>
               <div class="bar bar-m2"></div>
               <div class="bar-label">Month 2 MRR</div>
               <div class="bar-pct">50.0% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$160</div>
+              <div class="bar-amount">$2,008</div>
               <div class="bar bar-m3"></div>
               <div class="bar-label">Month 3 MRR</div>
               <div class="bar-pct">100.0% of peak</div>
@@ -338,19 +338,19 @@ p,span,li,td,th,label { color: #334155 !important; }
         <div class="finance-stats">
           <div class="card metric-card">
             <div class="lbl">Burn Rate / Month</div>
-            <div class="val">$11,583</div>
+            <div class="val">$43,517</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Runway</div>
-            <div class="val">8 mo</div>
+            <div class="val">24 mo</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Break-Even Target</div>
-            <div class="val">M28</div>
+            <div class="val">M18</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">LTV:CAC Ratio</div>
-            <div class="val">0.1:1</div>
+            <div class="val">1.5:1</div>
           </div>
         </div>
       </div>
@@ -361,28 +361,28 @@ p,span,li,td,th,label { color: #334155 !important; }
         <div class="section-title">Market Intelligence</div>
         <h2>Sales &amp; Customer Profile</h2>
         <div class="card profile-card">
-          <div class="avatar">FU</div>
+          <div class="avatar">QA</div>
           <div>
             <h3>Target Customer Profile</h3>
-            <p>Full-time undergraduate and graduate students aged 18-28 attending 4-year universities in the US, with initial focus on large state universities (10,000+ students) and private institutions with strong mental health awareness initiatives. Secondary targets: university counseling centers, student health departments, and Greek life organizations seeking mental health solutions.</p>
+            <p>Quick-service and fast-casual restaurant chains with 5-20 locations, high volume (1000+ transactions/week per location), and annual food costs of $500K-$2M, seeking to reduce waste, improve ordering efficiency, and optimize profitability without enterprise complexity or cost.</p>
           </div>
         </div>
         <div class="card leads-metric">
           <div class="lbl" style="color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:0.75rem">Leads Identified</div>
-          <div class="val">10</div>
+          <div class="val">11</div>
         </div>
         <div class="card">
           <h3>Outreach Strategy</h3>
-          <p>Identify and compile a list of 50+ target leads including college counseling centers, student health services, university administration offices, and student wellness organizations. Draft personalized outreach email sequences and partnership proposals for the first 10 priority leads.</p>
+          <p>Identify and qualify 50+ target restaurant prospects across multiple segments, conduct competitive analysis of existing inventory management solutions, and draft personalized outreach campaigns highlighting FreshFlow&#x27;s AI waste reduction benefits with ROI messaging.</p>
         </div>
         <div class="card">
           <h3>Conversion Assumptions</h3>
           <div class="funnel">
-            <div class="funnel-step">250 Monthly Leads</div>
-            <div class="funnel-step">1.2% Conversion Rate</div>
-            <div class="funnel-step">~3 Paying Customers / Mo</div>
+            <div class="funnel-step">45 Monthly Leads</div>
+            <div class="funnel-step">1.8% Conversion Rate</div>
+            <div class="funnel-step">~0 Paying Customers / Mo</div>
           </div>
-          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">MindBridge projects conservative early-stage traction with 1.2% conversion on university-targeted leads, reflecting the measured adoption cycle for student health apps. Month 3 shows 16 active subscribers generating $160 MRR with a blended monthly burn of ~$11,600 covering product development, targeted campus marketing, and legal/compliance overhead for campus partnerships. With $92,700 in seed funding, the company has approximately 8 months of runway, requiring aggressive user acquisition scaling and campus partnership activation by month 4. The 2.57x LTV:CAC ratio indicates unit economics will be sustainable at 5,000+ active subscribers, achievable by month 14-16 with 3-4 major university partnerships live. Focus areas: reduce CAC through direct campus partnerships, optimize conversion funnel targeting high-risk student cohorts, and establish initial counseling center integrations to drive viral adoption within institutional networks.</p>
+          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">FreshFlow enters the market with a conservative outbound motion targeting 45-60 monthly leads from email outreach, converting at 1.8% with a 30-day sales cycle. Month 1 acquires 1 customer (5 locations) generating $502 MRR; by Month 3, the company achieves 4 customers and $2,008 MRR with a 75% gross margin, though net burn remains ~$44K/month as engineering (44%) and sales/marketing (30%) drive product development and customer acquisition. With $1.05M initial funding, the company projects 24 months of runway, reaching 156 customers and $780K ARR by month 18 with improving unit economics. Break-even is targeted at month 18 as customer base scales and CAC payback strengthens to 5.6 months, supporting a 16.8x LTV-to-CAC ratio. The model reflects realistic SaaS dynamics for B2B vertical software, with disciplined cost structure prioritizing product-market fit over rapid scaling.</p>
         </div>
       </div>
     </section>
@@ -403,11 +403,11 @@ p,span,li,td,th,label { color: #334155 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>State-by-State Telehealth Licensing and Therapist Credentialing Framework Completely Missing</h3>
+                  <h3>Agent Output Identity Crisis: Multiple Conflicting Companies (FreshFlow vs. MindBridge) Undermines Entire Strategy</h3>
                 </div>
-                <p class="risk-desc">MindBridge operates as a licensed telehealth mental health platform requiring state medical board approval, therapist licensing verification across 50 states, DEA/NPI credentialing, and clinical supervision protocols. Legal agent delivered only generic ToS/Privacy Policy (72% confidence) with zero state-specific compliance requirements. CEO strategy assumes 30 qualified therapists by day 90 and sales emails promise &#x27;licensed telehealth counselors&#x27; and &#x27;therapist marketplace&#x27; with no documented vetting SOP. Launching without state compliance creates immediate regulatory shutdown risk and criminal liability for unlicensed therapy provision.</p>
+                <p class="risk-desc">The orchestrator initiated FreshFlow (restaurant inventory management AI), but the engineer_agent returned a completely different company (MindBridge, healthtech industry, 98% confidence). The risk_agent then assessed MindBridge&#x27;s critical telehealth/therapist credentialing risks—not FreshFlow&#x27;s. CEO, legal, sales, and finance agents all correctly work on FreshFlow, but the engineer agent&#x27;s misalignment creates a broken shared intelligence system. This suggests either: (1) agent routing failure in orchestrator, (2) engineer agent executing stale/wrong context, or (3) fundamental system architecture issue preventing multi-agent consensus. The result: the intelligence dashboard (engineer_agent&#x27;s core deliverable) is built for the wrong company, making it useless for decision-making.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (48 hours): Hire healthcare compliance attorney specializing in telehealth mental health. Within 7 days: (1) Audit state licensing requirements for all 50 states; (2) Create mandatory therapist credentialing SOP (verified state license, DEA/NPI, malpractice insurance, background check, clinical supervision requirements); (3) Establish Clinical Advisory Board of licensed psychologists to approve all therapist onboarding; (4) Implement HIPAA BAA with all therapist contracts. CRITICAL: Do NOT recruit any therapists until compliance framework is approved by legal counsel and clinical board. Target completion: 30 days. This is a non-negotiable launch blocker.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (4 hours): (1) Audit orchestrator context-passing mechanism—verify FreshFlow company_name and foundational context is correctly passed to ALL agents before execution. (2) Re-run engineer_agent with explicit company context override: company_name=&#x27;FreshFlow&#x27;, industry=&#x27;restaurant_tech&#x27;, confirming output matches FreshFlow&#x27;s technical stack (POS integrations, inventory APIs, computer vision for food tracking). (3) Validate risk_agent is analyzing FreshFlow-specific risks (POS integration failures, restaurant churn, food safety data compliance), NOT telehealth licensing. (4) Implement pre-execution validation: all agents must confirm received company_name and return matching company_name in output. Do NOT proceed with funding pitch until all agents return outputs for the same company. This is a system-level correctness issue, not a minor inconsistency.</div>
               </div>
             </div>
             <div class="card risk-card sev-critical">
@@ -415,23 +415,23 @@ p,span,li,td,th,label { color: #334155 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Student Data Security and Privacy Technical Implementation Undefined—Guaranteed HIPAA/FERPA Violations</h3>
+                  <h3>FreshFlow POS Integration Risk Completely Unaddressed—Market Validation Assumes Integration Success Without Technical De-Risk</h3>
                 </div>
-                <p class="risk-desc">MindBridge collects highly sensitive student mental health records (diagnoses, therapy notes, crisis assessments, personal identifiers, location data). Legal agent delivered Privacy Policy (72% confidence) but zero technical security specifications: no encryption standards, no data retention policy, no breach notification SOP, no access controls, no audit logging. Engineer agent reports &#x27;planned&#x27; status with zero security implementation details. Finance model projects user acquisition to thousands by month 3 without any security baseline. FERPA (Family Educational Rights and Privacy Act) and state health privacy laws mandate specific technical controls before ANY student data collection. Current trajectory guarantees data breach liability.</p>
+                <p class="risk-desc">CEO strategy targets &#x27;Quick-service and fast-casual restaurants&#x27; and promises &#x27;Integrate with 2 major POS systems (Toast, Square) for automated data flow&#x27; as Q1 KR. Sales emails promise &#x27;Your team gets mobile alerts on the kitchen floor&#x27; implying seamless POS connectivity. Finance model projects 5 customers by month 3 with $502 MRR baseline. However, engineer_agent status is &#x27;complete&#x27; but provides ZERO technical specifications for POS integration: no API documentation, no error handling for POS downtime, no schema mapping for inventory data, no data sync SOP. Toast and Square have restricted API access; integration requires enterprise agreements and per-restaurant authentication. Restaurants run custom POS configurations (menu structure, SKU mapping varies wildly). Assuming integration success without de-risking is a fundamental go-to-market failure.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (3 days): Pause all student data collection and therapist onboarding. Within 14 days: (1) Engage SOC 2 Type II certified security auditor for comprehensive technical assessment; (2) Implement encryption at-rest (AES-256) and in-transit (TLS 1.2+) for all student data; (3) Create detailed HIPAA BAA and FERPA compliance documentation with specific technical controls; (4) Establish data retention and secure deletion policies with destruction timelines; (5) Implement role-based access controls and immutable audit logging; (6) Create breach notification procedure with &lt;72-hour notification SLA; (7) Obtain Cyber Liability Insurance ($1M+ coverage minimum). Target: SOC 2 Type I audit completion within 30 days, Type II within 6 months before any paying student enrollment. Block all student onboarding until SOC 2 Type I is complete.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (2 weeks): (1) Engineer team contacts Toast and Square directly to confirm API access requirements, rate limits, and enterprise agreement timelines—THIS IS A BLOCKER. (2) Build quick proof-of-concept (POC) integration with Toast&#x27;s API (sample data flow: menu items → inventory SKUs, order history → demand signal). (3) Document schema mapping: which Toast POS fields map to FreshFlow inventory model; handle exceptions (custom items, menu variations). (4) Define fallback UX: if POS API fails, system must gracefully degrade to manual barcode scanning without losing core functionality. (5) Revise sales emails to say &#x27;POS-first integration available for Toast/Square; manual data entry supported&#x27; (not &#x27;seamless&#x27;). (6) De-risk by acquiring first 2 customers on manual data entry, validating core waste reduction ROI BEFORE claiming POS integration. (7) Add POS vendor selection to founding customer onboarding: only recruit customers with Toast/Square deployments until integrations are battle-tested. Delay month 3 POS integration KR to month 6 after 2+ production integrations complete.</div>
               </div>
             </div>
             <div class="card risk-card sev-critical">
               <div class="risk-severity-bar"></div>
               <div class="risk-body">
                 <div class="risk-header">
-                  <span class="badge critical">CRITICAL</span>
-                  <h3>Clinical Governance Framework Absent—Direct Student Harm and Wrongful Death Liability Risk</h3>
+                  <span class="badge critical">HIGH</span>
+                  <h3>Finance Model Assumes 1.8% Conversion Rate with Zero Validation—90-Day Customer Acquisition Target (8 Customers) is Likely 40-60% Optimistic</h3>
                 </div>
-                <p class="risk-desc">CEO strategy promises &#x27;licensed telehealth counselors&#x27; and &#x27;24/7 support&#x27; integrated into crisis care pathways by day 90. Sales emails target university counseling directors with crisis intervention commitments. However, zero clinical governance exists: no Chief Clinical Officer, no therapist supervision SOP, no evidence-based treatment protocols, no crisis escalation procedures, no psychiatrist oversight. College populations have suicide as the 2nd leading cause of death (ages 18-25). Inadequately supervised therapists or crisis protocols missing will inevitably result in student harm. Company has zero clinical credibility review or quality assurance framework. This directly violates standard-of-care for mental health platforms.</p>
+                <p class="risk-desc">Finance agent projects 45 monthly leads via &#x27;outbound_email_and_content&#x27; at 1.8% conversion rate, yielding 1 customer in month 1, 4 customers by month 3. Sales agent drafted 11 personalized outreach emails targeting restaurant operators; emails are auto-approved but NOT YET SENT (&#x27;sent&#x27;: false). Conversion rate assumption (1.8%) is untested and appears derived from generic B2B SaaS benchmarks, not restaurant software. Restaurant vertical has notoriously low email open rates (~12-15% for cold email), even lower conversion from discovery call to paying customer (0.8-1.2% typical). Finance model projects $2,008 MRR by month 3 on just 4 customers; if conversion rate is actually 0.9%, month 3 reaches only 2 customers and $1,004 MRR. Burn rate is fixed at ~$44K/month regardless; lower revenue lengthens runway depletion by 6+ months. CEO OKR promises &#x27;8 founding customers with 90%+ activation rate&#x27; by day 90, but finance model only projects 4 paying customers. This misalignment suggests either overly aggressive sales targets or overly conservative financial projections—either way, credibility is broken.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (7 days): Hire Licensed Clinical Psychologist as Chief Clinical Officer (C-level role, equity compensation, full-time). Within 14 days: (1) Create mandatory therapist quality assurance SOP: case review, clinical supervision, peer consultation requirements; (2) Establish Clinical Quality Committee (CCO + 2-3 external licensed psychologists) with quarterly meeting requirements; (3) Document evidence-based treatment protocols for college-specific mental health issues (anxiety, depression, substance use, eating disorders); (4) Create 24/7 crisis response protocol with mandatory psychiatrist escalation pathway and emergency service coordination; (5) Require all therapists sign Clinical Governance Addendum with malpractice liability acknowledgment; (6) Secure $5M+ professional liability insurance with crisis/suicide carve-out coverage. CRITICAL: No therapist recruitment begins until CCO is hired and clinical protocols approved by external clinical board. Target completion: 30 days.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE (1 week): (1) DO NOT send 11 sales emails until sales pipeline framework is validated. Instead, send 5 outreach emails to sales-agent-identified prospects as TEST BATCH. (2) Track actual conversion metrics: % who open email, % who reply, % who take discovery call, % who convert to paying customer. Measure actual sales cycle length, not assumed 30 days. (3) Recruit one founding restaurant customer (highest-likelihood prospect) and deploy MVP with manual data entry to validate core waste reduction ROI (12% COGS reduction claim) in REAL environment within 30 days. Use this as case study to improve email conversion rate. (4) Revise finance model with conservative 0.9% conversion rate assumption; recalculate breakeven month (likely month 20-22, not 18). Update investor narrative: &#x27;Initial projections show month 18 breakeven; we will de-risk sales conversion rates with 2-3 founding customers in month 1-2 before scaling outbound.&#x27; (5) Establish weekly sales pipeline tracking: leads in, qualified leads, calls booked, proposals sent, customers signed. If month 1-2 actual conversion rate is &lt;0.8%, pause outbound email expansion and shift to warm intros (restaurant associations, consultant referrals) with higher conversion potential. Reduce financial model growth assumptions to 60% of current projections until actual sales data validates 1.8% rate.</div>
               </div>
             </div>
       </div>
