@@ -1,0 +1,102 @@
+LEGAL DOCUMENTS — FoodGuard AI
+==================================================
+
+# FOODGUARD AI LEGAL DOCUMENTS
+
+---
+
+## DOCUMENT 1: TERMS OF SERVICE
+
+**Last Updated: [DATE]**
+
+---
+
+### 1. ACCEPTANCE OF TERMS
+
+By creating an account, accessing, or using the FoodGuard AI platform (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.
+
+These Terms apply to all users, including restaurant owners, managers, staff members, and anyone accessing FoodGuard AI on behalf of an organization (your "Organization").
+
+FoodGuard AI, Inc. ("we," "us," "Company," or "our") reserves the right to modify these Terms at any time. We will notify you of material changes by email or by posting an updated version on our website. Your continued use of the Service after changes become effective means you accept the new Terms.
+
+---
+
+### 2. SERVICE DESCRIPTION
+
+FoodGuard AI provides a Software-as-a-Service (SaaS) platform designed to help restaurants and food service businesses:
+
+- Track food inventory in real-time using mobile and web applications
+- Log food items, quantities, and expiration dates
+- Receive automated waste alerts and expiration notifications
+- Access predictive analytics and waste reduction insights
+- Integrate with existing POS and supplier systems
+- Generate sustainability and ESG compliance reports
+
+The Service is provided on an "as-is" basis. We do not guarantee that the Service will be error-free, uninterrupted, or meet all of your business requirements.
+
+---
+
+### 3. ELIGIBILITY AND ACCOUNT REGISTRATION
+
+You must be at least 18 years old and have the legal authority to enter into this agreement on behalf of your Organization to use the Service.
+
+When you create an account, you agree to:
+
+- Provide accurate, complete, and current information
+- Maintain the confidentiality of your login credentials
+- Notify us immediately if you suspect unauthorized access
+- Be responsible for all activities conducted through your account
+- Comply with all applicable laws and regulations
+
+We reserve the right to suspend or terminate your account if we believe you have provided false information or violated these Terms.
+
+---
+
+### 4. PERMITTED USE
+
+You may use the Service only for legitimate business purposes related to food inventory management and waste reduction at your Organization.
+
+**You agree NOT to:**
+
+- Use the Service for illegal activities or to violate any applicable laws
+- Reverse-engineer, decompile, or attempt to access the source code of our platform
+- Use automated tools (bots, scrapers, crawlers) to access the Service without our written permission
+- Share your account credentials or allow unauthorized users to access the Service
+- Transmit viruses, malware, or any code intended to disrupt the Service
+- Access or attempt to access data or features you are not authorized to use
+- Resell, redistribute, or lease the Service to third parties without written permission
+- Remove, alter, or obscure any proprietary notices or labels on the Service
+- Use the Service to develop a competing product or service
+- Spam or send unsolicited communications through the Service
+
+Any violation of these restrictions may result in immediate termination of your account and potential legal action.
+
+---
+
+### 5. INTELLECTUAL PROPERTY RIGHTS
+
+**Our IP:** FoodGuard AI owns all intellectual property rights in the Service, including but not limited to:
+
+- Software code, algorithms, and machine learning models
+- User interface design and layout
+- Documentation, guides, and training materials
+- Trademarks, logos, and brand elements
+- Analytics, reports, and predictive models
+- Any improvements or modifications we make to the Service
+
+These are protected by copyright, trademark, and trade secret laws. You are granted a limited, non-exclusive, non-transferable license to use the Service solely for your Organization's internal business purposes during your subscription term.
+
+**Your Data:** You retain ownership of data you upload to the Service (inventory records, food items, supplier information, etc.). By uploading data, you grant FoodGuard AI a worldwide, royalty-free license to:
+
+- Store and process your data to provide the Service
+- Improve our algorithms and machine learning models (using anonymized and aggregated data only)
+- Create analytics and insights from your data
+- Comply with legal obligations
+
+We will not sell your raw data or share it with competitors. See our Privacy Policy for more details.
+
+---
+
+### 6. SUBSCRIPTION PLANS AND PAYMENT
+
+**Billing:** Your subscription will be billed monthly,

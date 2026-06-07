@@ -1,0 +1,463 @@
+LEGAL DOCUMENTS — AuditAI
+==================================================
+
+TERMS OF SERVICE
+--------------------------------------------------
+
+# TERMS OF SERVICE
+
+**AuditAI Enterprise Audit Platform**
+
+**Effective Date: [INSERT DATE]**
+
+**Last Updated: [INSERT DATE]**
+
+---
+
+## 1. ACCEPTANCE OF TERMS
+
+### 1.1 Agreement to Terms
+By accessing, using, or subscribing to the AuditAI platform (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you are using the Service on behalf of a company or other entity, you represent and warrant that you have the authority to bind that organization to these Terms, and references to "you" or "your" include both you as an individual and that organization.
+
+### 1.2 Modification of Terms
+We reserve the right to modify these Terms at any time. We will provide notice of material changes by posting the updated Terms on our website or by sending you email notification. Your continued use of the Service after such notice constitutes acceptance of the modified Terms. If you do not agree to any modification, you must cease using the Service.
+
+### 1.3 Conflicts with Other Agreements
+These Terms constitute the entire agreement between you and AuditAI regarding the Service. In the event of any conflict between these Terms and any other written agreement you have with AuditAI (including an Order Form, Statement of Work, or specific service addendum), the order of precedence shall be: (1) a signed written agreement specific to your account; (2) these Terms of Service; (3) our Privacy Policy; and (4) any other published policies.
+
+---
+
+## 2. DESCRIPTION OF SERVICE
+
+### 2.1 Service Overview
+AuditAI provides an artificial intelligence-powered enterprise audit platform designed to automatically scan codebases and infrastructure for compliance violations, security vulnerabilities, and configuration risks. The Service includes:
+
+- **Automated Code Scanning**: Real-time analysis of code changes in integrated repositories
+- **Infrastructure Monitoring**: Assessment of infrastructure-as-code and cloud configuration
+- **Compliance Frameworks**: Scanning against SOC 2, GDPR, PCI-DSS, HIPAA, and CIS Benchmarks
+- **CI/CD Integration**: Direct integration with GitHub, GitLab, and Bitbucket
+- **Remediation Guidance**: Automated recommendations for addressing identified issues
+- **Audit Reporting**: Generation of compliance and audit reports for regulatory purposes
+- **Multi-Language Support**: Analysis across multiple programming languages and platforms
+
+### 2.2 Service Limitations
+The Service is provided "as-is" and is intended to assist with compliance monitoring and security vulnerability detection. The Service:
+
+- Is not a substitute for professional legal, compliance, or security consulting advice
+- Does not guarantee the identification of all vulnerabilities or compliance violations
+- Cannot replace your organization's internal security practices or compliance procedures
+- Relies on the accuracy and completeness of information you provide
+- May have response time variations based on code complexity and size
+
+### 2.3 Beta Features and Experimental Functionality
+We may offer certain features, integrations, or functionalities marked as "beta," "experimental," "preview," or similar designations. Such features are provided "as-is" without warranty and may be modified or discontinued at any time without notice or liability. We strongly recommend not using beta features for mission-critical compliance monitoring without additional testing.
+
+---
+
+## 3. USER ACCOUNTS AND OBLIGATIONS
+
+### 3.1 Account Registration
+To use the Service, you must create an AuditAI account ("Account"). When registering, you agree to:
+
+- Provide accurate, complete, and current information
+- Maintain the confidentiality of your Account credentials and password
+- Update your information promptly if any details change
+- Use a unique and secure password
+- Accept responsibility for all activities conducted under your Account
+
+### 3.2 Account Ownership
+Each Account must be associated with either: (1) an individual authorized to enter into binding agreements, or (2) an organization with an authorized representative. Organization accounts may have multiple users, but one individual must be designated as the Account owner with administrative authority.
+
+### 3.3 Authorized Users
+As an Account holder, you are responsible for all use of the Service under your Account, including use by anyone you authorize to access it. You agree to inform all authorized users of these Terms and ensure their compliance. You remain fully responsible for all activities conducted by authorized users.
+
+### 3.4 User Responsibilities
+You agree to:
+
+- **Lawful Use**: Use the Service only for lawful purposes and in compliance with all applicable laws, regulations, and third-party rights
+- **Repository Access**: Provide only accurate connection credentials and maintain proper authorization to scan the repositories, infrastructure, and systems you monitor
+- **Intellectual Property**: Not upload, transmit, or process content that infringes intellectual property rights of third parties
+- **Prohibited Content**: Not transmit malware, viruses, or malicious code through the Service
+- **No Circumvention**: Not attempt to circumvent security measures, access controls, or exceed your authorized usage limits
+- **Compliance with Laws**: Ensure your use complies with all data protection laws, export controls, and industry regulations
+- **No Interference**: Not interfere with Service infrastructure or attempt to disrupt normal operation
+
+### 3.5 Repository and Infrastructure Authorization
+You represent and warrant that:
+
+- You have the legal authority to grant AuditAI access to scan the repositories and infrastructure you connect
+- You have obtained all necessary consents from co-owners, collaborators, and affected parties
+- The repositories and infrastructure do not contain third-party confidential information without proper authorization
+- You comply with any applicable usage policies of your repository hosting providers
+
+---
+
+## 4. SUBSCRIPTION, PAYMENT, AND BILLING
+
+### 4.1 Subscription Plans
+AuditAI offers various subscription tiers with different features, scan limits, and user allowances. Your specific terms will be detailed in your Order Form. Subscription periods are typically monthly or annual, as specified in your plan.
+
+### 4.2 Payment Terms
+- Payments are due according to the billing cycle specified in your Order Form
+- We accept standard credit cards and ACH transfers for enterprise customers
+- All prices are exclusive of sales tax, VAT, and similar taxes unless otherwise stated
+- You are responsible for any taxes applicable to your use of the Service
+- We may change pricing with 30 days' written notice for future billing periods
+
+### 4.3 Billing and Invoicing
+- Invoices are provided electronically to the billing contact associated with your Account
+- Payment must be received by the due date specified on invoices
+- Late payments may result in suspension of Service access
+- We may update our billing information upon 10 days' notice
+
+### 4.4 Free Trial and Promotional Periods
+If you receive access to the Service on a free trial or promotional basis:
+
+- Your access may be limited in features, scan frequency, or duration
+- Free access may be terminated at any time at our discretion
+- Conversion to a paid plan requires explicit agreement to applicable billing terms
+- Free trial data may be deleted upon conversion or expiration
+
+### 4.5 Refunds and Cancellation
+- Subscription fees are generally non-refundable
+- You may cancel your subscription at any time via your Account settings
+- Cancellation takes effect at the end of your current billing period
+- No refunds are issued for partial months, unless otherwise specified in your Order Form
+- Enterprise customers may have different cancellation and refund terms specified in a written agreement
+
+### 4.6 Failed Payment
+If payment fails:
+
+- We will attempt to retry collection using the payment method on file
+- If payment ultimately fails, we may suspend your Service access after 15 days' notice
+- Suspended Accounts may be reactivated upon successful payment of past-due amounts
+
+---
+
+## 5. INTELLECTUAL PROPERTY RIGHTS
+
+### 5.1 AuditAI Intellectual Property
+You acknowledge that:
+
+- AuditAI owns all intellectual property rights in the Service, including the platform, algorithms, custom LLMs, static analysis engines, documentation, and any improvements
+- Your use of the Service grants you a limited, non-exclusive, non-transferable license to access and use the Service solely for your internal compliance and security monitoring purposes
+- The Service is protected by copyright, trademark, and other intellectual property laws
+
+### 5.2 Restrictions on Use
+You may not:
+
+- Reverse engineer, decompile, or attempt to derive the source code of the Service
+- Remove or alter any proprietary notices, labels, or marks
+- Use the Service to develop competing products or services
+- License, sell, rent, lease, or otherwise commercialize the Service
+- Use the Service in a way that violates intellectual property rights
+
+### 5.3 Your Content and Data
+"Your Data" includes:
+
+- Code, configurations, and infrastructure information you upload or connect for scanning
+- Metadata and usage information associated with your Account
+- Any feedback or suggestions you provide to AuditAI
+
+**Your Ownership**: You retain all ownership rights in Your Data.
+
+**License to AuditAI**: You grant AuditAI a worldwide, non-exclusive license to:
+- Process Your Data to provide the Service
+- Use Your Data in aggregated, anonymized form to improve our algorithms and Service quality
+- Retain and use aggregated insights for machine learning model improvement
+- Store Your Data as necessary to provide the Service and comply with legal obligations
+
+**Aggregated Analytics**: We may collect and use aggregated data that does not identify you (such as vulnerability trend reports, compliance metrics across customers, or performance statistics). This aggregated data belongs to AuditAI.
+
+### 5.4 Output and Reports
+Reports and audit outputs generated by the Service:
+
+- Are owned by AuditAI as to format, analysis framework, and methodology
+- Are licensed to you for your internal use and regulatory compliance purposes
+- May be shared with authorized users within your organization
+- Should not be publicly redistributed without our written consent, except as required by law or regulators
+
+---
+
+## 6. DATA PROTECTION AND PRIVACY
+
+### 6.1 Privacy Policy
+Your use of the Service is subject to our separate Privacy Policy, which is incorporated by reference into these Terms. Please review the Privacy Policy for information about how we collect, process, and protect personal information.
+
+### 6.2 Data Processing Agreement
+For customers subject to EU GDPR, UK GDPR, or similar data protection regulations, a Data Processing Agreement (DPA) is available and incorporates Standard Contractual Clauses (SCCs) for international data transfers. The DPA shall be executed as part of your service agreement.
+
+### 6.3 Compliance with Regulations
+By using the Service to process data subject to GDPR, HIPAA, CCPA, PCI-DSS, or similar regulations, you represent that:
+
+- You have legal basis to process such data
+- You have obtained necessary consents and made required disclosures
+- You comply with applicable data protection and privacy laws
+- You will indemnify AuditAI if your use violates these regulations
+
+### 6.4 Sensitive Data Handling
+You agree NOT to intentionally upload, process, or transmit:
+
+- Passwords or private API keys (unless explicitly required for scanning)
+- Personally Identifiable Information (PII) not necessary for compliance scanning
+- Biometric data, health information, or other specially protected categories
+- Proprietary algorithms or trade secrets unrelated to compliance
+
+AuditAI is not liable for unauthorized access to sensitive data you improperly upload to the Service.
+
+---
+
+## 7. SECURITY AND SAFEGUARDS
+
+### 7.1 Security Measures
+AuditAI implements industry-standard security controls including:
+
+- Encryption of data in transit (TLS 1.2+) and at rest
+- SOC 2 Type II compliance and regular third-party audits
+- Access controls and authentication mechanisms
+- Regular security assessments and vulnerability testing
+- Incident response procedures
+
+### 7.2 Your Security Responsibilities
+You are responsible for:
+
+- Maintaining the confidentiality of Account credentials
+- Implementing strong password practices and multi-factor authentication
+- Securing the systems and networks from which you access the Service
+- Monitoring Account activity for unauthorized access
+- Immediately notifying us of suspected security breaches
+
+### 7.3 No Warranty of Absolute Security
+While we maintain reasonable security measures, no system is completely secure. We do not warrant that the Service is entirely free from security vulnerabilities or unauthorized access.
+
+---
+
+## 8. WARRANTY DISCLAIMER
+
+### 8.1 AS-IS Service
+THE SERVICE IS PROVIDED ON AN "AS-IS" AND "AS-AVAILABLE" BASIS. AUDITAI MAKES NO WARRANTIES, EXPRESS OR IMPLIED, REGARDING THE SERVICE, INCLUDING:
+
+- Implied warranties of merchantability, fitness for a particular purpose, or non-infringement
+- Warranties that the Service will be uninterrupted, timely, secure, or error-free
+- Warranties that scanning will identify all vulnerabilities, compliance violations, or configuration risks
+- Warranties regarding the accuracy, completeness, or timeliness of scan results
+
+### 8.2 Scanning Accuracy
+You acknowledge that:
+
+- AI-based scanning may produce false positives or false negatives
+- The Service should not be your sole means of compliance verification
+- You should independently verify critical findings and remediation
+
+==================================================
+
+REFUND POLICY
+--------------------------------------------------
+
+# REFUND POLICY
+
+**AuditAI Refund Policy**  
+*Last Updated: [Current Date]*
+
+---
+
+## 1. OVERVIEW
+
+This Refund Policy ("Policy") describes the terms and conditions under which AuditAI ("Company," "we," "us," or "our") will process refund requests for subscription fees paid for the AuditAI platform ("Service").
+
+We stand behind the quality of our Service and want you to be satisfied with your purchase. If you're not satisfied, we offer refunds under the conditions outlined below.
+
+---
+
+## 2. REFUND ELIGIBILITY
+
+You may be eligible for a refund if:
+
+- **You are a current subscriber** who has paid subscription fees to AuditAI within the applicable refund window (see Section 3)
+- **You have active billing through AuditAI** (refunds are not processed for payments made to resellers or third-party vendors)
+- **Your request meets the conditions** outlined in this Policy
+
+You are **not eligible** for a refund if:
+
+- You request a refund more than 30 days after your billing date (see Section 3 for details)
+- You have previously received a refund for the same billing period
+- Your account was terminated due to violation of our Terms of Service
+- You are requesting a refund for services already rendered beyond the refund window
+- The refund was requested by an unauthorized third party
+
+---
+
+## 3. REFUND WINDOW
+
+### Annual Plans
+- **Refund Eligibility:** Up to 30 days from your initial subscription purchase date
+- **Cancellation Eligibility:** You may cancel your subscription at any time; however, refunds are only issued within the first 30 days
+
+### Monthly Plans
+- **Refund Eligibility:** Up to 30 days from your billing date for the applicable month
+- **Cancellation Eligibility:** You may cancel at the end of any billing cycle with no refund for the current month
+
+### Trial Accounts
+- Trial accounts are provided at no cost and do not require refund requests for cancellation
+
+---
+
+## 4. REFUND PROCESS
+
+To request a refund, follow these steps:
+
+**Step 1: Contact Support**  
+Email our support team at: **support@auditai.io**  
+Include the following information in your request:
+- Your full name and registered email address
+- Your AuditAI account name or company name
+- The billing date(s) you wish to request a refund for
+- A brief explanation of why you are requesting a refund
+
+**Step 2: Provide Account Verification**  
+Our support team may request additional information to verify your identity and account ownership, such as:
+- A screenshot of your billing receipt or invoice
+- Account activity logs
+- Authentication credentials
+
+**Step 3: Review and Approval**  
+Our Billing Team will review your request within 5 business days and notify you of approval or denial via email.
+
+**Step 4: Refund Processing**  
+Once approved, refunds will be processed within 7-10 business days to your original payment method.
+
+---
+
+## 5. REFUND EXCEPTIONS
+
+The following situations are **non-refundable** and excluded from this Policy:
+
+### Usage-Based or Pay-As-You-Go Fees
+- Overage charges, API call overages, or additional scanning charges are non-refundable once incurred
+- Contact us to discuss rate adjustments or plan changes before charges are applied
+
+### Professional Services
+- Custom integrations, onboarding services, or consulting hours are non-refundable once work has commenced
+
+### Third-Party Service Costs
+- Fees paid to third-party providers, CI/CD platforms (GitHub, GitLab, Bitbucket), or cloud infrastructure services are not refundable through AuditAI
+
+### Account Suspensions or Terminations
+- Refunds are not issued for accounts suspended or terminated due to:
+  - Violation of Terms of Service
+  - Non-payment of invoices
+  - Unauthorized use or security breaches
+  - Excessive resource consumption
+
+### Promotional or Discounted Plans
+- Refunds for plans purchased with promotional codes, discounts, or special offers may be subject to different terms. Contact support for details.
+
+---
+
+## 6. CREDITS VS. REFUNDS
+
+In some cases, AuditAI may offer **account credits** instead of cash refunds, such as:
+
+- Service outages or downtime affecting your account
+- Billing errors or duplicate charges
+- Plan downgrades or service changes
+
+Credits can be applied to future AuditAI invoices and do not expire within the current subscription year. Please ask our support team about credit options if you are not requesting a cash refund.
+
+---
+
+## 7. REFUND IMPACT ON SERVICE ACCESS
+
+- Once a refund is approved and processed, your subscription access may be suspended or terminated
+- You will receive notification of any service changes prior to suspension
+- Data retention policies will apply as described in our Terms of Service and Privacy Policy
+
+---
+
+## 8. AUTOMATIC RENEWAL & CANCELLATION
+
+### Canceling Your Subscription
+To avoid future charges, you must cancel your subscription before the next billing date.
+
+**To cancel:**
+1. Log in to your AuditAI dashboard
+2. Go to **Settings > Billing > Manage Subscription**
+3. Select **Cancel Subscription** and confirm
+4. Alternatively, email support@auditai.io with "Cancel Subscription" in the subject line
+
+**Cancellation Confirmation:**
+- You will receive email confirmation of cancellation
+- Your Service access will end at the conclusion of your current billing period
+- No refund will be issued for the current billing period
+
+---
+
+## 9. SPECIAL CIRCUMSTANCES
+
+AuditAI reserves the right to issue refunds or credits outside the terms of this Policy in the following cases:
+
+- Critical technical issues or security breaches affecting your use of the Service
+- Significant service outages or downtime
+- Billing errors made by AuditAI
+- At the sole discretion of AuditAI leadership for customer retention or dispute resolution
+
+Any refunds granted outside this Policy do not create a precedent or modify these terms for future requests.
+
+---
+
+## 10. DISPUTES & CHARGEBACKS
+
+If you dispute a charge with your credit card company or payment processor (chargebacks), we reserve the right to:
+
+- Immediately suspend your account and Service access
+- Pursue recovery of chargeback fees (typically $15-$100)
+- Refuse future service to you
+
+**Instead of a chargeback, please contact us first:**  
+Email: **support@auditai.io**  
+We are committed to resolving billing disputes quickly and fairly.
+
+---
+
+## 11. CONTACT INFORMATION
+
+For refund requests, questions, or disputes:
+
+**Email:**  
+support@auditai.io
+
+**Response Time:**  
+We aim to respond to all refund requests within 5 business days (Monday–Friday, excluding holidays)
+
+**Mailing Address:**  
+[AuditAI Legal/Billing Department]  
+[Physical Address, if applicable]
+
+---
+
+## 12. CHANGES TO THIS POLICY
+
+AuditAI reserves the right to modify this Refund Policy at any time. Changes will be effective upon posting to our website or application. If you have an active subscription, we will provide at least 30 days' notice of material changes that negatively affect your refund eligibility.
+
+Your continued use of the Service after changes are posted constitutes acceptance of the updated Policy.
+
+---
+
+## 13. GOVERNING LAW
+
+This Refund Policy is governed by the laws of [Your Jurisdiction], without regard to its conflict of law principles. Any disputes arising from this Policy will be resolved according to the dispute resolution terms in the AuditAI Terms of Service.
+
+---
+
+**End of Refund Policy**
+
+---
+
+### IMPLEMENTATION NOTES FOR AUDITAI:
+
+1. **Replace placeholders:** Add your jurisdiction and mailing address
+2. **Update contact email:** Confirm support@auditai.io or use your official support email
+3. **Legal review:** Have your legal counsel review before publishing
+4. **Integration:** Link this policy from your website, Terms of Service, and billing pages
+5. **Customer notification:** Inform existing customers of this policy upon implementation
+6. **Payment processor alignment:** Ensure terms align with Stripe, payment processor, or other payment gateway requirements

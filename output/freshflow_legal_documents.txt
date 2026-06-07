@@ -1,0 +1,94 @@
+LEGAL DOCUMENTS — FreshFlow
+==================================================
+
+# FRESHFLOW LEGAL DOCUMENTS PACKAGE
+
+---
+
+## DOCUMENT 1: TERMS OF SERVICE
+
+**Last Updated: [DATE]**
+
+---
+
+### 1. ACCEPTANCE OF TERMS
+
+By accessing or using FreshFlow ("Service"), including our mobile app, web dashboard, and any related features, you ("Customer," "you," or "User") agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.
+
+These Terms apply to all users of FreshFlow, including restaurant staff members, managers, and administrators ("Users") authorized by the Customer organization.
+
+---
+
+### 2. SERVICE DESCRIPTION
+
+FreshFlow is a Software-as-a-Service (SaaS) platform designed to help restaurants and food service establishments manage inventory, track waste, forecast demand, and optimize ordering. Our Service includes:
+
+- **Real-time Inventory Dashboard** - Visual tracking of stock levels via barcode, RFID, or computer vision
+- **Waste Tracking & Analytics** - Automated categorization and cost quantification of food waste
+- **Demand Forecasting** - Predictive analytics using menu data and point-of-sale (POS) history
+- **Smart Ordering System** - Automated recommendations to optimize stock and reduce spoilage
+- **Supplier Integration** - Automated purchasing connections with supplier systems
+- **Sustainability & Compliance Reporting** - ESG metrics and regulatory reporting tools
+- **Mobile & Web Access** - iOS/Android mobile app for staff; web dashboard for management
+- **Third-Party Integrations** - Compatible with standard POS, accounting, and supplier platforms
+
+The Service includes optional premium features using IoT sensors and hardware (detailed in your Subscription Plan).
+
+---
+
+### 3. ACCOUNT REGISTRATION & AUTHORIZATION
+
+**3.1 Account Responsibility**
+
+You are responsible for:
+- Providing accurate, complete, and current information during registration
+- Maintaining the confidentiality of your login credentials
+- Notifying us immediately of any unauthorized access or security breach
+- All activities conducted through your account, whether authorized or unauthorized
+
+**3.2 User Authorization**
+
+If you are registering on behalf of a restaurant or organization, you represent and warrant that you have the legal authority to bind that organization to these Terms. You are responsible for managing User access and permissions within your organization.
+
+**3.3 Age Requirements**
+
+You must be at least 18 years old (or the age of majority in your jurisdiction) to use FreshFlow.
+
+---
+
+### 4. PERMITTED USE & RESTRICTIONS
+
+**4.1 Permitted Use**
+
+You may use FreshFlow solely for lawful purposes related to managing your restaurant or food service establishment's inventory, waste, and ordering operations.
+
+**4.2 Prohibited Uses**
+
+You agree NOT to:
+- Use FreshFlow for any illegal purpose or in violation of any applicable laws or regulations
+- Reverse engineer, decompile, or attempt to access the underlying code or proprietary technology
+- Interfere with or disrupt the Service or FreshFlow's servers or networks
+- Attempt to gain unauthorized access to accounts, systems, or data
+- Sell, license, or transfer access to the Service to third parties without written permission
+- Use the Service to develop competing products or services
+- Scrape, harvest, or bulk download data from FreshFlow
+- Remove or alter any proprietary notices, labels, or marks
+- Use the Service in a manner that violates health and safety laws or food handling regulations
+- Knowingly transmit malware, viruses, or harmful code
+- Harass, defame, or threaten other users or FreshFlow staff
+
+---
+
+### 5. INTELLECTUAL PROPERTY RIGHTS
+
+**5.1 FreshFlow Ownership**
+
+All content, features, and functionality of FreshFlow—including the mobile app, web dashboard, algorithms, database design, code, and documentation—are the exclusive property of FreshFlow Inc. ("Company") and protected by copyright, patent, and trademark law.
+
+**5.2 Limited License**
+
+Subject to these Terms and your subscription payment, Company grants you a limited, non-exclusive, non-transferable, revocable license to access and use FreshFlow solely for your business purposes.
+
+**5.3 Your Data Ownership**
+
+You retain ownership of all inventory data, waste logs, supplier information, and other business data you input into FreshFlow ("Your Data"). By providing Your Data, you grant Company a worldwide, royalty-free

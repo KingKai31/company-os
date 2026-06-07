@@ -25,24 +25,41 @@ class LegalAgent(BaseAgent):
                 .get("legal_agent", "Generate legal documents")
             )
 
-            print(f"[LEGAL] Generating Terms of Service and Refund Policy for {company_name}...")
+            print(f"[LEGAL] Generating Terms of Service for {company_name}...")
 
-            prompt = f"""You are a startup legal advisor. Generate legal documents for:
+            tos_prompt = f"""You are a startup legal advisor. Generate a Terms of Service document for:
 
 Company name: {company_name}
 Product: {product}
 Task: {legal_task}
 
-Create two documents:
-1. Terms of Service
-2. Refund Policy
+Write a complete Terms of Service with clear section headers.
+Use plain language suitable for a SaaS startup.
+Include: acceptance, use of service, user obligations, liability limits, termination, and governing law.
+Start with the header "TERMS OF SERVICE"."""
 
-Format clearly with headers. Use plain language suitable for a SaaS startup.
-Include standard clauses: acceptance, use of service, liability limits, termination, and refund conditions."""
-
-            documents = self.think(
-                prompt,
+            terms_of_service = self.think(
+                tos_prompt,
                 system="You are a legal document specialist for early-stage startups.",
+                max_tokens=3000,
+            )
+
+            print(f"[LEGAL] Generating Refund Policy for {company_name}...")
+
+            refund_prompt = f"""You are a startup legal advisor. Generate a Refund Policy document for:
+
+Company name: {company_name}
+Product: {product}
+
+Write a complete Refund Policy with clear section headers.
+Use plain language suitable for a SaaS startup.
+Include: eligibility, refund window, process for requesting refunds, exceptions, and contact information.
+Start with the header "REFUND POLICY"."""
+
+            refund_policy_doc = self.think(
+                refund_prompt,
+                system="You are a legal document specialist for early-stage startups.",
+                max_tokens=2000,
             )
 
             os.makedirs("output", exist_ok=True)
@@ -52,21 +69,32 @@ Include standard clauses: acceptance, use of service, liability limits, terminat
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(f"LEGAL DOCUMENTS — {company_name}\n")
                 f.write("=" * 50 + "\n\n")
-                f.write(documents)
+                f.write("TERMS OF SERVICE\n")
+                f.write("-" * 50 + "\n\n")
+                f.write(terms_of_service.strip())
+                f.write("\n\n")
+                f.write("=" * 50 + "\n\n")
+                f.write("REFUND POLICY\n")
+                f.write("-" * 50 + "\n\n")
+                f.write(refund_policy_doc.strip())
+                f.write("\n")
 
-            confidence = self.score_confidence(documents[:1500])
+            combined = terms_of_service + "\n" + refund_policy_doc
+            confidence = self.score_confidence(combined[:1500])
 
             result = {
                 "status": "complete",
                 "company_name": company_name,
                 "product": product,
                 "file_path": file_path,
-                "terms_of_service": "Terms of Service" in documents,
-                "refund_policy": "Refund Policy" in documents or "Refund" in documents,
+                "terms_of_service": True,
+                "refund_policy": True,
                 "confidence": confidence,
             }
 
             self.write(result)
+            print(f"[LEGAL] Terms of Service generated — terms_of_service=True")
+            print(f"[LEGAL] Refund Policy generated — refund_policy=True")
             print(f"[LEGAL] Documents saved to: {file_path}")
             return result
 

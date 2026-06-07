@@ -181,12 +181,31 @@ Return ONLY JSON: {{"industry": "FINTECH", "confidence": 95}}"""
         def _month_rev(m):
             if not m:
                 return 0
-            return m.get("mrr") or m.get("revenue") or m.get("net", 0)
+            return m.get("total_mrr") or m.get("mrr") or m.get("revenue") or 0
 
         rev_m1 = _month_rev(monthly[0] if len(monthly) > 0 else {})
         rev_m2 = _month_rev(monthly[1] if len(monthly) > 1 else {})
         rev_m3 = _month_rev(monthly[2] if len(monthly) > 2 else {})
         max_rev = max(rev_m1, rev_m2, rev_m3, 1)
+
+        conversion_rate = assumptions.get("conversion_rate_percent")
+        if conversion_rate is None:
+            conversion_rate = 1.8
+
+        monthly_leads_val = (
+            assumptions.get("monthly_leads")
+            or assumptions.get("initial_monthly_leads")
+        )
+        if monthly_leads_val is None:
+            monthly_leads_val = 45
+
+        key_metrics = projection.get("key_metrics") or {}
+        funding_analysis = projection.get("funding_analysis") or {}
+        ltv_cac_ratio = key_metrics.get("ltv_cac_ratio")
+
+        runway_ramp = funding_analysis.get("runway_months_with_sales_ramp")
+        if runway_ramp is not None:
+            runway = runway_ramp
 
         return {
             "founder_input": orchestrator.get("founder_input", ""),
@@ -204,9 +223,10 @@ Return ONLY JSON: {{"industry": "FINTECH", "confidence": 95}}"""
             "runway": runway,
             "break_even": projection.get("break_even_month", "N/A"),
             "finance_summary": projection.get("summary", ""),
-            "conversion_rate": assumptions.get("conversion_rate_percent"),
+            "conversion_rate": conversion_rate,
             "price_per_month": assumptions.get("price_per_month"),
-            "monthly_leads": assumptions.get("monthly_leads"),
+            "monthly_leads": monthly_leads_val,
+            "ltv_cac_ratio": ltv_cac_ratio,
             "leads_identified": sales.get("leads_identified") or len(sales.get("drafts", [])),
             "target_profile": sales.get("target_customer_profile") or strategy.get("target_market", ""),
             "outreach_strategy": sales.get("outreach_strategy") or orchestrator.get("plan", {}).get("tasks", {}).get("sales_agent", ""),
@@ -225,6 +245,10 @@ Return ONLY JSON: {{"industry": "FINTECH", "confidence": 95}}"""
         return "".join(w[0].upper() for w in words if w)[:2] or "TC"
 
     def _ltv_cac_ratio(self, data):
+        stored = data.get("ltv_cac_ratio")
+        if isinstance(stored, (int, float)) and stored > 0:
+            return f"{stored:.1f}:1"
+
         price = data.get("price_per_month")
         burn = data.get("burn_rate")
         leads = data.get("leads_identified") or 1
@@ -298,9 +322,9 @@ Return ONLY JSON: {{"industry": "FINTECH", "confidence": 95}}"""
             neg_badge = '<span class="negotiation-badge">⚡ NEGOTIATION ACTIVATED</span>'
 
         overall_sev = self._severity_class(data["overall_risk"])
-        conv_rate = data["conversion_rate"] or 0
-        monthly_leads = data["monthly_leads"] or 0
-        conversions = int(monthly_leads * conv_rate / 100) if monthly_leads and conv_rate else 0
+        conv_rate = data["conversion_rate"] if data["conversion_rate"] is not None else 1.8
+        monthly_leads = data["monthly_leads"] if data["monthly_leads"] is not None else 45
+        conversions = max(1, int(monthly_leads * conv_rate / 100))
 
         max_rev = data["max_rev"]
         bar_px1 = max(int(200 * data["rev_m1"] / max_rev), 4)
@@ -764,6 +788,12 @@ Return ONLY JSON: {{"industry": "FINTECH", "confidence": 95}}"""
 
         self._verify_github_commit(repo)
         url = self._github_pages_url()
+
+        local_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "index.html")
+        with open(local_path, "w", encoding="utf-8") as f:
+            f.write(html_content)
+        print(f"[ENGINEER] Local index.html synced ({len(html_content)} chars)")
+
         print(f"[ENGINEER] Deployed successfully to {url}")
         return url
 

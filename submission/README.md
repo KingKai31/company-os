@@ -1,5 +1,13 @@
 # Company OS — Autonomous Startup Intelligence
 
+**Microsoft Build AI Hackathon 2026 — Agent Swarms**
+
+| | |
+|---|---|
+| **Demo URL** | https://kingkai31.github.io/company-os/ |
+| **GitHub** | https://github.com/KingKai31/company-os |
+| **Mission Control** | http://localhost:5000 (after `python run.py`) |
+
 ## Problem
 
 3-person founding teams post-product-market-fit spend **40+ hours/week** on non-product operational work — legal, finance, sales, marketing, HR — work that requires **10 different expert roles** they cannot afford to hire.
@@ -16,6 +24,15 @@ Founders become accidental CEOs, CFOs, and general counsels instead of building 
 - **Confidence negotiation**: agents that drop below 70% confidence broadcast for help rather than failing silently
 - **Company memory graph** compounds daily — switching cost grows every hour the system runs
 - **Three-layer defensibility**: data moat + network effect + switching cost
+
+## Tech Stack
+
+- **Python** — 7-agent pipeline (`main.py`)
+- **Flask** — REST API + SSE streaming mission control UI
+- **Azure Cosmos DB** — shared brain (`agent_state` container)
+- **Claude API (Anthropic)** — all agent reasoning
+- **GitHub Pages + PyGithub** — live intelligence report deployment
+- **python-dotenv, requests, streamlit** — config, HTTP, optional Streamlit dashboard
 
 ## Technical Architecture
 
@@ -82,3 +99,40 @@ Replaces **$30,000/year** in agency and contractor costs for early stage startup
 6. **Have DEMO_EMAIL inbox open** on phone for live email proof
 
 7. **Show Architecture tab** first, then switch to Live Demo for the run
+
+---
+
+## How to Run
+
+1. **Clone and install**
+   ```powershell
+   git clone https://github.com/KingKai31/company-os.git
+   cd company-os
+   pip install -r requirements.txt
+   ```
+
+2. **Configure `.env`** (copy from `.env.example` pattern — never commit secrets)
+   ```
+   COSMOS_CONNECTION_STRING=...
+   CLAUDE_API_KEY=...
+   GITHUB_TOKEN=...
+   GITHUB_USERNAME=KingKai31
+   GITHUB_REPO=company-os
+   ```
+
+3. **Run pipeline only (CLI)**
+   ```powershell
+   python main.py "I want to build a fitness app for busy professionals"
+   ```
+
+4. **Run full mission control UI**
+   ```powershell
+   python run.py
+   ```
+   Opens http://localhost:5000 — enter your idea and click **◈ INITIALIZE COMPANY OS**.
+
+5. **Reset between demos**
+   ```powershell
+   python -c "from utils.shared_brain import clear_all; clear_all()"
+   ```
+   Or click **◈ RESET** in the dashboard header.

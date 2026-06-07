@@ -1,0 +1,499 @@
+LEGAL DOCUMENTS — FitFlow
+==================================================
+
+TERMS OF SERVICE
+--------------------------------------------------
+
+# TERMS OF SERVICE
+
+**FitFlow, Inc.**
+
+**Effective Date: [INSERT DATE]**
+
+**Last Updated: [INSERT DATE]**
+
+---
+
+## 1. ACCEPTANCE OF TERMS
+
+By downloading, installing, accessing, or using the FitFlow application and website (collectively, the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to all of these Terms, you may not use the Service.
+
+These Terms apply to all users, including but not limited to:
+- Individual subscribers (Personal Tier)
+- Premium tier subscribers
+- Enterprise customers and their employees
+- Team members using corporate wellness dashboards
+
+If you are entering into these Terms on behalf of a company or organization, you represent and warrant that you have the authority to bind that entity to these Terms.
+
+**By using FitFlow, you acknowledge that you have read, understood, and agree to be legally bound by these Terms in their entirety.**
+
+---
+
+## 2. DESCRIPTION OF SERVICE
+
+FitFlow is an artificial intelligence-powered fitness application that provides:
+
+- Personalized workout recommendations (15-30 minute sessions)
+- Integration with your calendar to identify available time slots
+- Adaptive AI coaching based on your preferences and fitness constraints
+- Integration with health tracking platforms (Apple Health, Google Fit)
+- Offline workout capability
+- Corporate wellness dashboard and team features (Enterprise/Team Tiers only)
+- Progress tracking and performance analytics
+
+**FitFlow is a supplementary fitness tool and does not replace professional medical advice, physical therapy, or certified personal training services.** The Service is intended for general fitness purposes only.
+
+---
+
+## 3. ELIGIBILITY AND ACCOUNT REGISTRATION
+
+### 3.1 Age Requirement
+You must be at least 18 years old to use FitFlow. By using the Service, you represent and warrant that you meet this age requirement.
+
+### 3.2 Account Creation
+To access certain features, you must create an account ("Account") by providing:
+- A valid email address
+- A secure password
+- Basic fitness information (age, fitness level, health constraints)
+- For Enterprise users: company information and authorized administrator details
+
+### 3.3 Account Accuracy
+You are responsible for maintaining the accuracy of all information in your Account. You agree to update your fitness profile if your health status, medical conditions, or physical limitations change. Providing false information is strictly prohibited.
+
+### 3.4 Account Security
+- You are solely responsible for maintaining the confidentiality of your account credentials
+- You are responsible for all activities that occur under your Account
+- You must notify us immediately of any unauthorized access or security breaches
+- FitFlow is not liable for any loss or damage arising from unauthorized access to your Account
+
+---
+
+## 4. USER OBLIGATIONS AND CONDUCT
+
+### 4.1 Permitted Use
+You agree to use FitFlow only for lawful purposes and in compliance with these Terms. You agree not to:
+
+**Health & Safety Violations:**
+- Use the Service if you have medical conditions that contraindicate exercise without consulting a healthcare provider first
+- Ignore pain, dizziness, shortness of breath, or other warning signs during workouts
+- Use the Service if you are pregnant without prior medical clearance (unless the platform provides pregnancy-specific content)
+- Provide false health information that could affect workout safety
+
+**Intellectual Property Violations:**
+- Copy, reproduce, or distribute FitFlow's workouts, content, or AI algorithms without authorization
+- Reverse-engineer, decompile, or attempt to access the source code
+- Create derivative works based on FitFlow's proprietary content
+- Use FitFlow content in competing fitness products or services
+
+**Technical Violations:**
+- Use automated tools, bots, or scraping software to access the Service
+- Attempt to gain unauthorized access to FitFlow's systems or networks
+- Interfere with the Service's functionality or performance
+- Upload viruses, malware, or harmful code
+- Attempt to bypass security measures or authentication systems
+
+**Behavioral Violations:**
+- Harass, threaten, or abuse other users (particularly on Team features)
+- Impersonate FitFlow staff or other users
+- Use the Service for commercial purposes without authorization
+- Violate any applicable laws or regulations
+- Encourage or assist others in violating these Terms
+
+### 4.2 Prohibited Content
+Do not share, upload, or transmit content that is:
+- Sexually explicit or obscene
+- Hateful, discriminatory, or promotes violence
+- Defamatory, fraudulent, or misleading
+- Infringing on third-party intellectual property rights
+- Containing private information of others without consent
+
+### 4.3 Professional Compliance
+Enterprise users acknowledge that their use of FitFlow must comply with applicable employment law, health privacy regulations (HIPAA if applicable), and workplace safety standards.
+
+---
+
+## 5. FITNESS WAIVER AND MEDICAL DISCLAIMERS
+
+### 5.1 No Medical Advice
+**FitFlow is NOT a substitute for professional medical advice, diagnosis, or treatment.** The Service provides general fitness guidance only. The AI coaching, workout recommendations, and fitness advice are educational tools and do not constitute medical advice.
+
+### 5.2 Assumption of Risk
+You acknowledge and assume all risks associated with physical exercise, including but not limited to:
+- Muscle soreness, strains, and sprains
+- Cardiovascular stress
+- Joint injuries
+- Falls or collisions
+- Other physical injuries or medical conditions
+
+### 5.3 Medical Clearance
+**You represent and warrant that:**
+- You are in good physical health and capable of performing moderate exercise
+- You have no medical conditions that would be aggravated by exercise
+- You have consulted with a healthcare provider before starting FitFlow if you have any pre-existing conditions
+- If you are over 45 (men) or 55 (women) and sedentary, you have obtained medical clearance before using the Service
+- You will inform FitFlow of any changes to your health status
+
+### 5.4 Personal Responsibility
+You are solely responsible for:
+- Listening to your body and stopping if you experience pain or discomfort
+- Maintaining proper form and technique during exercises
+- Ensuring your workout environment is safe and free of hazards
+- Using appropriate equipment and footwear
+- Staying hydrated and taking breaks as needed
+- Seeking immediate medical attention if you experience chest pain, severe dizziness, or other emergency symptoms
+
+### 5.5 No Emergency Services
+FitFlow cannot and does not provide emergency medical services. If you experience a medical emergency, immediately call 911 (or your local emergency number) and cease using the Service.
+
+---
+
+## 6. INTELLECTUAL PROPERTY RIGHTS
+
+### 6.1 FitFlow's Ownership
+All content, features, and functionality of FitFlow are the exclusive property of FitFlow, Inc. and are protected by copyright, trademark, patent, and other intellectual property laws, including:
+- Workout routines and video demonstrations
+- AI algorithms and personalization technology
+- App design and user interface
+- Marketing materials and documentation
+- Any improvements or modifications we make
+
+### 6.2 Limited License
+We grant you a limited, non-exclusive, non-transferable, revocable license to use FitFlow solely for your personal fitness purposes (or corporate wellness if you are an Enterprise user). This license does not include the right to:
+- Sublicense, resell, or share your Account
+- Modify or create derivative works
+- Use the Service commercially
+- Extract or use our data or algorithms
+
+### 6.3 User-Generated Content
+If you submit photos, comments, or other content to FitFlow (particularly on team challenges or community features):
+- You retain ownership of your content
+- You grant FitFlow a non-exclusive, worldwide, royalty-free license to use, reproduce, and display your content for Service improvement and marketing (unless you opt out)
+- You represent that you own or have the right to share any content you submit
+- FitFlow may remove or modify content that violates these Terms
+
+### 6.4 No Trademark License
+Nothing in these Terms grants you the right to use FitFlow's name, logo, or other trademarks without our prior written consent.
+
+---
+
+## 7. PAYMENT, BILLING, AND SUBSCRIPTION MANAGEMENT
+
+### 7.1 Subscription Tiers and Pricing
+FitFlow offers the following subscription options:
+
+**Personal Tier (Free):**
+- Limited workouts
+- Basic AI coaching
+- No calendar integration
+- No offline capability
+- Ad-supported experience
+
+**Premium Tier:**
+- Unlimited personalized workouts
+- Full calendar integration
+- Offline workout capability
+- Priority email support
+- Advanced health data integration
+
+**Team/Enterprise Tier:**
+- All Premium features
+- Corporate wellness dashboard
+- Team challenge management
+- Progress analytics and reporting
+- White-label options (Enterprise only)
+- Dedicated account management
+
+### 7.2 Billing and Payment
+- Pricing and payment terms are displayed at the time of purchase
+- All fees are in USD unless otherwise specified
+- We may update pricing with 30 days' notice for existing subscribers
+- Price changes take effect on your next billing date
+- You authorize FitFlow to charge your payment method for all applicable fees
+
+### 7.3 Recurring Billing
+Premium and Enterprise subscriptions automatically renew at the end of each billing period unless you cancel. You agree to maintain current and valid payment information. Failed payment may result in suspension of your Account.
+
+### 7.4 Refund Policy
+- **Monthly subscriptions:** No refunds for partial months
+- **Annual subscriptions:** Refunds available within 30 days of purchase if you have not accessed the Service or accessed it minimally
+- **Enterprise agreements:** Refunds are governed by the separate Enterprise Service Agreement
+- Refund requests must be submitted to support@fitflow.com
+
+### 7.5 Free Trials
+If we offer a free trial:
+- Your trial begins upon Account creation
+- We will charge your payment method on the first day after your trial ends, unless you cancel before the trial ends
+- You are responsible for canceling before the trial period expires to avoid charges
+- You can cancel at any time during the trial period
+
+### 7.6 Cancellation
+You can cancel your subscription at any time through your Account settings or by contacting support@fitflow.com. Cancellations take effect at the end of your current billing period. You will retain access to FitFlow until the end of your billing period, then revert to the Personal (Free) tier.
+
+---
+
+## 8. USER DATA AND HEALTH INFORMATION
+
+### 8.1 Data Collection
+FitFlow collects the following information to provide personalized fitness recommendations:
+- Health and fitness profile data (age, fitness level, medical conditions, constraints)
+- Workout history and performance metrics
+- Calendar data (to identify available time slots)
+- Device and app usage data
+- Health platform integrations (Apple Health, Google Fit)
+- Location data (only if you enable location features)
+
+### 8.2 Sensitive Health Data
+**Your health and fitness data is highly sensitive and is subject to strict confidentiality protections.**
+
+- Health data is encrypted both in transit and at rest
+- We do not sell health data to third parties
+- We use health data only to improve your workouts and the Service
+- You can request access, correction, or deletion of your data at any time (see Privacy Policy)
+
+### 8.3 Health Data Integration
+By connecting Apple Health, Google Fit, or other health platforms, you authorize FitFlow to:
+- Read health and fitness data from those platforms
+- Use that data to personalize your workout recommendations
+- You can revoke this access at any time through your device settings
+
+### 8.4 No Liability for Data Loss
+While we implement industry-standard security measures, we do not guarantee the security of any data transmitted over the internet. You use FitFlow at your own risk. **FitFlow is not liable for any loss, theft, or unauthorized access to your health data, except in cases of gross negligence or willful misconduct.**
+
+### 8.5 Data Retention
+- Active users: Data is retained for as long as your Account is active
+- Deleted Accounts: We delete health data within 90 days of Account deletion (except where retention is required by law)
+- Legal holds: We may retain data longer if required by law
+
+---
+
+## 9. THIRD-PARTY INTEGRATIONS AND LINKS
+
+### 9.1 Third-Party Services
+FitFlow integrates with third-party services including Apple Health, Google Fit, and calendar applications. These services are governed by their own terms and privacy policies. FitFlow is not responsible for:
+- Accuracy or functionality of third-party services
+- Data practices of third-party providers
+- Interruptions or changes to third-party APIs
+- Loss of data due to third-party service failures
+
+### 9.2 External Links
+FitFlow may contain links to external websites, resources, and blog content. We are not responsible for the content, accuracy, or practices of external sites. Your use of external sites is governed by their own terms and privacy policies.
+
+### 9.3 Third-Party Content
+We may display content from fitness experts, coaches, or health organizations. **We do not
+
+==================================================
+
+REFUND POLICY
+--------------------------------------------------
+
+# REFUND POLICY
+
+**FitFlow**  
+Last Updated: [DATE]
+
+---
+
+## 1. OVERVIEW
+
+At FitFlow, we're committed to your satisfaction. If you're not satisfied with your FitFlow subscription, we offer refunds under the terms outlined in this policy. This policy applies to all subscription tiers: Free, Premium, and Enterprise.
+
+---
+
+## 2. REFUND ELIGIBILITY
+
+You may request a refund if:
+
+- You are the original account holder or an authorized account administrator
+- Your refund request is submitted within the eligible refund window (see Section 3)
+- Your account is in good standing and has not violated our Terms of Service
+- You have not already received a refund for the same billing period
+- Your request includes a valid reason for the refund
+
+You are **not** eligible for a refund if:
+
+- Your request is submitted outside the refund window
+- You have already used a refund on your account within the past 12 months
+- Your account was used in violation of our Terms of Service or Acceptable Use Policy
+- You accessed your account for more than 50% of the billing period before requesting a refund
+- You requested a refund to exploit our policy (patterns of repeated refunds)
+- The request is made more than 60 days after the original purchase or billing date
+
+---
+
+## 3. REFUND WINDOWS
+
+### Premium Tier
+- **14-day money-back guarantee**: Full refund available within 14 days of purchase or billing date, no questions asked
+- After 14 days: Refunds considered case-by-case based on technical issues or documented problems with the app
+
+### Enterprise Tier
+- **30-day evaluation period**: Full refund available within 30 days of contract start date
+- After 30 days: No standard refunds, but credits may be applied to future billing periods for documented service failures
+- Custom refund terms may apply based on individual enterprise agreements
+
+### Free Tier
+- No refunds apply (service is provided at no cost)
+
+---
+
+## 4. HOW TO REQUEST A REFUND
+
+To request a refund, follow these steps:
+
+1. **Contact Our Support Team**
+   - Email: support@fitflow.app
+   - Include "REFUND REQUEST" in the subject line
+
+2. **Provide Required Information**
+   - Your full name and email address associated with the account
+   - Account username or FitFlow user ID
+   - Original purchase or billing date
+   - Subscription tier (Premium or Enterprise)
+   - Detailed reason for requesting a refund
+   - Screenshots or documentation of any technical issues (if applicable)
+
+3. **Response Timeline**
+   - We aim to review and respond to all refund requests within 5 business days
+   - We may ask follow-up questions to better understand your request
+   - If approved, refunds are processed within 7-10 business days
+
+4. **Account Status During Review**
+   - Your account will remain active during the refund review process
+   - If approved, your access will be terminated on the refund completion date
+
+---
+
+## 5. REFUND PROCESS & METHOD
+
+**Refund Amount**: Refunds will be issued in the original payment method used at purchase
+
+**Processing Time**: Once approved, refunds typically appear in your account within 7-10 business days, depending on your financial institution
+
+**Billing Cycles**: 
+- For monthly subscriptions: Refunds cover the current billing period only
+- For annual subscriptions: Full annual payment is eligible for refund (if within the refund window)
+- Partial refunds are not issued for partial months
+
+**Automatic Renewals**: 
+- If you have automatic renewal enabled, we recommend canceling your subscription before requesting a refund
+- Cancellation does not affect your refund eligibility if requested within the refund window
+
+---
+
+## 6. SPECIFIC EXCEPTIONS & LIMITATIONS
+
+### No Refunds For:
+- Change of mind after 14 days (Premium) or 30 days (Enterprise) of use
+- Features you expected that don't match product descriptions (contact support first—we may be able to help)
+- Third-party integration issues (e.g., Apple Health, Google Fit connectivity problems)
+- Subscription downgrades (you can downgrade anytime; no refund issued for the difference)
+- Taxes, fees, or payment processing charges
+- Promo codes or discounted purchases (refund issued at discounted price)
+
+### Refunds May Be Denied For:
+- Multiple refund requests from the same account within 12 months
+- Suspected abuse or exploitation of this policy
+- Violation of our Terms of Service or Acceptable Use Policy
+- Account activity indicating intentional use before refund request
+- Enterprise customers with custom terms (governed by individual agreements)
+
+### Partial Refund Scenarios:
+- If you used FitFlow for less than 5 days in a billing period and encountered a critical bug, a full refund may be issued
+- If you used FitFlow for more than 50% of a billing period, no refund is issued (except for documented service outages)
+
+---
+
+## 7. TECHNICAL ISSUES & TROUBLESHOOTING
+
+Before requesting a refund due to technical issues, please:
+
+1. **Contact our Support Team** at support@fitflow.app
+2. **Describe the problem** in detail (e.g., app crashes, calendar integration failures, workout not syncing)
+3. **Allow 48 hours** for our team to troubleshoot and resolve the issue
+4. **Provide system information** (device type, OS version, app version)
+
+We're committed to fixing technical problems. Refunds for technical issues are only issued if:
+- The issue cannot be resolved through troubleshooting
+- The issue prevents core features from functioning for more than 24 hours
+- The request is submitted within 14 days of first experiencing the problem
+
+---
+
+## 8. CANCELLATION VS. REFUND
+
+**Cancellation** (No Refund)
+- You can cancel your subscription anytime
+- Your access will end at the end of your current billing period
+- No refund is issued for the remaining time in your billing period
+- You can resubscribe anytime without penalty
+
+**Refund** (Money Back)
+- Refunds are issued only within the specified refund window
+- Account access is terminated immediately upon approval
+- Original payment method is refunded
+
+---
+
+## 9. ENTERPRISE & CORPORATE ACCOUNTS
+
+Enterprise customers with custom contracts may have different refund terms. Your refund eligibility is determined by:
+
+- Your signed Enterprise Service Agreement
+- Custom refund provisions negotiated during contract execution
+- Service Level Agreement (SLA) compliance
+
+Enterprise refund disputes should be escalated to:
+- **Email**: enterprise@fitflow.app
+- **Subject**: "ENTERPRISE REFUND DISPUTE"
+
+---
+
+## 10. REFUND DISPUTE RESOLUTION
+
+If you disagree with a refund decision, you may appeal by:
+
+1. Replying to the support email with additional information or documentation
+2. Clearly stating your reason for disagreement
+3. Allowing 5 additional business days for review
+
+If the dispute remains unresolved after the appeal:
+
+- We will provide a final decision within 10 business days
+- The decision will be documented in writing
+- You may escalate to payment processor disputes if applicable
+
+---
+
+## 11. SPECIAL CIRCUMSTANCES
+
+### Trial Periods
+- If you received a free trial, no refund is available when the trial ends
+- If you were charged during a trial incorrectly, contact support@fitflow.app immediately
+
+### Promotional Codes & Discounts
+- Refunds are issued at the discounted price if a promotional code was applied
+- Special promotional refund windows (if offered) will be communicated separately
+
+### Team/Corporate Wellness Plans
+- For teams using FitFlow through a corporate partner, refund requests must be submitted by the primary account administrator
+- Individual team members cannot request refunds on corporate accounts
+
+---
+
+## 12. CONTACT INFORMATION
+
+**Support Email**: support@fitflow.app  
+**Enterprise Email**: enterprise@fitflow.app  
+**Response Time**: 5 business days (Monday–Friday, 9 AM–6 PM EST)  
+**Refund Status Updates**: Provided via email to the registered account email address
+
+---
+
+## 13. POLICY UPDATES
+
+FitFlow reserves the right to modify this Refund Policy at any time. Changes will be effective immediately upon posting to the FitFlow website and app.
+
+- If you're in the middle of a refund request, the policy in effect at the time of your request applies
+- For subscriptions with active billing, policy changes take effect on your next renewal date
+- We will notify you of material changes via email if they negatively impact your refund eligibility

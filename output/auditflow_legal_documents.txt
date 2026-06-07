@@ -1,0 +1,489 @@
+LEGAL DOCUMENTS — AuditFlow
+==================================================
+
+TERMS OF SERVICE
+--------------------------------------------------
+
+# TERMS OF SERVICE
+
+**AuditFlow**
+
+**Last Updated: [DATE]**
+
+---
+
+## 1. ACCEPTANCE OF TERMS
+
+### 1.1 Agreement to Terms
+By accessing, registering for, or using the AuditFlow platform (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use the Service.
+
+### 1.2 Eligibility
+You represent that you are at least 18 years old and have the legal authority to enter into this agreement on behalf of your company or organization ("you" or "your"). If you are using the Service on behalf of an organization, you represent that you have the authority to bind that organization to these Terms.
+
+### 1.3 Changes to Terms
+We may modify these Terms at any time. Material changes will be communicated via email or displayed on our website. Your continued use of the Service after such modifications constitutes your acceptance of the updated Terms. We recommend reviewing these Terms periodically.
+
+---
+
+## 2. DESCRIPTION OF SERVICE
+
+### 2.1 Service Overview
+AuditFlow is an AI-powered audit automation platform that analyzes enterprise software codebases, documentation, and operations to generate compliance audit reports and recommendations. The Service includes:
+
+- Automated codebase and documentation analysis
+- Compliance audit report generation (SOC 2, ISO 27001, HIPAA-ready frameworks)
+- Audit gap identification and remediation recommendations
+- Continuous compliance monitoring
+- Integration with GitHub, GitLab, Jira, and third-party security tools
+- Dashboard and reporting features
+
+### 2.2 Service Modifications
+We reserve the right to modify, suspend, or discontinue the Service (or any portion thereof) at any time, with reasonable notice when commercially feasible. We are not liable for any such modifications or discontinuations.
+
+### 2.3 Beta Features
+Certain features may be designated as "Beta," "Experimental," or "Preview." Such features are provided "as-is" and may contain bugs or errors. Beta features are not subject to our standard Service Level Agreement and may be discontinued without notice.
+
+---
+
+## 3. ACCOUNT REGISTRATION AND SECURITY
+
+### 3.1 Account Creation
+To use the Service, you must create an account by providing accurate, current, and complete information. You agree to maintain the accuracy of this information throughout your relationship with us.
+
+### 3.2 Passwords and Credentials
+You are responsible for maintaining the confidentiality of your account credentials and passwords. You agree to:
+
+- Not share your credentials with unauthorized persons
+- Notify us immediately of any unauthorized access to your account
+- Be responsible for all activities that occur under your account credentials
+- Log out from your account when using shared devices
+
+### 3.3 Account Responsibility
+You are solely responsible for all actions taken through your account. We are not liable for any losses or damages resulting from your failure to safeguard your credentials.
+
+---
+
+## 4. USER OBLIGATIONS AND ACCEPTABLE USE
+
+### 4.1 Permitted Use
+You may use the Service only for lawful purposes and in accordance with these Terms. You agree not to:
+
+- Violate any applicable laws, regulations, or third-party rights
+- Use the Service for illegal, fraudulent, or deceptive activities
+- Attempt to gain unauthorized access to the Service or its systems
+- Reverse engineer, decompile, or attempt to discover the source code or underlying technology of the Service
+- Interfere with or disrupt the Service or servers/networks connected to the Service
+- Transmit viruses, malware, or any code of destructive nature
+- Engage in excessive or abusive behavior that impacts Service performance
+- Use the Service to audit or analyze any software, codebase, or systems without proper authorization from the owner
+
+### 4.2 Content Restrictions
+You agree not to upload, transmit, or otherwise provide to the Service any content that:
+
+- Contains malware, viruses, or harmful code
+- Violates third-party intellectual property rights
+- Contains private, confidential, or proprietary information of third parties without authorization
+- Is obscene, defamatory, threatening, or harassing
+- Violates data protection laws (GDPR, CCPA, HIPAA, etc.)
+
+### 4.3 Compliance with Laws
+You are responsible for ensuring your use of the Service complies with all applicable laws and regulations, including data protection laws, employment laws, and industry-specific regulations.
+
+### 4.4 Authorization to Analyze
+You represent and warrant that:
+
+- You own or have the necessary authorization to allow AuditFlow to analyze any software, codebase, documentation, or systems you submit to the Service
+- You have obtained all necessary consents from relevant stakeholders
+- Your submission does not violate any third-party rights or agreements
+- You will not use the Service to analyze code or systems of third parties without their explicit written permission
+
+---
+
+## 5. INTELLECTUAL PROPERTY RIGHTS
+
+### 5.1 Our Intellectual Property
+AuditFlow retains all right, title, and interest in:
+
+- The Service platform, including all software, code, designs, and features
+- Our AI algorithms, machine learning models, and analytical processes
+- Reports, templates, and methodologies developed by us
+- Documentation, user guides, and marketing materials
+- Any data, insights, or patterns derived from aggregated, anonymized data across all users
+
+You may not copy, modify, distribute, or use our intellectual property without express written permission.
+
+### 5.2 License Grant
+We grant you a limited, non-exclusive, non-transferable license to access and use the Service solely for your internal business purposes during the term of your agreement with us. This license terminates immediately upon termination of your account.
+
+### 5.3 Your Content
+You retain all ownership rights to any content, code, or documentation you upload to the Service ("Your Content"). However, you grant us a license to:
+
+- Process and analyze Your Content as necessary to provide the Service
+- Use anonymized, aggregated insights derived from Your Content to improve our Service and AI models (without identifying you or exposing your confidential information)
+- Store Your Content in accordance with our Privacy Policy and Data Processing Agreement
+
+### 5.4 Feedback
+Any feedback, suggestions, or improvements you provide regarding the Service may be used by us without restriction or compensation to you.
+
+---
+
+## 6. PAYMENT AND BILLING
+
+### 6.1 Fees and Billing
+You agree to pay the fees applicable to your chosen subscription plan. Fees are exclusive of applicable taxes (VAT, sales tax, etc.), which will be added to your invoice. All fees are exclusive of taxes unless otherwise stated.
+
+### 6.2 Billing Cycle
+Fees are billed according to your selected plan (monthly, annual, or custom). Billing occurs on the date your subscription begins and on the same date each billing cycle thereafter, unless your plan specifies otherwise.
+
+### 6.3 Payment Methods
+You agree to provide valid payment information. You authorize us to charge your payment method for all fees and applicable taxes. If payment fails, we may:
+
+- Retry the charge according to our collection procedures
+- Suspend your access to the Service until payment is received
+- Charge you reasonable fees for collection efforts
+
+### 6.4 Refund Policy
+Except as required by law, all fees are non-refundable. If you terminate your subscription, you remain responsible for fees through the end of your billing cycle. No refunds will be issued for partial months or unused Service time.
+
+### 6.5 Price Changes
+We may modify our pricing with 30 days' advance notice. If you do not accept the new pricing, you may terminate your subscription before the increase takes effect.
+
+### 6.6 Usage-Based Fees
+If your plan includes usage-based components (analysis scans, API calls, storage), you are responsible for charges incurred when usage exceeds your plan limits. We will notify you of overages and provide the opportunity to upgrade before charges are applied.
+
+---
+
+## 7. DATA AND CONFIDENTIALITY
+
+### 7.1 Your Data
+"Your Data" means any content, code, documentation, or information you provide to the Service. You retain responsibility for Your Data and represent that you have the right to submit it to us.
+
+### 7.2 Data Processing
+We will process Your Data in accordance with:
+
+- Our Privacy Policy
+- Our Data Processing Agreement (DPA) for enterprise clients
+- Applicable data protection laws (GDPR, CCPA, HIPAA, etc.)
+- Industry standards and best practices
+
+### 7.3 Data Security
+We implement industry-standard technical and organizational measures to protect Your Data, including encryption, access controls, and regular security assessments. However, no security system is impenetrable. We cannot guarantee absolute security.
+
+### 7.4 Retention and Deletion
+- **Active Data**: Your Data will be retained for the duration of your subscription
+- **Backups**: Your Data may be retained in backup systems for up to 30 days after deletion for disaster recovery purposes
+- **Upon Termination**: Upon termination of your account, we will delete Your Data within 30 days, unless required to retain it by law
+
+You may request deletion of Your Data at any time by contacting us at [privacy@auditflow.com].
+
+### 7.5 Our Use of Data
+We may use anonymized, aggregated data derived from Your Data to:
+
+- Improve our Service and AI algorithms
+- Generate industry benchmarks and reports
+- Conduct research and analytics
+- Detect security threats and prevent abuse
+
+Such use will not identify you or expose your confidential information.
+
+### 7.6 Confidentiality
+Each party agrees to maintain the confidentiality of the other party's confidential information and to use it only for purposes authorized by these Terms.
+
+---
+
+## 8. WARRANTY DISCLAIMER
+
+### 8.1 "AS-IS" Service
+THE SERVICE IS PROVIDED ON AN "AS-IS" AND "AS-AVAILABLE" BASIS. WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING:
+
+- Warranties of merchantability, fitness for a particular purpose, and non-infringement
+- Warranties regarding uninterrupted, error-free, or secure access
+- Warranties that the Service will meet your specific requirements
+- Warranties regarding the accuracy or completeness of audit reports, recommendations, or compliance assessments
+
+### 8.2 No Professional Advice
+The Service and its reports are tools to streamline audit preparation and are not professional legal, compliance, or security advice. We recommend that you:
+
+- Have qualified professionals review all audit reports and recommendations
+- Conduct independent security assessments
+- Consult with legal counsel regarding compliance obligations
+- Not rely solely on the Service for compliance certification
+
+### 8.3 Third-Party Tools
+We integrate with third-party tools (GitHub, GitLab, Jira, etc.). We are not responsible for:
+
+- The availability, accuracy, or functionality of third-party services
+- Data handling by third parties
+- Changes to third-party APIs or integrations
+
+---
+
+## 9. LIMITATION OF LIABILITY
+
+### 9.1 Limitation of Damages
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, NEITHER PARTY SHALL BE LIABLE FOR:
+
+- Indirect, incidental, special, consequential, or punitive damages
+- Loss of profits, revenue, data, or business opportunities
+- Costs of substitute services or data recovery
+- Reputational harm or loss of goodwill
+
+This limitation applies even if we have been advised of the possibility of such damages.
+
+### 9.2 Liability Cap
+EXCEPT FOR BREACHES OF DATA PROTECTION OBLIGATIONS, INTELLECTUAL PROPERTY INDEMNIFICATION, OR CLAIMS COVERED BY INSURANCE, THE TOTAL LIABILITY OF AUDITFLOW (OR ITS SUPPLIERS) FOR ALL CLAIMS ARISING FROM OR RELATED TO THESE TERMS SHALL NOT EXCEED THE GREATER OF:
+
+- The total fees you paid to us in the 12 months preceding the claim, or
+- USD $100
+
+### 9.3 Exceptions
+These liability limitations do not apply to:
+
+- Either party's indemnification obligations
+- Breach of confidentiality obligations
+- Infringement of intellectual property rights
+- Data breaches or unauthorized access to Your Data
+- Claims arising from gross negligence or willful misconduct
+- Liabilities that cannot be limited under applicable law
+
+### 9.4 Essential Terms
+You agree that these limitations are essential terms of this agreement and that we would not provide the Service without them.
+
+---
+
+## 10. INDEMNIFICATION
+
+### 10.1 Your Indemnification Obligation
+You agree to indemnify, defend, and hold harmless AuditFlow and its officers, directors, employees, and agents from any claims, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising from or related to:
+
+- Your use of the Service in violation of these Terms
+- Your violation of any law or third-party rights
+- Your Data or content submitted to the Service
+- Claims by third parties that Your Data infringes their intellectual property rights
+- Your negligence or willful misconduct
+
+### 10.2 Our Indemnification Obligation
+AuditFlow will defend and indemnify you against third-party claims that the Service, when used in accordance with
+
+==================================================
+
+REFUND POLICY
+--------------------------------------------------
+
+# REFUND POLICY
+
+**Effective Date:** [INSERT DATE]
+
+**Last Updated:** [INSERT DATE]
+
+---
+
+## 1. OVERVIEW
+
+AuditFlow ("Company," "we," "us," or "our") is committed to customer satisfaction. This Refund Policy outlines the terms and conditions under which customers may request refunds for subscription fees paid to AuditFlow.
+
+By subscribing to AuditFlow, you acknowledge that you have read and agree to this Refund Policy. This policy applies to all subscription tiers and service plans offered through our platform.
+
+---
+
+## 2. REFUND ELIGIBILITY
+
+You may be eligible for a refund under the following conditions:
+
+**2.1 Subscription Cancellation Within Refund Window**
+- You cancel your AuditFlow subscription within **30 days** of your initial subscription purchase or renewal charge
+- Your account has not accessed or downloaded audit reports beyond initial setup or testing purposes
+- No prior refunds have been issued for the same subscription period
+
+**2.2 Service Unavailability**
+- AuditFlow experiences unscheduled downtime of **24 hours or more** that prevents you from accessing core platform features during your subscription period
+- You notify us of the outage within **7 days** of resolution
+
+**2.3 Billing Errors**
+- You were charged incorrectly due to a system error, duplicate billing, or unauthorized transaction
+- You report the error within **30 days** of the charge
+
+**2.4 Technical Failures**
+- AuditFlow fails to successfully integrate with your specified GitHub, GitLab, Jira, or security tools after good-faith troubleshooting support
+- The failure prevents you from accessing core audit functionality and cannot be resolved within **14 days** of your initial support request
+
+---
+
+## 3. REFUND WINDOW
+
+**3.1 Standard Refund Window**
+- **30 days** from the date of subscription purchase or renewal charge
+
+**3.2 Annual Plans**
+- If you purchased an annual subscription, the 30-day refund window applies to your initial purchase date
+- Refunds for annual plans are available only within 30 days of purchase; mid-year cancellations do not qualify for prorated refunds
+
+**3.3 Trial Periods**
+- Free trials are non-refundable (no payment is required)
+- Charges that occur after a trial period ends are subject to this 30-day refund policy
+
+---
+
+## 4. NON-REFUNDABLE ITEMS & EXCEPTIONS
+
+The following are **NOT eligible for refunds**:
+
+**4.1 Professional Services**
+- Custom integrations, implementation consulting, or dedicated technical support beyond standard support hours
+- Custom report configurations or platform customizations
+
+**4.2 Data Exports & Generated Reports**
+- Audit reports, compliance documents, or data exports that have been downloaded or processed
+- Recommendations and remediation guidance accessed through the platform
+
+**4.3 Time-Based Exclusions**
+- Subscriptions cancelled more than 30 days after purchase
+- Refund requests submitted more than 60 days after the original charge date
+- Mid-billing-cycle cancellations (charges for subsequent months or years)
+
+**4.4 Misuse or Violation**
+- Accounts that violated our Terms of Service
+- Accounts engaged in unauthorized access, data scraping, or illegal activity
+- Subscriptions cancelled due to violation of our Acceptable Use Policy
+
+**4.5 Change of Mind**
+- You no longer wish to use the service or found a competing platform
+- You changed your subscription tier and now want to revert to a lower-cost plan
+
+**4.6 Third-Party Integration Issues**
+- Integration failures caused by third-party service providers (GitHub, GitLab, Jira)
+- API rate limits or restrictions imposed by connected third-party tools
+- Deprecation or changes to third-party APIs beyond our control
+
+---
+
+## 5. HOW TO REQUEST A REFUND
+
+**5.1 Refund Request Submission**
+
+To request a refund, please contact our support team at:
+
+**Email:** support@auditflow.io
+
+**Subject Line:** "Refund Request - [Your Company Name]"
+
+**5.2 Required Information**
+
+Include the following in your refund request:
+
+- Your AuditFlow account email address
+- Subscription plan name and billing amount
+- Original purchase date
+- Reason for refund request (detailed explanation)
+- Screenshots or documentation supporting your claim (where applicable)
+- Any troubleshooting steps you have already taken
+
+**5.3 Refund Request Review Process**
+
+1. **Submission:** You submit a refund request with required information
+2. **Acknowledgment:** We acknowledge receipt within **2 business days**
+3. **Investigation:** Our team reviews your request and supporting documentation
+4. **Decision:** We notify you of our decision within **10 business days** of submission
+5. **Processing:** If approved, refunds are processed within **7-10 business days**
+
+**5.4 Communication**
+
+We will communicate all refund status updates via the email address associated with your AuditFlow account. Please monitor your inbox and spam folder for updates.
+
+---
+
+## 6. REFUND PROCESSING & TIMELINE
+
+**6.1 Refund Method**
+
+- Refunds are issued to the **original payment method** used for the subscription
+- If the original payment method is no longer valid, we will work with you to arrange an alternative
+
+**6.2 Refund Timeline**
+
+- Approved refunds are processed within **7-10 business days**
+- Your payment processor (credit card company, bank) may require an additional **3-5 business days** to reflect the refund in your account
+- **Total refund time:** Up to 15 business days from approval
+
+**6.3 Partial Refunds**
+
+- Partial refunds are **not offered** except in cases of service unavailability or billing errors
+- If you cancel mid-month, you are not entitled to a prorated refund after 30 days from purchase
+
+---
+
+## 7. ACCOUNT ACCESS AFTER REFUND
+
+**7.1 Subscription Termination**
+
+Upon refund approval:
+- Your AuditFlow subscription is **immediately cancelled**
+- You lose access to the platform and all generated audit reports
+- Historical data will be retained for **30 days**, then permanently deleted
+
+**7.2 Re-subscription**
+
+- If your refund was approved due to a service issue, you may re-subscribe without penalty
+- If your refund was approved due to eligibility within the 30-day window, you are welcome to resubscribe at any time
+
+---
+
+## 8. SPECIAL CIRCUMSTANCES
+
+**8.1 Service Unavailability Refunds**
+
+- If AuditFlow experiences critical downtime (24+ hours) affecting your ability to use core features, you may request a refund or service credit
+- Service credits equal to one month of your subscription fee will be applied to your next billing cycle as an alternative to refund
+
+**8.2 Billing Errors**
+
+- Duplicate charges or erroneous transactions will be fully refunded
+- Refunds for billing errors are processed regardless of the 30-day window
+
+**8.3 Enterprise Customers**
+
+- Customers with custom contracts or enterprise agreements are subject to refund terms specified in their signed contract
+- This policy serves as the default for all subscription tiers not covered by a custom agreement
+
+---
+
+## 9. DISPUTE RESOLUTION
+
+**9.1 Disagreement with Refund Decision**
+
+If you disagree with our refund decision:
+
+1. Reply to our refund decision email with additional supporting information
+2. Request a review by our Leadership Team within **7 days** of the original decision
+3. We will conduct a final review and provide a final decision within **5 business days**
+
+**9.2 Payment Dispute Process**
+
+If you cannot resolve the issue through our standard refund process, you may:
+- Contact your payment processor or credit card company to initiate a chargeback
+- File a complaint with relevant consumer protection agencies
+- Contact us to escalate the matter to senior management
+
+---
+
+## 10. CONTACT & SUPPORT
+
+**For refund requests, questions, or appeals:**
+
+**Email:** support@auditflow.io
+
+**Response Time:** We aim to acknowledge all inquiries within **2 business days**
+
+**Mailing Address:**
+
+AuditFlow  
+[INSERT COMPANY ADDRESS]  
+[INSERT CITY, STATE, ZIP]
+
+**Support Portal:** [INSERT SUPPORT URL]
+
+---
+
+## 11. CHANGES TO THIS POLICY
+
+AuditFlow reserves the right to modify this Refund Policy at any time. Changes will be effective upon posting to our website.

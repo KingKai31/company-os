@@ -4,3 +4,4 @@ azure-cosmos
 PyGithub
 streamlit
 flask
+requests

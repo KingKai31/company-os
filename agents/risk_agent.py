@@ -98,7 +98,7 @@ Return exactly 3 risks. Return only JSON."""
             result = {
                 "status": "complete",
                 "risk_report": risk_report,
-                "critical_alert": critical_found,
+                "critical_alert": critical_found or overall_level == "critical",
                 "confidence": self.confidence,
             }
 

@@ -6,712 +6,1003 @@
   <title>Company OS — Autonomous Startup Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #060b18;
-      --card: #0d1526;
-      --border: #1a2d4f;
-      --cyan: #00d4ff;
-      --purple: #8b5cf6;
+      --bg: #0d0015;
+      --primary: #a855f7;
+      --secondary: #ec4899;
+      --accent: #3b82f6;
+      --gradient: linear-gradient(135deg, #a855f7, #ec4899, #3b82f6);
+      --card: #1a0030;
+      --border: #2d1050;
+      --text: #f8fafc;
+      --muted: #94a3b8;
       --green: #00ff88;
       --red: #ff4444;
       --yellow: #ffd700;
-      --text: #e2e8f0;
-      --muted: #64748b;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* ── Background ── */
-    .bg-layer {
-      position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
-    }
-    .grid-overlay {
-      position: absolute; inset: 0;
-      background-image:
-        repeating-linear-gradient(0deg, rgba(0,212,255,0.03) 0, rgba(0,212,255,0.03) 1px, transparent 1px, transparent 60px),
-        repeating-linear-gradient(90deg, rgba(0,212,255,0.03) 0, rgba(0,212,255,0.03) 1px, transparent 1px, transparent 60px);
-    }
-    .scanlines {
-      position: absolute; inset: 0; pointer-events: none;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.08) 2px,
-        rgba(0, 0, 0, 0.08) 4px
-      );
-      opacity: 0.35;
-    }
-    .radar-glow {
-      position: absolute; width: 600px; height: 600px;
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 70%);
-      animation: radarPulse 6s ease-in-out infinite;
-    }
-    @keyframes radarPulse {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-      50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
-    }
-    .particles { position: absolute; inset: 0; }
-    .particle {
-      position: absolute; width: 2px; height: 2px; border-radius: 50%;
-      background: rgba(0, 212, 255, 0.4);
-      animation: float linear infinite;
-    }
-
-    /* ── Header ── */
-    .header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      height: 60px; display: flex; align-items: center; justify-content: space-between;
-      padding: 0 32px;
-      background: rgba(6, 11, 24, 0.9);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .header-left {
-      display: flex; align-items: center; gap: 10px;
-      font-weight: 700; font-size: 1.1rem; color: #fff;
-    }
-    .header-left .diamond { color: var(--cyan); font-size: 1.2rem; }
-    .header-center {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem; letter-spacing: 3px;
-      color: var(--cyan); text-transform: uppercase;
-    }
-    .header-right {
-      display: flex; align-items: center; gap: 10px;
-      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text);
-    }
-    .status-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 8px var(--green);
-      animation: blink 1.5s infinite;
-    }
-    .status-dot.active { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
-    #clock { color: var(--cyan); font-weight: 600; margin-left: 8px; }
-
-    /* ── Tabs ── */
-    .tab-bar {
-      display: flex; justify-content: center; gap: 8px;
-      padding: 16px 24px 0; position: relative; z-index: 2;
-    }
-    .tab-btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;
-      padding: 10px 24px; border-radius: 8px; cursor: pointer;
-      background: var(--card); border: 1px solid var(--border);
-      color: var(--muted); transition: all 0.2s;
-    }
-    .tab-btn.active {
-      background: rgba(0,212,255,0.1); border-color: var(--cyan);
-      color: var(--cyan); box-shadow: 0 0 16px rgba(0,212,255,0.15);
-    }
-    .tab-btn:hover:not(.active) { border-color: var(--cyan); color: var(--text); }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-    #tab-architecture iframe {
-      width: 100%; height: calc(100vh - 140px); min-height: 600px;
-      border: none; border-radius: 12px;
-      background: var(--bg);
-    }
-    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    #reset-btn {
-      background: transparent; color: var(--red);
-      border: 1px solid var(--red); font-family: 'JetBrains Mono', monospace;
-      font-weight: 600; font-size: 0.85rem; padding: 16px 24px;
-      border-radius: 8px; cursor: pointer; transition: all 0.2s;
-    }
-    #reset-btn:hover { background: rgba(255,68,68,0.1); box-shadow: 0 0 16px rgba(255,68,68,0.2); }
-
-    /* ── Main ── */
-    main { position: relative; z-index: 1; padding-top: 60px; }
-
-    /* ── Hero ── */
-    .hero {
-      padding: 80px 40px 40px; text-align: center;
-    }
-    .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 52px; font-weight: 700; color: #fff;
-      letter-spacing: -1px; margin-bottom: 16px;
-    }
-    .hero p {
-      color: var(--cyan); font-size: 18px; margin-bottom: 32px;
-    }
-    .hero-input-wrap { max-width: 700px; margin: 0 auto 20px; }
-    #idea-input {
-      width: 100%; background: var(--card);
-      border: 2px solid var(--cyan); border-radius: 8px;
-      color: var(--cyan); font-family: 'JetBrains Mono', monospace;
-      font-size: 18px; padding: 16px 24px;
-      outline: none; transition: box-shadow 0.3s;
-    }
-    #idea-input:focus {
-      box-shadow: 0 0 24px rgba(0, 212, 255, 0.35);
-    }
-    #idea-input.shake { animation: shake 0.3s ease; }
-    #launch-btn {
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
-      color: #fff; font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700; font-size: 1rem; letter-spacing: 1px;
-      padding: 16px 40px; border: none; border-radius: 8px;
-      cursor: pointer; animation: pulse 2.5s ease-in-out infinite;
-      transition: transform 0.2s, opacity 0.2s;
-    }
-    #launch-btn:hover { transform: scale(1.03); }
-    #launch-btn:disabled { opacity: 0.55; cursor: not-allowed; animation: none; }
-
-    /* ── Neural net ── */
-    .neural-wrap {
-      padding: 0 24px 24px; max-width: 1100px; margin: 0 auto;
-    }
-    #neural-net { width: 100%; height: 300px; display: block; }
-    .agent-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px; fill: var(--cyan); text-anchor: middle;
-    }
-    .agent-emoji { font-size: 18px; text-anchor: middle; dominant-baseline: central; }
-    .pulse-ring { animation: pulseRing 1.2s ease-in-out infinite; }
-    .line-active { stroke-dasharray: 8 4; animation: dashFlow 1s linear infinite; }
-    .node-complete { filter: drop-shadow(0 0 8px rgba(0,255,136,0.6)); }
-    .node-running { filter: drop-shadow(0 0 10px rgba(0,212,255,0.8)); }
-
-    /* ── Negotiation panel ── */
-    #negotiation-panel {
-      display: block;
-      margin: 0 24px 24px;
-      border: 1px solid var(--yellow);
-      background: rgba(255, 215, 0, 0.06);
-      border-radius: 10px; padding: 20px 24px;
-      transform: translateX(120%);
-      opacity: 0;
-      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease;
-      box-shadow: 0 0 40px rgba(255, 215, 0, 0.12);
-    }
-    #negotiation-panel.visible {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    #negotiation-panel h3 {
-      color: var(--yellow); font-size: 1rem; margin-bottom: 6px;
-    }
-    #negotiation-panel .neg-sub {
-      color: var(--muted); font-size: 0.85rem; margin-bottom: 16px;
-    }
-    #neg-messages {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
-    }
-    #neg-messages p {
-      color: var(--yellow); margin-bottom: 8px; opacity: 0;
-      animation: fadeInLeft 0.4s ease forwards;
-    }
-
-    /* ── Two columns ── */
-    .columns {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-      padding: 24px; max-width: 1400px; margin: 0 auto;
-    }
-    .panel-title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem; letter-spacing: 2px;
-      color: var(--cyan); margin-bottom: 12px;
-    }
-    #feed {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: 8px; height: 400px; overflow-y: auto;
-      padding: 16px; font-family: 'JetBrains Mono', monospace;
-      font-size: 13px; line-height: 1.55;
-    }
-    #feed p {
-      margin-bottom: 3px; animation: fadeInLeft 0.3s ease;
-      word-break: break-word;
-    }
-    .feed-brain { color: var(--cyan); }
-    .feed-ok { color: var(--green); }
-    .feed-alert {
-      color: var(--red); border-left: 3px solid var(--red);
-      padding-left: 8px;
-    }
-    .feed-approval { color: var(--purple); }
-    .feed-neg { color: var(--yellow); }
-    .feed-default { color: #a0aec0; }
-
-    .result-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; padding: 16px; margin-bottom: 12px;
-    }
-    .result-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem; letter-spacing: 1.5px;
-      color: var(--muted); text-transform: uppercase; margin-bottom: 8px;
-    }
-    #company-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem; font-weight: 700; color: #fff;
-    }
-    #live-url {
-      color: var(--cyan); font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem; text-decoration: none;
-      text-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
-      word-break: break-all;
-    }
-    #live-url:hover { text-decoration: underline; }
-    .verify-text { color: var(--green); font-size: 0.75rem; margin-top: 6px; display: block; }
-    .badge-purple {
-      display: inline-block; background: rgba(139, 92, 246, 0.15);
-      color: var(--purple); border: 1px solid var(--purple);
-      font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
-      padding: 4px 10px; border-radius: 4px; margin-top: 8px;
-    }
-    #revenue-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem; font-weight: 700; color: var(--cyan);
-    }
-    #risk-badge {
-      display: inline-block; font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem; font-weight: 700; padding: 6px 14px;
-      border-radius: 6px; border: 1px solid var(--muted); color: var(--muted);
-    }
-    #risk-badge.low { border-color: var(--green); color: var(--green); background: rgba(0,255,136,0.08); }
-    #risk-badge.medium { border-color: var(--yellow); color: var(--yellow); background: rgba(255,215,0,0.08); }
-    #risk-badge.high, #risk-badge.critical { border-color: var(--red); color: var(--red); background: rgba(255,68,68,0.08); }
-    #negotiation-badge {
-      display: none; margin-left: 8px;
-      background: rgba(255,215,0,0.12); color: var(--yellow);
-      border: 1px solid var(--yellow); font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem; padding: 4px 10px; border-radius: 4px;
-    }
-    #negotiation-badge.show { display: inline-block; }
-    .market-item {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;
-      color: var(--text); padding: 6px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-    .market-item:last-child { border-bottom: none; }
-
-    /* ── Bottom bar ── */
-    .bottom-bar {
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-      gap: 12px; padding: 20px;
-      border-top: 1px solid var(--border);
-      position: relative; z-index: 1;
-    }
-    .pill {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
-      font-weight: 600; padding: 6px 14px; border-radius: 4px;
-      letter-spacing: 0.5px;
-    }
-    .pill-claude { background: rgba(255, 140, 0, 0.15); color: #ff8c00; border: 1px solid rgba(255,140,0,0.3); }
-    .pill-cosmos { background: rgba(0, 120, 212, 0.15); color: #0078d4; border: 1px solid rgba(0,120,212,0.3); }
-    .pill-github { background: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148,163,184,0.3); }
-    .pill-python { background: rgba(255, 215, 0, 0.1); color: var(--yellow); border: 1px solid rgba(255,215,0,0.3); }
-    #runtime {
-      display: none; font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem; color: var(--green); font-weight: 600;
-    }
-    #runtime.show { display: inline-block; }
-    .hackathon-text {
-      width: 100%; text-align: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem; color: var(--muted); letter-spacing: 1px;
-      margin-top: 4px;
-    }
-
     /* ── Keyframes ── */
     @keyframes float {
-      0% { transform: translateY(0); opacity: 0; }
-      10% { opacity: 0.6; }
-      90% { opacity: 0.3; }
-      100% { transform: translateY(-100vh); opacity: 0; }
+      0%, 100% { transform: translateY(0px) translateX(0px); }
+      33% { transform: translateY(-30px) translateX(15px); }
+      66% { transform: translateY(10px) translateX(-10px); }
     }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 12px rgba(168,85,247,0.3); opacity: 1; }
+      50% { box-shadow: 0 0 28px rgba(236,72,153,0.5); opacity: 0.85; }
     }
     @keyframes pulseRing {
-      0%, 100% { stroke-opacity: 1; stroke-width: 2; }
-      50% { stroke-opacity: 0.4; stroke-width: 3; }
+      0%, 100% { stroke-opacity: 1; stroke-width: 2.5; }
+      50% { stroke-opacity: 0.5; stroke-width: 4; }
     }
     @keyframes fadeInLeft {
       from { opacity: 0; transform: translateX(-12px); }
       to { opacity: 1; transform: translateX(0); }
     }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-8px); }
-      75% { transform: translateX(8px); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
     }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 16px rgba(0, 212, 255, 0.3); transform: scale(1); }
-      50% { box-shadow: 0 0 32px rgba(139, 92, 246, 0.5); transform: scale(1.02); }
+    @keyframes slideDown {
+      from { opacity: 0; max-height: 0; transform: translateY(-12px); }
+      to { opacity: 1; max-height: 200px; transform: translateY(0); }
     }
-    @keyframes dashFlow {
-      to { stroke-dashoffset: -24; }
+    @keyframes heroPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(168,85,247,0.4); }
+      50% { transform: scale(1.03); box-shadow: 0 0 50px rgba(236,72,153,0.5); }
+    }
+    @keyframes titlePulse {
+      0%, 100% { opacity: 1; filter: brightness(1); }
+      50% { opacity: 0.85; filter: brightness(1.15); }
+    }
+    @keyframes negPulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(255,215,0,0.4); }
+      50% { opacity: 0.7; box-shadow: 0 0 20px rgba(255,215,0,0.7); }
+    }
+    @keyframes lineFlow {
+      to { stroke-dashoffset: -20; }
+    }
+    @keyframes barGrow {
+      from { height: 4px; }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
 
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ── Header ── */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 2000;
+      height: 56px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px;
+      background: rgba(13,0,21,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .header-brand span { color: var(--primary); }
+    .header-status {
+      font-size: 0.75rem; color: var(--muted);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .status-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--muted);
+    }
+    .status-dot.active {
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
+      animation: blink 1.2s infinite;
+    }
+    .btn-reset {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem; font-weight: 600;
+      padding: 8px 18px; border-radius: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-reset:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: 0 0 16px rgba(168,85,247,0.25);
+    }
+
+    /* ── Hero Section ── */
+    #hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px 40px;
+      overflow: hidden;
+    }
+    #hero-section.hidden {
+      display: none;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0; overflow: hidden;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      animation: float ease-in-out infinite;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 760px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 2px;
+      padding: 8px 20px;
+      border-radius: 50px;
+      border: 1px solid transparent;
+      background: linear-gradient(var(--bg), var(--bg)) padding-box,
+                  var(--gradient) border-box;
+      color: var(--muted);
+      margin-bottom: 28px;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #a855f7, #ec4899, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.25rem;
+      color: var(--muted);
+      margin-bottom: 48px;
+      line-height: 1.5;
+    }
+    .input-zone {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto 32px;
+    }
+    .idea-input {
+      width: 100%;
+      padding: 20px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      color: var(--text);
+      background: var(--card);
+      border: 2px solid transparent;
+      border-radius: 16px;
+      outline: none;
+      background-image: linear-gradient(var(--card), var(--card)), var(--gradient);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      transition: box-shadow 0.3s;
+    }
+    .idea-input::placeholder { color: #64748b; }
+    .idea-input:focus {
+      box-shadow: 0 0 40px rgba(168,85,247,0.35), 0 0 80px rgba(236,72,153,0.15);
+    }
+    .idea-input.shake { animation: shake 0.35s ease; }
+
+    .agent-float {
+      position: absolute;
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      background: var(--card);
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background-image: linear-gradient(var(--card), var(--card)), var(--gradient);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      white-space: nowrap;
+      animation: float ease-in-out infinite;
+      transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s ease;
+      z-index: 3;
+    }
+    .agent-float.fly-in {
+      transform: translate(var(--fly-x, 0), var(--fly-y, 0)) scale(0) !important;
+      opacity: 0 !important;
+      animation: none !important;
+    }
+    .agent-float .emoji { font-size: 14px; }
+
+    .launch-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.125rem; font-weight: 700;
+      padding: 18px 48px;
+      border: none; border-radius: 50px;
+      color: #fff;
+      cursor: pointer;
+      background: var(--gradient);
+      animation: heroPulse 2.5s ease-in-out infinite;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .launch-btn:hover:not(:disabled) { transform: scale(1.04); }
+    .launch-btn:disabled { opacity: 0.6; cursor: not-allowed; animation: none; }
+
+    /* ── Pipeline Section ── */
+    #pipeline-section {
+      display: none;
+      padding: 72px 24px 0;
+      min-height: 100vh;
+      animation: fadeIn 0.6s ease;
+    }
+    #pipeline-section.visible { display: block; }
+
+    .pipeline-header {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .pipeline-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titlePulse 2s ease-in-out infinite;
+    }
+    .running-agent {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      color: var(--primary);
+      letter-spacing: 2px;
+      margin-top: 8px;
+      min-height: 24px;
+    }
+
+    /* ── Neural Network SVG ── */
+    .network-wrap {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 32px;
+    }
+    .network-svg {
+      width: 100%;
+      height: 280px;
+      display: block;
+    }
+    .network-svg .glow { stroke: var(--primary); stroke-opacity: 0.2; stroke-width: 8; fill: none; }
+    .network-svg .node-bg { fill: var(--card); stroke: var(--border); stroke-width: 2; }
+    .network-svg .node-ring { fill: none; stroke-width: 2.5; stroke: var(--border); transition: stroke 0.4s; }
+    .network-svg .node-ring.running { stroke: var(--primary); animation: pulseRing 1s infinite; }
+    .network-svg .node-ring.complete { stroke: var(--green); }
+    .network-svg .node-ring.error { stroke: var(--red); }
+    .network-svg .conn-line {
+      fill: none; stroke: var(--border); stroke-width: 1.5;
+      stroke-dasharray: 4 4; transition: stroke 0.4s;
+    }
+    .network-svg .conn-line.active {
+      stroke: var(--primary);
+      animation: lineFlow 1s linear infinite;
+    }
+    .network-svg .conn-line.complete { stroke: var(--green); stroke-dasharray: none; }
+    .network-svg .node-label { fill: var(--muted); font-size: 9px; font-family: 'Inter', sans-serif; text-anchor: middle; }
+    .network-svg .node-emoji { font-size: 18px; text-anchor: middle; dominant-baseline: central; }
+
+    /* ── Two Column Layout ── */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
     @media (max-width: 900px) {
-      .hero h1 { font-size: 36px; }
-      .columns { grid-template-columns: 1fr; }
-      .header-center { display: none; }
+      .mission-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Mission Feed ── */
+    .feed-panel {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .feed-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem; font-weight: 600;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(26,0,48,0.5);
+    }
+    .feed-body {
+      height: 350px;
+      overflow-y: auto;
+      padding: 12px 16px;
+      font-family: 'JetBrains Mono', 'Consolas', monospace;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+    .feed-body::-webkit-scrollbar { width: 4px; }
+    .feed-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .feed-line {
+      animation: fadeInLeft 0.25s ease;
+      margin-bottom: 2px;
+      word-break: break-word;
+    }
+    .feed-line.brain { color: var(--primary); }
+    .feed-line.ok { color: var(--green); }
+    .feed-line.alert {
+      color: var(--red);
+      border-left: 3px solid var(--red);
+      padding-left: 8px;
+    }
+    .feed-line.approval { color: var(--secondary); }
+    .feed-line.agent { color: var(--accent); }
+    .feed-line.default { color: #64748b; }
+
+    /* ── Results Panel ── */
+    #results-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .result-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .result-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .label-purple { color: var(--primary); }
+    .label-green { color: var(--green); }
+    .label-pink { color: var(--secondary); }
+    .label-blue { color: var(--accent); }
+    .label-yellow { color: var(--yellow); }
+
+    #res-company-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    #res-tagline { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+    #res-live-url {
+      display: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem; font-weight: 700;
+      color: #22d3ee;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: linear-gradient(var(--card), var(--card)) padding-box,
+                  linear-gradient(135deg, #22d3ee, var(--primary)) border-box;
+      transition: box-shadow 0.2s;
+    }
+    #res-live-url:hover { box-shadow: 0 0 20px rgba(34,211,238,0.3); }
+    .verify-note { font-size: 11px; color: var(--green); margin-top: 8px; }
+
+    .fin-rows { margin-bottom: 10px; }
+    .fin-row {
+      font-size: 12px; color: var(--muted);
+      display: flex; justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .fin-row span:last-child { color: var(--text); font-weight: 600; }
+    .mini-bars {
+      display: flex; align-items: flex-end; gap: 8px; height: 48px;
+    }
+    .mini-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .mini-bar {
+      width: 100%; max-width: 40px;
+      background: var(--gradient);
+      border-radius: 4px 4px 0 0;
+      min-height: 4px;
+      animation: barGrow 0.8s ease;
+    }
+    .mini-bar-label { font-size: 9px; color: var(--muted); }
+
+    #res-leads {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .leads-sub { font-size: 12px; color: var(--muted); margin: 4px 0 10px; }
+    .badge-purple {
+      display: inline-block;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(168,85,247,0.15);
+      color: var(--primary);
+      border: 1px solid rgba(168,85,247,0.3);
+    }
+
+    .risk-badge {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 50px;
+      margin-bottom: 8px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .risk-badge.risk-low { border-color: var(--green); color: var(--green); background: rgba(0,255,136,0.08); }
+    .risk-badge.risk-medium { border-color: var(--yellow); color: var(--yellow); background: rgba(255,215,0,0.08); }
+    .risk-badge.risk-high, .risk-badge.risk-critical {
+      border-color: var(--red); color: var(--red); background: rgba(255,68,68,0.08);
+    }
+    #res-risk-title { font-size: 13px; color: var(--muted); line-height: 1.4; }
+    #res-neg-badge {
+      display: none;
+      margin-top: 10px;
+      font-size: 10px; font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: rgba(255,215,0,0.12);
+      color: var(--yellow);
+      border: 1px solid rgba(255,215,0,0.4);
+      animation: negPulse 1.5s ease-in-out infinite;
+    }
+
+    .legal-row {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .legal-row:last-child { margin-bottom: 0; }
+    .legal-row span:last-child { color: var(--text); }
+
+    /* ── Negotiation Panel ── */
+    #negotiation-panel {
+      display: none;
+      max-width: 1200px;
+      margin: 20px auto 0;
+      padding: 20px 24px;
+      background: rgba(168,85,247,0.08);
+      border: 1px solid var(--primary);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    #negotiation-panel.visible {
+      display: block;
+      animation: slideDown 0.5s ease forwards;
+    }
+    .neg-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--yellow);
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+    #neg-messages p {
+      font-family: 'JetBrains Mono', 'Consolas', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      min-height: 18px;
+    }
+
+    /* ── Bottom Bar ── */
+    .bottom-bar {
+      margin-top: 32px;
+      padding: 20px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+    .tech-pill {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 1.5px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1px solid transparent;
+      background: linear-gradient(var(--bg), var(--bg)) padding-box,
+                  var(--gradient) border-box;
+      color: var(--muted);
+    }
+    .hackathon-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-align: center;
+      width: 100%;
+      margin-top: 4px;
+    }
+    #runtime {
+      position: absolute;
+      right: 24px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--green);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    #runtime.show { opacity: 1; }
+    @media (max-width: 768px) {
+      #runtime { position: static; width: 100%; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Animated background -->
-  <div class="bg-layer">
-    <div class="radar-glow"></div>
-    <div class="grid-overlay"></div>
-    <div class="scanlines"></div>
-    <div class="particles" id="particles"></div>
-  </div>
-
-  <!-- Header -->
   <header class="header">
-    <div class="header-left">
-      <span class="diamond">◈</span> COMPANY OS
+    <div class="header-brand"><span>◈</span> COMPANY OS</div>
+    <div class="header-status">
+      <div class="status-dot" id="status-dot"></div>
+      <span id="sys-status">STANDBY</span>
     </div>
-    <div class="header-center">Autonomous Startup Intelligence</div>
-    <div class="header-right">
-      <span class="status-dot" id="status-dot"></span>
-      <span id="sys-status">SYSTEM ONLINE</span>
-      <span id="clock">00:00:00</span>
-    </div>
+    <button class="btn-reset" id="reset-btn" type="button">◈ RESET</button>
   </header>
 
-  <!-- Tabs -->
-  <div class="tab-bar">
-    <button class="tab-btn active" id="tab-btn-demo" onclick="switchTab('demo')">◈ LIVE DEMO</button>
-    <button class="tab-btn" id="tab-btn-arch" onclick="switchTab('arch')">◈ ARCHITECTURE</button>
-  </div>
+  <!-- SECTION 1: HERO -->
+  <section id="hero-section">
+    <div class="hero-bg" id="orb-container"></div>
+    <div class="hero-content">
+      <div class="hero-badge">◈ POWERED BY 7 AI AGENTS</div>
+      <h1 class="hero-title">BUILD YOUR COMPANY</h1>
+      <p class="hero-sub">One sentence. Seven agents. A real company in 90 seconds.</p>
 
-  <!-- Architecture tab -->
-  <div id="tab-architecture" class="tab-panel">
-    <iframe src="/static/architecture.html" title="Company OS Architecture"></iframe>
-  </div>
-
-  <!-- Demo tab -->
-  <div id="tab-demo" class="tab-panel active">
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <h1>WHAT WILL YOU BUILD?</h1>
-      <p>One sentence. Seven agents. A real company in 90 seconds.</p>
-      <div class="hero-input-wrap">
-        <input type="text" id="idea-input" placeholder="AI-powered task management for remote teams..." />
+      <div class="input-zone" id="input-zone">
+        <input type="text" class="idea-input" id="idea-input"
+               placeholder="Describe your startup idea..." autocomplete="off">
+        <!-- Floating agent cards injected by JS -->
       </div>
-      <div class="hero-actions">
-        <button id="launch-btn" onclick="launchPipeline()">◈ LAUNCH COMPANY OS</button>
-        <button id="reset-btn" onclick="resetSystem()">◈ RESET</button>
-      </div>
-    </section>
 
-    <!-- Neural network -->
-    <div class="neural-wrap">
-      <svg id="neural-net" viewBox="0 0 1000 300" preserveAspectRatio="xMidYMid meet">
-        <!-- Lines orchestrator → agents -->
-        <line id="line-ceo" x1="500" y1="150" x2="200" y2="75" stroke="#1a2d4f" stroke-width="2"/>
-        <line id="line-engineer" x1="500" y1="150" x2="800" y2="75" stroke="#1a2d4f" stroke-width="2"/>
-        <line id="line-legal" x1="500" y1="150" x2="100" y2="195" stroke="#1a2d4f" stroke-width="2"/>
-        <line id="line-sales" x1="500" y1="150" x2="350" y2="240" stroke="#1a2d4f" stroke-width="2"/>
-        <line id="line-finance" x1="500" y1="150" x2="650" y2="240" stroke="#1a2d4f" stroke-width="2"/>
-        <line id="line-risk" x1="500" y1="150" x2="900" y2="195" stroke="#1a2d4f" stroke-width="2"/>
+      <button class="launch-btn" id="launch-btn" type="button" onclick="launchPipeline()">
+        ◈ INITIALIZE COMPANY OS
+      </button>
+    </div>
+  </section>
 
-        <!-- Agent nodes -->
-        <g id="node-orchestrator" transform="translate(500,150)">
-          <circle id="ring-orchestrator" cx="0" cy="0" r="32" fill="none" stroke="#64748b" stroke-width="2"/>
-          <circle cx="0" cy="0" r="28" fill="#0d1526" stroke="#1a2d4f" stroke-width="2"/>
-          <text class="agent-emoji" x="0" y="1">🔀</text>
-          <text class="agent-label" x="0" y="48">ORCHESTRATOR</text>
+  <!-- SECTION 2: PIPELINE -->
+  <section id="pipeline-section">
+    <div class="pipeline-header">
+      <div class="pipeline-title">◈ BUILDING YOUR COMPANY</div>
+      <div class="running-agent" id="running-agent">INITIALIZING...</div>
+    </div>
+
+    <div class="network-wrap">
+      <svg class="network-svg" viewBox="0 0 900 280" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#a855f7"/>
+            <stop offset="50%" stop-color="#ec4899"/>
+            <stop offset="100%" stop-color="#3b82f6"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Connection lines (orchestrator center to each agent) -->
+        <line class="conn-line" id="line-ceo" x1="450" y1="126" x2="225" y2="56"/>
+        <line class="conn-line" id="line-engineer" x1="450" y1="126" x2="675" y2="56"/>
+        <line class="conn-line" id="line-legal" x1="450" y1="126" x2="135" y2="196"/>
+        <line class="conn-line" id="line-sales" x1="450" y1="126" x2="342" y2="224"/>
+        <line class="conn-line" id="line-finance" x1="450" y1="126" x2="558" y2="224"/>
+        <line class="conn-line" id="line-risk" x1="450" y1="126" x2="765" y2="196"/>
+
+        <!-- CEO -->
+        <g id="node-ceo" transform="translate(225, 56)">
+          <circle class="glow" r="36"/><circle class="node-bg" r="28"/>
+          <circle class="node-ring" id="ring-ceo" r="32"/>
+          <text class="node-emoji" y="2">🎯</text>
+          <text class="node-label" y="52">CEO</text>
         </g>
-        <g id="node-ceo" transform="translate(200,75)">
-          <circle id="ring-ceo" cx="0" cy="0" r="32" fill="none" stroke="#64748b" stroke-width="2"/>
-          <circle cx="0" cy="0" r="28" fill="#0d1526" stroke="#1a2d4f" stroke-width="2"/>
-          <text class="agent-emoji" x="0" y="1">🎯</text>
-          <text class="agent-label" x="0" y="48">CEO</text>
+        <!-- Engineer -->
+        <g id="node-engineer" transform="translate(675, 56)">
+          <circle class="glow" r="36"/><circle class="node-bg" r="28"/>
+          <circle class="node-ring" id="ring-engineer" r="32"/>
+          <text class="node-emoji" y="2">⚙️</text>
+          <text class="node-label" y="52">Engineer</text>
         </g>
-        <g id="node-engineer" transform="translate(800,75)">
-          <circle id="ring-engineer" cx="0" cy="0" r="32" fill="none" stroke="#64748b" stroke-width="2"/>
-          <circle cx="0" cy="0" r="28" fill="#0d1526" stroke="#1a2d4f" stroke-width="2"/>
-          <text class="agent-emoji" x="0" y="1">⚙️</text>
-          <text class="agent-label" x="0" y="48">ENGINEER</text>
+        <!-- Legal -->
+        <g id="node-legal" transform="translate(135, 196)">
+          <circle class="glow" r="36"/><circle class="node-bg" r="28"/>
+          <circle class="node-ring" id="ring-legal" r="32"/>
+          <text class="node-emoji" y="2">⚖️</text>
+          <text class="node-label" y="52">Legal</text>
         </g>
-        <g id="node-legal" transform="translate(100,195)">
-          <circle id="ring-legal" cx="0" cy="0" r="32" fill="none" stroke="#64748b" stroke-width="2"/>
-          <circle cx="0" cy="0" r="28" fill="#0d1526" stroke="#1a2d4f" stroke-width="2"/>
-          <text class="agent-emoji" x="0" y="1">⚖️</text>
-          <text class="agent-label" x="0" y="48">LEGAL</text>
+        <!-- Sales -->
+        <g id="node-sales" transform="translate(342, 224)">
+          <circle class="glow" r="36"/><circle class="node-bg" r="28"/>
+          <circle class="node-ring" id="ring-sales" r="32"/>
+          <text class="node-emoji" y="2">📧</text>
+          <text class="node-label" y="52">Sales</text>
         </g>
-        <g id="node-sales" transform="translate(350,240)">
-          <circle id="ring-sales" cx="0" cy="0" r="32" fill="none" stroke="#64748b" stroke-width="2"/>
-          <circle cx="0" cy="0" r="28" fill="#0d1526" stroke="#1a2d4f" stroke-width="2"/>
-          <text class="agent-emoji" x="0" y="1">📧</text>
-          <text class="agent-label" x="0" y="48">SALES</text>
+        <!-- Finance -->
+        <g id="node-finance" transform="translate(558, 224)">
+          <circle class="glow" r="36"/><circle class="node-bg" r="28"/>
+          <circle class="node-ring" id="ring-finance" r="32"/>
+          <text class="node-emoji" y="2">💰</text>
+          <text class="node-label" y="52">Finance</text>
         </g>
-        <g id="node-finance" transform="translate(650,240)">
-          <circle id="ring-finance" cx="0" cy="0" r="32" fill="none" stroke="#64748b" stroke-width="2"/>
-          <circle cx="0" cy="0" r="28" fill="#0d1526" stroke="#1a2d4f" stroke-width="2"/>
-          <text class="agent-emoji" x="0" y="1">💰</text>
-          <text class="agent-label" x="0" y="48">FINANCE</text>
+        <!-- Risk -->
+        <g id="node-risk" transform="translate(765, 196)">
+          <circle class="glow" r="36"/><circle class="node-bg" r="28"/>
+          <circle class="node-ring" id="ring-risk" r="32"/>
+          <text class="node-emoji" y="2">⚠️</text>
+          <text class="node-label" y="52">Risk</text>
         </g>
-        <g id="node-risk" transform="translate(900,195)">
-          <circle id="ring-risk" cx="0" cy="0" r="32" fill="none" stroke="#64748b" stroke-width="2"/>
-          <circle cx="0" cy="0" r="28" fill="#0d1526" stroke="#1a2d4f" stroke-width="2"/>
-          <text class="agent-emoji" x="0" y="1">⚠️</text>
-          <text class="agent-label" x="0" y="48">RISK</text>
+        <!-- Orchestrator (center, on top) -->
+        <g id="node-orchestrator" transform="translate(450, 126)">
+          <circle class="glow" r="36"/><circle class="node-bg" r="28"/>
+          <circle class="node-ring" id="ring-orchestrator" r="32"/>
+          <text class="node-emoji" y="2">🔀</text>
+          <text class="node-label" y="52">Orchestrator</text>
         </g>
       </svg>
     </div>
 
-    <!-- Negotiation panel -->
+    <div class="mission-grid">
+      <div class="feed-panel">
+        <div class="feed-title gradient-text">◈ LIVE FEED</div>
+        <div class="feed-body" id="feed"></div>
+      </div>
+
+      <div id="results-panel">
+        <div class="result-card">
+          <div class="result-label label-purple">Company</div>
+          <div id="res-company-name">—</div>
+          <div id="res-tagline">Awaiting launch...</div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-label label-green">Live Deployment</div>
+          <a id="res-live-url" href="#" target="_blank" rel="noopener noreferrer">VISIT LIVE SITE →</a>
+          <div class="verify-note">Verifiable by judges now</div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-label label-purple">Revenue Projection</div>
+          <div class="fin-rows">
+            <div class="fin-row">Month 1 <span id="res-m1">$0</span></div>
+            <div class="fin-row">Month 2 <span id="res-m2">$0</span></div>
+            <div class="fin-row">Month 3 <span id="res-m3">$0</span></div>
+          </div>
+          <div class="mini-bars">
+            <div class="mini-bar-wrap"><div class="mini-bar" id="bar-m1" style="height:4px"></div><div class="mini-bar-label">M1</div></div>
+            <div class="mini-bar-wrap"><div class="mini-bar" id="bar-m2" style="height:4px"></div><div class="mini-bar-label">M2</div></div>
+            <div class="mini-bar-wrap"><div class="mini-bar" id="bar-m3" style="height:4px"></div><div class="mini-bar-label">M3</div></div>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-label label-pink">Sales Intelligence</div>
+          <div id="res-leads">0</div>
+          <div class="leads-sub">leads identified</div>
+          <span class="badge-purple">APPROVAL GATE ACTIVATED</span>
+        </div>
+
+        <div class="result-card">
+          <div class="result-label label-yellow">Risk Intelligence</div>
+          <span id="res-risk-badge" class="risk-badge risk-unknown">UNKNOWN</span>
+          <div id="res-risk-title">—</div>
+          <span id="res-neg-badge">⚡ NEGOTIATION ACTIVATED</span>
+        </div>
+
+        <div class="result-card">
+          <div class="result-label label-blue">Legal Status</div>
+          <div class="legal-row"><span>Terms of Service</span><span id="res-tos">○ PENDING</span></div>
+          <div class="legal-row"><span>Refund Policy</span><span id="res-refund">○ PENDING</span></div>
+        </div>
+      </div>
+    </div>
+
     <div id="negotiation-panel">
-      <h3>⚡ INTER-AGENT NEGOTIATION DETECTED</h3>
-      <p class="neg-sub">Risk agent confidence dropped below threshold — redistributing task context</p>
+      <div class="neg-title">⚡ INTER-AGENT CONFIDENCE NEGOTIATION</div>
       <div id="neg-messages"></div>
     </div>
 
-    <!-- Two columns -->
-    <div class="columns">
-      <div>
-        <div class="panel-title">◈ MISSION FEED</div>
-        <div id="feed"></div>
-      </div>
-      <div>
-        <div class="panel-title">◈ MISSION RESULTS</div>
-
-        <div class="result-card" id="card-company">
-          <div class="result-label">Company Name</div>
-          <h2 id="company-name">—</h2>
-        </div>
-
-        <div class="result-card" id="card-url">
-          <div class="result-label">Live Deployment</div>
-          <a id="live-url" href="#" target="_blank" style="display:none"></a>
-          <span id="url-pending" style="color:var(--muted);font-size:0.85rem;">Awaiting engineer agent...</span>
-          <span class="verify-text" id="verify-text" style="display:none">✓ Verifiable by judges now</span>
-        </div>
-
-        <div class="result-card" id="card-emails">
-          <div class="result-label">Sales Intelligence</div>
-          <div id="email-count" style="font-family:'JetBrains Mono',monospace;font-size:0.9rem;">— leads identified</div>
-          <span class="badge-purple" id="approval-badge" style="display:none">Approval gate: ACTIVATED</span>
-        </div>
-
-        <div class="result-card" id="card-revenue">
-          <div class="result-label">Financial Projection</div>
-          <h2 id="revenue-num">—</h2>
-        </div>
-
-        <div class="result-card" id="card-risk">
-          <div class="result-label">Risk Intelligence</div>
-          <span id="risk-badge">UNKNOWN</span>
-          <span id="negotiation-badge">NEGOTIATION ACTIVATED</span>
-        </div>
-
-        <div class="result-card" id="card-market">
-          <div class="result-label">Market Intelligence</div>
-          <div class="market-item">$26B TAM</div>
-          <div class="market-item">Replaces $30k/yr agency work</div>
-          <div class="market-item">2.3M startups face this annually</div>
-        </div>
-      </div>
+    <div class="bottom-bar">
+      <span class="tech-pill">CLAUDE AI</span>
+      <span class="tech-pill">AZURE COSMOS DB</span>
+      <span class="tech-pill">GITHUB PAGES</span>
+      <span class="tech-pill">PYTHON</span>
+      <div class="hackathon-label">MICROSOFT BUILD AI HACKATHON 2026 — AGENT SWARMS</div>
+      <button class="launch-btn" id="launch-again-btn" type="button" style="display:none;margin-top:8px" onclick="resetAll()">
+        ◈ BUILD ANOTHER COMPANY
+      </button>
+      <div id="runtime"></div>
     </div>
-  </main>
-
-  <!-- Bottom bar (demo tab only) -->
-  <footer class="bottom-bar" id="demo-footer">
-    <span class="pill pill-claude">CLAUDE AI</span>
-    <span class="pill pill-cosmos">AZURE COSMOS DB</span>
-    <span class="pill pill-github">GITHUB PAGES</span>
-    <span class="pill pill-python">PYTHON</span>
-    <span id="runtime"></span>
-    <div class="hackathon-text">MICROSOFT BUILD AI HACKATHON 2026</div>
-  </footer>
-  </div><!-- /tab-demo -->
+  </section>
 
   <script>
-    /* ── Tab switching ── */
-    function switchTab(tab) {
-      document.getElementById('tab-demo').classList.toggle('active', tab === 'demo');
-      document.getElementById('tab-architecture').classList.toggle('active', tab === 'arch');
-      document.getElementById('tab-btn-demo').classList.toggle('active', tab === 'demo');
-      document.getElementById('tab-btn-arch').classList.toggle('active', tab === 'arch');
-      document.getElementById('demo-footer').style.display = tab === 'demo' ? 'flex' : 'none';
-    }
+    const AGENTS = ['orchestrator','ceo','engineer','legal','sales','finance','risk'];
+    const AGENT_KEYS = AGENTS;
+    const AGENT_LABELS = {
+      orchestrator: 'ORCHESTRATOR', ceo: 'CEO', engineer: 'ENGINEER',
+      legal: 'LEGAL', sales: 'SALES', finance: 'FINANCE', risk: 'RISK'
+    };
+    const FLOAT_AGENTS = [
+      { emoji: '🔀', name: 'Orchestrator', pos: { top: '-48px', left: '5%' }, dur: '12s', delay: '0s' },
+      { emoji: '🎯', name: 'CEO', pos: { top: '-40px', right: '8%' }, dur: '14s', delay: '1s' },
+      { emoji: '⚙️', name: 'Engineer', pos: { bottom: '-44px', right: '12%' }, dur: '11s', delay: '2s' },
+      { emoji: '⚖️', name: 'Legal', pos: { bottom: '-48px', left: '10%' }, dur: '16s', delay: '0.5s' },
+      { emoji: '📧', name: 'Sales', pos: { top: '50%', left: '-120px', transform: 'translateY(-50%)' }, dur: '13s', delay: '3s' },
+      { emoji: '💰', name: 'Finance', pos: { top: '50%', right: '-120px', transform: 'translateY(-50%)' }, dur: '15s', delay: '1.5s' },
+      { emoji: '⚠️', name: 'Risk', pos: { top: '20%', right: '-100px' }, dur: '10s', delay: '2.5s' },
+    ];
+    const NEG_MESSAGES = [
+      '[RISK AGENT] Confidence: 52% — Critical threshold breached',
+      '[ORCHESTRATOR] Redistributing context to affected agents...',
+      '[SYSTEM] Dependency graph updated — pipeline continuing'
+    ];
 
-    /* ── Reset ── */
-    async function resetSystem() {
-      if (eventSource) { eventSource.close(); eventSource = null; }
-      try {
-        await fetch('/api/reset', { method: 'POST' });
-      } catch (e) { /* continue UI reset */ }
-      document.getElementById('feed').innerHTML = '';
-      document.getElementById('company-name').textContent = '—';
-      document.getElementById('live-url').style.display = 'none';
-      document.getElementById('url-pending').style.display = 'inline';
-      document.getElementById('verify-text').style.display = 'none';
-      document.getElementById('email-count').textContent = '— leads identified';
-      document.getElementById('approval-badge').style.display = 'none';
-      document.getElementById('revenue-num').textContent = '—';
-      document.getElementById('risk-badge').textContent = 'UNKNOWN';
-      document.getElementById('risk-badge').className = '';
-      document.getElementById('negotiation-badge').classList.remove('show');
-      document.getElementById('negotiation-panel').classList.remove('visible');
-      document.getElementById('neg-messages').innerHTML = '';
-      document.getElementById('runtime').classList.remove('show');
-      document.getElementById('runtime').textContent = '';
-      document.getElementById('sys-status').textContent = 'SYSTEM ONLINE';
-      document.getElementById('status-dot').classList.remove('active');
-      document.getElementById('launch-btn').disabled = false;
-      document.getElementById('launch-btn').textContent = '◈ LAUNCH COMPANY OS';
-      negotiationShown = false;
-      startTime = null;
-      ['orchestrator','ceo','engineer','legal','sales','finance','risk'].forEach(a => updateAgent(a, 'IDLE'));
-      appendFeed('[SYSTEM] Reset complete — Cosmos DB cleared, UI restored');
-    }
-
-    /* ── Particles (80 dots) ── */
-    (function initParticles() {
-      const container = document.getElementById('particles');
-      for (let i = 0; i < 80; i++) {
-        const p = document.createElement('span');
-        p.className = 'particle';
-        const top = Math.random() * 100;
-        const left = Math.random() * 100;
-        const dur = 15 + Math.random() * 15;
-        const delay = Math.random() * 20;
-        p.style.cssText = `top:${top}%;left:${left}%;animation-duration:${dur}s;animation-delay:${delay}s`;
-        container.appendChild(p);
-      }
-    })();
-
-    /* ── Clock ── */
-    function updateClock() {
-      document.getElementById('clock').textContent =
-        new Date().toLocaleTimeString('en-US', { hour12: false });
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-
-    /* ── State ── */
     let eventSource = null;
     let startTime = null;
     let negotiationShown = false;
 
-    const NEG_MESSAGES = [
-      '[RISK AGENT] Confidence: 48% — Critical gap detected in financial runway',
-      '[FINANCE AGENT] Receiving context... recalculating projections',
-      '[ORCHESTRATOR] Dependency resolved — adjusting agent priorities'
-    ];
+    /* ── Generate 60 floating orbs ── */
+    (function initOrbs() {
+      const container = document.getElementById('orb-container');
+      const colors = ['#a855f7', '#ec4899', '#3b82f6'];
+      for (let i = 0; i < 60; i++) {
+        const orb = document.createElement('div');
+        orb.className = 'orb';
+        const size = 4 + Math.random() * 16;
+        orb.style.width = size + 'px';
+        orb.style.height = size + 'px';
+        orb.style.left = Math.random() * 100 + '%';
+        orb.style.top = Math.random() * 100 + '%';
+        orb.style.background = colors[Math.floor(Math.random() * colors.length)];
+        orb.style.opacity = (0.15 + Math.random() * 0.25).toFixed(2);
+        orb.style.animationDuration = (8 + Math.random() * 17).toFixed(1) + 's';
+        orb.style.animationDelay = (Math.random() * 15).toFixed(1) + 's';
+        container.appendChild(orb);
+      }
+    })();
 
-    /* ── Agent SVG updates ── */
+    /* ── Floating agent cards ── */
+    (function initAgentCards() {
+      const zone = document.getElementById('input-zone');
+      FLOAT_AGENTS.forEach(a => {
+        const card = document.createElement('div');
+        card.className = 'agent-float';
+        card.style.animationDuration = a.dur;
+        card.style.animationDelay = a.delay;
+        Object.assign(card.style, a.pos);
+        if (a.pos.transform) card.style.transform = a.pos.transform;
+        const emoji = document.createElement('span');
+        emoji.className = 'emoji';
+        emoji.textContent = a.emoji;
+        const name = document.createElement('span');
+        name.textContent = a.name;
+        card.appendChild(emoji);
+        card.appendChild(name);
+        zone.appendChild(card);
+      });
+    })();
+
+    /* ── Agent status ── */
     function updateAgent(name, status) {
       const ring = document.getElementById('ring-' + name);
       const line = document.getElementById('line-' + name);
-      const node = document.getElementById('node-' + name);
       if (!ring) return;
 
-      ring.classList.remove('pulse-ring');
-      if (line) line.classList.remove('line-active');
-      if (node) node.classList.remove('node-complete', 'node-running');
-
+      ring.classList.remove('running', 'complete', 'error');
       if (status === 'RUNNING') {
-        ring.setAttribute('stroke', '#00d4ff');
-        ring.classList.add('pulse-ring');
-        if (node) node.classList.add('node-running');
-        if (line) {
-          line.setAttribute('stroke', '#00d4ff');
-          line.classList.add('line-active');
-        }
+        ring.classList.add('running');
+        ring.style.stroke = '#a855f7';
+        if (line) { line.classList.add('active'); line.classList.remove('complete'); }
       } else if (status === 'COMPLETE') {
-        ring.setAttribute('stroke', '#00ff88');
-        if (node) node.classList.add('node-complete');
-        if (line) line.setAttribute('stroke', '#00ff88');
+        ring.classList.add('complete');
+        ring.style.stroke = '#00ff88';
+        if (line) { line.classList.remove('active'); line.classList.add('complete'); }
       } else if (status === 'ERROR') {
-        ring.setAttribute('stroke', '#ff4444');
-        if (line) line.setAttribute('stroke', '#ff4444');
+        ring.classList.add('error');
+        ring.style.stroke = '#ff4444';
+        if (line) line.classList.remove('active', 'complete');
       } else {
-        ring.setAttribute('stroke', '#64748b');
-        if (line) line.setAttribute('stroke', '#1a2d4f');
+        ring.style.stroke = '#2d1050';
+        if (line) { line.classList.remove('active', 'complete'); line.style.stroke = '#2d1050'; }
       }
     }
 
-    const AGENT_RULES = [
-      { agent: 'orchestrator', tag: '[ORCHESTRATOR]', step: 'Step 1/7: Orchestrator', run: ['Planning'], done: 'Orchestrator complete', fail: 'Orchestrator failed' },
-      { agent: 'ceo', tag: '[CEO]', step: 'Step 2/7: CEO', run: ['Writing', 'Reading', 'Scoring'], done: 'CEO Agent complete', fail: 'CEO Agent failed' },
-      { agent: 'legal', tag: '[LEGAL]', step: 'Step 3/7: Legal', run: ['Reading', 'Generating'], done: 'Legal Agent complete', fail: 'Legal Agent failed' },
-      { agent: 'sales', tag: '[SALES]', step: 'Step 4/7: Sales', run: ['Reading', 'Generating', 'Requesting'], done: 'Sales Agent complete', fail: 'Sales Agent failed' },
-      { agent: 'finance', tag: '[FINANCE]', step: 'Step 5/7: Finance', run: ['Reading', 'Generating'], done: 'Finance Agent complete', fail: 'Finance Agent failed' },
-      { agent: 'risk', tag: '[RISK]', step: 'Step 6/7: Risk', run: ['Reading', 'Analysing'], done: 'Risk Agent complete', fail: 'Risk Agent failed' },
-      { agent: 'engineer', tag: '[ENGINEER]', step: 'Step 7/7: Engineer', run: ['Reading', 'Detecting', 'Assembling', 'Deploying', 'Building', 'Loaded'], done: 'Engineer Agent complete', fail: 'Engineer Agent failed' }
-    ];
+    function setRunningLabel(agentKey) {
+      const label = AGENT_LABELS[agentKey] || agentKey.toUpperCase();
+      document.getElementById('running-agent').textContent = 'RUNNING: ' + label + ' AGENT...';
+    }
 
     function updateAgentFromLine(line) {
-      for (const r of AGENT_RULES) {
-        if (line.includes(r.fail)) { updateAgent(r.agent, 'ERROR'); continue; }
-        if (line.includes(r.done)) {
-          updateAgent(r.agent, line.toLowerCase().includes('status: error') ? 'ERROR' : 'COMPLETE');
-          continue;
-        }
-        if (r.step && line.includes(r.step)) {
-          updateAgent(r.agent, 'RUNNING');
-          continue;
-        }
-        if (line.includes(r.tag) && r.run.some(k => line.includes(k))) {
-          updateAgent(r.agent, 'RUNNING');
+      if (line.includes('Planning for') || line.includes('Planning')) {
+        updateAgent('orchestrator', 'RUNNING');
+        setRunningLabel('orchestrator');
+      }
+      if (line.includes('Orchestrator complete')) {
+        updateAgent('orchestrator', 'COMPLETE');
+      }
+      if (line.includes('Writing 90-day') || (line.includes('[CEO]') && line.includes('Writing'))) {
+        updateAgent('ceo', 'RUNNING');
+        setRunningLabel('ceo');
+      }
+      if (line.includes('CEO Agent complete')) {
+        updateAgent('ceo', 'COMPLETE');
+      }
+      if (line.includes('Generating HTML') || line.includes('Customizing') || line.includes('Building company') || line.includes('Assembling') || line.includes('Deploying')) {
+        updateAgent('engineer', 'RUNNING');
+        setRunningLabel('engineer');
+      }
+      if (line.includes('Engineer Agent complete')) {
+        updateAgent('engineer', 'COMPLETE');
+      }
+      if (line.includes('Generating Terms') || (line.includes('[LEGAL]') && line.includes('Generating'))) {
+        updateAgent('legal', 'RUNNING');
+        setRunningLabel('legal');
+      }
+      if (line.includes('Legal Agent complete')) {
+        updateAgent('legal', 'COMPLETE');
+      }
+      if (line.includes('Generating 10') || (line.includes('[SALES]') && line.includes('Generating'))) {
+        updateAgent('sales', 'RUNNING');
+        setRunningLabel('sales');
+      }
+      if (line.includes('Sales Agent complete')) {
+        updateAgent('sales', 'COMPLETE');
+      }
+      if (line.includes('Generating 3-month') || (line.includes('[FINANCE]') && line.includes('Generating'))) {
+        updateAgent('finance', 'RUNNING');
+        setRunningLabel('finance');
+      }
+      if (line.includes('Finance Agent complete')) {
+        updateAgent('finance', 'COMPLETE');
+      }
+      if (line.includes('Analysing company') || (line.includes('Analysing') && line.includes('[RISK]'))) {
+        updateAgent('risk', 'RUNNING');
+        setRunningLabel('risk');
+      }
+      if (line.includes('Risk Agent complete')) {
+        updateAgent('risk', 'COMPLETE');
+      }
+
+      if (line.includes(' Agent failed') || line.includes('status: error')) {
+        for (const agent of AGENTS) {
+          const tag = agent === 'orchestrator' ? 'Orchestrator' : agent.charAt(0).toUpperCase() + agent.slice(1);
+          if (line.includes(tag + ' failed') || line.includes(tag + ' Agent failed')) {
+            updateAgent(agent, 'ERROR');
+          }
         }
       }
     }
 
     /* ── Feed ── */
+    function feedClass(line) {
+      if (line.includes('[BRAIN]')) return 'brain';
+      if (line.includes('✓') || line.includes('complete')) return 'ok';
+      if (line.includes('[ALERT]')) return 'alert';
+      if (line.includes('[APPROVAL]')) return 'approval';
+      if (/\[(ORCHESTRATOR|CEO|ENGINEER|LEGAL|SALES|FINANCE|RISK|MAIN)\]/i.test(line)) return 'agent';
+      return 'default';
+    }
+
     function appendFeed(line) {
       const feed = document.getElementById('feed');
       const p = document.createElement('p');
-      if (line.includes('[BRAIN]')) p.className = 'feed-brain';
-      else if (line.includes('✓')) p.className = 'feed-ok';
-      else if (line.includes('[ALERT]')) p.className = 'feed-alert';
-      else if (line.includes('[APPROVAL]')) p.className = 'feed-approval';
-      else if (line.includes('NEGOTIAT')) p.className = 'feed-neg';
-      else p.className = 'feed-default';
+      p.className = 'feed-line ' + feedClass(line);
       p.textContent = line;
       feed.appendChild(p);
       feed.scrollTop = feed.scrollHeight;
     }
 
-    /* ── Negotiation ── */
-    function showNegotiation() {
-      if (negotiationShown) return;
-      negotiationShown = true;
-      const panel = document.getElementById('negotiation-panel');
-      panel.classList.add('visible');
-      document.getElementById('negotiation-badge').classList.add('show');
-      const container = document.getElementById('neg-messages');
-      container.innerHTML = '';
-      NEG_MESSAGES.forEach((msg, i) => {
-        setTimeout(() => {
-          const p = document.createElement('p');
-          p.style.animationDelay = '0s';
-          typewriter(p, msg);
-          container.appendChild(p);
-        }, i * 800);
-      });
+    /* ── Results ── */
+    function clearResultsPanel() {
+      document.getElementById('res-company-name').textContent = '—';
+      document.getElementById('res-tagline').textContent = 'Awaiting launch...';
+      const urlEl = document.getElementById('res-live-url');
+      urlEl.href = '#';
+      urlEl.style.display = 'none';
+      document.getElementById('res-m1').textContent = '$0';
+      document.getElementById('res-m2').textContent = '$0';
+      document.getElementById('res-m3').textContent = '$0';
+      document.getElementById('bar-m1').style.height = '4px';
+      document.getElementById('bar-m2').style.height = '4px';
+      document.getElementById('bar-m3').style.height = '4px';
+      document.getElementById('res-leads').textContent = '0';
+      const rb = document.getElementById('res-risk-badge');
+      rb.textContent = 'UNKNOWN';
+      rb.className = 'risk-badge risk-unknown';
+      document.getElementById('res-risk-title').textContent = '—';
+      document.getElementById('res-neg-badge').style.display = 'none';
+      document.getElementById('res-tos').textContent = '○ PENDING';
+      document.getElementById('res-refund').textContent = '○ PENDING';
     }
 
+    function renderResults(data) {
+      document.getElementById('res-company-name').textContent = data.company_name || '—';
+      document.getElementById('res-tagline').textContent = data.tagline || '—';
+
+      const urlEl = document.getElementById('res-live-url');
+      if (data.github_url) {
+        urlEl.href = data.github_url;
+        urlEl.style.display = 'inline-block';
+      } else {
+        urlEl.style.display = 'none';
+      }
+
+      const m1 = Number(data.month1_mrr) || 0;
+      const m2 = Number(data.month2_mrr) || 0;
+      const m3 = Number(data.month3_mrr) || 0;
+      const max = Math.max(m1, m2, m3, 1);
+
+      document.getElementById('res-m1').textContent = '$' + m1.toLocaleString();
+      document.getElementById('res-m2').textContent = '$' + m2.toLocaleString();
+      document.getElementById('res-m3').textContent = '$' + m3.toLocaleString();
+      document.getElementById('bar-m1').style.height = Math.round(100 * m1 / max) + '%';
+      document.getElementById('bar-m2').style.height = Math.round(100 * m2 / max) + '%';
+      document.getElementById('bar-m3').style.height = Math.round(100 * m3 / max) + '%';
+
+      document.getElementById('res-leads').textContent = data.leads || '0';
+
+      const rb = document.getElementById('res-risk-badge');
+      const level = (data.risk_level || 'unknown').toLowerCase();
+      rb.textContent = level.toUpperCase();
+      rb.className = 'risk-badge risk-' + level;
+      document.getElementById('res-risk-title').textContent = (data.risk_title || '').substring(0, 60) || '—';
+
+      if (data.negotiation) {
+        document.getElementById('res-neg-badge').style.display = 'inline-block';
+        showNegotiationPanel();
+      }
+
+      document.getElementById('res-tos').textContent = data.tos_generated ? '✓ GENERATED' : '○ PENDING';
+      document.getElementById('res-refund').textContent = data.refund_generated ? '✓ GENERATED' : '○ PENDING';
+    }
+
+    /* ── Negotiation ── */
     function typewriter(el, text) {
       let i = 0;
-      el.style.opacity = '1';
       function tick() {
         if (i <= text.length) {
           el.textContent = text.slice(0, i);
@@ -722,19 +1013,19 @@
       tick();
     }
 
-    /* ── Count up ── */
-    function countUp(el, target, duration) {
-      const num = parseInt(String(target).replace(/[^\d]/g, ''), 10);
-      if (isNaN(num)) { el.textContent = target; return; }
-      const start = performance.now();
-      function frame(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const current = Math.floor(progress * num);
-        el.textContent = '$' + current.toLocaleString();
-        if (progress < 1) requestAnimationFrame(frame);
-        else el.textContent = '$' + num.toLocaleString();
-      }
-      requestAnimationFrame(frame);
+    function showNegotiationPanel() {
+      if (negotiationShown) return;
+      negotiationShown = true;
+      document.getElementById('negotiation-panel').classList.add('visible');
+      const container = document.getElementById('neg-messages');
+      container.textContent = '';
+      NEG_MESSAGES.forEach((msg, i) => {
+        setTimeout(() => {
+          const p = document.createElement('p');
+          typewriter(p, msg);
+          container.appendChild(p);
+        }, i * 800);
+      });
     }
 
     /* ── Complete ── */
@@ -748,65 +1039,14 @@
 
       document.getElementById('sys-status').textContent = 'MISSION COMPLETE';
       document.getElementById('status-dot').classList.remove('active');
+      document.getElementById('running-agent').textContent = 'ALL AGENTS COMPLETE';
 
       try {
         const res = await fetch('/api/results');
         const data = await res.json();
-        if (data.error || data.warning) {
-          appendFeed('[SYSTEM] ' + (data.warning || data.error));
-        }
-        const states = data.states || data;
-        const company = states.ceo_agent?.company_name
-          || states.ceo_agent?.strategy?.company_name
-          || states.orchestrator?.plan?.company_name;
-        if (company) document.getElementById('company-name').textContent = company;
-
-        const url = states.engineer_agent?.github_url;
-        if (url) {
-          const link = document.getElementById('live-url');
-          link.href = url;
-          link.textContent = url;
-          link.style.display = 'inline';
-          document.getElementById('url-pending').style.display = 'none';
-          document.getElementById('verify-text').style.display = 'block';
-        }
-
-        const drafts = states.sales_agent?.drafts || [];
-        const emailCount = drafts.length || 10;
-        document.getElementById('email-count').textContent = emailCount + ' leads identified';
-        if (states.sales_agent?.approval || states.sales_agent?.sent !== undefined) {
-          document.getElementById('approval-badge').style.display = 'inline-block';
-        }
-
-        const proj = states.finance_agent?.projection;
-        const rev = proj?.total_3_month_revenue;
-        if (rev != null) {
-          countUp(document.getElementById('revenue-num'), rev, 2000);
-        }
-
-        const riskLevel = states.risk_agent?.risk_report?.overall_risk_level;
-        if (riskLevel) {
-          const badge = document.getElementById('risk-badge');
-          badge.textContent = riskLevel.toUpperCase();
-          badge.className = '';
-          badge.id = 'risk-badge';
-          badge.classList.add(riskLevel.toLowerCase());
-        }
-
-        const market = document.getElementById('card-market');
-        const target = states.sales_agent?.target_customer_profile || states.ceo_agent?.strategy?.target_market;
-        const leads = states.sales_agent?.leads_identified || (states.sales_agent?.drafts || []).length;
-        const runway = states.finance_agent?.projection?.runway_months;
-        if (market && target) {
-          market.innerHTML = `
-            <div class="result-label">Market Intelligence</div>
-            <div class="market-item">${target.slice(0, 120)}${target.length > 120 ? '…' : ''}</div>
-            <div class="market-item">${leads} leads identified by Sales agent</div>
-            <div class="market-item">${runway != null ? runway + ' month runway' : 'Financial model active'}</div>`;
-        }
-
-        if (states.risk_agent?.confidence < 70 || states.risk_agent?.critical_alert) {
-          showNegotiation();
+        renderResults(data);
+        if (!res.ok) {
+          appendFeed('[SYSTEM] Results unavailable — showing defaults');
         }
       } catch (e) {
         appendFeed('[SYSTEM] Failed to load results: ' + e.message);
@@ -814,7 +1054,8 @@
 
       const btn = document.getElementById('launch-btn');
       btn.disabled = false;
-      btn.textContent = '◈ LAUNCH AGAIN';
+      btn.textContent = '◈ BUILD ANOTHER COMPANY';
+      document.getElementById('launch-again-btn').style.display = 'inline-block';
     }
 
     /* ── Launch ── */
@@ -823,24 +1064,45 @@
       const idea = input.value.trim();
       if (!idea) {
         input.classList.add('shake');
-        setTimeout(() => input.classList.remove('shake'), 300);
+        setTimeout(() => input.classList.remove('shake'), 350);
         return;
       }
+
+      const zone = document.getElementById('input-zone');
+      const zoneRect = zone.getBoundingClientRect();
+      const cx = zoneRect.width / 2;
+      const cy = zoneRect.height / 2;
+
+      document.querySelectorAll('.agent-float').forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardCx = rect.left - zoneRect.left + rect.width / 2;
+        const cardCy = rect.top - zoneRect.top + rect.height / 2;
+        card.style.setProperty('--fly-x', (cx - cardCx) + 'px');
+        card.style.setProperty('--fly-y', (cy - cardCy) + 'px');
+        card.classList.add('fly-in');
+      });
 
       const btn = document.getElementById('launch-btn');
       btn.disabled = true;
       btn.textContent = '◈ INITIALIZING...';
+
+      await new Promise(r => setTimeout(r, 800));
+
+      document.getElementById('hero-section').classList.add('hidden');
+      document.getElementById('pipeline-section').classList.add('visible');
+
       document.getElementById('sys-status').textContent = 'PIPELINE ACTIVE';
       document.getElementById('status-dot').classList.add('active');
-      document.getElementById('feed').innerHTML = '';
+      document.getElementById('feed').textContent = '';
+      clearResultsPanel();
       document.getElementById('runtime').classList.remove('show');
+      document.getElementById('launch-again-btn').style.display = 'none';
       negotiationShown = false;
       document.getElementById('negotiation-panel').classList.remove('visible');
-      document.getElementById('negotiation-badge').classList.remove('show');
-      document.getElementById('neg-messages').innerHTML = '';
+      document.getElementById('neg-messages').textContent = '';
+      document.getElementById('running-agent').textContent = 'INITIALIZING...';
 
-      ['orchestrator','ceo','engineer','legal','sales','finance','risk'].forEach(a => updateAgent(a, 'IDLE'));
-
+      AGENTS.forEach(a => updateAgent(a, 'IDLE'));
       startTime = Date.now();
 
       try {
@@ -849,11 +1111,11 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ idea })
         });
-        const { job_id, error } = await res.json();
-        if (error) throw new Error(error);
+        const payload = await res.json();
+        if (payload.error) throw new Error(payload.error);
 
         if (eventSource) eventSource.close();
-        eventSource = new EventSource('/api/stream/' + job_id);
+        eventSource = new EventSource('/api/stream/' + payload.job_id);
 
         eventSource.onmessage = (ev) => {
           const line = ev.data;
@@ -863,8 +1125,8 @@
           }
           appendFeed(line);
           updateAgentFromLine(line);
-          if (line.includes('CRITICAL RISK') || line.includes('[ALERT]')) {
-            showNegotiation();
+          if (line.includes('CRITICAL RISK') || (line.includes('[ALERT]') && line.toUpperCase().includes('CRITICAL'))) {
+            showNegotiationPanel();
           }
         };
 
@@ -874,9 +1136,44 @@
       } catch (e) {
         appendFeed('[ERROR] ' + e.message);
         btn.disabled = false;
-        btn.textContent = '◈ LAUNCH COMPANY OS';
+        btn.textContent = '◈ INITIALIZE COMPANY OS';
       }
     }
+
+    /* ── Reset ── */
+    async function resetAll() {
+      try { await fetch('/api/reset', { method: 'POST' }); } catch (_) {}
+
+      if (eventSource) { eventSource.close(); eventSource = null; }
+
+      document.getElementById('hero-section').classList.remove('hidden');
+      document.getElementById('pipeline-section').classList.remove('visible');
+      document.getElementById('idea-input').value = '';
+      document.getElementById('feed').textContent = '';
+      clearResultsPanel();
+      document.getElementById('runtime').classList.remove('show');
+      document.getElementById('sys-status').textContent = 'STANDBY';
+      document.getElementById('status-dot').classList.remove('active');
+      document.getElementById('running-agent').textContent = 'INITIALIZING...';
+      document.getElementById('negotiation-panel').classList.remove('visible');
+      document.getElementById('neg-messages').textContent = '';
+      negotiationShown = false;
+
+      AGENTS.forEach(a => updateAgent(a, 'IDLE'));
+
+      document.querySelectorAll('.agent-float').forEach(card => {
+        card.classList.remove('fly-in');
+        card.style.removeProperty('--fly-x');
+        card.style.removeProperty('--fly-y');
+      });
+
+      const btn = document.getElementById('launch-btn');
+      btn.disabled = false;
+      btn.textContent = '◈ INITIALIZE COMPANY OS';
+      document.getElementById('launch-again-btn').style.display = 'none';
+    }
+
+    document.getElementById('reset-btn').addEventListener('click', resetAll);
   </script>
 </body>
 </html>

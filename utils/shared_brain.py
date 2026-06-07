@@ -1,6 +1,7 @@
 import os
 import concurrent.futures
 from azure.cosmos import CosmosClient
+from azure.cosmos.exceptions import CosmosResourceNotFoundError
 from dotenv import load_dotenv
 from datetime import datetime
 
@@ -17,9 +18,16 @@ def _get_container():
     global _client, _database, _container
     if _container is None:
         conn = os.getenv("COSMOS_CONNECTION_STRING")
-        if not conn:
-            raise ValueError("COSMOS_CONNECTION_STRING not set in .env")
-        _client = CosmosClient.from_connection_string(conn)
+        uri = os.getenv("COSMOS_URI")
+        key = os.getenv("COSMOS_KEY")
+        if conn:
+            _client = CosmosClient.from_connection_string(conn)
+        elif uri and key:
+            _client = CosmosClient(uri, credential=key)
+        else:
+            raise ValueError(
+                "Set COSMOS_CONNECTION_STRING or both COSMOS_URI and COSMOS_KEY in .env"
+            )
         _database = _client.get_database_client("company_os")
         _container = _database.get_container_client("agent_state")
     return _container
@@ -32,6 +40,8 @@ def _run_with_timeout(fn, timeout=COSMOS_TIMEOUT, default=None):
             return future.result(timeout=timeout)
         except concurrent.futures.TimeoutError:
             print(f"[BRAIN] Cosmos DB operation timed out after {timeout}s")
+            return default
+        except CosmosResourceNotFoundError:
             return default
         except Exception as e:
             print(f"[BRAIN] Cosmos DB error: {e}")

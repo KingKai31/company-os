@@ -163,60 +163,144 @@ def static_files(filename):
 
 @app.route("/api/run", methods=["POST"])
 def api_run():
-    data = request.get_json(silent=True) or {}
-    idea = (data.get("idea") or "").strip()
-    if not idea:
-        return jsonify({"error": "idea is required"}), 400
+    try:
+        data = request.get_json(silent=True) or {}
+        idea = (data.get("idea") or "").strip()
+        if not idea:
+            return jsonify({"error": "idea is required"}), 400
 
-    job_id = str(uuid.uuid4())
-    with jobs_lock:
-        jobs[job_id] = {
-            "lines": [],
-            "done": False,
-            "idea": idea,
-            "started_at": time.time(),
-            "finished_at": None,
-            "returncode": None,
-        }
+        job_id = str(uuid.uuid4())
+        with jobs_lock:
+            jobs[job_id] = {
+                "lines": [],
+                "done": False,
+                "idea": idea,
+                "started_at": time.time(),
+                "finished_at": None,
+                "returncode": None,
+            }
 
-    thread = threading.Thread(target=run_pipeline_job, args=(job_id, idea), daemon=True)
-    thread.start()
+        thread = threading.Thread(target=run_pipeline_job, args=(job_id, idea), daemon=True)
+        thread.start()
 
-    return jsonify({"job_id": job_id})
+        return jsonify({"job_id": job_id})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 @app.route("/api/stream/<job_id>")
 def api_stream(job_id):
     def generate():
         cursor = 0
-        while True:
-            with jobs_lock:
-                job = jobs.get(job_id)
-                if not job:
-                    yield "data: ERROR: job not found\n\n"
+        try:
+            while True:
+                with jobs_lock:
+                    job = jobs.get(job_id)
+                    if not job:
+                        yield "data: ERROR: job not found\n\n"
+                        break
+                    lines = job["lines"]
+                    done = job["done"]
+
+                while cursor < len(lines):
+                    yield f"data: {lines[cursor]}\n\n"
+                    cursor += 1
+
+                if done and cursor >= len(lines):
+                    yield "data: PIPELINE_COMPLETE\n\n"
                     break
-                lines = job["lines"]
-                done = job["done"]
 
-            while cursor < len(lines):
-                yield f"data: {lines[cursor]}\n\n"
-                cursor += 1
+                time.sleep(0.25)
+        except Exception as e:
+            yield f"data: ERROR: stream failed — {e}\n\n"
 
-            if done and cursor >= len(lines):
-                yield "data: PIPELINE_COMPLETE\n\n"
-                break
+    try:
+        return Response(
+            generate(),
+            mimetype="text/event-stream",
+            headers={
+                "Cache-Control": "no-cache",
+                "Connection": "keep-alive",
+                "X-Accel-Buffering": "no",
+            },
+        )
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-            time.sleep(0.25)
 
-    return Response(
-        generate(),
-        mimetype="text/event-stream",
-        headers={
-            "Cache-Control": "no-cache",
-            "Connection": "keep-alive",
-            "X-Accel-Buffering": "no",
-        },
-    )
+def _extract_month_mrr(projection, index):
+    try:
+        months = (projection or {}).get("monthly_projections") or []
+        if len(months) <= index:
+            return 0
+        month = months[index] or {}
+        return month.get("total_mrr") or month.get("mrr") or month.get("revenue") or 0
+    except (TypeError, AttributeError, IndexError):
+        return 0
+
+
+def _simplify_results(states):
+    empty = {
+        "company_name": "",
+        "tagline": "",
+        "github_url": "",
+        "month1_mrr": 0,
+        "month2_mrr": 0,
+        "month3_mrr": 0,
+        "leads": 0,
+        "risk_level": "",
+        "risk_title": "",
+        "negotiation": False,
+        "tos_generated": False,
+        "refund_generated": False,
+    }
+    try:
+        states = states or {}
+        orchestrator = states.get("orchestrator") or {}
+        ceo = states.get("ceo_agent") or {}
+        engineer = states.get("engineer_agent") or {}
+        finance = states.get("finance_agent") or {}
+        sales = states.get("sales_agent") or {}
+        risk = states.get("risk_agent") or {}
+        legal = states.get("legal_agent") or {}
+
+        plan = orchestrator.get("plan") or {}
+        strategy = ceo.get("strategy") or {}
+        projection = finance.get("projection") or {}
+        risk_report = risk.get("risk_report") or {}
+        risks = risk_report.get("risks") or []
+
+        vision = strategy.get("vision") or ""
+        if len(vision) > 100:
+            vision = vision[:100]
+
+        risk_title = ""
+        if risks and isinstance(risks[0], dict):
+            risk_title = risks[0].get("title") or ""
+        if len(risk_title) > 60:
+            risk_title = risk_title[:60]
+
+        leads = sales.get("leads_identified")
+        if leads is None:
+            drafts = sales.get("drafts") or []
+            leads = len(drafts) if isinstance(drafts, list) else 0
+
+        return {
+            "company_name": plan.get("company_name") or strategy.get("company_name") or ceo.get("company_name") or "",
+            "tagline": vision,
+            "github_url": engineer.get("github_url") or "",
+            "month1_mrr": _extract_month_mrr(projection, 0),
+            "month2_mrr": _extract_month_mrr(projection, 1),
+            "month3_mrr": _extract_month_mrr(projection, 2),
+            "leads": leads or 0,
+            "risk_level": risk_report.get("overall_risk_level") or "",
+            "risk_title": risk_title,
+            "negotiation": bool(risk.get("critical_alert")),
+            "tos_generated": bool(legal.get("terms_of_service")),
+            "refund_generated": bool(legal.get("refund_policy")),
+        }
+    except Exception:
+        return empty
 
 
 @app.route("/api/results")
@@ -225,33 +309,38 @@ def api_results():
         from utils.shared_brain import read_all_states
 
         states = read_all_states()
-        if not states:
-            return jsonify({"warning": "Cosmos DB empty or slow — try again", "states": {}})
-        return jsonify(states)
-    except Exception as e:
-        return jsonify({"error": str(e), "states": {}}), 503
+        return jsonify(_simplify_results(states or {}))
+    except Exception:
+        return jsonify(_simplify_results({})), 503
 
 
 @app.route("/api/agents")
 def api_agents():
-    job_id = request.args.get("job_id") or get_latest_job_id()
-    if not job_id:
-        return jsonify({"agents": {k: "IDLE" for k in AGENT_KEYS}, "negotiation_triggered": False})
+    try:
+        job_id = request.args.get("job_id") or get_latest_job_id()
+        if not job_id:
+            return jsonify({"agents": {k: "IDLE" for k in AGENT_KEYS}, "negotiation_triggered": False})
 
-    job = get_job(job_id)
-    if not job:
-        return jsonify({"error": "job not found"}), 404
+        job = get_job(job_id)
+        if not job:
+            return jsonify({"error": "job not found"}), 404
 
-    parsed = parse_agent_status(job["lines"])
-    parsed["job_id"] = job_id
-    parsed["done"] = job["done"]
-    if job.get("started_at") and job.get("finished_at"):
-        parsed["runtime_seconds"] = round(job["finished_at"] - job["started_at"], 1)
-    return jsonify(parsed)
+        parsed = parse_agent_status(job["lines"])
+        parsed["job_id"] = job_id
+        parsed["done"] = job["done"]
+        if job.get("started_at") and job.get("finished_at"):
+            parsed["runtime_seconds"] = round(job["finished_at"] - job["started_at"], 1)
+        return jsonify(parsed)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
-@app.route("/api/reset", methods=["POST"])
+@app.route("/api/reset", methods=["GET", "POST"])
 def api_reset():
+    return _do_reset()
+
+
+def _do_reset():
     try:
         from utils.shared_brain import clear_all
 

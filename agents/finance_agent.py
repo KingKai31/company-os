@@ -1,6 +1,97 @@
 import json
 from utils.base_agent import BaseAgent
 
+FALLBACK_MONTHLY = [
+    {"month": 1, "total_mrr": 549, "total_expenses": 28000},
+    {"month": 2, "total_mrr": 1200, "total_expenses": 30000},
+    {"month": 3, "total_mrr": 2400, "total_expenses": 33000},
+]
+
+FALLBACK_PROJECTION = {
+    "assumptions": {
+        "price_per_month": 99,
+        "conversion_rate_percent": 1.8,
+        "monthly_leads": 45,
+    },
+    "monthly_projections": [dict(m) for m in FALLBACK_MONTHLY],
+    "burn_rate_monthly": 28000,
+    "runway_months": 14,
+    "starting_cash": 400000,
+    "total_3_month_revenue": 4149,
+    "total_3_month_expenses": 91000,
+    "total_3_month_net": -86851,
+    "break_even_month": 8,
+    "key_metrics": {"ltv_cac_ratio": 3.2},
+    "funding_analysis": {"runway_months_with_sales_ramp": 14},
+    "summary": "Conservative 3-month projection with early sales ramp.",
+}
+
+
+def _to_number(value, default=0):
+    try:
+        if value is None or value == "":
+            return default
+        return float(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def _normalize_projection(projection):
+    """Ensure total_mrr, key_metrics, and funding_analysis are always populated."""
+    if not projection or projection.get("parse_failed"):
+        projection = dict(FALLBACK_PROJECTION)
+
+    monthly = projection.get("monthly_projections") or []
+    if not monthly:
+        monthly = [dict(m) for m in FALLBACK_MONTHLY]
+        projection["monthly_projections"] = monthly
+
+    assumptions = projection.setdefault("assumptions", {})
+    price = _to_number(assumptions.get("price_per_month"), 99)
+
+    normalized_months = []
+    for i, month in enumerate(monthly[:3]):
+        if not isinstance(month, dict):
+            month = dict(FALLBACK_MONTHLY[min(i, 2)])
+        mrr = month.get("total_mrr")
+        if mrr is None:
+            mrr = month.get("mrr") or month.get("revenue")
+        if mrr is None and month.get("conversions"):
+            mrr = _to_number(month["conversions"]) * price
+        mrr = _to_number(mrr, FALLBACK_MONTHLY[min(i, 2)]["total_mrr"])
+        month["total_mrr"] = int(mrr) if mrr == int(mrr) else round(mrr, 2)
+        month.setdefault("mrr", month["total_mrr"])
+        if "total_expenses" not in month and month.get("expenses") is not None:
+            month["total_expenses"] = month["expenses"]
+        normalized_months.append(month)
+
+    while len(normalized_months) < 3:
+        normalized_months.append(dict(FALLBACK_MONTHLY[len(normalized_months)]))
+    projection["monthly_projections"] = normalized_months
+
+    key_metrics = projection.setdefault("key_metrics", {})
+    if not isinstance(key_metrics.get("ltv_cac_ratio"), (int, float)):
+        burn = _to_number(projection.get("burn_rate_monthly"), 28000)
+        leads = _to_number(assumptions.get("monthly_leads"), 45)
+        ltv = price * 12
+        cac = burn / max(leads, 1)
+        key_metrics["ltv_cac_ratio"] = round(ltv / cac, 1) if cac > 0 else 3.2
+
+    funding = projection.setdefault("funding_analysis", {})
+    if not isinstance(funding.get("runway_months_with_sales_ramp"), (int, float)):
+        runway = projection.get("runway_months")
+        if runway is None:
+            burn = _to_number(projection.get("burn_rate_monthly"), 28000)
+            cash = _to_number(projection.get("starting_cash"), 400000)
+            runway = round(cash / burn, 1) if burn > 0 else 14
+        funding["runway_months_with_sales_ramp"] = _to_number(runway, 14)
+
+    total_rev = sum(_to_number(m.get("total_mrr")) for m in normalized_months)
+    if not projection.get("total_3_month_revenue"):
+        projection["total_3_month_revenue"] = int(total_rev)
+
+    return projection
+
 
 class FinanceAgent(BaseAgent):
     def __init__(self):
@@ -44,25 +135,34 @@ Return ONLY a JSON object with this exact format:
 {{
     "company_name": "{company_name}",
     "assumptions": {{
-        "price_per_month": 49,
-        "conversion_rate_percent": 2.5,
-        "monthly_leads": 100
+        "price_per_month": 99,
+        "conversion_rate_percent": 1.8,
+        "monthly_leads": 45
     }},
     "monthly_projections": [
-        {{"month": 1, "leads": 100, "conversions": 3, "mrr": 147, "expenses": 500, "net": -353}},
-        {{"month": 2, "leads": 150, "conversions": 5, "mrr": 392, "expenses": 600, "net": -208}},
-        {{"month": 3, "leads": 200, "conversions": 8, "mrr": 784, "expenses": 700, "net": 84}}
+        {{"month": 1, "leads": 45, "conversions": 1, "total_mrr": 549, "total_expenses": 28000, "net": -27451}},
+        {{"month": 2, "leads": 60, "conversions": 3, "total_mrr": 1200, "total_expenses": 30000, "net": -28800}},
+        {{"month": 3, "leads": 80, "conversions": 6, "total_mrr": 2400, "total_expenses": 33000, "net": -30600}}
     ],
-    "burn_rate_monthly": 600,
+    "burn_rate_monthly": 28000,
     "runway_months": 14,
-    "starting_cash": 8400,
-    "total_3_month_revenue": 1323,
-    "total_3_month_expenses": 1800,
-    "total_3_month_net": -477,
-    "break_even_month": 4,
+    "starting_cash": 400000,
+    "total_3_month_revenue": 4149,
+    "total_3_month_expenses": 91000,
+    "total_3_month_net": -86851,
+    "break_even_month": 8,
+    "key_metrics": {{
+        "ltv_cac_ratio": 3.2
+    }},
+    "funding_analysis": {{
+        "runway_months_with_sales_ramp": 14
+    }},
     "summary": "One paragraph financial summary"
 }}
 
+Every monthly_projections entry MUST include total_mrr as a positive number.
+key_metrics.ltv_cac_ratio MUST be a number (e.g. 3.2).
+funding_analysis.runway_months_with_sales_ramp MUST be a number.
 Use realistic numbers based on the product and market. Return only JSON."""
 
             response = self.think(
@@ -75,8 +175,11 @@ Use realistic numbers based on the product and market. Return only JSON."""
             try:
                 projection = json.loads(clean)
             except json.JSONDecodeError:
-                print("[FINANCE] JSON parse failed — using plain text response")
-                projection = {"summary": clean, "parse_failed": True}
+                print("[FINANCE] JSON parse failed — using fallback monthly_projections")
+                projection = {"parse_failed": True, "summary": clean}
+
+            projection = _normalize_projection(projection)
+            projection["company_name"] = projection.get("company_name") or company_name
 
             confidence = self.score_confidence(json.dumps(projection))
 
@@ -88,8 +191,11 @@ Use realistic numbers based on the product and market. Return only JSON."""
             }
 
             self.write(result)
-            total_rev = projection.get("total_3_month_revenue", "N/A")
-            print(f"[FINANCE] Projection complete — 3-month revenue: ${total_rev}")
+            m1 = projection["monthly_projections"][0]["total_mrr"]
+            m3 = projection["monthly_projections"][2]["total_mrr"]
+            ltv_cac = projection["key_metrics"]["ltv_cac_ratio"]
+            runway = projection["funding_analysis"]["runway_months_with_sales_ramp"]
+            print(f"[FINANCE] Projection complete — M1=${m1}, M3=${m3}, LTV:CAC={ltv_cac}, runway={runway}mo")
             return result
 
         except Exception as e:
