@@ -119,8 +119,8 @@
     .bar-m1 { animation: growBar1 1.2s ease-out 0.3s forwards; }
     .bar-m2 { animation: growBar2 1.2s ease-out 0.5s forwards; }
     .bar-m3 { animation: growBar3 1.2s ease-out 0.7s forwards; }
-    @keyframes growBar1 { from { height: 0; } to { height: 4px; } }
-    @keyframes growBar2 { from { height: 0; } to { height: 4px; } }
+    @keyframes growBar1 { from { height: 0; } to { height: 44px; } }
+    @keyframes growBar2 { from { height: 0; } to { height: 111px; } }
     @keyframes growBar3 { from { height: 0; } to { height: 200px; } }
     .bar-label { margin-top: 10px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
     .bar-pct { font-size: 0.7rem; color: var(--muted); }
@@ -156,7 +156,7 @@
     .overall-badge.low { background: #22c55e; color: #fff; }
     .confidence-ring {
       width: 72px; height: 72px; border-radius: 50%; position: relative;
-      background: conic-gradient(var(--accent) 172deg, rgba(255,255,255,0.1) 0deg);
+      background: conic-gradient(var(--accent) 198deg, rgba(255,255,255,0.1) 0deg);
       display: flex; align-items: center; justify-content: center;
     }
     .confidence-ring::before {
@@ -244,8 +244,8 @@ p,span,li,td,th,label { color: #334155 !important; }
       <div class="container">
         <div class="section-title">Company Intelligence Report</div>
         <h1>FitFlow</h1>
-        <p class="value-prop">Empower busy professionals to achieve fitness goals through intelligent, time-efficient workout solutions integrated into their demanding schedules.</p>
-        <div class="built-for">Built for: Busy professionals aged 28-45 earning $80K+ annually in high-pressure industries (finance, tech, consulting, corporate management) who prioritize fitness but struggle with time constraints. Primary focus: managers, directors, and executives at Fortune 500 companies with existing corporate wellness programs. Secondary focus: self-employed professionals and entrepreneurs. Characterized by: mobile-first preferences, willingness to pay for premium time-saving solutions, existing gym/wellness subscriptions, and motivation through results and efficiency metrics.</div>
+        <p class="value-prop">Empower busy professionals to achieve peak fitness through intelligent, calendar-integrated workouts that fit seamlessly into their demanding schedules.</p>
+        <div class="built-for">Built for: Primary: C-suite executives and management consultants (ages 30-55, $150K+ income, high time-scarcity); Secondary: Corporate wellness departments purchasing for 50-5,000 employee organizations; Tertiary: Management consulting firms and professional services companies seeking differentiated employee benefits.</div>
         <div class="hero-btns">
           <a href="#strategy" class="btn btn-primary">View Strategy</a>
           <a href="#financials" class="btn btn-secondary">See Financials</a>
@@ -259,26 +259,20 @@ p,span,li,td,th,label { color: #334155 !important; }
         <h2>Strategic OKRs &amp; Milestones</h2>
         <div class="okr-grid">
             <div class="card okr-card">
-              <h3>Establish FitFlow as the premium fitness solution for busy professionals</h3>
-              <ul class="kr-list"><li>Achieve 5,000 registered users by day 90 with 60% from target professional segment (verified LinkedIn profiles)</li><li>Maintain 45%+ daily active user rate among day 1-30 cohorts</li><li>Secure partnerships with 5+ corporate HR/wellness departments generating qualified leads</li></ul>
+              <h3>Establish product-market fit with target corporate and individual segments</h3>
+              <ul class="kr-list"><li>Achieve 4.5+ star rating with 50+ reviews from beta users</li><li>Secure 2 paying corporate pilot accounts with 100+ combined users</li><li>Reach 500+ paid individual users with 60%+ monthly retention</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Drive user acquisition through LinkedIn and corporate channels</h3>
-              <ul class="kr-list"><li>Generate 3,000+ qualified leads through LinkedIn campaigns with &lt;$15 cost per qualified lead</li><li>Achieve 8%+ conversion rate from corporate trial signup to paid subscription</li><li>Build referral network generating 20% of month 3 signups through corporate employee referrals</li></ul>
+              <h3>Build repeatable B2B2C sales motion for corporate wellness channel</h3>
+              <ul class="kr-list"><li>Close 1-2 enterprise contracts generating $40K+ annual revenue</li><li>Establish 3 strategic partnerships with wellness platforms or brokers</li><li>Develop 5+ case studies demonstrating ROI (engagement, retention metrics)</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div>
             <div class="card okr-card">
-              <h3>Maximize user engagement and retention</h3>
-              <ul class="kr-list"><li>Achieve 45%+ daily active user rate by day 90 (minimum 45% of registered users opening app daily)</li><li>Reach 4.5+ average weekly workout completions per active user</li><li>Achieve 60%+ day 7 retention rate and 35%+ day 30 retention rate</li></ul>
-              <div class="progress-wrap"><div class="progress-bar"></div></div>
-              <span class="progress-label">Day 1 of 90 — 0% complete</span>
-            </div>
-            <div class="card okr-card">
-              <h3>Generate sustainable revenue from premium and enterprise segments</h3>
-              <ul class="kr-list"><li>Secure $50K MRR from corporate enterprise subscriptions (5+ companies at $5K-10K/month average)</li><li>Achieve 2,500+ paid individual premium subscribers at $12.99/month ($32.5K MRR)</li><li>Establish path to $500K ARR through confirmed enterprise pipeline and proven unit economics</li></ul>
+              <h3>Create compelling product differentiation through workplace engagement</h3>
+              <ul class="kr-list"><li>Launch and scale team challenges with 40%+ participation rate among pilot users</li><li>Achieve 80%+ calendar integration adoption (Outlook + Google)</li><li>Reach 30-minute average daily engagement time for active users</li></ul>
               <div class="progress-wrap"><div class="progress-bar"></div></div>
               <span class="progress-label">Day 1 of 90 — 0% complete</span>
             </div></div>
@@ -286,17 +280,17 @@ p,span,li,td,th,label { color: #334155 !important; }
           <div class="step">
             <div class="step-circle">1</div>
             <h4>Month 1</h4>
-            <p>Foundation &amp; MVP Launch: Complete product refinement focusing on 15-30 min AI-personalized workouts, office-friendly exercises, and calendar integration. Establish brand positioning on LinkedIn. Launch closed beta with 500 early adopters from target segment (managers/executives at Fortune 500 companies). Set up corporate partnership pipeline with 10 HR/wellness departments. Create case studies and testimonials. Implement core analytics and engagement tracking.</p>
+            <p>Foundation &amp; MVP Polish: Finalize core product (15-min workout library, calendar sync, team challenge features). Conduct user research interviews with 20 C-suite executives and consultants. Establish partnerships with 2-3 corporate wellness platforms. Build sales collateral and pricing model ($15/user/month for individuals, $8/user/month for corporate). Set up analytics infrastructure.</p>
           </div>
           <div class="step">
             <div class="step-circle">2</div>
             <h4>Month 2</h4>
-            <p>Market Validation &amp; LinkedIn Growth: Execute LinkedIn influencer campaign with 20+ corporate wellness thought leaders and fitness professionals targeting busy executives. Launch corporate trial program with 3-5 pilot companies (50-100 employees each). Optimize onboarding for day 7 engagement &gt;50%. Deploy targeted LinkedIn ads to finance, tech, and consulting professionals (CTR &gt;3%). Establish referral program with 20% incentive. Build partnership agreements with 2-3 corporate wellness platforms.</p>
+            <p>Early Traction &amp; Enterprise Pilots: Launch beta with 100 individual users and secure 2 pilot corporate accounts (minimum 50 users each). Implement core workplace team challenge feature and gamification (leaderboards, badges). Refine onboarding based on user feedback. Begin outreach to corporate wellness decision-makers. Establish metrics dashboard and weekly cohort analysis.</p>
           </div>
           <div class="step">
             <div class="step-circle">3</div>
             <h4>Month 3</h4>
-            <p>Scale &amp; Revenue Launch: Transition 3-5 pilot companies to paid enterprise plans ($2K-5K/month). Launch individual premium tier ($12.99/month) with LinkedIn as primary channel. Achieve 5K registered users with 45%+ DAU rate. Establish 10+ active corporate partnerships in pipeline. Implement in-app community features and peer challenges to drive engagement. Launch employee referral incentive program through corporate partners. Secure 2-3 corporate case studies for revenue acceleration in Q2.</p>
+            <p>Growth &amp; Revenue Momentum: Close 1-2 paid corporate accounts ($20K-50K annual contracts). Grow individual paid users to 500+ (achieving ~$7.5K MRR). Launch referral program and team invite mechanics. Complete calendar integration with Outlook and Google Calendar. Prepare Series Seed pitch deck and identify lead investor conversations.</p>
           </div>
         </div>
       </div>
@@ -306,23 +300,23 @@ p,span,li,td,th,label { color: #334155 !important; }
       <div class="container">
         <div class="section-title">Financial Projections</div>
         <h2>Revenue &amp; Runway Analysis</h2>
-        <p style="margin:16px 0;color:var(--muted)">FitFlow projects conservative early-stage metrics with 18-month break-even timeline. Month 3 shows first enterprise deal ($5K MRR) validating B2B2C potential, though early premium conversion remains low at 2.1% with high churn reflecting typical fitness app dynamics. Unit economics are initially unfavorable (0.84 LTV:CAC ratio) requiring operational efficiency improvements and faster enterprise sales adoption. With $500K seed funding, the company achieves 14.3-month runway; break-even requires either 8,900+ premium subscribers or 7+ enterprise contracts. Recommend securing $750K to extend runway to 20+ months and fund accelerated sales team for enterprise segment (higher LTV and retention). Key risk: premium subscriber churn; opportunity: enterprise segment with 5-year contracts could dramatically improve cash position if sales velocity increases.</p>
+        <p style="margin:16px 0;color:var(--muted)">FitFlow projects conservative user acquisition in months 1-3 with 2, 3, and 4 new conversions respectively, generating $136 in total revenue against $109,700 in expenses for a -$109,564 net position. With a $12 CAC and 92% monthly retention targeting busy professionals, the LTV:CAC ratio of 1.8 reflects the long sales cycle inherent in B2B2C corporate wellness adoption. Current $400K seed funding provides 11.2-month runway; achieving break-even requires either accelerated enterprise adoption by month 22 or Series A capital of $400K-500K by month 6 to extend runway and fund sales team expansion targeting corporate wellness departments.</p>
         <div class="chart-wrap">
           <div class="chart">
             <div class="bar-col">
-              <div class="bar-amount">$29</div>
+              <div class="bar-amount">$17</div>
               <div class="bar bar-m1"></div>
               <div class="bar-label">Month 1 MRR</div>
-              <div class="bar-pct">0.6% of peak</div>
+              <div class="bar-pct">22.2% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$59</div>
+              <div class="bar-amount">$42</div>
               <div class="bar bar-m2"></div>
               <div class="bar-label">Month 2 MRR</div>
-              <div class="bar-pct">1.2% of peak</div>
+              <div class="bar-pct">55.6% of peak</div>
             </div>
             <div class="bar-col">
-              <div class="bar-amount">$5,089</div>
+              <div class="bar-amount">$76</div>
               <div class="bar bar-m3"></div>
               <div class="bar-label">Month 3 MRR</div>
               <div class="bar-pct">100.0% of peak</div>
@@ -332,19 +326,19 @@ p,span,li,td,th,label { color: #334155 !important; }
         <div class="finance-stats">
           <div class="card metric-card">
             <div class="lbl">Burn Rate / Month</div>
-            <div class="val">$35,000</div>
+            <div class="val">$35,833</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Runway</div>
-            <div class="val">14.3 mo</div>
+            <div class="val">11.2 mo</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">Break-Even Target</div>
-            <div class="val">M18</div>
+            <div class="val">M22</div>
           </div>
           <div class="card metric-card">
             <div class="lbl">LTV:CAC Ratio</div>
-            <div class="val">0.8:1</div>
+            <div class="val">1.8:1</div>
           </div>
         </div>
       </div>
@@ -355,28 +349,28 @@ p,span,li,td,th,label { color: #334155 !important; }
         <div class="section-title">Market Intelligence</div>
         <h2>Sales &amp; Customer Profile</h2>
         <div class="card profile-card">
-          <div class="avatar">BP</div>
+          <div class="avatar">PC</div>
           <div>
             <h3>Target Customer Profile</h3>
-            <p>Busy professionals aged 28-45 earning $80K+ annually in high-pressure industries (finance, tech, consulting, corporate management) who prioritize fitness but struggle with time constraints. Primary focus: managers, directors, and executives at Fortune 500 companies with existing corporate wellness programs. Secondary focus: self-employed professionals and entrepreneurs. Characterized by: mobile-first preferences, willingness to pay for premium time-saving solutions, existing gym/wellness subscriptions, and motivation through results and efficiency metrics.</p>
+            <p>Primary: C-suite executives and management consultants (ages 30-55, $150K+ income, high time-scarcity); Secondary: Corporate wellness departments purchasing for 50-5,000 employee organizations; Tertiary: Management consulting firms and professional services companies seeking differentiated employee benefits.</p>
           </div>
         </div>
         <div class="card leads-metric">
           <div class="lbl" style="color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:0.75rem">Leads Identified</div>
-          <div class="val">10</div>
+          <div class="val">11</div>
         </div>
         <div class="card">
           <h3>Outreach Strategy</h3>
-          <p>Identify and build a target lead list of 500+ Fortune 500 companies with wellness programs and 200+ mid-market fitness-focused organizations; draft personalized outreach templates for VP of HR and Wellness Directors; schedule initial 50 discovery calls within 60 days</p>
+          <p>Identify and contact 50 high-value leads including corporate HR departments, executive wellness programs, and fitness app review platforms; draft personalized outreach emphasizing time-efficient workouts for busy professionals with 14-day free trial offer.</p>
         </div>
         <div class="card">
           <h3>Conversion Assumptions</h3>
           <div class="funnel">
-            <div class="funnel-step">120 Monthly Leads</div>
-            <div class="funnel-step">2.1% Conversion Rate</div>
-            <div class="funnel-step">~2 Paying Customers / Mo</div>
+            <div class="funnel-step">45 Monthly Leads</div>
+            <div class="funnel-step">1.8% Conversion Rate</div>
+            <div class="funnel-step">~1 Paying Customers / Mo</div>
           </div>
-          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">FitFlow projects conservative early-stage metrics with 18-month break-even timeline. Month 3 shows first enterprise deal ($5K MRR) validating B2B2C potential, though early premium conversion remains low at 2.1% with high churn reflecting typical fitness app dynamics. Unit economics are initially unfavorable (0.84 LTV:CAC ratio) requiring operational efficiency improvements and faster enterprise sales adoption. With $500K seed funding, the company achieves 14.3-month runway; break-even requires either 8,900+ premium subscribers or 7+ enterprise contracts. Recommend securing $750K to extend runway to 20+ months and fund accelerated sales team for enterprise segment (higher LTV and retention). Key risk: premium subscriber churn; opportunity: enterprise segment with 5-year contracts could dramatically improve cash position if sales velocity increases.</p>
+          <p style="margin-top:16px;color:var(--muted);font-size:0.9rem">FitFlow projects conservative user acquisition in months 1-3 with 2, 3, and 4 new conversions respectively, generating $136 in total revenue against $109,700 in expenses for a -$109,564 net position. With a $12 CAC and 92% monthly retention targeting busy professionals, the LTV:CAC ratio of 1.8 reflects the long sales cycle inherent in B2B2C corporate wellness adoption. Current $400K seed funding provides 11.2-month runway; achieving break-even requires either accelerated enterprise adoption by month 22 or Series A capital of $400K-500K by month 6 to extend runway and fund sales team expansion targeting corporate wellness departments.</p>
         </div>
       </div>
     </section>
@@ -388,7 +382,7 @@ p,span,li,td,th,label { color: #334155 !important; }
         <span class="negotiation-badge">⚡ NEGOTIATION ACTIVATED</span>
         <div class="risk-top">
           <span class="overall-badge critical">Overall: CRITICAL</span>
-          <div class="confidence-ring"><span>48%</span></div>
+          <div class="confidence-ring"><span>55%</span></div>
           <span style="color:var(--muted);font-size:0.9rem">Agent Confidence Score</span>
         </div>
         
@@ -397,11 +391,11 @@ p,span,li,td,th,label { color: #334155 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Critically Underfunded Runway with Unvalidated Unit Economics</h3>
+                  <h3>Critically Underfunded with Broken Unit Economics &amp; Unvalidated Revenue Model</h3>
                 </div>
-                <p class="risk-desc">Finance agent projects $500K seed funding provides only 11.67 months runway against $42.8K monthly burn rate, with break-even projected at month 18. Model assumes 2.1% freemium-to-paid conversion and 6.5% monthly churn—both unvalidated. B2B enterprise revenue (the break-even driver) relies on cold outreach to 11 identified leads with zero pilot contracts confirmed. LTV:CAC ratio of 0.84 indicates unit economics are fundamentally broken. Premium subscriber LTV of $141.59 cannot sustain $1,666.67 CAC. Financial model lacks contingency for product-market fit delays, competitive pricing pressure, or sales cycle extension.</p>
+                <p class="risk-desc">Finance projections show $500K seed funding provides only 11.2-month runway against $35.8K monthly burn rate. Break-even projected at month 22 with LTV:CAC ratio of 1.8 (industry threshold is 3.0+). Model assumes unvalidated 2.1% annual freemium conversion and 92% monthly retention. Critical gap: B2B enterprise revenue (supposed break-even driver) has ZERO confirmed pilots or LOIs despite CEO strategy targeting this segment. Sales agent sent 11 cold outreach emails but all recipients are uncontacted leads. Premium subscriber LTV of $21.76 over 24 months cannot justify $12 CAC in a market where customer acquisition must sustain growth. Financial model lacks contingency for product-market fit delays or longer enterprise sales cycles (typically 6-12 months).</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE: (1) Increase seed target to $1.5M minimum (30-month runway) with explicit go/no-go gates at month 3 (retain 50+ beta users, secure 1 enterprise LOI) and month 6 (achieve $15K MRR from combined B2B/B2C); (2) Validate retention assumptions with closed beta (target: 40% WAU) before spending marketing budget; (3) Restructure financial model: map 11 warm sales leads to probabilistic revenue (assume 20% close rate by month 4 = $50K MRR from B2B alone); (4) Establish unit economics break-even point: either reduce CAC to &lt;$500 or increase premium pricing to $14.99/month; (5) Create contingency scenario: if month 2 retention drops below 35% WAU or B2B close rate &lt;10%, pivot to paid acquisition delay and extend runway focus.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE: (1) Increase seed target to $1.5M minimum (30-month runway including 20% contingency buffer); establish hard go/no-go gates at month 3 (retain 50+ DAU, secure 1 enterprise LOI worth $50K+ annual value) and month 6 (achieve $30K MRR); (2) Validate retention assumptions with 200-person closed beta before allocating marketing budget—if WAU retention drops below 35%, halt paid acquisition; (3) Restructure sales strategy: Map 11 identified leads to probabilistic revenue pipeline (assume 20% close rate = $50K+ annual B2B MRR by month 4); (4) Establish unit economics threshold: raise pricing to $14.99/month OR reduce CAC to &lt;$500 to achieve 3.0+ LTV:CAC ratio; current economics are unsustainable.</div>
               </div>
             </div>
             <div class="card risk-card sev-critical">
@@ -409,11 +403,11 @@ p,span,li,td,th,label { color: #334155 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">CRITICAL</span>
-                  <h3>Unvalidated Product-Market Fit &amp; Liability Exposure for AI-Driven Health Guidance</h3>
+                  <h3>Product-Market Fit Entirely Unvalidated; Critical Liability &amp; Regulatory Gaps for AI Health Guidance</h3>
                 </div>
-                <p class="risk-desc">CEO strategy targets 45% daily active retention by day 90 without any beta testing to validate: (1) target user willingness to pay ($9.99/month for 15-30 min workouts vs. $14.99 for Peloton); (2) actual workout completion rates and engagement drivers; (3) AI personalization delivering promised value. Legal documents (ToS, Privacy Policy) are complete but liability waivers for AI-recommended workout intensity are incomplete. No documented medical review process for fitness programming. No evidence of health-related disclaimers beyond standard fitness liability. Risk of injury claims if AI recommends high-intensity workouts to users with undisclosed health conditions. Regulatory gap: fitness apps increasingly face state-level medical practice scrutiny (e.g., California, NY).</p>
+                <p class="risk-desc">CEO strategy targets 45% DAU and 60%+ monthly retention by day 90 with ZERO beta testing data validating: (1) user willingness to pay $9.99/month for 15-min workouts; (2) actual engagement drivers or completion rates; (3) whether AI personalization delivers claimed value. Legal documents (ToS, Privacy Policy) completed but liability waivers for AI-recommended workout intensity are incomplete. No documented medical review process for fitness programming intensity recommendations. Risk agent already flagged: AI-driven health guidance lacks medical oversight and creates exposure to injury claims ($1M+ settlement risk). Regulatory gap: fitness apps face increasing state-level medical practice scrutiny (California, New York) around unauthorized medical advice. No HIPAA readiness for enterprise B2B contracts that may require BAA agreements.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE: (1) Conduct 30-day closed beta with 200-300 target users from LinkedIn (busy professionals). Establish hard go/no-go gates: if WAU &lt;35% or weekly workout completion &lt;3 per user, delay public launch and iterate product; (2) Add liability waiver addendum to ToS explicitly stating: &#x27;User responsible for health clearance before high-intensity workouts; AI recommendations are not medical advice&#x27;; require health questionnaire at signup to screen high-risk users; (3) Engage sports medicine legal counsel to review liability posture against Peloton-level coverage; obtain $2M+ liability insurance before public launch; (4) Document AI recommendation logic: establish medical review board (1-2 fitness medicine experts) to audit workout recommendations monthly for safety; (5) Add HIPAA-compliance roadmap for enterprise B2B partnerships (enterprise contracts may require HIPAA BAA). Contact state health boards (CA, NY) before launch to clarify regulatory status.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE: (1) Conduct 30-day closed beta with 200-300 target users (LinkedIn recruitment, busy professionals). Establish hard launch gate: if WAU &lt;35% or weekly workout completion &lt;3 per user, delay public launch and iterate; (2) Add liability waiver addendum to ToS requiring health questionnaire at signup and explicit statement: &#x27;AI recommendations are not medical advice; user responsible for health clearance&#x27;; (3) Engage sports medicine legal counsel to review liability posture; obtain $2M+ liability insurance before public launch; (4) Establish medical review board (1-2 fitness medicine experts) to audit AI recommendations monthly; document process in compliance audit trail; (5) Add HIPAA compliance roadmap to product roadmap for enterprise sales enablement by month 6.</div>
               </div>
             </div>
             <div class="card risk-card sev-critical">
@@ -421,11 +415,11 @@ p,span,li,td,th,label { color: #334155 !important; }
               <div class="risk-body">
                 <div class="risk-header">
                   <span class="badge critical">HIGH</span>
-                  <h3>Weak Competitive Moat &amp; Commoditized Feature Set vs. Well-Funded Competitors</h3>
+                  <h3>Weak Competitive Moat; Commoditized Features vs. Well-Funded Competitors; Unexecuted Sales Strategy</h3>
                 </div>
-                <p class="risk-desc">CEO claims AI personalization and calendar integration as competitive defensibility, but these are table-stakes features already offered by Peloton (adaptive difficulty), Apple Fitness+ (seamless integration), Fitbit (ML personalization), and emerging startups (Tempo, Supernatural). No patent strategy mentioned; calendar integration is a feature (Google Workspace, Calendly, Fantastical already have fitness integrations), not a moat. Sales strategy includes positioning Peloton as potential &#x27;partnership partner&#x27; (white-label option), signaling willingness to abandon brand defensibility. Fitness app market is saturated: 1,000+ competitors; FitFlow&#x27;s $18.50 customer acquisition cost is vulnerable to better-capitalized players willing to subsidize acquisition. CEO targets 50K users by month 12; Peloton has 2.3M+ subscribers with brand loyalty and $3B+ valuation.</p>
+                <p class="risk-desc">CEO claims AI personalization and calendar integration as defensibility, but these are table-stakes offerings from Peloton (adaptive difficulty), Apple Fitness+ (seamless device integration), and Fitbit (ML personalization). Calendar integration is a feature, not a moat—already available via Google Workspace, Fantastical, and Calendly integrations. No patent strategy mentioned. Sales strategy lists white-label positioning as growth lever, signaling willingness to surrender brand defensibility. Fitness app market is saturated: 1,000+ competitors with Peloton at 2.3M+ subscribers and $3B+ valuation. Risk agent confirms &#x27;weak competitive moat.&#x27; Critical execution gap: Sales agent drafted 11 cold outreach emails but they were NOT SENT—approval gate shows &#x27;pending&#x27; status. Zero warm leads in pipeline; all 11 recipients are cold contacts requiring longer sales cycles.</p>
                 <button class="mit-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">View Mitigation ▾</button>
-                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE: (1) Narrow defensible market segment: pivot from &#x27;busy professionals&#x27; (too broad) to &#x27;finance/consulting professionals&#x27; with vertical-specific workouts (desk exercises, 15-min sessions during deal cycles, jet-lag recovery protocols). This reduces direct competition and enables premium pricing ($14.99+ vs. $9.99); (2) File provisional patent within 30 days on: &#x27;ML model for schedule-based workout personalization incorporating calendar constraints + fatigue prediction from wearable data&#x27;. This creates 12-month IP window for utility patent filing; (3) Build network effects via B2B2C corporate partnerships: prioritize pilot contracts with Goldman Sachs, McKinsey (already identified leads) to create enterprise lock-in and case studies; enterprise customers have lower churn (10-15% annually vs. 50%+ B2C); (4) Accelerate wearable integration: Apple Watch/Oura Ring data input as technical moat (competitors don&#x27;t have this level of integration). Negotiate Apple partnership (Health app integration) by month 6; (5) Establish monthly competitive audit process to track feature parity and pricing pressure; avoid feature-race dynamic with larger competitors.</div>
+                <div class="mitigation-panel"><strong>Mitigation:</strong> IMMEDIATE: (1) Narrow defensible vertical: pivot from &#x27;busy professionals&#x27; (too broad) to &#x27;financial services / management consulting professionals&#x27; with vertical-specific workouts (desk exercises, deal-cycle recovery, jet-lag protocols). Enable premium pricing ($14.99+ vs. $9.99) and reduce competitor feature parity; (2) File provisional patent within 30 days on: &#x27;ML model for schedule-based workout personalization incorporating calendar constraints + fatigue prediction from wearable data&#x27;—creates 12-month IP window for utility patent; (3) Prioritize warm outreach first: convert 11 identified leads into meetings within 30 days; target 2-3 LOIs by month 4 before expanding cold outreach; (4) Accelerate wearable integration (Apple Watch, Oura Ring data inputs) as technical differentiation—competitors lack this integration depth; negotiate Apple Health partnership by month 6; (5) Establish monthly competitive audit process to track feature parity and pricing pressure; avoid feature-race dynamic with larger players.</div>
               </div>
             </div>
       </div>
